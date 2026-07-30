@@ -2,7 +2,7 @@
 
 Version-Timestamp: 2026-07-30 16:30:00 UTC-4
 
-Status: PROPOSED FOR LOCK. This document synthesizes Phases 0 to 3 into the concept Claudio locks at the Phase 4 gate. Decisions requiring his explicit choice are marked "GATE DECISION". Once locked, this document governs Phase 5 (product definition) and beyond; changes after the lock require a decision record.
+Status: LOCKED (2026-07-30, by Claudio at the Phase 4 gate; recorded as DEC-006). This document governs Phase 5 (product definition) and beyond; changes require a new decision record.
 
 ## 1. The concept
 
@@ -67,12 +67,12 @@ Elevator version: every training app prescribes workouts without knowing where y
 
 No social network (post TO Strava). No route content library (generate, do not curate). No multi-sport breadth in v1. No hardware ambitions. No "best training plan" brand war with Runna. No charging for what the market gives away free (basic loop generation). (`gap-analysis.md` section d.)
 
-## 8. GATE DECISIONS for Claudio
+## 8. GATE DECISIONS (decided by Claudio, 2026-07-30, recorded as DEC-006)
 
-1. **Lock the concept as defined above** (sections 1 to 7), or amend.
-2. **Positioning statement**: recommended Candidate A (route-first) from `positioning.md`: "For committed amateur runners who never quite know where today's run should go, Waypoint is the running app that generates the right route for you, right now, from wherever you stand."
-3. **Tagline**: `positioning.md` recommends retiring "Your AI Running Coach" (it prices Waypoint against free Garmin/Apple and brands it against Runna) in favor of route-led options ("Know where to run", "The app that knows where you should run", "Never wonder where to run", or the bridge option "The coach that knows the way").
-4. **The H1 reframe**: accept travel as activation and safety plus novelty as daily retention (recommended, evidence-backed), or keep travel as the headline wedge.
+1. **Concept: LOCKED as written** (sections 1 to 7).
+2. **Positioning: Candidate A (route-first)**: "For committed amateur runners who never quite know where today's run should go, Waypoint is the running app that generates the right route for you, right now, from wherever you stand."
+3. **Tagline: "Know where to run"** (retires "Your AI Running Coach").
+4. **H1 reframe: ACCEPTED**: travel is the activation moment and demo story; safety plus home novelty are the daily retention wedge.
 5. **Deferred by design**: the safety-free-tier decision lands in Phase 6 with pricing; the interview backlog runs alongside Phase 5 and can adjust calibration without unlocking the concept.
 
 ## Assumptions

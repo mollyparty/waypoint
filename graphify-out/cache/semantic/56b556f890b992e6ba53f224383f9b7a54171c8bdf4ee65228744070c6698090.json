@@ -1,0 +1,1 @@
+{"nodes": [], "edges": [{"source": "dashboard_research", "target": "research_playbook", "relation": "references", "confidence": "STATED", "weight": 1.0, "source_file": "research/00-RESEARCH-PLAYBOOK.md", "rationale": "Playbook amended: dashboard-first gate reviews."}], "hyperedges": []}

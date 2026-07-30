@@ -1,6 +1,6 @@
 # Phase 4: Synthesis and Concept Definition
 
-Status: drafts complete (2026-07-30), awaiting Claudio's concept lock at the gate (the heaviest gate of the program)
+Status: COMPLETE. Concept LOCKED by Claudio at the gate (2026-07-30, DEC-006): concept as written, route-first positioning, "Know where to run" tagline, H1 reframe accepted.
 
 Deliverables (see `../00-RESEARCH-PLAYBOOK.md` for full specs and standards):
 

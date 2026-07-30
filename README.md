@@ -1,10 +1,10 @@
 # Waypoint
 
-> Your AI Running Coach
+> Know where to run
 
-> Version-Timestamp: 2026-07-30 12:37:00 UTC-4
+> Version-Timestamp: 2026-07-30 17:10:00 UTC-4
 
-Waypoint is a new startup project: an AI running coach. This repository is its single source of truth: product definition, decisions, knowledge, architecture, and (eventually) code all live here, versioned and pushed to GitHub.
+Waypoint is the running app that knows where you should run: it generates the right route for you, right now, from wherever you stand, with adaptive coaching layered on top (concept locked 2026-07-30, DEC-006). This repository is its single source of truth: research, product definition, decisions, knowledge, architecture, and (eventually) code all live here, versioned and pushed to GitHub.
 
 ## What is in this repository
 
@@ -12,6 +12,8 @@ Waypoint is a new startup project: an AI running coach. This repository is its s
 |------|---------|
 | `vault/` | Obsidian vault: the persistent project memory (decisions, sessions, knowledge). Open this folder as a vault in Obsidian. |
 | `vault/00-START-HERE.md` | The always-current entry point. Read this first, every session. |
+| `research/` | The research program: market, competitors, users, synthesis. Start with `00-RESEARCH-PLAYBOOK.md`. |
+| `dashboard/index.html` | The readable HTML dashboard summarizing all research. Open in any browser. |
 | `graphify-out/` | Graphify knowledge graph: queryable project brain plus token cost telemetry. |
 | `docs/VERSIONING.md` | The versioning strategy for this repository. |
 | `AGENTS.md` | The memory and working protocol for AI agents working in this repo, in any tool. |

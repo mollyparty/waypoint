@@ -22,9 +22,14 @@ Lay the groundwork for the research-to-blueprint program: build the phased resea
 - Claudio approved the Phase 2 gate in-session. Ran Phase 2 with three parallel profile agents plus one synthesis agent: 14 deliverables in `research/02-competitors/` (10 profiles including route-side competitors added after Phase 1, adjacent platforms, feature matrix, pricing matrix, positioning maps, gap analysis). Distilled into [[Competitive Landscape Key Findings (Phase 2)]]: H2 SUPPORTED (zero of 15+ products accept weather, crossings, or safety as routing constraints or connect routes to training state), H3 SUPPORTED with a monetization caveat (route wedge acquires, adaptive layer monetizes), and the kill-shot threat is Strava connecting Runna's plan engine to its route generation (working window 12 to 18 months). Data enclosure means HealthKit-first personalization with a proprietary context-data moat.
 - Claudio approved the Phase 3 gate in-session. Ran Phase 3 in two waves (pain mining plus segmentation/personas in parallel, then JTBD and unmet-needs synthesis): 5 deliverables in `research/03-users/`, distilled into [[User Research Key Findings (Phase 3)]]. The phase's strategic reframe: H1 PARTIALLY SUPPORTED; travel friction is frequent but the workaround economy mostly succeeds, so travel is the activation moment and demo story while safety-aware routing and home route novelty are the daily retention wedge. Four personas (Marcus, Priya, Elena, Jake); committed amateur confirmed as primary target with ambitious beginner secondary; consolidated interview backlog written; open founder decision flagged on whether safety routing must be free.
 
+- Claudio approved the Phase 4 gate. Ran synthesis (two parallel agents plus the concept document written in-session): 4 deliverables in `research/04-synthesis/`, distilled into [[Concept and Positioning (Phase 4)]]. Hypothesis verdicts: H2, H3, H6 supported; H1, H4, H7 partial; H5 uncertain; none refuted. Material update: Strava Instant Workouts (January 2026) already links basic heatmap routes to workouts.
+- Mid-gate, Claudio asked for a readable review surface instead of raw markdown: built `dashboard/index.html` (single-file HTML dashboard, pulled forward from Phase 7), amended the playbook to dashboard-first gate reviews, and re-ran the gate against it.
+- **Concept LOCKED at the Phase 4 gate** ([[DEC-006 Concept lock route-first positioning]]): concept as written, route-first positioning, tagline changed to "Know where to run", H1 reframe accepted. README and [[Charter]] updated; v0.2.0 tagged (research milestone, Phases 1 to 4 complete).
+
 ## Decisions made
 
 - [[DEC-005 Phased research program with gated approvals]]
+- [[DEC-006 Concept lock route-first positioning]]
 
 ## Open threads
 

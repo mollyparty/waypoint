@@ -30,3 +30,5 @@ desktop.ini
 .env.*
 *.pem
 credentials.json
+.vercel
+.env*
