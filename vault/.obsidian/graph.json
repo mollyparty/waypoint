@@ -1,0 +1,42 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:\"01-Project\"",
+      "color": { "a": 1, "rgb": 11032055 }
+    },
+    {
+      "query": "path:\"02-Decisions\"",
+      "color": { "a": 1, "rgb": 14701909 }
+    },
+    {
+      "query": "path:\"03-Sessions\"",
+      "color": { "a": 1, "rgb": 5602272 }
+    },
+    {
+      "query": "path:\"04-Knowledge\"",
+      "color": { "a": 1, "rgb": 5025616 }
+    },
+    {
+      "query": "path:\"05-Architecture\"",
+      "color": { "a": 1, "rgb": 16750592 }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": true,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1
+}

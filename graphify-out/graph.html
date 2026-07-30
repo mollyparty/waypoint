@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>graphify - graphify-out/graph.html</title>
+<script src="https://unpkg.com/vis-network@9.1.6/standalone/umd/vis-network.min.js"
+        integrity="sha384-Ux6phic9PEHJ38YtrijhkzyJ8yQlH8i/+buBR8s3mAZOJrP1gwyvAcIYl3GWtpX1"
+        crossorigin="anonymous"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f0f1a; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; display: flex; height: 100vh; overflow: hidden; }
+  #graph { flex: 1; }
+  #sidebar { width: 280px; background: #1a1a2e; border-left: 1px solid #2a2a4e; display: flex; flex-direction: column; overflow: hidden; }
+  #search-wrap { padding: 12px; border-bottom: 1px solid #2a2a4e; }
+  #search { width: 100%; background: #0f0f1a; border: 1px solid #3a3a5e; color: #e0e0e0; padding: 7px 10px; border-radius: 6px; font-size: 13px; outline: none; }
+  #search:focus { border-color: #4E79A7; }
+  #search-results { max-height: 140px; overflow-y: auto; padding: 4px 12px; border-bottom: 1px solid #2a2a4e; display: none; }
+  .search-item { padding: 4px 6px; cursor: pointer; border-radius: 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .search-item:hover { background: #2a2a4e; }
+  #info-panel { padding: 14px; border-bottom: 1px solid #2a2a4e; min-height: 140px; }
+  #info-panel h3 { font-size: 13px; color: #aaa; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  #info-content { font-size: 13px; color: #ccc; line-height: 1.6; }
+  #info-content .field { margin-bottom: 5px; }
+  #info-content .field b { color: #e0e0e0; }
+  #info-content .empty { color: #555; font-style: italic; }
+  .neighbor-link { display: block; padding: 2px 6px; margin: 2px 0; border-radius: 3px; cursor: pointer; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-left: 3px solid #333; }
+  .neighbor-link:hover { background: #2a2a4e; }
+  #neighbors-list { max-height: 160px; overflow-y: auto; margin-top: 4px; }
+  #legend-wrap { flex: 1; overflow-y: auto; padding: 12px; }
+  #legend-wrap h3 { font-size: 13px; color: #aaa; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .legend-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; cursor: pointer; border-radius: 4px; font-size: 12px; }
+  .legend-item:hover { background: #2a2a4e; padding-left: 4px; }
+  .legend-item.dimmed { opacity: 0.35; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .legend-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .legend-count { color: #666; font-size: 11px; }
+  #stats { padding: 10px 14px; border-top: 1px solid #2a2a4e; font-size: 11px; color: #555; }
+  #legend-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding: 4px 0; }
+  #legend-controls label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 12px; color: #aaa; user-select: none; }
+  #legend-controls label:hover { color: #e0e0e0; }
+  .legend-cb, #select-all-cb { appearance: none; -webkit-appearance: none; width: 14px; height: 14px; border: 1.5px solid #3a3a5e; border-radius: 3px; background: #0f0f1a; cursor: pointer; position: relative; flex-shrink: 0; }
+  .legend-cb:checked, #select-all-cb:checked { background: #4E79A7; border-color: #4E79A7; }
+  .legend-cb:checked::after, #select-all-cb:checked::after { content: ''; position: absolute; left: 3.5px; top: 1px; width: 4px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  #select-all-cb:indeterminate { background: #4E79A7; border-color: #4E79A7; }
+  #select-all-cb:indeterminate::after { content: ''; position: absolute; left: 2px; top: 5px; width: 8px; height: 2px; background: #fff; border: none; transform: none; }
+</style>
+</head>
+<body>
+<div id="graph"></div>
+<div id="sidebar">
+  <div id="search-wrap">
+    <input id="search" type="text" placeholder="Search nodes..." autocomplete="off">
+    <div id="search-results"></div>
+  </div>
+  <div id="info-panel">
+    <h3>Node Info</h3>
+    <div id="info-content"><span class="empty">Click a node to inspect it</span></div>
+  </div>
+  <div id="legend-wrap">
+    <h3>Communities</h3>
+    <div id="legend-controls">
+      <label><input type="checkbox" id="select-all-cb" checked onchange="toggleAllCommunities(!this.checked)">Select All</label>
+    </div>
+    <div id="legend"></div>
+  </div>
+  <div id="stats">38 nodes &middot; 124 edges &middot; 7 communities</div>
+</div>
+<script>
+const RAW_NODES = [{"id": "vault_obsidian_app", "label": "app.json", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "app.json", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 5}, {"id": "vault_obsidian_app_alwaysupdatelinks", "label": "alwaysUpdateLinks", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 11.2, "font": {"size": 0, "color": "#ffffff"}, "title": "alwaysUpdateLinks", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 1}, {"id": "vault_obsidian_app_newlinkformat", "label": "newLinkFormat", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 11.2, "font": {"size": 0, "color": "#ffffff"}, "title": "newLinkFormat", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 1}, {"id": "vault_obsidian_app_usemarkdownlinks", "label": "useMarkdownLinks", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 11.2, "font": {"size": 0, "color": "#ffffff"}, "title": "useMarkdownLinks", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 1}, {"id": "vault_obsidian_app_attachmentfolderpath", "label": "attachmentFolderPath", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 11.2, "font": {"size": 0, "color": "#ffffff"}, "title": "attachmentFolderPath", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 1}, {"id": "vault_obsidian_app_showunsupportedfiles", "label": "showUnsupportedFiles", "color": {"background": "#E15759", "border": "#E15759", "highlight": {"background": "#ffffff", "border": "#E15759"}}, "size": 11.2, "font": {"size": 0, "color": "#ffffff"}, "title": "showUnsupportedFiles", "community": 2, "community_name": "Obsidian App Settings", "source_file": "vault/.obsidian/app.json", "file_type": "code", "degree": 1}, {"id": "agents_protocol", "label": "Waypoint Agent Protocol", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 30.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Waypoint Agent Protocol", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "AGENTS.md", "file_type": "document", "degree": 16}, {"id": "changelog_changelog", "label": "Changelog", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 25.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Changelog", "community": 0, "community_name": "Versioning Strategy", "source_file": "CHANGELOG.md", "file_type": "document", "degree": 12}, {"id": "readme_overview", "label": "README Overview", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 27.5, "font": {"size": 12, "color": "#ffffff"}, "title": "README Overview", "community": 0, "community_name": "Versioning Strategy", "source_file": "README.md", "file_type": "document", "degree": 14}, {"id": "docs_versioning_strategy", "label": "Versioning Strategy", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 25.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Versioning Strategy", "community": 0, "community_name": "Versioning Strategy", "source_file": "docs/VERSIONING.md", "file_type": "document", "degree": 12}, {"id": "start_here_home", "label": "START HERE (Home Note)", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 40.0, "font": {"size": 12, "color": "#ffffff"}, "title": "START HERE (Home Note)", "community": 4, "community_name": "Entry Point and Knowledge Base", "source_file": "vault/00-START-HERE.md", "file_type": "document", "degree": 24}, {"id": "vault_01_project_charter_charter", "label": "Charter", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 18.8, "font": {"size": 12, "color": "#ffffff"}, "title": "Charter", "community": 3, "community_name": "Product and Project Identity", "source_file": "vault/01-Project/Charter.md", "file_type": "document", "degree": 7}, {"id": "dec001_trunk_versioning", "label": "DEC-001 Trunk-based versioning on main", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 21.2, "font": {"size": 12, "color": "#ffffff"}, "title": "DEC-001 Trunk-based versioning on main", "community": 0, "community_name": "Versioning Strategy", "source_file": "vault/02-Decisions/DEC-001 Trunk-based versioning on main.md", "file_type": "document", "degree": 9}, {"id": "dec002_vault_memory", "label": "DEC-002 Obsidian vault as project memory", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 18.8, "font": {"size": 12, "color": "#ffffff"}, "title": "DEC-002 Obsidian vault as project memory", "community": 5, "community_name": "Memory and Knowledge Graph", "source_file": "vault/02-Decisions/DEC-002 Obsidian vault as project memory.md", "file_type": "document", "degree": 7}, {"id": "dec003_graphify_brain", "label": "DEC-003 Graphify as queryable project brain", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 20.0, "font": {"size": 12, "color": "#ffffff"}, "title": "DEC-003 Graphify as queryable project brain", "community": 5, "community_name": "Memory and Knowledge Graph", "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md", "file_type": "document", "degree": 8}, {"id": "vault_02_decisions_decision_log_index", "label": "Decision Log", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 21.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Decision Log", "community": 6, "community_name": "Decision Records", "source_file": "vault/02-Decisions/_Decision-Log.md", "file_type": "document", "degree": 9}, {"id": "vault_04_knowledge_knowledge_index_index", "label": "Knowledge Index", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 12.5, "font": {"size": 0, "color": "#ffffff"}, "title": "Knowledge Index", "community": 4, "community_name": "Entry Point and Knowledge Base", "source_file": "vault/04-Knowledge/_Knowledge-Index.md", "file_type": "document", "degree": 2}, {"id": "vault_05_architecture_architecture_index_index", "label": "Architecture Index", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 12.5, "font": {"size": 0, "color": "#ffffff"}, "title": "Architecture Index", "community": 6, "community_name": "Decision Records", "source_file": "vault/05-Architecture/_Architecture-Index.md", "file_type": "document", "degree": 2}, {"id": "template_decision_record", "label": "Decision Record Template", "color": {"background": "#B07AA1", "border": "#B07AA1", "highlight": {"background": "#ffffff", "border": "#B07AA1"}}, "size": 15.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Decision Record Template", "community": 6, "community_name": "Decision Records", "source_file": "vault/_templates/Decision-Record.md", "file_type": "document", "degree": 4}, {"id": "template_knowledge_note", "label": "Knowledge Note Template", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 13.8, "font": {"size": 0, "color": "#ffffff"}, "title": "Knowledge Note Template", "community": 4, "community_name": "Entry Point and Knowledge Base", "source_file": "vault/_templates/Knowledge-Note.md", "file_type": "document", "degree": 3}, {"id": "template_session_note", "label": "Session Note Template", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 17.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Session Note Template", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "vault/_templates/Session-Note.md", "file_type": "document", "degree": 6}, {"id": "readme_waypoint_project", "label": "Waypoint (Startup Project)", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Waypoint (Startup Project)", "community": 3, "community_name": "Product and Project Identity", "source_file": "README.md", "file_type": "document", "degree": 5}, {"id": "docs_versioning_trunk_based_development", "label": "Trunk-Based Development", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Trunk-Based Development", "community": 0, "community_name": "Versioning Strategy", "source_file": "docs/VERSIONING.md", "file_type": "document", "degree": 5}, {"id": "changelog_semantic_versioning", "label": "Semantic Versioning", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Semantic Versioning", "community": 0, "community_name": "Versioning Strategy", "source_file": "CHANGELOG.md", "file_type": "document", "degree": 5}, {"id": "changelog_keep_a_changelog", "label": "Keep a Changelog Format", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 12.5, "font": {"size": 0, "color": "#ffffff"}, "title": "Keep a Changelog Format", "community": 0, "community_name": "Versioning Strategy", "source_file": "CHANGELOG.md", "file_type": "rationale", "degree": 2}, {"id": "docs_versioning_conventional_commits", "label": "Conventional Commits", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 15.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Conventional Commits", "community": 0, "community_name": "Versioning Strategy", "source_file": "docs/VERSIONING.md", "file_type": "document", "degree": 4}, {"id": "docs_versioning_attribution_footer", "label": "Agent Attribution Footer", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 17.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Agent Attribution Footer", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "docs/VERSIONING.md", "file_type": "document", "degree": 6}, {"id": "docs_versioning_version_timestamp", "label": "Version-Timestamp Convention", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Version-Timestamp Convention", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "docs/VERSIONING.md", "file_type": "document", "degree": 5}, {"id": "dec002_vault_project_memory", "label": "Obsidian Vault as Project Memory", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 17.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Obsidian Vault as Project Memory", "community": 5, "community_name": "Memory and Knowledge Graph", "source_file": "vault/02-Decisions/DEC-002 Obsidian vault as project memory.md", "file_type": "document", "degree": 6}, {"id": "dec003_graphify_knowledge_graph", "label": "Graphify Knowledge Graph", "color": {"background": "#EDC948", "border": "#EDC948", "highlight": {"background": "#ffffff", "border": "#EDC948"}}, "size": 22.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Graphify Knowledge Graph", "community": 5, "community_name": "Memory and Knowledge Graph", "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md", "file_type": "document", "degree": 10}, {"id": "dec003_post_commit_hook", "label": "Post-Commit Graph Rebuild Hook", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 17.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Post-Commit Graph Rebuild Hook", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md", "file_type": "document", "degree": 6}, {"id": "dec003_cost_telemetry", "label": "Token Cost Telemetry", "color": {"background": "#4E79A7", "border": "#4E79A7", "highlight": {"background": "#ffffff", "border": "#4E79A7"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Token Cost Telemetry", "community": 0, "community_name": "Versioning Strategy", "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md", "file_type": "document", "degree": 5}, {"id": "agents_session_end_checklist", "label": "Session-End Checklist", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 17.5, "font": {"size": 12, "color": "#ffffff"}, "title": "Session-End Checklist", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "AGENTS.md", "file_type": "document", "degree": 6}, {"id": "agents_context_retrieval_order", "label": "Context Retrieval Order", "color": {"background": "#59A14F", "border": "#59A14F", "highlight": {"background": "#ffffff", "border": "#59A14F"}}, "size": 13.8, "font": {"size": 0, "color": "#ffffff"}, "title": "Context Retrieval Order", "community": 4, "community_name": "Entry Point and Knowledge Base", "source_file": "AGENTS.md", "file_type": "document", "degree": 3}, {"id": "vault_01_project_charter_engineering_mantra", "label": "Engineering Mantra (Security, Stability, Reliability, Compliance)", "color": {"background": "#F28E2B", "border": "#F28E2B", "highlight": {"background": "#ffffff", "border": "#F28E2B"}}, "size": 12.5, "font": {"size": 0, "color": "#ffffff"}, "title": "Engineering Mantra (Security, Stability, Reliability, Compliance)", "community": 1, "community_name": "Agent Protocol and Traceability", "source_file": "vault/01-Project/Charter.md", "file_type": "document", "degree": 2}, {"id": "start_here_github_repo", "label": "GitHub Repo (mollyparty/waypoint)", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 15.0, "font": {"size": 12, "color": "#ffffff"}, "title": "GitHub Repo (mollyparty/waypoint)", "community": 3, "community_name": "Product and Project Identity", "source_file": "vault/00-START-HERE.md", "file_type": "document", "degree": 4}, {"id": "session_2026_07_30_foundation_setup", "label": "Session 2026-07-30 Foundation Setup", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 40.0, "font": {"size": 12, "color": "#ffffff"}, "title": "Session 2026-07-30 Foundation Setup", "community": 3, "community_name": "Product and Project Identity", "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md", "file_type": "document", "degree": 24}, {"id": "product_ai_running_coach", "label": "Your AI Running Coach (Product Concept)", "color": {"background": "#76B7B2", "border": "#76B7B2", "highlight": {"background": "#ffffff", "border": "#76B7B2"}}, "size": 16.2, "font": {"size": 12, "color": "#ffffff"}, "title": "Your AI Running Coach (Product Concept)", "community": 3, "community_name": "Product and Project Identity", "source_file": "README.md", "file_type": "document", "degree": 5}];
+const RAW_EDGES = [{"from": "vault_obsidian_app", "to": "vault_obsidian_app_alwaysupdatelinks", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_obsidian_app", "to": "vault_obsidian_app_attachmentfolderpath", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_obsidian_app", "to": "vault_obsidian_app_newlinkformat", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_obsidian_app", "to": "vault_obsidian_app_showunsupportedfiles", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_obsidian_app", "to": "vault_obsidian_app_usemarkdownlinks", "label": "contains", "title": "contains [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "agents_context_retrieval_order", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "agents_session_end_checklist", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "changelog_changelog", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "dec003_post_commit_hook", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "docs_versioning_attribution_footer", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "docs_versioning_conventional_commits", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "docs_versioning_strategy", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "docs_versioning_version_timestamp", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "start_here_home", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "template_decision_record", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "template_session_note", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "vault_01_project_charter_engineering_mantra", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "readme_overview", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_protocol", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "changelog_keep_a_changelog", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "changelog_semantic_versioning", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "dec002_vault_project_memory", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "dec003_cost_telemetry", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "dec003_post_commit_hook", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "docs_versioning_strategy", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "start_here_github_repo", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "dec001_trunk_versioning", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "readme_overview", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_changelog", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "changelog_semantic_versioning", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "dec002_vault_project_memory", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "docs_versioning_strategy", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "docs_versioning_trunk_based_development", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_overview", "to": "readme_waypoint_project", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "start_here_home", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "dec003_cost_telemetry", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "docs_versioning_version_timestamp", "label": "implements", "title": "implements [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_overview", "to": "product_ai_running_coach", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_overview", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_overview", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "dec001_trunk_versioning", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "changelog_keep_a_changelog", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "changelog_semantic_versioning", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "docs_versioning_attribution_footer", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "docs_versioning_conventional_commits", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "docs_versioning_trunk_based_development", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "docs_versioning_version_timestamp", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "start_here_home", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_strategy", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "agents_context_retrieval_order", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "dec002_vault_memory", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "dec002_vault_project_memory", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "dec001_trunk_versioning", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "dec003_cost_telemetry", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "dec003_graphify_brain", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "readme_waypoint_project", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "start_here_github_repo", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "vault_01_project_charter_charter", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "template_session_note", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "session_2026_07_30_foundation_setup", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "agents_session_end_checklist", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "dec003_post_commit_hook", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "docs_versioning_trunk_based_development", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "product_ai_running_coach", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_home", "to": "template_decision_record", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "template_knowledge_note", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "vault_04_knowledge_knowledge_index_index", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "start_here_home", "to": "vault_05_architecture_architecture_index_index", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "vault_01_project_charter_charter", "to": "readme_waypoint_project", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_01_project_charter_charter", "to": "vault_01_project_charter_engineering_mantra", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_01_project_charter_charter", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_01_project_charter_charter", "to": "session_2026_07_30_foundation_setup", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_01_project_charter_charter", "to": "product_ai_running_coach", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_01_project_charter_charter", "to": "start_here_github_repo", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "dec001_trunk_versioning", "to": "changelog_semantic_versioning", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec001_trunk_versioning", "to": "docs_versioning_attribution_footer", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec001_trunk_versioning", "to": "docs_versioning_conventional_commits", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec001_trunk_versioning", "to": "docs_versioning_trunk_based_development", "label": "rationale_for", "title": "rationale_for [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec001_trunk_versioning", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec001_trunk_versioning", "to": "session_2026_07_30_foundation_setup", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "dec002_vault_project_memory", "label": "rationale_for", "title": "rationale_for [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "dec003_graphify_brain", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "docs_versioning_version_timestamp", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_memory", "to": "session_2026_07_30_foundation_setup", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_brain", "to": "agents_session_end_checklist", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "dec003_graphify_brain", "to": "dec003_cost_telemetry", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_brain", "to": "dec003_graphify_knowledge_graph", "label": "rationale_for", "title": "rationale_for [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_brain", "to": "dec003_post_commit_hook", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_brain", "to": "vault_02_decisions_decision_log_index", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_brain", "to": "session_2026_07_30_foundation_setup", "label": "cites", "title": "cites [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_02_decisions_decision_log_index", "to": "template_decision_record", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "vault_02_decisions_decision_log_index", "to": "vault_05_architecture_architecture_index_index", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "vault_04_knowledge_knowledge_index_index", "to": "template_knowledge_note", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "template_decision_record", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "template_knowledge_note", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "template_session_note", "to": "agents_session_end_checklist", "label": "implements", "title": "implements [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "template_session_note", "to": "dec003_graphify_knowledge_graph", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "template_session_note", "to": "docs_versioning_attribution_footer", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "template_session_note", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "readme_waypoint_project", "to": "session_2026_07_30_foundation_setup", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "readme_waypoint_project", "to": "product_ai_running_coach", "label": "conceptually_related_to", "title": "conceptually_related_to [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_trunk_based_development", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "changelog_semantic_versioning", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_conventional_commits", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "docs_versioning_attribution_footer", "to": "docs_versioning_version_timestamp", "label": "semantically_similar_to", "title": "semantically_similar_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "docs_versioning_attribution_footer", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec002_vault_project_memory", "to": "dec003_graphify_knowledge_graph", "label": "shares_data_with", "title": "shares_data_with [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "dec002_vault_project_memory", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_knowledge_graph", "to": "agents_context_retrieval_order", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_graphify_knowledge_graph", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_post_commit_hook", "to": "agents_session_end_checklist", "label": "conceptually_related_to", "title": "conceptually_related_to [INFERRED]", "dashes": true, "width": 1, "color": {"opacity": 0.35}, "confidence": "INFERRED"}, {"from": "dec003_post_commit_hook", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "dec003_cost_telemetry", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "agents_session_end_checklist", "to": "session_2026_07_30_foundation_setup", "label": "implements", "title": "implements [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "start_here_github_repo", "to": "session_2026_07_30_foundation_setup", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}, {"from": "session_2026_07_30_foundation_setup", "to": "product_ai_running_coach", "label": "references", "title": "references [EXTRACTED]", "dashes": false, "width": 2, "color": {"opacity": 0.7}, "confidence": "EXTRACTED"}];
+const LEGEND = [{"cid": 0, "color": "#4E79A7", "label": "Versioning Strategy", "count": 9}, {"cid": 1, "color": "#F28E2B", "label": "Agent Protocol and Traceability", "count": 7}, {"cid": 2, "color": "#E15759", "label": "Obsidian App Settings", "count": 6}, {"cid": 3, "color": "#76B7B2", "label": "Product and Project Identity", "count": 5}, {"cid": 4, "color": "#59A14F", "label": "Entry Point and Knowledge Base", "count": 4}, {"cid": 5, "color": "#EDC948", "label": "Memory and Knowledge Graph", "count": 4}, {"cid": 6, "color": "#B07AA1", "label": "Decision Records", "count": 3}];
+
+// HTML-escape helper — prevents XSS when injecting graph data into innerHTML
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Build vis datasets
+const nodesDS = new vis.DataSet(RAW_NODES.map(n => ({
+  id: n.id, label: n.label, color: n.color, size: n.size,
+  font: n.font, title: n.title,
+  _community: n.community, _community_name: n.community_name,
+  _source_file: n.source_file, _file_type: n.file_type, _degree: n.degree,
+})));
+
+const edgesDS = new vis.DataSet(RAW_EDGES.map((e, i) => ({
+  id: i, from: e.from, to: e.to,
+  label: '',
+  title: e.title,
+  dashes: e.dashes,
+  width: e.width,
+  color: e.color,
+  arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+})));
+
+const container = document.getElementById('graph');
+const network = new vis.Network(container, { nodes: nodesDS, edges: edgesDS }, {
+  physics: {
+    enabled: true,
+    solver: 'forceAtlas2Based',
+    forceAtlas2Based: {
+      gravitationalConstant: -60,
+      centralGravity: 0.005,
+      springLength: 120,
+      springConstant: 0.08,
+      damping: 0.4,
+      avoidOverlap: 0.8,
+    },
+    stabilization: { iterations: 200, fit: true },
+  },
+  interaction: {
+    hover: true,
+    tooltipDelay: 100,
+    hideEdgesOnDrag: true,
+    navigationButtons: false,
+    keyboard: false,
+  },
+  nodes: { shape: 'dot', borderWidth: 1.5 },
+  edges: { smooth: { type: 'continuous', roundness: 0.2 }, selectionWidth: 3 },
+});
+
+network.once('stabilizationIterationsDone', () => {
+  network.setOptions({ physics: { enabled: false } });
+});
+
+function showInfo(nodeId) {
+  const n = nodesDS.get(nodeId);
+  if (!n) return;
+  const neighborIds = network.getConnectedNodes(nodeId);
+  const neighborItems = neighborIds.map(nid => {
+    const nb = nodesDS.get(nid);
+    const color = nb ? nb.color.background : '#555';
+    return `<span class="neighbor-link" style="border-left-color:${esc(color)}" data-nid="${esc(nid)}">${esc(nb ? nb.label : nid)}</span>`;
+  }).join('');
+  document.getElementById('info-content').innerHTML = `
+    <div class="field"><b>${esc(n.label)}</b></div>
+    <div class="field">Type: ${esc(n._file_type || 'unknown')}</div>
+    <div class="field">Community: ${esc(n._community_name)}</div>
+    <div class="field">Source: ${esc(n._source_file || '-')}</div>
+    <div class="field">Degree: ${n._degree}</div>
+    ${neighborIds.length ? `<div class="field" style="margin-top:8px;color:#aaa;font-size:11px">Neighbors (${neighborIds.length})</div><div id="neighbors-list">${neighborItems}</div>` : ''}
+  `;
+}
+
+function focusNode(nodeId) {
+  network.focus(nodeId, { scale: 1.4, animation: true });
+  network.selectNodes([nodeId]);
+  showInfo(nodeId);
+}
+
+// Neighbor links use a data attribute + one delegated listener rather than an
+// inline onclick. A node id/label sourced from a document or a scraped URL
+// (graphify add) can contain a double-quote; dropping the stringified id
+// unescaped into a quoted onclick both broke every link and allowed a hostile
+// source to inject an event handler into the local report (stored XSS, #1838).
+// esc() on data-nid keeps the value inside the attribute; the listener reads it
+// back verbatim. Bound to document so it survives the innerHTML rebuild that
+// recreates #neighbors-list on each showInfo().
+document.addEventListener('click', e => {
+  const el = e.target.closest('.neighbor-link');
+  if (el && el.dataset.nid !== undefined) focusNode(el.dataset.nid);
+});
+
+// Track hovered node — hover detection is more reliable than click params
+let hoveredNodeId = null;
+network.on('hoverNode', params => {
+  hoveredNodeId = params.node;
+  container.style.cursor = 'pointer';
+});
+network.on('blurNode', () => {
+  hoveredNodeId = null;
+  container.style.cursor = 'default';
+});
+container.addEventListener('click', () => {
+  if (hoveredNodeId !== null) {
+    showInfo(hoveredNodeId);
+    network.selectNodes([hoveredNodeId]);
+  }
+});
+network.on('click', params => {
+  if (params.nodes.length > 0) {
+    showInfo(params.nodes[0]);
+  } else if (hoveredNodeId === null) {
+    document.getElementById('info-content').innerHTML = '<span class="empty">Click a node to inspect it</span>';
+  }
+});
+
+const searchInput = document.getElementById('search');
+const searchResults = document.getElementById('search-results');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.toLowerCase().trim();
+  searchResults.innerHTML = '';
+  if (!q) { searchResults.style.display = 'none'; return; }
+  const matches = RAW_NODES.filter(n => n.label.toLowerCase().includes(q)).slice(0, 20);
+  if (!matches.length) { searchResults.style.display = 'none'; return; }
+  searchResults.style.display = 'block';
+  matches.forEach(n => {
+    const el = document.createElement('div');
+    el.className = 'search-item';
+    el.textContent = n.label;
+    el.style.borderLeft = `3px solid ${n.color.background}`;
+    el.style.paddingLeft = '8px';
+    el.onclick = () => {
+      network.focus(n.id, { scale: 1.5, animation: true });
+      network.selectNodes([n.id]);
+      showInfo(n.id);
+      searchResults.style.display = 'none';
+      searchInput.value = '';
+    };
+    searchResults.appendChild(el);
+  });
+});
+document.addEventListener('click', e => {
+  if (!searchResults.contains(e.target) && e.target !== searchInput)
+    searchResults.style.display = 'none';
+});
+
+const hiddenCommunities = new Set();
+
+const selectAllCb = document.getElementById('select-all-cb');
+
+function updateSelectAllState() {
+  const total = LEGEND.length;
+  const hidden = hiddenCommunities.size;
+  selectAllCb.checked = hidden === 0;
+  selectAllCb.indeterminate = hidden > 0 && hidden < total;
+}
+
+function toggleAllCommunities(hide) {
+  document.querySelectorAll('.legend-item').forEach(item => {
+    hide ? item.classList.add('dimmed') : item.classList.remove('dimmed');
+  });
+  document.querySelectorAll('.legend-cb').forEach(cb => {
+    cb.checked = !hide;
+  });
+  LEGEND.forEach(c => {
+    if (hide) hiddenCommunities.add(c.cid); else hiddenCommunities.delete(c.cid);
+  });
+  const updates = RAW_NODES.map(n => ({ id: n.id, hidden: hide }));
+  nodesDS.update(updates);
+  updateSelectAllState();
+}
+
+const legendEl = document.getElementById('legend');
+LEGEND.forEach(c => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  const cb = document.createElement('input');
+  cb.type = 'checkbox';
+  cb.className = 'legend-cb';
+  cb.checked = true;
+  cb.addEventListener('change', (e) => {
+    e.stopPropagation();
+    if (cb.checked) {
+      hiddenCommunities.delete(c.cid);
+      item.classList.remove('dimmed');
+    } else {
+      hiddenCommunities.add(c.cid);
+      item.classList.add('dimmed');
+    }
+    const updates = RAW_NODES
+      .filter(n => n.community === c.cid)
+      .map(n => ({ id: n.id, hidden: !cb.checked }));
+    nodesDS.update(updates);
+    updateSelectAllState();
+  });
+  item.innerHTML = `<div class="legend-dot" style="background:${c.color}"></div>
+    <span class="legend-label">${c.label}</span>
+    <span class="legend-count">${c.count}</span>`;
+  item.prepend(cb);
+  item.onclick = (e) => {
+    if (e.target === cb) return;
+    cb.checked = !cb.checked;
+    cb.dispatchEvent(new Event('change'));
+  };
+  legendEl.appendChild(item);
+});
+</script>
+<script>
+// Render hyperedges as shaded regions
+const hyperedges = [{"id": "agent_memory_system", "label": "Agent Memory System (amnesia prevention)", "nodes": ["agents_protocol", "start_here_home", "dec002_vault_project_memory", "dec003_graphify_knowledge_graph", "agents_context_retrieval_order", "agents_session_end_checklist"], "relation": "form", "confidence": "INFERRED", "confidence_score": 0.9, "source_file": "AGENTS.md"}, {"id": "versioning_traceability_system", "label": "Versioning and Traceability System", "nodes": ["docs_versioning_trunk_based_development", "changelog_semantic_versioning", "docs_versioning_conventional_commits", "changelog_keep_a_changelog", "docs_versioning_attribution_footer", "changelog_changelog"], "relation": "form", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "docs/VERSIONING.md"}, {"id": "decision_record_workflow", "label": "Decision Record Workflow", "nodes": ["template_decision_record", "vault_02_decisions_decision_log_index", "dec001_trunk_versioning", "dec002_vault_memory", "dec003_graphify_brain"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "vault/02-Decisions/_Decision-Log.md"}];
+// afterDrawing passes ctx already transformed to network coordinate space.
+// Draw node positions raw — no manual pan/zoom/DPR math needed.
+network.on('afterDrawing', function(ctx) {
+    hyperedges.forEach(h => {
+        const positions = h.nodes
+            .map(nid => network.getPositions([nid])[nid])
+            .filter(p => p !== undefined);
+        if (positions.length < 2) return;
+        ctx.save();
+        ctx.globalAlpha = 0.12;
+        ctx.fillStyle = '#6366f1';
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        // Centroid and expanded hull in network coordinates
+        const cx = positions.reduce((s, p) => s + p.x, 0) / positions.length;
+        const cy = positions.reduce((s, p) => s + p.y, 0) / positions.length;
+        const expanded = positions.map(p => ({
+            x: cx + (p.x - cx) * 1.15,
+            y: cy + (p.y - cy) * 1.15
+        }));
+        ctx.moveTo(expanded[0].x, expanded[0].y);
+        expanded.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
+        ctx.closePath();
+        ctx.fill();
+        ctx.globalAlpha = 0.4;
+        ctx.stroke();
+        // Label
+        ctx.globalAlpha = 0.8;
+        ctx.fillStyle = '#4f46e5';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(h.label, cx, cy - 5);
+        ctx.restore();
+    });
+});
+</script>
+</body>
+</html>

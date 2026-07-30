@@ -1,0 +1,32 @@
+# Obsidian volatile files (per-machine cache; stable settings ARE committed)
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache/
+vault/.obsidian/plugins/*/data.json
+
+# Graphify transient working files (persistent outputs ARE committed)
+.graphify_*.json
+.graphify_*.txt
+graphify-out/.graphify_*
+graphify-out/.needs_update
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+*.swp
+
+# Secrets - never commit credentials
+.env
+.env.*
+*.pem
+credentials.json
