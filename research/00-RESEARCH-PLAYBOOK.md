@@ -1,8 +1,10 @@
 # Waypoint Research Playbook
 
-Version-Timestamp: 2026-07-30 13:30:00 UTC-4
+Version-Timestamp: 2026-07-30 21:05:00 UTC-4
 
 This is the operating manual for the Waypoint research-to-blueprint program. Any agent (Cursor, Codex CLI, Claude Code, other) or human picking up a research phase follows this playbook exactly. It exists so that no phase cuts corners, no claim goes unsourced, and no context is lost between sessions or tools.
+
+**Current phase status lives in [`00-PROGRESS.md`](00-PROGRESS.md).** Update that file whenever a phase advances. This playbook is the how; the progress file is the where.
 
 ## Program overview
 
@@ -49,9 +51,10 @@ A phase is done only when all of the following are true:
 4. Key findings are distilled into vault knowledge notes (`vault/04-Knowledge/`) with wikilinks, so the graph and future sessions can find them.
 5. Any locked choices are recorded as decision records (`vault/02-Decisions/`).
 6. A session note exists in `vault/03-Sessions/` for the working session(s).
-7. `vault/00-START-HERE.md` reflects the new state (phase status, next unlock).
+7. `vault/00-START-HERE.md` and `research/00-PROGRESS.md` both reflect the new state (they must agree).
 8. Graphify graph updated, everything committed with attribution footer and pushed.
-9. Claudio has reviewed and approved the phase at the gate.
+9. Claudio has reviewed and approved the phase at the gate (via the dashboard when applicable).
+10. The phase folder's `_index.md` status line is updated (COMPLETE / IN PROGRESS / NOT STARTED).
 
 ### Dashboard-first review (added 2026-07-30 at Claudio's request)
 

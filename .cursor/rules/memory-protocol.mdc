@@ -9,18 +9,19 @@ Full contract: `AGENTS.md` at repo root. Non-negotiables:
 
 ## Session start
 
-- Read `vault/00-START-HERE.md` and the newest note in `vault/03-Sessions/` before doing anything else.
-- Never re-read the whole repo. Question about project content or structure? Query the graph first: `graphify query "<question>" --budget 2000` (uses `graphify-out/graph.json`).
+- Read `vault/00-START-HERE.md`, the newest note in `vault/03-Sessions/`, and `research/00-PROGRESS.md` before doing anything else.
+- Never re-read the whole repo. Question about project content or structure? Query the graph first: `graphify query "<question>" --budget 2000` (uses `graphify-out/graph.json`). Interactive UI: `graph/index.html`.
 
 ## During work
 
 - Record decisions immediately in `vault/02-Decisions/` (template in `vault/_templates/`, update `_Decision-Log.md`).
 - Versioned artifacts carry `Version-Timestamp: YYYY-MM-DD HH:mm:ss TZ` (vault notes: `updated:` frontmatter).
+- Claudio reviews research via `dashboard/index.html` (dashboard-first), not raw markdown walls.
 
 ## Session end (mandatory)
 
 1. Session note in `vault/03-Sessions/`.
-2. Update `vault/00-START-HERE.md`.
+2. Update `vault/00-START-HERE.md` and `research/00-PROGRESS.md` (they must agree).
 3. Docs changed? Rebuild graph via graphify `--update`.
 4. Commit (Conventional Commits + attribution footer per `AGENTS.md`) and push to GitHub.
 

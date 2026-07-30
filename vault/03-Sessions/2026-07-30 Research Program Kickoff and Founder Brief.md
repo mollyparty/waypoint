@@ -43,13 +43,12 @@ Lay the groundwork for the research-to-blueprint program: build the phased resea
 ## Open threads
 
 - Claudio's blueprint example (premiumcuts-blueprint.vercel.app) times out on fetch; retry during Phase 8, or Claudio shares its section list. #open-question
-- Research dashboard Vercel deployment must have deployment protection enabled before deploy (confidential pre-launch research). #open-question
-- Graphify hook quirk fired again on the scaffolding commit (AST-only rebuild, junk heading nodes); changes were discarded per the documented protocol and a proper update runs at session end.
+- Phase 5 stack round 2 + dual-platform decision still open (see [[2026-07-30 Cross-IDE Handoff Catalog]] and `research/00-PROGRESS.md`). #open
+- Graphify hook can still emit junk heading nodes on doc-heavy commits; discard and redo proper `--update` when that happens.
 
 ## Next steps
 
-1. Phase 1 gate is open: market and industry research (`research/01-market/`) awaits Claudio's go-ahead.
-2. Then Phases 2 to 8 in sequence, each behind its gate per the playbook.
+Superseded by later work in this same calendar day. Authoritative next steps: `vault/00-START-HERE.md` and `research/00-PROGRESS.md`. Phase 5 stack/platform gate is the current blocker; Phase 6 is next after that.
 
 ## Session-end checklist
 

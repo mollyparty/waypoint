@@ -33,14 +33,14 @@ Five journeys mapped (onboarding under 3 minutes, Marcus daily, Priya hotel lobb
 
 `stack-validation.md`: **no layer revised**. Supabase CONFIRMED WITH CONDITIONS (Frankfurt region day one, health data stays on-device which keeps compliance at $25/month instead of $950+, DPA executed, auth blast radius contained via own API layer, nightly off-platform backups). Hetzner CONFIRMED WITH CONDITIONS (off-provider backups plus IaC week one, restore drill, OVH fallback runbook, week-one GraphHopper memory load test). MapKit, on-device Apple AI, RevenueCat, and Vercel-for-artifacts-only all CONFIRMED. Every Supabase alternative failed on at least one criterion (Neon metering and acquisition risk, RDS 5 to 10x cost, Fly.io Postgres deprecated, Firestore no geo queries, PlanetScale PostGIS disabled vendor-side). Scale narrative: zero migrations through 10k MAU; 100k is a checkpoint not a forced move; at 1M every migration is a 2 to 6 week project. Top risks: Supabase Auth lock-in, Hetzner account termination, GraphHopper US-graph memory sizing.
 
-## Gate decisions pending (dashboard, cards 5 to 8)
+## Gate decisions (dashboard cards 5 to 8)
 
-1. Approve MVP scope as drawn (recommended).
-2. Free/paid line: launch v1 entirely free; paywall lands v1.x with training-state generation; safety routing free permanently (recommended; resolves the deferred ethics question).
-3. Watch: fast-follow at launch+30 (recommended).
-4. Approve the stack (recommended).
+1. MVP scope as drawn: **approved** (DEC-008).
+2. Free/paid line: **launch v1 entirely free**; safety routing free permanently (DEC-008).
+3. Watch: **fast-follow** at launch+30 (DEC-008).
+4. Stack: **still open**. Round 1 validation done; Claudio required round 2 (`database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md`). Dual-platform MVP requirement amends prior iOS-first assumption.
 
-Operational, no gate: month-1 safety-data buildability spike (concept assumption A3, the PRD's biggest credibility dependency); interviews priorities 1 and 2 in parallel, landing at the walking-skeleton checkpoint.
+Operational, no gate once stack locks: month-1 safety-data buildability spike; interviews priorities 1 and 2 in parallel.
 
 ## Open items carried forward
 

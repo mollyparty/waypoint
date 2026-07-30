@@ -1,68 +1,68 @@
 ---
 type: home
 created: 2026-07-30
-updated: 2026-07-30T13:50
+updated: 2026-07-30
 tags: [home]
 ---
 
 # START HERE
 
-This is the single always-current entry point to the Waypoint project. Every session (human or agent) begins by reading this note. It is updated at the end of every session and represents the latest approved snapshot of project state.
+This is the single always-current entry point to the Waypoint project. Every session (human or agent, in any tool) begins by reading this note. It is updated at the end of every session and represents the latest approved snapshot of project state.
+
+> Cross-tool rule: after this note, read the newest file in `03-Sessions/`, then `research/00-PROGRESS.md` for the phase catalog. Do not re-read the whole repo. Query the graph first.
 
 ## Project state
 
-- **Phase:** Phases 0 to 4 complete, concept LOCKED (DEC-006). Phase 5 gate mostly passed ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope approved, launch free, Watch fast-follow. **Open: the stack verdict (round 2)** plus a material scope question: Claudio requires the **MVP on both iOS and Android**, amending the iOS-first assumption. Three studies in flight: `database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md` (all in `research/05-product/`). Phase 6 starts after these resolve.
-- **Publishing:** every push auto-deploys to the protected Vercel preview (DEC-007). Live surfaces: landing (`index.html`), dashboard (`/dashboard/`), interactive graph explorer (`/graph/`).
-- **Product:** **Know where to run.** Waypoint is the running app that knows where you should run: constraint-based adaptive route generation as the hero (free-tier anchor), adaptive coaching as the paid layer, voice navigation as the execution surface, privacy as day-one architecture. Locked concept: `research/04-synthesis/concept.md`. See [[Charter]].
-- **Review surface:** Claudio reviews via `dashboard/index.html` (dashboard-first gate reviews, per the amended playbook), not raw markdown.
-- **Latest version:** v0.2.0 (research milestone: Phases 1 to 4, concept locked).
+- **Phase:** Research program Phases **0 to 4 COMPLETE**. Concept **LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5 deliverables drafted; gate **partially passed** ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope, free launch, Watch fast-follow approved. **Open:** stack final decision (round 2 research) and whether MVP launches on **both iOS and Android** (amends prior iOS-first assumption). Phase 6 blocked until those close.
+- **Product:** **Know where to run.** Constraint-based adaptive route generation (hero / free-tier anchor), adaptive coaching (paid), voice navigation, privacy day-one. Governing doc: `research/04-synthesis/concept.md`. See [[Charter]].
+- **Review surface:** `dashboard/index.html` (dashboard-first gates). Also live on the protected Vercel preview with `graph/index.html` (interactive knowledge graph).
+- **Publishing:** GitHub → Vercel auto-deploy ([[DEC-007 Vercel publishing pipeline with protected previews]]). Real content: https://waypoint-git-main-mollypartys-projects.vercel.app (login required). Production domains serve a placeholder only.
+- **Latest version:** **v0.2.0** (Phases 1 to 4 complete, concept locked). Next planned tag: v0.3.0 after Phases 5 to 6.
 
 ## What is done
 
-- [x] Git repository connected to [mollyparty/waypoint](https://github.com/mollyparty/waypoint), trunk-based versioning in place ([[DEC-001 Trunk-based versioning on main]])
-- [x] Obsidian vault built as persistent project memory ([[DEC-002 Obsidian vault as project memory]])
-- [x] Graphify knowledge graph integrated with git hook and cost telemetry ([[DEC-003 Graphify as queryable project brain]])
-- [x] Agent memory protocol codified in `AGENTS.md` and Cursor rule
-- [x] Cross-IDE support: `CLAUDE.md`, `CONTRIBUTING.md`, genericized `AGENTS.md`, continuous push cadence ([[DEC-004 Continuous push and cross-IDE agent files]])
-- [x] Research program scaffolded: `research/00-RESEARCH-PLAYBOOK.md` plus per-phase folders; nine gated phases to the Business Blueprint ([[DEC-005 Phased research program with gated approvals]])
-- [x] Founder discovery interview captured as [[Founder-Brief]] with testable hypotheses H1 to H7; [[Charter]] upgraded from stub to draft
-- [x] Phase 1 market and industry research complete in `research/01-market/`; key findings in [[Market Research Key Findings (Phase 1)]] (route-generation whitespace real, H5 venture-scale verdict UNCERTAIN, location privacy is day-one architecture)
-- [x] Phase 2 competitor analysis complete in `research/02-competitors/` (14 documents); key findings in [[Competitive Landscape Key Findings (Phase 2)]] (H2 and H3 SUPPORTED; Strava+Runna convergence is the kill-shot threat, 12 to 18 month window; HealthKit-first with proprietary context-data moat)
-- [x] Phase 3 user research complete in `research/03-users/` (5 documents); key findings in [[User Research Key Findings (Phase 3)]] (H1 PARTIALLY SUPPORTED: travel is activation, safety plus home novelty is daily retention; 4 personas; interview backlog is the validation plan)
-- [x] Phase 4 synthesis complete and **concept LOCKED** (DEC-006): route-first positioning, "Know where to run" tagline, H1 reframe accepted; key findings in [[Concept and Positioning (Phase 4)]]
-- [x] HTML research dashboard built (`dashboard/index.html`, pulled forward from Phase 7); playbook amended to dashboard-first gate reviews
+- [x] Git + GitHub (`mollyparty/waypoint`), trunk-based versioning ([[DEC-001 Trunk-based versioning on main]])
+- [x] Obsidian vault as project memory ([[DEC-002 Obsidian vault as project memory]])
+- [x] Graphify knowledge graph + post-commit hook ([[DEC-003 Graphify as queryable project brain]])
+- [x] Agent memory protocol (`AGENTS.md`, Cursor rule); cross-IDE files (`CLAUDE.md`, `CONTRIBUTING.md`) ([[DEC-004 Continuous push and cross-IDE agent files]])
+- [x] Research playbook + nine gated phases ([[DEC-005 Phased research program with gated approvals]]); progress catalog at `research/00-PROGRESS.md`
+- [x] Founder Brief + Charter ([[Founder-Brief]], [[Charter]]); hypotheses H1 to H7
+- [x] Phase 1 market research (`research/01-market/`) → [[Market Research Key Findings (Phase 1)]]
+- [x] Phase 2 competitors (`research/02-competitors/`, 14 docs) → [[Competitive Landscape Key Findings (Phase 2)]]
+- [x] Phase 3 users (`research/03-users/`) → [[User Research Key Findings (Phase 3)]]
+- [x] Phase 4 synthesis; concept LOCKED → [[Concept and Positioning (Phase 4)]], DEC-006, tag v0.2.0
+- [x] Research dashboard (`dashboard/index.html`); graph explorer (`graph/index.html`); Vercel publishing (DEC-007)
+- [x] Phase 5 drafts: PRD, RICE, MVP scope, journeys, stack recommendation, stack validation → [[Product Definition Key Findings (Phase 5)]]; DEC-008 (partial gate)
 
-- [x] Phase 5 product definition complete in `research/05-product/` (5 documents); key findings in [[Product Definition Key Findings (Phase 5)]] (15-feature MVP, ~25 pm, GraphHopper stack)
+## What unlocks next (in order)
 
-## What unlocks next
-
-1. **Phase 5 gate**: Claudio approves MVP scope, free/paid line, Watch timing, and stack (dashboard cards 5 to 8). The recommendation on the free/paid line (launch fully free, safety routing free permanently) would also resolve the deferred safety-free-tier question.
-2. **Phase 6: business model** (Business Model Canvas, unit economics, metrics, GTM) once the gate passes.
-3. The real-user interview backlog runs alongside build (`research/03-users/unmet-needs.md`).
-4. Operational, already sanctioned: month-1 safety-data buildability spike; week-1 GraphHopper crossing-penalty spike; 2-day voice-guidance spike.
-2. **Concept lock at the Phase 4 gate**: the heaviest decision point of the program.
-3. Capture the research pipeline as a reusable venture-discovery skill after Phase 4 if it performs well.
+1. **Finish Phase 5 open gate:** land round 2 studies (`database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md` in `research/05-product/`), then Claudio decides stack + iOS/Android platform strategy. Record as a new DEC if the platform or stack changes.
+2. **Phase 6:** business model, unit economics, metrics, GTM (`research/06-business-model/`).
+3. **Phase 7 formal close:** polish dashboard/Vercel packaging (core HTML already live).
+4. **Phase 8:** investor Business Blueprint (`blueprint/`).
+5. Parallel: real-user interview backlog in `research/03-users/unmet-needs.md`; sanctioned spikes (safety-data buildability, GraphHopper crossing penalties, voice-guidance) once stack is locked.
 
 ## Open threads
 
-- Claudio's blueprint example (premiumcuts-blueprint.vercel.app) is unreachable; retry at Phase 8 or get the section list from him. #open-question
-- Research dashboard must deploy to Vercel with deployment protection (confidential pre-launch research). #open-question
-- No CI/CD yet; add when code exists. #open-question
-- Partner has not yet cloned the repo or confirmed which tool they will use; `CONTRIBUTING.md` is ready for whenever they do. #open-question
+- Round 2 stack/platform/API studies must complete before Phase 6. #open
+- Dual-platform MVP amends DEC-006 / DEC-008 iOS-first assumption; needs an explicit founder decision and decision record. #open
+- Blueprint example URL (premiumcuts-blueprint.vercel.app) was unreachable; retry at Phase 8 or get section list from Claudio. #open-question
+- Partner onboarding: `CONTRIBUTING.md` ready; confirm which tool they use. #open-question
+- No app CI/CD yet (add when application code exists). #open-question
 
 ## Map of the vault
 
-- [[Charter]] - what Waypoint is (draft; locks at the Phase 4 gate)
-- [[Founder-Brief]] - Claudio's vision and the hypotheses research must confirm or kill
-- [[_Decision-Log]] - index of all decisions and their status
-- `03-Sessions/` - one note per working session, newest is the freshest context
-- `04-Knowledge/` - domain knowledge and research
-- `05-Architecture/` - technical design (empty until the product exists)
-- `_templates/` - templates for session, decision, and knowledge notes
+- [[Charter]] - what Waypoint is (LOCKED with concept, DEC-006)
+- [[Founder-Brief]] - vision and hypotheses H1 to H7
+- [[_Decision-Log]] - all decisions
+- `03-Sessions/` - newest note is freshest working context
+- `04-Knowledge/` - distilled research (see [[_Knowledge-Index]])
+- `05-Architecture/` - empty until stack locks and build starts
+- `_templates/` - session, decision, knowledge templates
 
 ## How memory works here
 
-1. Session start: read this note, then the most recent session note.
-2. Task-specific context: query the knowledge graph (`graphify query "..."`), do not re-read the repo.
-3. During work: record decisions in `02-Decisions/` as they happen.
-4. Session end: update this note, write the session note, rebuild the graph if docs changed, commit and push.
+1. Session start: this note → newest `03-Sessions/` note → `research/00-PROGRESS.md`.
+2. Task context: `graphify query "<question>" --budget 2000` (or open `/graph/` on Vercel), not a full repo read.
+3. During work: write decisions immediately to `02-Decisions/`.
+4. Session end: update this note, session note, `research/00-PROGRESS.md` if phases moved, graphify update if docs changed, commit and push.

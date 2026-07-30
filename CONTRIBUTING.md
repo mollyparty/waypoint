@@ -1,6 +1,6 @@
 # Working on Waypoint
 
-> Version-Timestamp: 2026-07-30 13:20:00 UTC-4
+> Version-Timestamp: 2026-07-30 21:05:00 UTC-4
 
 This project is designed to be picked up from any machine, by any collaborator, using any AI coding tool. This is how.
 
@@ -9,53 +9,73 @@ This project is designed to be picked up from any machine, by any collaborator, 
 ```bash
 git clone https://github.com/mollyparty/waypoint.git
 cd waypoint
+git pull
 ```
 
-Set your own git identity if you have not already (each collaborator uses their own name/email, not a shared one):
+Set your own git identity if you have not already (each collaborator uses their own name/email):
 
 ```bash
 git config user.name "Your Name"
 git config user.email "you@example.com"
 ```
 
-## 2. Pick any AI coding tool - they all read the same instructions
+## 2. Pick any AI coding tool (they all read the same instructions)
 
 | Tool | What it reads |
 |------|----------------|
 | Cursor | `AGENTS.md` + `.cursor/rules/memory-protocol.mdc` |
 | Codex CLI / ChatGPT | `AGENTS.md` |
-| Claude Code | `CLAUDE.md` (a short pointer to `AGENTS.md`) |
-| Anything else | `AGENTS.md` - it is plain markdown, tool-agnostic |
+| Claude Code | `CLAUDE.md` (pointer) → `AGENTS.md` |
+| Anything else | `AGENTS.md` |
 
-**Always read [AGENTS.md](AGENTS.md) first, in full**, before doing any work. It is the single source of truth for how this project maintains memory, versioning, and quality across sessions and tools.
+**Always read [AGENTS.md](AGENTS.md) first**, then [vault/00-START-HERE.md](vault/00-START-HERE.md), then [research/00-PROGRESS.md](research/00-PROGRESS.md).
 
-## 3. Open the Obsidian vault (optional but recommended)
+## 3. Orient in under five minutes
 
-The `vault/` folder is a full Obsidian vault: decisions, sessions, knowledge, and project state. Open Obsidian, choose "Open folder as vault," and select `vault/` inside this repo. Read `vault/00-START-HERE.md` first - it always reflects the current state of the project.
+| Read | Why |
+|------|-----|
+| `vault/00-START-HERE.md` | Latest approved project state |
+| Newest file in `vault/03-Sessions/` | Freshest open threads |
+| `research/00-PROGRESS.md` | Phase catalog: what is done, what is open |
+| `dashboard/index.html` | Readable research + gate decisions |
+| `vault/02-Decisions/_Decision-Log.md` | Locked choices (do not contradict without a new DEC) |
 
-You do not need Obsidian to read or edit vault notes; they are plain markdown and readable in any editor. Obsidian just adds graph view, backlinks, and templates.
+Optional: open `vault/` as an Obsidian vault. Notes are plain markdown either way.
 
-## 4. Graphify (the project's knowledge graph)
-
-Graphify turns the whole repo into a queryable knowledge graph so nobody has to re-read everything to get context.
+## 4. Graphify (knowledge graph)
 
 ```bash
 pip install graphifyy
+graphify query "<question>" --budget 2000
 ```
 
-Query it instead of re-reading files: `graphify query "<question>" --budget 2000`. Outputs live in `graphify-out/` (`graph.json`, `GRAPH_REPORT.md`, `graph.html` - open the HTML file in a browser for a visual map). A git post-commit hook keeps the graph current automatically for code changes; see `AGENTS.md` for the doc-update step.
+Outputs: `graphify-out/` (`graph.json`, `GRAPH_REPORT.md`). Prefer the interactive explorer `graph/index.html` over the raw Graphify HTML. A post-commit hook may rewrite the graph on doc-heavy commits; if labels look like junk headings, restore and run the proper `--update` flow (see `AGENTS.md`).
 
-## 5. How to contribute
+## 5. Protected Vercel preview (team review)
 
-1. Branch from `main`: `feat/`, `fix/`, `docs/`, or `chore/` prefix.
-2. Make focused changes; commit with [Conventional Commits](https://www.conventionalcommits.org/) messages and the attribution footer described in [docs/VERSIONING.md](docs/VERSIONING.md).
-3. Push continuously, not just when "done" - `main` should always be current for whoever else is working on this.
-4. Merge back to `main` quickly. Full strategy: [docs/VERSIONING.md](docs/VERSIONING.md).
+Every push to `main` publishes automatically (DEC-007).
+
+- Real content (Vercel login): https://waypoint-git-main-mollypartys-projects.vercel.app
+- Public production domains serve a placeholder only. Do not put confidential research on unprotected production.
+- Landing page links the dashboard and graph explorer.
 
 ## 6. Where things live
 
-- `vault/00-START-HERE.md` - current project state, read this first.
-- `vault/02-Decisions/` - why things are the way they are.
-- `AGENTS.md` / `CLAUDE.md` - the agent protocol (memory, versioning, engineering standards).
-- `docs/VERSIONING.md` - the full versioning strategy.
-- `graphify-out/` - the knowledge graph and its outputs.
+| Path | Purpose |
+|------|---------|
+| `vault/00-START-HERE.md` | Current state |
+| `research/00-PROGRESS.md` | Phase progress catalog |
+| `research/00-RESEARCH-PLAYBOOK.md` | Research standards and phase specs |
+| `research/01-market/` … `08-blueprint/` | Phase folders (each has `_index.md`) |
+| `dashboard/` | HTML research dashboard |
+| `graph/` | Interactive knowledge graph UI |
+| `vault/02-Decisions/` | Decision records |
+| `AGENTS.md` / `CLAUDE.md` | Agent protocol |
+| `docs/VERSIONING.md` | Versioning strategy |
+
+## 7. How to contribute
+
+1. Prefer short-lived branches (`feat/`, `fix/`, `docs/`, `chore/`) when the change is large; small continuous pushes to `main` are the norm for this early stage (DEC-004).
+2. Conventional Commits + attribution footer (see [docs/VERSIONING.md](docs/VERSIONING.md)).
+3. After meaningful work: update START-HERE and `research/00-PROGRESS.md` if status moved, then commit and push so partners and other tools always see current `main`.
+4. Claudio reviews research via the dashboard, not raw markdown walls.

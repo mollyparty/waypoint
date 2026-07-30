@@ -1,21 +1,26 @@
 # Phase 3: User Research
 
-Status: deliverables complete (2026-07-30), awaiting Claudio's gate review
+> Version-Timestamp: 2026-07-30 21:05:00 UTC-4
 
-Deliverables (see `../00-RESEARCH-PLAYBOOK.md` for full specs and standards):
+**Status: COMPLETE.** Gate passed (Claudio, 2026-07-30). Distilled in vault: `vault/04-Knowledge/User Research Key Findings (Phase 3).md`. Program catalog: `../00-PROGRESS.md`.
+
+## Deliverables
 
 - [x] `segmentation.md` - runner segments with sizing where sourceable
 - [x] `personas.md` - 4 evidence-based personas (Marcus, Priya, Elena, Jake)
 - [x] `jobs-to-be-done.md` - functional, emotional, and social jobs
 - [x] `pain-points.md` - mined from competitor reviews, Reddit, running forums, with citations
-- [x] `unmet-needs.md` - ranked by evidence strength, flagging what needs real interviews
+- [x] `unmet-needs.md` - ranked by evidence strength; interview backlog for live validation
 
-All findings are desk research, labeled as such; the consolidated interview backlog for real-user validation is in `unmet-needs.md`.
+All findings are desk research, labeled as such. Interview backlog remains the validation plan and runs in parallel with later phases.
 
 ## Headline findings
 
-- **H1 (travel route friction drives adoption): PARTIALLY SUPPORTED.** The travel question appears constantly (an entire workaround economy exists: Great Runs, Reddit FAQ threads, hotel-desk rituals), but workarounds mostly succeed in 15 to 20 minutes. Travel is the activation moment and demo story; **safety plus home novelty are the daily retention wedge.**
-- **Top unmet needs by evidence strength**: (1) safety-aware routing (54 percent of women runners changed routes over safety; zero products accept safety as an input), (2) route novelty and personalization at home (CityStrides' 90k paying users prove "roads not yet run" demand), (3) the training-state-to-route connection (total market absence, but demand needs interview confirmation).
-- **Segment recommendation**: primary stays the committed amateur (the proven payer: Runna's ~90k at $119.99/yr) with the ambitious beginner secondary (the Gen Z growth pipeline); serve both in one product with calibration, not separate SKUs.
-- **Recommended main job**: "When it is time to run and my usual route does not fit today (a new city, a dark morning, a heat wave, a tempo workout, or plain boredom), hand me the right route for me, right now, from here."
-- **Open founder decision**: whether safety-critical routing must live in the free tier (ethics and positioning); needs a decision record before Phase 6 pricing work.
+- **H1 PARTIALLY SUPPORTED.** Travel is the activation moment and demo story; **safety plus home novelty are the daily retention wedge.** (Accepted formally in DEC-006.)
+- **Top unmet needs:** (1) safety-aware routing, (2) route novelty at home, (3) training-state-to-route connection.
+- **Segment:** primary = committed amateur (Marcus); secondary = ambitious beginner (Jake); activation profiles Priya (travel) and Elena (safety).
+- **Main job:** "When it is time to run and my usual route does not fit today, hand me the right route for me, right now, from here."
+
+## Resolved since this phase
+
+- Safety-critical routing in the free tier: **yes, permanently free**, decided in DEC-008 with the free-launch call.

@@ -1,22 +1,24 @@
 # Waypoint Agent Protocol
 
-> Version-Timestamp: 2026-07-30 13:15:00 UTC-4
+> Version-Timestamp: 2026-07-30 21:05:00 UTC-4
 
 You are working on Waypoint, a startup project built from scratch. This file is the always-loaded contract for every agent session in this repo, in any tool: Cursor, Codex CLI, Claude Code (via `CLAUDE.md`, which points here), Gemini CLI, or any other. It exists to prevent amnesia and wasted tokens. Follow it in every session, without being asked, regardless of which tool loaded it.
 
 ## Session start (do this first, always)
 
-1. Read `vault/00-START-HERE.md`. It is the latest approved snapshot of project state.
-2. Read the newest note in `vault/03-Sessions/` for the freshest context and open threads.
-3. Do NOT re-read the repo. For task-specific context, query the knowledge graph first.
+1. Read `vault/00-START-HERE.md`. Latest approved snapshot of project state.
+2. Read the newest note in `vault/03-Sessions/` for freshest context and open threads.
+3. Read `research/00-PROGRESS.md`. Phase-by-phase status board. Do not invent phase status.
+4. Do NOT re-read the repo. For task-specific context, query the knowledge graph first.
 
 ## Context retrieval order (cheapest first)
 
 1. This file (already loaded).
 2. `vault/00-START-HERE.md` (one read).
-3. Knowledge graph query: `graphify query "<question>" --budget 2000` against `graphify-out/graph.json` (see the graphify skill). Use for any question about project content, structure, decisions, or relationships.
-4. Targeted vault notes (decisions, knowledge) via wikilink names.
-5. Raw files: last resort only, and only the specific files needed.
+3. `research/00-PROGRESS.md` (phase catalog; one read when doing research or product work).
+4. Knowledge graph query: `graphify query "<question>" --budget 2000` against `graphify-out/graph.json` (interactive UI: `graph/index.html`). Use for any question about project content, structure, decisions, or relationships.
+5. Targeted vault notes (decisions, knowledge) via wikilink names.
+6. Raw files: last resort only, and only the specific files needed.
 
 ## During work
 
@@ -31,7 +33,7 @@ Commit and push after every meaningful unit of work, not only at session end: af
 ## Session end (mandatory checklist, never skip)
 
 1. Write or complete the session note in `vault/03-Sessions/` (from the session template).
-2. Update `vault/00-START-HERE.md`: project state, done list, next steps, open threads, `updated:` date.
+2. Update `vault/00-START-HERE.md`: project state, done list, next steps, open threads, `updated:` date. If any research phase moved, update `research/00-PROGRESS.md` to match (never leave the two disagreeing).
 3. If docs or vault notes changed: rebuild the graph with the graphify `--update` flow. (Code changes rebuild automatically via the post-commit hook.) After any commit, check `git status` for hook-triggered `graphify-out/` changes — the hook's automatic rebuild has no LLM pass and can pollute the graph with junk nodes from markdown headings when it runs on doc-heavy commits. If node count looks inflated or labels look like headings/section names, redo the `--update` flow properly rather than trusting the hook's output.
 4. Final commit and push to `main` (or the work branch) on GitHub, confirming the working tree is clean. Local-only history does not count as saved.
 

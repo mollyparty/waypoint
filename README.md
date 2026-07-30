@@ -2,7 +2,7 @@
 
 > Know where to run
 
-> Version-Timestamp: 2026-07-30 17:10:00 UTC-4
+> Version-Timestamp: 2026-07-30 21:05:00 UTC-4
 
 Waypoint is the running app that knows where you should run: it generates the right route for you, right now, from wherever you stand, with adaptive coaching layered on top (concept locked 2026-07-30, DEC-006). This repository is its single source of truth: research, product definition, decisions, knowledge, architecture, and (eventually) code all live here, versioned and pushed to GitHub.
 
@@ -10,16 +10,19 @@ Waypoint is the running app that knows where you should run: it generates the ri
 
 | Path | Purpose |
 |------|---------|
-| `vault/` | Obsidian vault: the persistent project memory (decisions, sessions, knowledge). Open this folder as a vault in Obsidian. |
-| `vault/00-START-HERE.md` | The always-current entry point. Read this first, every session. |
-| `research/` | The research program: market, competitors, users, synthesis. Start with `00-RESEARCH-PLAYBOOK.md`. |
-| `dashboard/index.html` | The readable HTML dashboard summarizing all research. Open in any browser. |
-| `graphify-out/` | Graphify knowledge graph: queryable project brain plus token cost telemetry. |
-| `docs/VERSIONING.md` | The versioning strategy for this repository. |
-| `AGENTS.md` | The memory and working protocol for AI agents working in this repo, in any tool. |
-| `CLAUDE.md` | Thin pointer to `AGENTS.md` for Claude Code (which looks for this filename by convention). |
-| `CONTRIBUTING.md` | How to pick this project up from any machine, in any AI coding tool. |
-| `CHANGELOG.md` | Human-readable history of approved versions. |
+| `vault/` | Obsidian vault: persistent project memory (decisions, sessions, knowledge). |
+| `vault/00-START-HERE.md` | Always-current entry point. Read this first, every session. |
+| `research/00-PROGRESS.md` | Phase-by-phase progress catalog (what is done, what is open). |
+| `research/00-RESEARCH-PLAYBOOK.md` | Research standards and phase specs. |
+| `research/01-market/` … `08-blueprint/` | Per-phase folders; each has `_index.md` with status. |
+| `dashboard/index.html` | Readable HTML research dashboard (Claudio's review surface). |
+| `graph/index.html` | Interactive knowledge graph explorer. |
+| `graphify-out/` | Graphify data (`graph.json`) plus reports and cost telemetry. |
+| `docs/VERSIONING.md` | Versioning strategy. |
+| `AGENTS.md` | Agent memory and working protocol (every AI tool). |
+| `CLAUDE.md` | Pointer for Claude Code → `AGENTS.md` + START-HERE + PROGRESS. |
+| `CONTRIBUTING.md` | Collaborator onboarding from any machine or tool. |
+| `CHANGELOG.md` | Approved version history. |
 
 ## Working from any IDE
 
@@ -36,5 +39,6 @@ Full details: [docs/VERSIONING.md](docs/VERSIONING.md).
 ## Getting oriented
 
 1. Read [vault/00-START-HERE.md](vault/00-START-HERE.md) for the current project state.
-2. Browse `vault/02-Decisions/` for why things are the way they are.
-3. Open `graphify-out/graph.html` in a browser for a visual map of the project.
+2. Read [research/00-PROGRESS.md](research/00-PROGRESS.md) for the phase status board.
+3. Browse `vault/02-Decisions/` for why things are the way they are.
+4. Open `dashboard/index.html` and `graph/index.html` (or the protected Vercel preview) for visual review.
