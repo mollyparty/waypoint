@@ -32,7 +32,7 @@ Commit and push after every meaningful unit of work, not only at session end: af
 
 1. Write or complete the session note in `vault/03-Sessions/` (from the session template).
 2. Update `vault/00-START-HERE.md`: project state, done list, next steps, open threads, `updated:` date.
-3. If docs or vault notes changed: rebuild the graph with the graphify `--update` flow. (Code changes rebuild automatically via the post-commit hook.)
+3. If docs or vault notes changed: rebuild the graph with the graphify `--update` flow. (Code changes rebuild automatically via the post-commit hook.) After any commit, check `git status` for hook-triggered `graphify-out/` changes — the hook's automatic rebuild has no LLM pass and can pollute the graph with junk nodes from markdown headings when it runs on doc-heavy commits. If node count looks inflated or labels look like headings/section names, redo the `--update` flow properly rather than trusting the hook's output.
 4. Final commit and push to `main` (or the work branch) on GitHub, confirming the working tree is clean. Local-only history does not count as saved.
 
 ## Git and versioning rules

@@ -30,10 +30,12 @@ Ensure GitHub is always up to date (not just at session end) so Claudio's partne
 
 - Partner has not yet cloned the repo or picked a tool. #open-question
 
+- Discovered and worked around a Graphify hook quirk: the post-commit hook's automatic AST-only rebuild has no LLM pass, and on doc-heavy commits it produced junk nodes from raw markdown headings. Restored the last known-good curated graph, merged proper semantic extraction on top (53 nodes, 181 edges, 9 communities), and documented the quirk in `AGENTS.md` so future sessions check for it.
+
 ## Next steps
 
-1. Confirm the graph rebuilds cleanly with the new docs, then commit and push.
-2. Move to product discovery / concept development for the AI running coach concept.
+1. Move to product discovery / concept development for the AI running coach concept.
+2. If the partner joins with a different tool, verify `CONTRIBUTING.md` covers what they actually need and adjust.
 
 ## Session-end checklist
 
