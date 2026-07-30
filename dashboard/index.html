@@ -454,8 +454,22 @@
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-amber">In deep validation</span></div>
-    <p style="margin: 8px 0 12px">Claudio asked for a rigorous second opinion before committing: is Supabase really the best database choice, is the hosting right (VPS options included), and does every layer hold up at 10k, 100k, and 1M users? A dedicated validation study (<span class="kbd">stack-validation.md</span>) is comparing alternatives layer by layer, including real-world failure stories and migration costs. The verdict lands in this section when complete.</p>
+    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-amber">Validated, awaiting decision</span></div>
+    <p style="margin: 8px 0 12px">The requested deep validation is complete (<span class="kbd">stack-validation.md</span>: every claim cited with URL and access date). Verdict: <strong>no layer gets replaced.</strong> Every Supabase alternative failed on at least one criterion: Neon meters always-on compute with acquisition risk, AWS RDS is 5 to 10x the cost plus two platforms of glue work, Fly.io just deprecated its unmanaged Postgres, Firestore has no real geo queries, and PlanetScale's PostGIS was disabled vendor-side on the day of validation. Because Supabase is standard Postgres underneath, the data layer exits in days if ever needed; the one sticky part (Auth) gets contained by design from day one.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Layer</th><th>Verdict</th><th>Strongest evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Supabase (Postgres+PostGIS)</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>Standard Postgres exits in days; $1B+ raised, 250k customers, sharding roadmap. Conditions: EU (Frankfurt) region day one, health data stays on-device (keeps compliance at $25/month instead of $950+), DPA executed, auth blast radius contained, nightly off-platform backups.</td></tr>
+        <tr><td>Hetzner VPS (routing)</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>One third the cost of the next credible option; GraphHopper serving is stateless and rebuildable anywhere in hours. Conditions: off-provider backups and infrastructure-as-code from week one, rehearsed restore drill, an OVH fallback runbook (Hetzner has documented abrupt account suspensions), week-one memory load test.</td></tr>
+        <tr><td>MapKit + custom voice</td><td><span class="badge b-green">Confirmed</span></td><td>Ferrostar is production-ready per Stadia Maps but beta-labeled; the week-one spike is now mandatory, Mapbox stays the fallback.</td></tr>
+        <tr><td>On-device Apple AI</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>450M+ capable iPhones shipped (about a third of the active base); older devices get template explanations; the framework accepts server models behind the same API later.</td></tr>
+        <tr><td>RevenueCat</td><td><span class="badge b-green">Confirmed</span></td><td>Pricing verified: free to $2.5k monthly revenue, then ~1.4 percent effective on net.</td></tr>
+        <tr><td>Vercel</td><td><span class="badge b-green">Confirmed: artifacts only, never the app</span></td><td>Vercel Functions cap at 4 GB and 30 minutes with no persistent processes; GraphHopper's multi-GB JVM structurally cannot run there. The app backend lives on the VPS.</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin: 8px 0 12px"><strong>Scale narrative:</strong> MVP through 10k monthly actives is pure scale-up, zero migrations (~$110 to ~$450/month). 100k is a decision checkpoint, not a forced move (~$2,500 to $4,500/month). At 1M, every possible migration is a 2 to 6 week project with a proven playbook. <strong>Top risks:</strong> Supabase Auth lock-in (contained by day-one API-layer design), Hetzner account termination (contained by backups plus the OVH runbook), and GraphHopper US-wide memory sizing (settled by the mandatory week-one load test).</p>
+    <div class="option rec"><span class="opt-label">Approve with the named conditions</span><span class="opt-why">Recommended. The conditions are cheap now and expensive later; they become week-one setup tasks.</span></div>
+    <div class="option"><span class="opt-label">Discuss a layer</span><span class="opt-why">The full evidence, alternatives, and failure stories are in stack-validation.md.</span></div>
   </div>
 
   <div class="callout">

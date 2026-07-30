@@ -13,6 +13,7 @@ Governed by the locked concept (`research/04-synthesis/concept.md`, DEC-006). De
 | `mvp-scope.md` | The MVP line: what ships in v1, what explicitly waits, and why | complete |
 | `user-journeys.md` | End-to-end journeys for the four personas' critical flows | complete |
 | `stack-recommendation.md` | Recommended architecture and stack with justification, alternatives, and costs | complete |
+| `stack-validation.md` | Second-opinion deep validation: alternatives, failure stories, scale narrative to 1M MAU, risk register | complete |
 
 ## Gate
 

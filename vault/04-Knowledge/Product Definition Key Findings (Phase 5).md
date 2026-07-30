@@ -29,6 +29,10 @@ Distilled from `research/05-product/` (5 documents: prd, rice-prioritization, mv
 
 Five journeys mapped (onboarding under 3 minutes, Marcus daily, Priya hotel lobby under 30 seconds, Elena dark morning, Jake plan repair). Ten design principles, led by: explain reasoning always, degrade honestly, never promise "safe" (enforceable copy rule: "safety-aware" is the ceiling), ask at the moment of value, the free path always works, feed Strava and never compete with it. Top design surfaces: generate screen, route reveal with why-card, onboarding/permissions, in-run navigation, plan repair flow.
 
+## Stack validation (second opinion, requested by Claudio at the gate)
+
+`stack-validation.md`: **no layer revised**. Supabase CONFIRMED WITH CONDITIONS (Frankfurt region day one, health data stays on-device which keeps compliance at $25/month instead of $950+, DPA executed, auth blast radius contained via own API layer, nightly off-platform backups). Hetzner CONFIRMED WITH CONDITIONS (off-provider backups plus IaC week one, restore drill, OVH fallback runbook, week-one GraphHopper memory load test). MapKit, on-device Apple AI, RevenueCat, and Vercel-for-artifacts-only all CONFIRMED. Every Supabase alternative failed on at least one criterion (Neon metering and acquisition risk, RDS 5 to 10x cost, Fly.io Postgres deprecated, Firestore no geo queries, PlanetScale PostGIS disabled vendor-side). Scale narrative: zero migrations through 10k MAU; 100k is a checkpoint not a forced move; at 1M every migration is a 2 to 6 week project. Top risks: Supabase Auth lock-in, Hetzner account termination, GraphHopper US-graph memory sizing.
+
 ## Gate decisions pending (dashboard, cards 5 to 8)
 
 1. Approve MVP scope as drawn (recommended).

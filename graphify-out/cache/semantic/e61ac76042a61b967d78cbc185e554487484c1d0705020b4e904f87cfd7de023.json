@@ -1,0 +1,1 @@
+{"nodes": [], "edges": [{"source": "phase5_product_index", "target": "phase5_stack_validation", "relation": "contains", "confidence": "STATED", "weight": 1.0, "source_file": "research/05-product/_index.md"}], "hyperedges": []}
