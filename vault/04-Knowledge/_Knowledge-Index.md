@@ -9,4 +9,6 @@ tags: [knowledge, index]
 
 Domain knowledge, research, competitor notes, and references accumulate here as the project develops. One note per topic, created from [[Knowledge-Note]] in `_templates/`.
 
-Nothing here yet. The product discovery phase will seed this folder.
+| Note | Topic | Added |
+|------|-------|-------|
+| [[Market Research Key Findings (Phase 1)]] | Market landscape, sizing (H5 uncertain), trends, compliance guardrails | 2026-07-30 |

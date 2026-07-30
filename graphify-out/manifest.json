@@ -180,9 +180,9 @@
     "semantic_hash": "85986fcad43875615364ad4e6b54ed67"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\00-START-HERE.md": {
-    "mtime": 1785433185.961238,
-    "ast_hash": "5c9b5d39c52c891097f79444ffe51ffd",
-    "semantic_hash": "5c9b5d39c52c891097f79444ffe51ffd"
+    "mtime": 1785434146.2351818,
+    "ast_hash": "6010fc1186cf199d5cdb194e3fdea344",
+    "semantic_hash": "6010fc1186cf199d5cdb194e3fdea344"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\01-Project\\Charter.md": {
     "mtime": 1785433114.2821498,
@@ -225,9 +225,9 @@
     "semantic_hash": "7e0e245a67e6c7c9f798a190eefe9565"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\_Knowledge-Index.md": {
-    "mtime": 1785429774.9898462,
-    "ast_hash": "1f7ac9d0a4479644471277cb1f9937bc",
-    "semantic_hash": "1f7ac9d0a4479644471277cb1f9937bc"
+    "mtime": 1785434130.585931,
+    "ast_hash": "ec43b9d4bce7da1c8f6fae4016c05d4e",
+    "semantic_hash": "ec43b9d4bce7da1c8f6fae4016c05d4e"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\05-Architecture\\_Architecture-Index.md": {
     "mtime": 1785428173.4783733,
@@ -255,9 +255,9 @@
     "semantic_hash": "b38c532d76f15505d982200431d367d7"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\_index.md": {
-    "mtime": 1785432526.0265694,
-    "ast_hash": "fe8d70064502a1f5bc6d39a3a1558356",
-    "semantic_hash": "fe8d70064502a1f5bc6d39a3a1558356"
+    "mtime": 1785434104.6418822,
+    "ast_hash": "26fc22dc71b6848b05728ce5a7bfee93",
+    "semantic_hash": "26fc22dc71b6848b05728ce5a7bfee93"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\_index.md": {
     "mtime": 1785432529.1622744,
@@ -295,8 +295,33 @@
     "semantic_hash": "ac0b8e46991a716f5c6dc1dd76cf6a59"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\03-Sessions\\2026-07-30 Research Program Kickoff and Founder Brief.md": {
-    "mtime": 1785433166.4172375,
-    "ast_hash": "bb44f30f53a5dff407c311ee166960d5",
-    "semantic_hash": "bb44f30f53a5dff407c311ee166960d5"
+    "mtime": 1785434136.3734026,
+    "ast_hash": "9194e8fc45140b7f454a9afcec3118ca",
+    "semantic_hash": "9194e8fc45140b7f454a9afcec3118ca"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\industry-trends.md": {
+    "mtime": 1785434004.8667343,
+    "ast_hash": "d0c6726f8207b311b0510ab5cb9f807a",
+    "semantic_hash": "d0c6726f8207b311b0510ab5cb9f807a"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\market-landscape.md": {
+    "mtime": 1785433860.0641541,
+    "ast_hash": "af23f38dc6846bb77c4e1d9642ca2f3b",
+    "semantic_hash": "af23f38dc6846bb77c4e1d9642ca2f3b"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\market-sizing.md": {
+    "mtime": 1785433854.2767706,
+    "ast_hash": "c486b8be574c9accb860c7f9014de0c1",
+    "semantic_hash": "c486b8be574c9accb860c7f9014de0c1"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\regulatory-compliance.md": {
+    "mtime": 1785433976.9561894,
+    "ast_hash": "5c6fbf94bc91d60af353fc3fc050cf6e",
+    "semantic_hash": "5c6fbf94bc91d60af353fc3fc050cf6e"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\Market Research Key Findings (Phase 1).md": {
+    "mtime": 1785434120.581764,
+    "ast_hash": "a456165f3e8c712646106e63efbada5e",
+    "semantic_hash": "a456165f3e8c712646106e63efbada5e"
   }
 }

@@ -11,7 +11,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program, Phase 0 complete (founder brief and infrastructure). Phase 1 (market and industry research) is gated on Claudio's go-ahead.
+- **Phase:** Research program, Phases 0 and 1 complete. Phase 2 (competitor analysis) is gated on Claudio's review of the Phase 1 deliverables.
 - **Product:** An AI running coach whose hero wedge is **adaptive route generation**: "where should I run, right now, from here, for me," with routes adapting to distance, elevation, weather, street crossings, and other constraints; coaching and routines layer on top. See [[Founder-Brief]] and [[Charter]].
 - **Latest version:** v0.1.0 (foundation); v0.2.0 lands when research Phases 1 to 4 are approved.
 
@@ -24,10 +24,11 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Cross-IDE support: `CLAUDE.md`, `CONTRIBUTING.md`, genericized `AGENTS.md`, continuous push cadence ([[DEC-004 Continuous push and cross-IDE agent files]])
 - [x] Research program scaffolded: `research/00-RESEARCH-PLAYBOOK.md` plus per-phase folders; nine gated phases to the Business Blueprint ([[DEC-005 Phased research program with gated approvals]])
 - [x] Founder discovery interview captured as [[Founder-Brief]] with testable hypotheses H1 to H7; [[Charter]] upgraded from stub to draft
+- [x] Phase 1 market and industry research complete in `research/01-market/`; key findings in [[Market Research Key Findings (Phase 1)]] (route-generation whitespace real, H5 venture-scale verdict UNCERTAIN, location privacy is day-one architecture)
 
 ## What unlocks next
 
-1. **Phase 1: market and industry research** (`research/01-market/`), pending Claudio's gate approval. Then Phases 2 to 8 per the playbook.
+1. **Phase 2: competitor analysis** (`research/02-competitors/`), pending Claudio's review of Phase 1. Then Phases 3 to 8 per the playbook.
 2. **Concept lock at the Phase 4 gate**: the heaviest decision point of the program.
 3. Capture the research pipeline as a reusable venture-discovery skill after Phase 4 if it performs well.
 
