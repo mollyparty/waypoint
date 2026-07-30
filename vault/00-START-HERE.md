@@ -1,7 +1,7 @@
 ---
 type: home
 created: 2026-07-30
-updated: 2026-07-30T13:45
+updated: 2026-07-30T13:50
 tags: [home]
 ---
 
@@ -11,9 +11,9 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Foundation (workspace, versioning, memory infrastructure)
-- **Product:** An AI running coach (working tagline from the repo: "Your AI Running Coach"). Full product discovery is the next major phase.
-- **Latest version:** v0.1.0 (foundation)
+- **Phase:** Research program, Phase 0 complete (founder brief and infrastructure). Phase 1 (market and industry research) is gated on Claudio's go-ahead.
+- **Product:** An AI running coach whose hero wedge is **adaptive route generation**: "where should I run, right now, from here, for me," with routes adapting to distance, elevation, weather, street crossings, and other constraints; coaching and routines layer on top. See [[Founder-Brief]] and [[Charter]].
+- **Latest version:** v0.1.0 (foundation); v0.2.0 lands when research Phases 1 to 4 are approved.
 
 ## What is done
 
@@ -22,22 +22,26 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Graphify knowledge graph integrated with git hook and cost telemetry ([[DEC-003 Graphify as queryable project brain]])
 - [x] Agent memory protocol codified in `AGENTS.md` and Cursor rule
 - [x] Cross-IDE support: `CLAUDE.md`, `CONTRIBUTING.md`, genericized `AGENTS.md`, continuous push cadence ([[DEC-004 Continuous push and cross-IDE agent files]])
+- [x] Research program scaffolded: `research/00-RESEARCH-PLAYBOOK.md` plus per-phase folders; nine gated phases to the Business Blueprint ([[DEC-005 Phased research program with gated approvals]])
+- [x] Founder discovery interview captured as [[Founder-Brief]] with testable hypotheses H1 to H7; [[Charter]] upgraded from stub to draft
 
 ## What unlocks next
 
-1. **Product discovery session**: define what Waypoint is; capture into [[Charter]] and `01-Project/`.
-2. **Stack and architecture decision**: record as decision notes in `02-Decisions/`.
-3. Capture the session-end memory routine as a reusable skill once it has run twice.
+1. **Phase 1: market and industry research** (`research/01-market/`), pending Claudio's gate approval. Then Phases 2 to 8 per the playbook.
+2. **Concept lock at the Phase 4 gate**: the heaviest decision point of the program.
+3. Capture the research pipeline as a reusable venture-discovery skill after Phase 4 if it performs well.
 
 ## Open threads
 
-- Product definition beyond the "AI Running Coach" tagline is open. #open-question
+- Claudio's blueprint example (premiumcuts-blueprint.vercel.app) is unreachable; retry at Phase 8 or get the section list from him. #open-question
+- Research dashboard must deploy to Vercel with deployment protection (confidential pre-launch research). #open-question
 - No CI/CD yet; add when code exists. #open-question
 - Partner has not yet cloned the repo or confirmed which tool they will use; `CONTRIBUTING.md` is ready for whenever they do. #open-question
 
 ## Map of the vault
 
-- [[Charter]] - what Waypoint is (stub until product discovery)
+- [[Charter]] - what Waypoint is (draft; locks at the Phase 4 gate)
+- [[Founder-Brief]] - Claudio's vision and the hypotheses research must confirm or kill
 - [[_Decision-Log]] - index of all decisions and their status
 - `03-Sessions/` - one note per working session, newest is the freshest context
 - `04-Knowledge/` - domain knowledge and research

@@ -15,6 +15,7 @@ Index of all project decisions. One note per decision, numbered sequentially. St
 | DEC-002 | [[DEC-002 Obsidian vault as project memory]] | accepted | 2026-07-30 |
 | DEC-003 | [[DEC-003 Graphify as queryable project brain]] | accepted | 2026-07-30 |
 | DEC-004 | [[DEC-004 Continuous push and cross-IDE agent files]] | accepted | 2026-07-30 |
+| DEC-005 | [[DEC-005 Phased research program with gated approvals]] | accepted | 2026-07-30 |
 
 ## How to add a decision
 

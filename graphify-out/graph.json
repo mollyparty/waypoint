@@ -128,7 +128,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 8,
       "norm_label": "waypoint agent protocol",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_protocol"
@@ -142,7 +142,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 1,
       "norm_label": "changelog",
       "community_name": "Changelog",
       "id": "changelog_changelog"
@@ -156,7 +156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "readme overview",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_overview"
@@ -170,7 +170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "versioning strategy",
       "community_name": "Changelog",
       "id": "docs_versioning_strategy"
@@ -184,7 +184,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "start here (home note)",
       "community_name": "START HERE (Project Entry Point)",
       "id": "start_here_home"
@@ -198,7 +198,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 3,
       "norm_label": "charter",
       "community_name": "Decision Log",
       "id": "vault_01_project_charter_charter"
@@ -212,7 +212,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 1,
       "norm_label": "dec-001 trunk-based versioning on main",
       "community_name": "Changelog",
       "rationale": "One branch to trust satisfies the 'latest approved version' requirement; lower overhead than GitFlow for a solo founder with no long-lived develop branch to drift; tags plus changelog give named, auditable milestones without ceremony. GitFlow and main-only/commit-direct were both considered and rejected. Amended by DEC-004 (2026-07-30): push cadence changed from session-end-only to continuous; everything else in the decision stands.",
@@ -227,7 +227,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 7,
       "norm_label": "dec-002 obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_memory"
@@ -241,7 +241,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 6,
       "norm_label": "dec-003 graphify as queryable project brain",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_graphify_brain"
@@ -255,7 +255,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "decision log",
       "community_name": "Decision Log",
       "id": "vault_02_decisions_decision_log_index"
@@ -269,7 +269,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "knowledge index",
       "community_name": "Knowledge Note Template",
       "id": "vault_04_knowledge_knowledge_index_index"
@@ -283,7 +283,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "architecture index",
       "community_name": "Decision Log",
       "id": "vault_05_architecture_architecture_index_index"
@@ -297,7 +297,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "decision record template",
       "community_name": "Decision Log",
       "id": "template_decision_record"
@@ -311,7 +311,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "knowledge note template",
       "community_name": "Knowledge Note Template",
       "id": "template_knowledge_note"
@@ -325,7 +325,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 8,
       "norm_label": "session note template",
       "community_name": "Waypoint Agent Protocol",
       "id": "template_session_note"
@@ -340,7 +340,7 @@
       "author": null,
       "contributor": null,
       "rationale": "The repository is the single source of truth: product definition, decisions, knowledge, architecture, and eventually code all live in one versioned repo pushed to GitHub, so any human or agent opening it sees the current truth.",
-      "community": 1,
+      "community": 2,
       "norm_label": "waypoint (startup project)",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_waypoint_project"
@@ -355,7 +355,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Chosen so main is one branch to trust that always shows the latest approved version. Lower overhead than GitFlow for a solo founder (no long-lived develop branch to drift); main-only direct commits rejected because short-lived branches give a cheap review point before work becomes approved. Branches must stay short-lived (hours to days) or they defeat the model.",
-      "community": 2,
+      "community": 1,
       "norm_label": "trunk-based development",
       "community_name": "Changelog",
       "id": "docs_versioning_trunk_based_development"
@@ -370,7 +370,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Tags plus changelog give named, auditable milestones without ceremony. MAJOR = breaking/directional change, MINOR = new capability or phase, PATCH = fixes; pre-1.0 (v0.x.y) signals the project is still forming.",
-      "community": 3,
+      "community": 1,
       "norm_label": "semantic versioning",
       "community_name": "Changelog",
       "id": "changelog_semantic_versioning"
@@ -385,7 +385,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Human-readable history of approved versions; every tag gets an entry written when the tag is created, not after.",
-      "community": 3,
+      "community": 1,
       "norm_label": "keep a changelog format",
       "community_name": "Changelog",
       "id": "changelog_keep_a_changelog"
@@ -400,7 +400,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Structured commit messages (type(scope): summary) keep history legible; types are feat, fix, docs, chore, refactor, test.",
-      "community": 3,
+      "community": 1,
       "norm_label": "conventional commits",
       "community_name": "Changelog",
       "id": "docs_versioning_conventional_commits"
@@ -415,7 +415,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Multiple tools and machines may touch the repo, so every commit carries computer, tool, version, and timestamp read from the real environment to keep history traceable; unknown values are written as 'unknown', never omitted or guessed.",
-      "community": 2,
+      "community": 8,
       "norm_label": "agent attribution footer",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_attribution_footer"
@@ -430,7 +430,7 @@
       "author": null,
       "contributor": null,
       "rationale": "No silent undated versioned artifacts: every doc, deck, script, config, or report carries a visible Version-Timestamp header; vault notes use the 'updated:' YAML frontmatter field for the same purpose.",
-      "community": 2,
+      "community": 8,
       "norm_label": "version-timestamp convention",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_version_timestamp"
@@ -445,7 +445,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Persistent, versioned project memory exists to prevent agent amnesia across sessions: every session starts from START-HERE plus the latest session note rather than re-reading the repo.",
-      "community": 6,
+      "community": 7,
       "norm_label": "obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_project_memory"
@@ -460,7 +460,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Serves as the queryable project brain: task-specific context is retrieved with graphify query against graph.json instead of re-reading raw repo files, minimizing token cost.",
-      "community": 6,
+      "community": 7,
       "norm_label": "graphify knowledge graph",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec003_graphify_knowledge_graph"
@@ -475,7 +475,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Rebuilds the graph from code changes for free using AST parsing, no LLM tokens. Limitation: covers only code; doc updates remain a manual, protocol-enforced --update step at session end.",
-      "community": 7,
+      "community": 6,
       "norm_label": "post-commit graph rebuild hook",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_post_commit_hook"
@@ -490,7 +490,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Accumulates per-run token counts so the cost of maintaining and querying project memory stays visible instead of hidden.",
-      "community": 7,
+      "community": 6,
       "norm_label": "token cost telemetry",
       "community_name": "Changelog",
       "id": "dec003_cost_telemetry"
@@ -505,7 +505,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Mandatory, never skipped: write the session note, update START-HERE, rebuild the graph if docs changed, commit and push. Exists because local-only history does not count as saved and a brand-new session must be able to resume from START-HERE plus the latest session note alone.",
-      "community": 7,
+      "community": 6,
       "norm_label": "session-end checklist",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_session_end_checklist"
@@ -520,7 +520,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Ordered to minimize token cost: always-loaded protocol file, then START-HERE, then a budgeted graphify query, then targeted vault notes via wikilinks, with raw file reads as last resort. Exists to prevent amnesia-driven re-reading of the whole repo.",
-      "community": 6,
+      "community": 7,
       "norm_label": "context retrieval order",
       "community_name": "START HERE (Project Entry Point)",
       "id": "agents_context_retrieval_order"
@@ -535,7 +535,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Applies to everything shipped: validate input, handle errors on external calls, no silent failures, no hardcoded secrets, accessibility for anything user-facing; lint and verify before claiming done.",
-      "community": 1,
+      "community": 3,
       "norm_label": "engineering mantra (security, stability, reliability, compliance)",
       "community_name": "Decision Log",
       "id": "vault_01_project_charter_engineering_mantra"
@@ -564,7 +564,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 6,
       "norm_label": "session 2026-07-30 foundation setup",
       "id": "session_2026_07_30_foundation_setup"
     },
@@ -578,7 +578,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Working tagline discovered in the remote GitHub README; adopted as the product concept placeholder. Full product definition (features, differentiation, business model) is deliberately deferred to a dedicated product discovery session.",
-      "community": 1,
+      "community": 2,
       "norm_label": "your ai running coach (product concept)",
       "id": "product_ai_running_coach"
     },
@@ -586,128 +586,308 @@
       "label": "Charter (Waypoint product charter stub)",
       "file_type": "document",
       "source_file": "vault/01-Project/Charter.md",
-      "id": "charter_charter",
-      "community": 1,
-      "norm_label": "charter (waypoint product charter stub)"
+      "community": 2,
+      "norm_label": "charter (waypoint product charter stub)",
+      "id": "charter_charter"
     },
     {
       "label": "Decision Log index",
       "file_type": "document",
       "source_file": "vault/02-Decisions/_Decision-Log.md",
-      "id": "decision_log_index",
-      "community": 7,
-      "norm_label": "decision log index"
+      "community": 2,
+      "norm_label": "decision log index",
+      "id": "decision_log_index"
     },
     {
       "label": "Knowledge Index",
       "file_type": "document",
       "source_file": "vault/04-Knowledge/_Knowledge-Index.md",
-      "id": "knowledge_index_index",
-      "community": 1,
-      "norm_label": "knowledge index"
+      "community": 2,
+      "norm_label": "knowledge index",
+      "id": "knowledge_index_index"
     },
     {
       "label": "Trunk-based development model",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "id": "versioning_trunk_based_development",
-      "community": 2,
-      "norm_label": "trunk-based development model"
+      "community": 1,
+      "norm_label": "trunk-based development model",
+      "id": "versioning_trunk_based_development"
     },
     {
       "label": "Conventional Commits convention",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "id": "versioning_conventional_commits",
-      "community": 8,
-      "norm_label": "conventional commits convention"
+      "community": 1,
+      "norm_label": "conventional commits convention",
+      "id": "versioning_conventional_commits"
     },
     {
       "label": "Agent-Attribution commit footer",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
       "rationale": "Values are read from the real environment (hostname, tool, version, timestamp) so history stays traceable across the multiple machines and tools that may touch the repo; unknown values are written as 'unknown' rather than omitted.",
-      "id": "versioning_attribution_footer",
-      "community": 8,
-      "norm_label": "agent-attribution commit footer"
+      "community": 1,
+      "norm_label": "agent-attribution commit footer",
+      "id": "versioning_attribution_footer"
     },
     {
       "label": "Version-Timestamp versioned-artifact header",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "id": "versioning_version_timestamp",
-      "community": 2,
-      "norm_label": "version-timestamp versioned-artifact header"
+      "community": 1,
+      "norm_label": "version-timestamp versioned-artifact header",
+      "id": "versioning_version_timestamp"
     },
     {
       "label": "Engineering mantra: security, stability, reliability, compliance",
       "file_type": "document",
       "source_file": "vault/01-Project/Charter.md",
-      "id": "charter_engineering_mantra",
-      "community": 1,
-      "norm_label": "engineering mantra: security, stability, reliability, compliance"
+      "community": 2,
+      "norm_label": "engineering mantra: security, stability, reliability, compliance",
+      "id": "charter_engineering_mantra"
     },
     {
       "label": "CLAUDE.md (Claude Code pointer file)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "rationale": "A symlink from CLAUDE.md to AGENTS.md was considered but rejected because core.symlinks is disabled on this machine (common on Windows without developer mode), which would store the link as an unusable plain-text path reference; a real short pointer file works identically everywhere at the cost of one nearly-empty file to keep in sync. Duplicating full agent instructions per tool was also rejected because it guarantees drift.",
-      "id": "claude_md_pointer_file",
-      "community": 0,
-      "norm_label": "claude.md (claude code pointer file)"
+      "community": 4,
+      "norm_label": "claude.md (claude code pointer file)",
+      "id": "claude_md_pointer_file"
     },
     {
       "label": "CONTRIBUTING.md (collaborator onboarding doc)",
       "file_type": "document",
       "source_file": "CONTRIBUTING.md",
       "rationale": "Added as the human-facing onboarding doc covering clone, git identity, tool choice, the Obsidian vault, Graphify setup, and contribution workflow, so any collaborator (including Claudio's partner) can pick the project up cold from any machine or tool.",
-      "id": "contributing_onboarding_doc",
-      "community": 0,
-      "norm_label": "contributing.md (collaborator onboarding doc)"
+      "community": 4,
+      "norm_label": "contributing.md (collaborator onboarding doc)",
+      "id": "contributing_onboarding_doc"
     },
     {
       "label": "DEC-004: Continuous push and cross-IDE agent files",
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Two requirements surfaced once a second collaborator (Claudio's partner) entered the picture: (1) GitHub must always reflect current work, not just work committed at session end, so a partner can pull main at any moment and see the latest; (2) the project must be fully usable from any AI coding tool on any machine, not only inside the Cursor workspace. Keeping push cadence at session-end only, and using separate tool-specific instruction files with duplicated content, were both rejected as alternatives.",
-      "id": "dec004_continuous_push_cross_ide",
-      "community": 0,
-      "norm_label": "dec-004: continuous push and cross-ide agent files"
+      "community": 4,
+      "norm_label": "dec-004: continuous push and cross-ide agent files",
+      "id": "dec004_continuous_push_cross_ide"
     },
     {
       "label": "Continuous push policy (commit and push after every meaningful unit of work)",
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Amends DEC-001's session-end-only cadence. Continuous push has an overhead cost (more, smaller commits) but directly serves the goal that a human collaborator must never be blocked waiting for a session to 'finish'; more frequent commits in history are intentional, not noise.",
-      "id": "policy_continuous_push",
-      "community": 0,
-      "norm_label": "continuous push policy (commit and push after every meaningful unit of work)"
+      "community": 4,
+      "norm_label": "continuous push policy (commit and push after every meaningful unit of work)",
+      "id": "policy_continuous_push"
     },
     {
       "label": "Cross-IDE / cross-tool compatibility (Cursor, Codex CLI, Claude Code, Gemini CLI, others)",
       "file_type": "document",
       "source_file": "AGENTS.md",
       "rationale": "One canonical AGENTS.md plus thin, non-duplicated pointer files (e.g. CLAUDE.md) avoids duplicating agent instructions per tool, which would guarantee drift; this is the maintainable version of a 'reference, don't embed' principle.",
-      "id": "concept_cross_ide_compatibility",
-      "community": 0,
-      "norm_label": "cross-ide / cross-tool compatibility (cursor, codex cli, claude code, gemini cli, others)"
+      "community": 4,
+      "norm_label": "cross-ide / cross-tool compatibility (cursor, codex cli, claude code, gemini cli, others)",
+      "id": "concept_cross_ide_compatibility"
     },
     {
       "label": ".gitattributes line-ending normalization (eol=lf)",
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Normalizes line endings so the repo is byte-identical on Windows, macOS, and Linux, avoiding spurious diffs between collaborators on different operating systems; applied as a one-time repo-wide renormalization pass, already completed.",
-      "id": "concept_line_ending_normalization",
-      "community": 0,
-      "norm_label": ".gitattributes line-ending normalization (eol=lf)"
+      "community": 4,
+      "norm_label": ".gitattributes line-ending normalization (eol=lf)",
+      "id": "concept_line_ending_normalization"
     },
     {
       "label": "Session 2026-07-30 - Continuous Push and Cross-IDE Setup",
       "file_type": "document",
       "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
-      "id": "session_2026_07_30_continuous_push_cross_ide",
+      "community": 4,
+      "norm_label": "session 2026-07-30 - continuous push and cross-ide setup",
+      "id": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "label": "Research Playbook (research/00-RESEARCH-PLAYBOOK.md)",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Operating manual for the research-to-blueprint program; any agent in any IDE runs phases to its standards.",
+      "id": "research_playbook",
       "community": 0,
-      "norm_label": "session 2026-07-30 - continuous push and cross-ide setup"
+      "norm_label": "research playbook (research/00-research-playbook.md)"
+    },
+    {
+      "label": "Nine-phase gated research program (Phase 0 to Phase 8)",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Founder brief through Business Blueprint; each phase gated on Claudio's approval, Phase 4 concept lock is the heaviest gate.",
+      "id": "research_program_nine_phases",
+      "community": 0,
+      "norm_label": "nine-phase gated research program (phase 0 to phase 8)"
+    },
+    {
+      "label": "Citation and confidence-labeling standard ([verified]/[inferred]/[assumption])",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Every claim sourced and labeled; no source, no claim; assumptions never silently absorbed.",
+      "id": "standard_citation_confidence",
+      "community": 0,
+      "norm_label": "citation and confidence-labeling standard ([verified]/[inferred]/[assumption])"
+    },
+    {
+      "label": "Phase definition-of-done gate checklist",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Nine conditions including vault knowledge notes, session note, graph update, push, and Claudio's gate approval.",
+      "id": "standard_definition_of_done",
+      "community": 0,
+      "norm_label": "phase definition-of-done gate checklist"
+    },
+    {
+      "label": "Phase 1: Market and industry research",
+      "file_type": "document",
+      "source_file": "research/01-market/_index.md",
+      "rationale": "Market landscape, TAM-SAM-SOM with methodology, industry trends, regulatory compliance.",
+      "id": "phase1_market_research",
+      "community": 0,
+      "norm_label": "phase 1: market and industry research"
+    },
+    {
+      "label": "Phase 2: Competitor analysis",
+      "file_type": "document",
+      "source_file": "research/02-competitors/_index.md",
+      "rationale": "Profiles (Runna, TrainAsONE, AI Endurance, Coopah, Joggo; adjacent Strava, Garmin, Nike Run Club, WHOOP, Apple Fitness+), feature and pricing matrices, positioning map, gap analysis.",
+      "id": "phase2_competitor_analysis",
+      "community": 0,
+      "norm_label": "phase 2: competitor analysis"
+    },
+    {
+      "label": "Phase 3: User research",
+      "file_type": "document",
+      "source_file": "research/03-users/_index.md",
+      "rationale": "Segmentation, evidence-based personas, jobs-to-be-done, pain points mined from reviews and forums, ranked unmet needs.",
+      "id": "phase3_user_research",
+      "community": 0,
+      "norm_label": "phase 3: user research"
+    },
+    {
+      "label": "Phase 4: Synthesis and concept lock",
+      "file_type": "document",
+      "source_file": "research/04-synthesis/_index.md",
+      "rationale": "Opportunity, positioning, locked concept document, and the verdict on every Founder Brief hypothesis.",
+      "id": "phase4_synthesis_concept",
+      "community": 0,
+      "norm_label": "phase 4: synthesis and concept lock"
+    },
+    {
+      "label": "Phase 5: Product definition and MVP scope",
+      "file_type": "document",
+      "source_file": "research/05-product/_index.md",
+      "rationale": "PRD, RICE prioritization, MVP scope with the ONE core job, user journeys, stack recommendation.",
+      "id": "phase5_product_mvp",
+      "community": 0,
+      "norm_label": "phase 5: product definition and mvp scope"
+    },
+    {
+      "label": "Phase 6: Business model and go-to-market",
+      "file_type": "document",
+      "source_file": "research/06-business-model/_index.md",
+      "rationale": "Business Model Canvas, revenue model, directional unit economics, North Star metric, GTM plan.",
+      "id": "phase6_business_model",
+      "community": 0,
+      "norm_label": "phase 6: business model and go-to-market"
+    },
+    {
+      "label": "Phase 7: HTML research dashboard on Vercel (deployment protection required)",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Static HTML presenting all research; confidential pre-launch material must not deploy unprotected.",
+      "id": "phase7_research_dashboard",
+      "community": 0,
+      "norm_label": "phase 7: html research dashboard on vercel (deployment protection required)"
+    },
+    {
+      "label": "Phase 8: Business Blueprint (investor deliverable)",
+      "file_type": "document",
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Markdown master blueprint plus investor-facing HTML site on Vercel; the fundraising instrument.",
+      "id": "phase8_business_blueprint",
+      "community": 2,
+      "norm_label": "phase 8: business blueprint (investor deliverable)"
+    },
+    {
+      "label": "Founder Brief (Claudio's vision, 2026-07-30 interview)",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Founder vision captured before research; source of testable hypotheses H1 to H7.",
+      "id": "founder_brief",
+      "community": 2,
+      "norm_label": "founder brief (claudio's vision, 2026-07-30 interview)"
+    },
+    {
+      "label": "Adaptive route generation (hero wedge)",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Routes adapting to distance, elevation, humidity and weather, street crossings, safety, surface; coaching layers on top. The product's atomic unit is the route.",
+      "id": "concept_adaptive_route_generation",
+      "community": 2,
+      "norm_label": "adaptive route generation (hero wedge)"
+    },
+    {
+      "label": "Problem: where to run in unfamiliar situations",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Runners on vacation, travel, or unexpected scenarios do not know where to run or how to get a routine fit to their body, schedule, and needs.",
+      "id": "problem_where_to_run",
+      "community": 2,
+      "norm_label": "problem: where to run in unfamiliar situations"
+    },
+    {
+      "label": "Target user: the committed amateur runner",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Runs 3 to 5 times per week, races a few times a year (5K to marathon), wants to improve, will not pay a human coach. To be validated in Phase 3.",
+      "id": "user_committed_amateur",
+      "community": 0,
+      "norm_label": "target user: the committed amateur runner"
+    },
+    {
+      "label": "Testable hypotheses H1 to H7",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Route friction (H1), no incumbent solves constraint-based routes (H2), route wedge beats plan wedge (H3), freemium willingness to pay (H4), venture-scale market (H5), iOS-first form factor (H6), routine personalization deepens retention (H7).",
+      "id": "hypotheses_h1_h7",
+      "community": 0,
+      "norm_label": "testable hypotheses h1 to h7"
+    },
+    {
+      "label": "Business intent: venture-scale, freemium subscription, seed in 12 months",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "MVP live with thousands of active runners and a seed round closed or in motion within 12 months; the blueprint is the fundraising instrument.",
+      "id": "business_venture_scale_freemium",
+      "community": 2,
+      "norm_label": "business intent: venture-scale, freemium subscription, seed in 12 months"
+    },
+    {
+      "label": "DEC-005: Phased research program with gated approvals",
+      "file_type": "document",
+      "source_file": "vault/02-Decisions/DEC-005 Phased research program with gated approvals.md",
+      "rationale": "Locks the nine-phase pipeline, evidence standards, deliverable homes, Vercel for HTML deliverables, and version tags v0.2.0 to v0.4.0.",
+      "id": "dec005_gated_research_program",
+      "community": 0,
+      "norm_label": "dec-005: phased research program with gated approvals"
+    },
+    {
+      "label": "Session 2026-07-30 - Research Program Kickoff and Founder Brief",
+      "file_type": "document",
+      "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "rationale": "Built research scaffolding, ran founder interview, recorded DEC-005; key reveal was the route-generation wedge.",
+      "id": "session_2026_07_30_research_kickoff",
+      "community": 0,
+      "norm_label": "session 2026-07-30 - research program kickoff and founder brief"
     }
   ],
   "links": [
@@ -1700,6 +1880,24 @@
       "target": "session_2026_07_30_continuous_push_cross_ide"
     },
     {
+      "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "source": "start_here_home",
+      "target": "founder_brief",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "source": "start_here_home",
+      "target": "research_program_nine_phases",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2308,6 +2506,16 @@
       "target": "knowledge_index_index"
     },
     {
+      "relation": "refines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "The route-generation wedge sharpens the previously tagline-only product concept.",
+      "source": "product_ai_running_coach",
+      "target": "concept_adaptive_route_generation",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -2333,6 +2541,25 @@
       "weight": 1.0,
       "source": "charter_charter",
       "target": "knowledge_index_index"
+    },
+    {
+      "relation": "documents",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "rationale": "Charter upgraded from stub to draft with the route wedge as hero feature.",
+      "source": "charter_charter",
+      "target": "concept_adaptive_route_generation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "source": "charter_charter",
+      "target": "founder_brief",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -2453,6 +2680,16 @@
     },
     {
       "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/02-Decisions/DEC-005 Phased research program with gated approvals.md",
+      "rationale": "Same one-canonical-file principle applied to the research playbook.",
+      "source": "dec004_continuous_push_cross_ide",
+      "target": "dec005_gated_research_program",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
@@ -2468,6 +2705,274 @@
       "weight": 1.0,
       "source": "concept_line_ending_normalization",
       "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "The playbook specifies the phase table, gates, and version tags.",
+      "source": "research_playbook",
+      "target": "research_program_nine_phases",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_playbook",
+      "target": "standard_citation_confidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_playbook",
+      "target": "standard_definition_of_done",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "documents",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "source": "research_playbook",
+      "target": "session_2026_07_30_research_kickoff",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase1_market_research",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase2_competitor_analysis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase3_user_research",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase4_synthesis_concept",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase5_product_mvp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase6_business_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase7_research_dashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "source": "research_program_nine_phases",
+      "target": "phase8_business_blueprint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "records",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/02-Decisions/DEC-005 Phased research program with gated approvals.md",
+      "source": "research_program_nine_phases",
+      "target": "dec005_gated_research_program",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluated_in",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "H4 and H5 tested against market sizing and economics.",
+      "source": "phase1_market_research",
+      "target": "hypotheses_h1_h7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "feeds",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "Competitor app store reviews and community complaints are primary input for user research.",
+      "source": "phase2_competitor_analysis",
+      "target": "phase3_user_research",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluated_in",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "H2 and H3 tested against the competitive set.",
+      "source": "phase2_competitor_analysis",
+      "target": "hypotheses_h1_h7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluated_in",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "H1, H6, H7 tested in user research.",
+      "source": "phase3_user_research",
+      "target": "hypotheses_h1_h7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluated_in",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "phase3_user_research",
+      "target": "user_committed_amateur",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluated_in",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "rationale": "Phase 4's hypotheses-review.md delivers the verdict on every hypothesis.",
+      "source": "phase4_synthesis_concept",
+      "target": "hypotheses_h1_h7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "supports",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/00-RESEARCH-PLAYBOOK.md",
+      "rationale": "The blueprint is the fundraising instrument for the venture-scale goal.",
+      "source": "phase8_business_blueprint",
+      "target": "business_venture_scale_freemium",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/02-Decisions/DEC-005 Phased research program with gated approvals.md",
+      "source": "founder_brief",
+      "target": "dec005_gated_research_program",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "founder_brief",
+      "target": "problem_where_to_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "founder_brief",
+      "target": "concept_adaptive_route_generation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "founder_brief",
+      "target": "user_committed_amateur",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "founder_brief",
+      "target": "hypotheses_h1_h7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "founder_brief",
+      "target": "business_venture_scale_freemium",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "documents",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "source": "founder_brief",
+      "target": "session_2026_07_30_research_kickoff",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "solves",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/01-Project/Founder-Brief.md",
+      "source": "concept_adaptive_route_generation",
+      "target": "problem_where_to_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "documents",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "source": "dec005_gated_research_program",
+      "target": "session_2026_07_30_research_kickoff",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [
@@ -2519,5 +3024,5 @@
       "source_file": "vault/02-Decisions/_Decision-Log.md"
     }
   ],
-  "built_at_commit": "efc06f52303b96e6e845d7498a16c88a8713dbe4"
+  "built_at_commit": "20318850b7b1acafad6327eb7b322c5ade6bdc19"
 }
