@@ -59,7 +59,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "app.json",
       "id": "vault_obsidian_app"
@@ -70,7 +70,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "alwaysupdatelinks",
       "id": "vault_obsidian_app_alwaysupdatelinks"
@@ -81,7 +81,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "newlinkformat",
       "id": "vault_obsidian_app_newlinkformat"
@@ -92,7 +92,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "usemarkdownlinks",
       "id": "vault_obsidian_app_usemarkdownlinks"
@@ -103,7 +103,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "attachmentfolderpath",
       "id": "vault_obsidian_app_attachmentfolderpath"
@@ -114,7 +114,7 @@
       "source_file": "vault/.obsidian/app.json",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 2,
+      "community": 5,
       "community_name": "app.json",
       "norm_label": "showunsupportedfiles",
       "id": "vault_obsidian_app_showunsupportedfiles"
@@ -128,7 +128,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "waypoint agent protocol",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_protocol"
@@ -142,7 +142,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "changelog",
       "community_name": "Changelog",
       "id": "changelog_changelog"
@@ -156,7 +156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 2,
       "norm_label": "readme overview",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_overview"
@@ -170,7 +170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 2,
       "norm_label": "versioning strategy",
       "community_name": "Changelog",
       "id": "docs_versioning_strategy"
@@ -198,7 +198,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 1,
       "norm_label": "charter",
       "community_name": "Decision Log",
       "id": "vault_01_project_charter_charter"
@@ -212,9 +212,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 8,
       "norm_label": "dec-001 trunk-based versioning on main",
       "community_name": "Changelog",
+      "rationale": "One branch to trust satisfies the 'latest approved version' requirement; lower overhead than GitFlow for a solo founder with no long-lived develop branch to drift; tags plus changelog give named, auditable milestones without ceremony. GitFlow and main-only/commit-direct were both considered and rejected. Amended by DEC-004 (2026-07-30): push cadence changed from session-end-only to continuous; everything else in the decision stands.",
       "id": "dec001_trunk_versioning"
     },
     {
@@ -226,7 +227,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 6,
       "norm_label": "dec-002 obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_memory"
@@ -240,7 +241,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 7,
       "norm_label": "dec-003 graphify as queryable project brain",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_graphify_brain"
@@ -254,7 +255,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 4,
       "norm_label": "decision log",
       "community_name": "Decision Log",
       "id": "vault_02_decisions_decision_log_index"
@@ -282,7 +283,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 4,
       "norm_label": "architecture index",
       "community_name": "Decision Log",
       "id": "vault_05_architecture_architecture_index_index"
@@ -296,7 +297,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 4,
       "norm_label": "decision record template",
       "community_name": "Decision Log",
       "id": "template_decision_record"
@@ -324,7 +325,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "session note template",
       "community_name": "Waypoint Agent Protocol",
       "id": "template_session_note"
@@ -339,7 +340,7 @@
       "author": null,
       "contributor": null,
       "rationale": "The repository is the single source of truth: product definition, decisions, knowledge, architecture, and eventually code all live in one versioned repo pushed to GitHub, so any human or agent opening it sees the current truth.",
-      "community": 3,
+      "community": 1,
       "norm_label": "waypoint (startup project)",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_waypoint_project"
@@ -354,7 +355,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Chosen so main is one branch to trust that always shows the latest approved version. Lower overhead than GitFlow for a solo founder (no long-lived develop branch to drift); main-only direct commits rejected because short-lived branches give a cheap review point before work becomes approved. Branches must stay short-lived (hours to days) or they defeat the model.",
-      "community": 0,
+      "community": 2,
       "norm_label": "trunk-based development",
       "community_name": "Changelog",
       "id": "docs_versioning_trunk_based_development"
@@ -369,7 +370,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Tags plus changelog give named, auditable milestones without ceremony. MAJOR = breaking/directional change, MINOR = new capability or phase, PATCH = fixes; pre-1.0 (v0.x.y) signals the project is still forming.",
-      "community": 0,
+      "community": 3,
       "norm_label": "semantic versioning",
       "community_name": "Changelog",
       "id": "changelog_semantic_versioning"
@@ -384,7 +385,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Human-readable history of approved versions; every tag gets an entry written when the tag is created, not after.",
-      "community": 0,
+      "community": 3,
       "norm_label": "keep a changelog format",
       "community_name": "Changelog",
       "id": "changelog_keep_a_changelog"
@@ -399,7 +400,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Structured commit messages (type(scope): summary) keep history legible; types are feat, fix, docs, chore, refactor, test.",
-      "community": 0,
+      "community": 3,
       "norm_label": "conventional commits",
       "community_name": "Changelog",
       "id": "docs_versioning_conventional_commits"
@@ -414,7 +415,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Multiple tools and machines may touch the repo, so every commit carries computer, tool, version, and timestamp read from the real environment to keep history traceable; unknown values are written as 'unknown', never omitted or guessed.",
-      "community": 1,
+      "community": 2,
       "norm_label": "agent attribution footer",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_attribution_footer"
@@ -429,7 +430,7 @@
       "author": null,
       "contributor": null,
       "rationale": "No silent undated versioned artifacts: every doc, deck, script, config, or report carries a visible Version-Timestamp header; vault notes use the 'updated:' YAML frontmatter field for the same purpose.",
-      "community": 1,
+      "community": 2,
       "norm_label": "version-timestamp convention",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_version_timestamp"
@@ -444,7 +445,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Persistent, versioned project memory exists to prevent agent amnesia across sessions: every session starts from START-HERE plus the latest session note rather than re-reading the repo.",
-      "community": 5,
+      "community": 6,
       "norm_label": "obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_project_memory"
@@ -459,7 +460,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Serves as the queryable project brain: task-specific context is retrieved with graphify query against graph.json instead of re-reading raw repo files, minimizing token cost.",
-      "community": 5,
+      "community": 6,
       "norm_label": "graphify knowledge graph",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec003_graphify_knowledge_graph"
@@ -474,7 +475,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Rebuilds the graph from code changes for free using AST parsing, no LLM tokens. Limitation: covers only code; doc updates remain a manual, protocol-enforced --update step at session end.",
-      "community": 1,
+      "community": 7,
       "norm_label": "post-commit graph rebuild hook",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_post_commit_hook"
@@ -489,7 +490,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Accumulates per-run token counts so the cost of maintaining and querying project memory stays visible instead of hidden.",
-      "community": 0,
+      "community": 7,
       "norm_label": "token cost telemetry",
       "community_name": "Changelog",
       "id": "dec003_cost_telemetry"
@@ -504,7 +505,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Mandatory, never skipped: write the session note, update START-HERE, rebuild the graph if docs changed, commit and push. Exists because local-only history does not count as saved and a brand-new session must be able to resume from START-HERE plus the latest session note alone.",
-      "community": 1,
+      "community": 7,
       "norm_label": "session-end checklist",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_session_end_checklist"
@@ -519,7 +520,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Ordered to minimize token cost: always-loaded protocol file, then START-HERE, then a budgeted graphify query, then targeted vault notes via wikilinks, with raw file reads as last resort. Exists to prevent amnesia-driven re-reading of the whole repo.",
-      "community": 4,
+      "community": 6,
       "norm_label": "context retrieval order",
       "community_name": "START HERE (Project Entry Point)",
       "id": "agents_context_retrieval_order"
@@ -563,9 +564,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "session_2026_07_30_foundation_setup",
       "community": 3,
-      "norm_label": "session 2026-07-30 foundation setup"
+      "norm_label": "session 2026-07-30 foundation setup",
+      "id": "session_2026_07_30_foundation_setup"
     },
     {
       "label": "Your AI Running Coach (Product Concept)",
@@ -577,9 +578,136 @@
       "author": null,
       "contributor": null,
       "rationale": "Working tagline discovered in the remote GitHub README; adopted as the product concept placeholder. Full product definition (features, differentiation, business model) is deliberately deferred to a dedicated product discovery session.",
-      "id": "product_ai_running_coach",
-      "community": 3,
-      "norm_label": "your ai running coach (product concept)"
+      "community": 1,
+      "norm_label": "your ai running coach (product concept)",
+      "id": "product_ai_running_coach"
+    },
+    {
+      "label": "Charter (Waypoint product charter stub)",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Charter.md",
+      "id": "charter_charter",
+      "community": 1,
+      "norm_label": "charter (waypoint product charter stub)"
+    },
+    {
+      "label": "Decision Log index",
+      "file_type": "document",
+      "source_file": "vault/02-Decisions/_Decision-Log.md",
+      "id": "decision_log_index",
+      "community": 7,
+      "norm_label": "decision log index"
+    },
+    {
+      "label": "Knowledge Index",
+      "file_type": "document",
+      "source_file": "vault/04-Knowledge/_Knowledge-Index.md",
+      "id": "knowledge_index_index",
+      "community": 1,
+      "norm_label": "knowledge index"
+    },
+    {
+      "label": "Trunk-based development model",
+      "file_type": "document",
+      "source_file": "docs/VERSIONING.md",
+      "id": "versioning_trunk_based_development",
+      "community": 2,
+      "norm_label": "trunk-based development model"
+    },
+    {
+      "label": "Conventional Commits convention",
+      "file_type": "document",
+      "source_file": "docs/VERSIONING.md",
+      "id": "versioning_conventional_commits",
+      "community": 8,
+      "norm_label": "conventional commits convention"
+    },
+    {
+      "label": "Agent-Attribution commit footer",
+      "file_type": "document",
+      "source_file": "docs/VERSIONING.md",
+      "rationale": "Values are read from the real environment (hostname, tool, version, timestamp) so history stays traceable across the multiple machines and tools that may touch the repo; unknown values are written as 'unknown' rather than omitted.",
+      "id": "versioning_attribution_footer",
+      "community": 8,
+      "norm_label": "agent-attribution commit footer"
+    },
+    {
+      "label": "Version-Timestamp versioned-artifact header",
+      "file_type": "document",
+      "source_file": "docs/VERSIONING.md",
+      "id": "versioning_version_timestamp",
+      "community": 2,
+      "norm_label": "version-timestamp versioned-artifact header"
+    },
+    {
+      "label": "Engineering mantra: security, stability, reliability, compliance",
+      "file_type": "document",
+      "source_file": "vault/01-Project/Charter.md",
+      "id": "charter_engineering_mantra",
+      "community": 1,
+      "norm_label": "engineering mantra: security, stability, reliability, compliance"
+    },
+    {
+      "label": "CLAUDE.md (Claude Code pointer file)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "rationale": "A symlink from CLAUDE.md to AGENTS.md was considered but rejected because core.symlinks is disabled on this machine (common on Windows without developer mode), which would store the link as an unusable plain-text path reference; a real short pointer file works identically everywhere at the cost of one nearly-empty file to keep in sync. Duplicating full agent instructions per tool was also rejected because it guarantees drift.",
+      "id": "claude_md_pointer_file",
+      "community": 0,
+      "norm_label": "claude.md (claude code pointer file)"
+    },
+    {
+      "label": "CONTRIBUTING.md (collaborator onboarding doc)",
+      "file_type": "document",
+      "source_file": "CONTRIBUTING.md",
+      "rationale": "Added as the human-facing onboarding doc covering clone, git identity, tool choice, the Obsidian vault, Graphify setup, and contribution workflow, so any collaborator (including Claudio's partner) can pick the project up cold from any machine or tool.",
+      "id": "contributing_onboarding_doc",
+      "community": 0,
+      "norm_label": "contributing.md (collaborator onboarding doc)"
+    },
+    {
+      "label": "DEC-004: Continuous push and cross-IDE agent files",
+      "file_type": "document",
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "rationale": "Two requirements surfaced once a second collaborator (Claudio's partner) entered the picture: (1) GitHub must always reflect current work, not just work committed at session end, so a partner can pull main at any moment and see the latest; (2) the project must be fully usable from any AI coding tool on any machine, not only inside the Cursor workspace. Keeping push cadence at session-end only, and using separate tool-specific instruction files with duplicated content, were both rejected as alternatives.",
+      "id": "dec004_continuous_push_cross_ide",
+      "community": 0,
+      "norm_label": "dec-004: continuous push and cross-ide agent files"
+    },
+    {
+      "label": "Continuous push policy (commit and push after every meaningful unit of work)",
+      "file_type": "document",
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "rationale": "Amends DEC-001's session-end-only cadence. Continuous push has an overhead cost (more, smaller commits) but directly serves the goal that a human collaborator must never be blocked waiting for a session to 'finish'; more frequent commits in history are intentional, not noise.",
+      "id": "policy_continuous_push",
+      "community": 0,
+      "norm_label": "continuous push policy (commit and push after every meaningful unit of work)"
+    },
+    {
+      "label": "Cross-IDE / cross-tool compatibility (Cursor, Codex CLI, Claude Code, Gemini CLI, others)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "rationale": "One canonical AGENTS.md plus thin, non-duplicated pointer files (e.g. CLAUDE.md) avoids duplicating agent instructions per tool, which would guarantee drift; this is the maintainable version of a 'reference, don't embed' principle.",
+      "id": "concept_cross_ide_compatibility",
+      "community": 0,
+      "norm_label": "cross-ide / cross-tool compatibility (cursor, codex cli, claude code, gemini cli, others)"
+    },
+    {
+      "label": ".gitattributes line-ending normalization (eol=lf)",
+      "file_type": "document",
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "rationale": "Normalizes line endings so the repo is byte-identical on Windows, macOS, and Linux, avoiding spurious diffs between collaborators on different operating systems; applied as a one-time repo-wide renormalization pass, already completed.",
+      "id": "concept_line_ending_normalization",
+      "community": 0,
+      "norm_label": ".gitattributes line-ending normalization (eol=lf)"
+    },
+    {
+      "label": "Session 2026-07-30 - Continuous Push and Cross-IDE Setup",
+      "file_type": "document",
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "id": "session_2026_07_30_continuous_push_cross_ide",
+      "community": 0,
+      "norm_label": "session 2026-07-30 - continuous push and cross-ide setup"
     }
   ],
   "links": [
@@ -735,8 +863,8 @@
       "source_file": "vault/00-START-HERE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "start_here_home",
-      "target": "agents_protocol"
+      "source": "agents_protocol",
+      "target": "start_here_home"
     },
     {
       "relation": "references",
@@ -785,8 +913,8 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_overview",
-      "target": "agents_protocol"
+      "source": "agents_protocol",
+      "target": "readme_overview"
     },
     {
       "relation": "references",
@@ -795,8 +923,71 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "agents_protocol"
+      "source": "agents_protocol",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "claude_md_pointer_file"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "versioning_attribution_footer"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "policy_continuous_push"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "contributing_onboarding_doc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "agents_protocol",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
     },
     {
       "relation": "cites",
@@ -862,7 +1053,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "CHANGELOG.md",
+      "source_file": "docs/VERSIONING.md",
       "source_location": null,
       "weight": 1.0,
       "source": "changelog_changelog",
@@ -895,8 +1086,8 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_overview",
-      "target": "changelog_changelog"
+      "source": "changelog_changelog",
+      "target": "readme_overview"
     },
     {
       "relation": "references",
@@ -905,8 +1096,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "changelog_changelog"
+      "source": "changelog_changelog",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -939,7 +1130,7 @@
       "target": "dec003_graphify_knowledge_graph"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
@@ -1025,8 +1216,53 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "readme_overview"
+      "source": "readme_overview",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "weight": 1.0,
+      "source": "readme_overview",
+      "target": "claude_md_pointer_file"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "weight": 1.0,
+      "source": "readme_overview",
+      "target": "contributing_onboarding_doc"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "weight": 1.0,
+      "source": "readme_overview",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "weight": 1.0,
+      "source": "readme_overview",
+      "target": "versioning_trunk_based_development"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "readme_overview",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
     },
     {
       "relation": "references",
@@ -1115,8 +1351,71 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "docs_versioning_strategy"
+      "source": "docs_versioning_strategy",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "contributing_onboarding_doc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/VERSIONING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "versioning_trunk_based_development"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/VERSIONING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "versioning_conventional_commits"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/VERSIONING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "versioning_attribution_footer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/VERSIONING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "versioning_version_timestamp"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/VERSIONING.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "policy_continuous_push"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "docs_versioning_strategy",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
     },
     {
       "relation": "conceptually_related_to",
@@ -1129,7 +1428,7 @@
       "target": "agents_context_retrieval_order"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vault/00-START-HERE.md",
@@ -1149,7 +1448,7 @@
       "target": "dec002_vault_project_memory"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vault/00-START-HERE.md",
@@ -1169,7 +1468,7 @@
       "target": "dec003_cost_telemetry"
     },
     {
-      "relation": "cites",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "vault/00-START-HERE.md",
@@ -1245,8 +1544,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "start_here_home"
+      "source": "start_here_home",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "conceptually_related_to",
@@ -1329,6 +1628,78 @@
       "target": "vault_05_architecture_architecture_index_index"
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "contributing_onboarding_doc"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "claude_md_pointer_file"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "charter_charter"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "decision_log_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "policy_continuous_push"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/00-START-HERE.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "start_here_home",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
       "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -1365,8 +1736,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "vault_01_project_charter_charter"
+      "source": "vault_01_project_charter_charter",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1439,14 +1810,59 @@
       "target": "vault_02_decisions_decision_log_index"
     },
     {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "vault/00-START-HERE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec001_trunk_versioning"
+      "source": "dec001_trunk_versioning",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/_Decision-Log.md",
+      "weight": 1.0,
+      "source": "dec001_trunk_versioning",
+      "target": "decision_log_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-001 Trunk-based versioning on main.md",
+      "weight": 1.0,
+      "source": "dec001_trunk_versioning",
+      "target": "versioning_conventional_commits"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-001 Trunk-based versioning on main.md",
+      "weight": 1.0,
+      "source": "dec001_trunk_versioning",
+      "target": "versioning_attribution_footer"
+    },
+    {
+      "relation": "amends",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "dec001_trunk_versioning",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "dec001_trunk_versioning",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
     },
     {
       "relation": "rationale_for",
@@ -1499,14 +1915,23 @@
       "target": "vault_02_decisions_decision_log_index"
     },
     {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "vault/00-START-HERE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec002_vault_memory"
+      "source": "dec002_vault_memory",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/_Decision-Log.md",
+      "weight": 1.0,
+      "source": "dec002_vault_memory",
+      "target": "decision_log_index"
     },
     {
       "relation": "references",
@@ -1519,30 +1944,30 @@
       "target": "agents_session_end_checklist"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
       "source": "dec003_graphify_brain",
       "target": "dec003_cost_telemetry"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "vault/00-START-HERE.md",
       "source_location": null,
       "weight": 1.0,
       "source": "dec003_graphify_brain",
       "target": "dec003_graphify_knowledge_graph"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/02-Decisions/DEC-003 Graphify as queryable project brain.md",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "CONTRIBUTING.md",
       "source_location": null,
       "weight": 1.0,
       "source": "dec003_graphify_brain",
@@ -1559,14 +1984,23 @@
       "target": "vault_02_decisions_decision_log_index"
     },
     {
-      "relation": "cites",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "vault/00-START-HERE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec003_graphify_brain"
+      "source": "dec003_graphify_brain",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/_Decision-Log.md",
+      "weight": 1.0,
+      "source": "dec003_graphify_brain",
+      "target": "decision_log_index"
     },
     {
       "relation": "references",
@@ -1605,8 +2039,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "template_decision_record"
+      "source": "template_decision_record",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1615,8 +2049,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "template_knowledge_note"
+      "source": "template_knowledge_note",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "implements",
@@ -1655,8 +2089,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "template_session_note"
+      "source": "template_session_note",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "conceptually_related_to",
@@ -1665,8 +2099,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "readme_waypoint_project"
+      "source": "readme_waypoint_project",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "conceptually_related_to",
@@ -1675,8 +2109,8 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "product_ai_running_coach",
-      "target": "readme_waypoint_project"
+      "source": "readme_waypoint_project",
+      "target": "product_ai_running_coach"
     },
     {
       "relation": "references",
@@ -1685,8 +2119,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "docs_versioning_trunk_based_development"
+      "source": "docs_versioning_trunk_based_development",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1695,8 +2129,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "changelog_semantic_versioning"
+      "source": "changelog_semantic_versioning",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1705,8 +2139,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "docs_versioning_conventional_commits"
+      "source": "docs_versioning_conventional_commits",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "semantically_similar_to",
@@ -1725,8 +2159,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "docs_versioning_attribution_footer"
+      "source": "docs_versioning_attribution_footer",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "shares_data_with",
@@ -1745,8 +2179,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec002_vault_project_memory"
+      "source": "dec002_vault_project_memory",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1765,8 +2199,17 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec003_graphify_knowledge_graph"
+      "source": "dec003_graphify_knowledge_graph",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "dec003_graphify_knowledge_graph",
+      "target": "contributing_onboarding_doc"
     },
     {
       "relation": "conceptually_related_to",
@@ -1785,8 +2228,17 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec003_post_commit_hook"
+      "source": "dec003_post_commit_hook",
+      "target": "session_2026_07_30_foundation_setup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "dec003_post_commit_hook",
+      "target": "contributing_onboarding_doc"
     },
     {
       "relation": "references",
@@ -1795,8 +2247,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "dec003_cost_telemetry"
+      "source": "dec003_cost_telemetry",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "implements",
@@ -1805,8 +2257,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "agents_session_end_checklist"
+      "source": "agents_session_end_checklist",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1815,8 +2267,8 @@
       "source_file": "vault/03-Sessions/2026-07-30 Foundation Setup.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "session_2026_07_30_foundation_setup",
-      "target": "start_here_github_repo"
+      "source": "start_here_github_repo",
+      "target": "session_2026_07_30_foundation_setup"
     },
     {
       "relation": "references",
@@ -1827,6 +2279,195 @@
       "weight": 1.0,
       "source": "session_2026_07_30_foundation_setup",
       "target": "product_ai_running_coach"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "session_2026_07_30_foundation_setup",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "weight": 1.0,
+      "source": "product_ai_running_coach",
+      "target": "charter_charter"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "vault/04-Knowledge/_Knowledge-Index.md",
+      "weight": 1.0,
+      "source": "product_ai_running_coach",
+      "target": "knowledge_index_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "weight": 1.0,
+      "source": "charter_charter",
+      "target": "decision_log_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/01-Project/Charter.md",
+      "weight": 1.0,
+      "source": "charter_charter",
+      "target": "charter_engineering_mantra"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "vault/04-Knowledge/_Knowledge-Index.md",
+      "weight": 1.0,
+      "source": "charter_charter",
+      "target": "knowledge_index_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/_Decision-Log.md",
+      "weight": 1.0,
+      "source": "decision_log_index",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "weight": 1.0,
+      "source": "claude_md_pointer_file",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "claude_md_pointer_file",
+      "target": "contributing_onboarding_doc"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "claude_md_pointer_file",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "claude_md_pointer_file",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "contributing_onboarding_doc",
+      "target": "policy_continuous_push"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CONTRIBUTING.md",
+      "weight": 1.0,
+      "source": "contributing_onboarding_doc",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "contributing_onboarding_doc",
+      "target": "dec004_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "contributing_onboarding_doc",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "dec004_continuous_push_cross_ide",
+      "target": "policy_continuous_push"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "dec004_continuous_push_cross_ide",
+      "target": "concept_line_ending_normalization"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
+      "weight": 1.0,
+      "source": "dec004_continuous_push_cross_ide",
+      "target": "concept_cross_ide_compatibility"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "dec004_continuous_push_cross_ide",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "policy_continuous_push",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
+      "weight": 1.0,
+      "source": "concept_line_ending_normalization",
+      "target": "session_2026_07_30_continuous_push_cross_ide"
     }
   ],
   "hyperedges": [
@@ -1878,5 +2519,5 @@
       "source_file": "vault/02-Decisions/_Decision-Log.md"
     }
   ],
-  "built_at_commit": "caba67ffc925354370a9d134802bb3eb276f67b4"
+  "built_at_commit": "efc06f52303b96e6e845d7498a16c88a8713dbe4"
 }

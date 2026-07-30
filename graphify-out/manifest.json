@@ -20,9 +20,9 @@
     "semantic_hash": "aeecf1da7856a45571092f30c059fa1d"
   },
   "AGENTS.md": {
-    "mtime": 1785428247.27984,
-    "ast_hash": "ea8cbe9f582d66f813c2e3782be88fcb",
-    "semantic_hash": "ea8cbe9f582d66f813c2e3782be88fcb"
+    "mtime": 1785430307.4864163,
+    "ast_hash": "a0046a100f60a16154bf6f8220adcfbd",
+    "semantic_hash": ""
   },
   "CHANGELOG.md": {
     "mtime": 1785428092.225963,
@@ -30,19 +30,19 @@
     "semantic_hash": "0a62af63a52839e8de624d61f3fbd357"
   },
   "README.md": {
-    "mtime": 1785429456.4603508,
-    "ast_hash": "b0ca616ed535d0c52c261cb5c0f26b4c",
+    "mtime": 1785430339.2839282,
+    "ast_hash": "14c7a63a90c6a10a1717787e9435c655",
     "semantic_hash": ""
   },
   "docs/VERSIONING.md": {
-    "mtime": 1785428105.125415,
-    "ast_hash": "0fda2dc57b925ed5ad276e3503fbe4f9",
-    "semantic_hash": "0fda2dc57b925ed5ad276e3503fbe4f9"
+    "mtime": 1785430312.5060961,
+    "ast_hash": "85986fcad43875615364ad4e6b54ed67",
+    "semantic_hash": ""
   },
   "vault/00-START-HERE.md": {
-    "mtime": 1785428968.9122572,
-    "ast_hash": "785cf7b4b4de63e561e395f31d8e8e45",
-    "semantic_hash": "785cf7b4b4de63e561e395f31d8e8e45"
+    "mtime": 1785430395.3876975,
+    "ast_hash": "fb5a0482f97c9be2d27c9ed986dcc521",
+    "semantic_hash": ""
   },
   "vault/01-Project/Charter.md": {
     "mtime": 1785429780.3205912,
@@ -50,9 +50,9 @@
     "semantic_hash": ""
   },
   "vault/02-Decisions/DEC-001 Trunk-based versioning on main.md": {
-    "mtime": 1785428147.7284677,
-    "ast_hash": "9a6a28be1e5c46ea056ce00a1dd03797",
-    "semantic_hash": "9a6a28be1e5c46ea056ce00a1dd03797"
+    "mtime": 1785430362.1557536,
+    "ast_hash": "fd4fab4067f14527a1f675e88709c831",
+    "semantic_hash": ""
   },
   "vault/02-Decisions/DEC-002 Obsidian vault as project memory.md": {
     "mtime": 1785428156.2308638,
@@ -65,8 +65,8 @@
     "semantic_hash": "013308a621310fd253a4a870c94e1c07"
   },
   "vault/02-Decisions/_Decision-Log.md": {
-    "mtime": 1785429763.6800866,
-    "ast_hash": "905d00263e6d50c8a31c50ed19e9d210",
+    "mtime": 1785430379.6137974,
+    "ast_hash": "688b105a6c80bf9e24babd5d725a6e6a",
     "semantic_hash": ""
   },
   "vault/04-Knowledge/_Knowledge-Index.md": {
@@ -103,5 +103,150 @@
     "mtime": 1785429754.2691572,
     "ast_hash": "7c877bea49eaeabb100563bd157b9051",
     "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785430283.6431878,
+    "ast_hash": "2ec23b80f6b5aa2dccbd65638a710104",
+    "semantic_hash": ""
+  },
+  "CONTRIBUTING.md": {
+    "mtime": 1785430331.676571,
+    "ast_hash": "bb70e3b85a295fcc996818ab622b921f",
+    "semantic_hash": ""
+  },
+  "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md": {
+    "mtime": 1785430358.9072716,
+    "ast_hash": "33419c00261fc71637e032ac00f1e0ae",
+    "semantic_hash": ""
+  },
+  "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md": {
+    "mtime": 1785430408.6818888,
+    "ast_hash": "6852223b53e243c6f684b7b393c3a52e",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\app.json": {
+    "mtime": 1785429754.7224407,
+    "ast_hash": "6379c15e12018af2daa03b3cd336f49a",
+    "semantic_hash": "6379c15e12018af2daa03b3cd336f49a"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\appearance.json": {
+    "mtime": 1785429754.7268114,
+    "ast_hash": "1c30754693b963610c4b6e538f88e015",
+    "semantic_hash": "1c30754693b963610c4b6e538f88e015"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\core-plugins.json": {
+    "mtime": 1785429754.2691572,
+    "ast_hash": "7c877bea49eaeabb100563bd157b9051",
+    "semantic_hash": "7c877bea49eaeabb100563bd157b9051"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\graph.json": {
+    "mtime": 1785429780.473,
+    "ast_hash": "e854c997bfb5edcee75e9329c28f1af6",
+    "semantic_hash": "e854c997bfb5edcee75e9329c28f1af6"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\templates.json": {
+    "mtime": 1785428199.5578794,
+    "ast_hash": "aeecf1da7856a45571092f30c059fa1d",
+    "semantic_hash": "aeecf1da7856a45571092f30c059fa1d"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\AGENTS.md": {
+    "mtime": 1785430307.4864163,
+    "ast_hash": "a0046a100f60a16154bf6f8220adcfbd",
+    "semantic_hash": "a0046a100f60a16154bf6f8220adcfbd"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\CHANGELOG.md": {
+    "mtime": 1785428092.225963,
+    "ast_hash": "0a62af63a52839e8de624d61f3fbd357",
+    "semantic_hash": "0a62af63a52839e8de624d61f3fbd357"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\CLAUDE.md": {
+    "mtime": 1785430283.6431878,
+    "ast_hash": "2ec23b80f6b5aa2dccbd65638a710104",
+    "semantic_hash": "2ec23b80f6b5aa2dccbd65638a710104"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\CONTRIBUTING.md": {
+    "mtime": 1785430331.676571,
+    "ast_hash": "bb70e3b85a295fcc996818ab622b921f",
+    "semantic_hash": "bb70e3b85a295fcc996818ab622b921f"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\README.md": {
+    "mtime": 1785430339.2839282,
+    "ast_hash": "14c7a63a90c6a10a1717787e9435c655",
+    "semantic_hash": "14c7a63a90c6a10a1717787e9435c655"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\docs\\VERSIONING.md": {
+    "mtime": 1785430312.5060961,
+    "ast_hash": "85986fcad43875615364ad4e6b54ed67",
+    "semantic_hash": "85986fcad43875615364ad4e6b54ed67"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\00-START-HERE.md": {
+    "mtime": 1785430395.3876975,
+    "ast_hash": "fb5a0482f97c9be2d27c9ed986dcc521",
+    "semantic_hash": "fb5a0482f97c9be2d27c9ed986dcc521"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\01-Project\\Charter.md": {
+    "mtime": 1785429780.3205912,
+    "ast_hash": "24f0474dae1a5d1827b6633f63f90d2b",
+    "semantic_hash": "24f0474dae1a5d1827b6633f63f90d2b"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\02-Decisions\\DEC-001 Trunk-based versioning on main.md": {
+    "mtime": 1785430362.1557536,
+    "ast_hash": "fd4fab4067f14527a1f675e88709c831",
+    "semantic_hash": "fd4fab4067f14527a1f675e88709c831"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\02-Decisions\\DEC-002 Obsidian vault as project memory.md": {
+    "mtime": 1785428156.2308638,
+    "ast_hash": "748bdfc210b5dcf1fd15563bc9e135b9",
+    "semantic_hash": "748bdfc210b5dcf1fd15563bc9e135b9"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\02-Decisions\\DEC-003 Graphify as queryable project brain.md": {
+    "mtime": 1785428165.0716896,
+    "ast_hash": "013308a621310fd253a4a870c94e1c07",
+    "semantic_hash": "013308a621310fd253a4a870c94e1c07"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\02-Decisions\\DEC-004 Continuous push and cross-IDE agent files.md": {
+    "mtime": 1785430358.9072716,
+    "ast_hash": "33419c00261fc71637e032ac00f1e0ae",
+    "semantic_hash": "33419c00261fc71637e032ac00f1e0ae"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\02-Decisions\\_Decision-Log.md": {
+    "mtime": 1785430379.6137974,
+    "ast_hash": "688b105a6c80bf9e24babd5d725a6e6a",
+    "semantic_hash": "688b105a6c80bf9e24babd5d725a6e6a"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\03-Sessions\\2026-07-30 Continuous Push and Cross-IDE Setup.md": {
+    "mtime": 1785430408.6818888,
+    "ast_hash": "6852223b53e243c6f684b7b393c3a52e",
+    "semantic_hash": "6852223b53e243c6f684b7b393c3a52e"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\03-Sessions\\2026-07-30 Foundation Setup.md": {
+    "mtime": 1785428994.3366866,
+    "ast_hash": "7e0e245a67e6c7c9f798a190eefe9565",
+    "semantic_hash": "7e0e245a67e6c7c9f798a190eefe9565"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\_Knowledge-Index.md": {
+    "mtime": 1785429774.9898462,
+    "ast_hash": "1f7ac9d0a4479644471277cb1f9937bc",
+    "semantic_hash": "1f7ac9d0a4479644471277cb1f9937bc"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\05-Architecture\\_Architecture-Index.md": {
+    "mtime": 1785428173.4783733,
+    "ast_hash": "897763cb1c80e837973beed1c2c2c3b6",
+    "semantic_hash": "897763cb1c80e837973beed1c2c2c3b6"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\_templates\\Decision-Record.md": {
+    "mtime": 1785428193.1727695,
+    "ast_hash": "a60b07333885565b885b46b87b6471d8",
+    "semantic_hash": "a60b07333885565b885b46b87b6471d8"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\_templates\\Knowledge-Note.md": {
+    "mtime": 1785428195.4814517,
+    "ast_hash": "d02293a2d7864f0c07767a2528836c70",
+    "semantic_hash": "d02293a2d7864f0c07767a2528836c70"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\_templates\\Session-Note.md": {
+    "mtime": 1785428190.5690527,
+    "ast_hash": "7aa073b4c749cbc531547f1d831e1c50",
+    "semantic_hash": "7aa073b4c749cbc531547f1d831e1c50"
   }
 }
