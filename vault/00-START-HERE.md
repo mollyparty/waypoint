@@ -13,7 +13,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program Phases **0 to 4 COMPLETE**. Concept **LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5 deliverables drafted; gate **partially passed** ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope, free launch, Watch fast-follow approved. **Open:** stack final decision (round 2 research) and whether MVP launches on **both iOS and Android** (amends prior iOS-first assumption). Phase 6 blocked until those close.
+- **Phase:** Research program Phases **0 to 4 COMPLETE**. Concept **LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5 deliverables drafted; gate **partially passed** ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope, free launch, Watch fast-follow approved. **Open:** stack final decision and whether MVP launches on **both iOS and Android**. Round 2 study files are **MISSING** (agents hit API limit; must be rewritten). Phase 6 blocked until those close.
 - **Product:** **Know where to run.** Constraint-based adaptive route generation (hero / free-tier anchor), adaptive coaching (paid), voice navigation, privacy day-one. Governing doc: `research/04-synthesis/concept.md`. See [[Charter]].
 - **Review surface:** `dashboard/index.html` (dashboard-first gates). Also live on the protected Vercel preview with `graph/index.html` (interactive knowledge graph).
 - **Publishing:** GitHub → Vercel auto-deploy ([[DEC-007 Vercel publishing pipeline with protected previews]]). Real content: https://waypoint-git-main-mollypartys-projects.vercel.app (login required). Production domains serve a placeholder only.
