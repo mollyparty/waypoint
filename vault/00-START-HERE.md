@@ -13,7 +13,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program Phases **0 to 4 COMPLETE**. Concept **LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5 deliverables drafted; gate **partially passed** ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope, free launch, Watch fast-follow approved. **Open:** stack final decision and whether MVP launches on **both iOS and Android**. Round 2 study files are **MISSING** (agents hit API limit; must be rewritten). Phase 6 blocked until those close.
+- **Phase:** Research program Phases **0 to 4 COMPLETE**. Concept **LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5: ALL deliverables written including the three round-2 studies; gate **partially passed** ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope, free launch, Watch fast-follow approved. **Awaiting two founder decisions** (dashboard cards 8 and 9): the **revised stack** (round 2 replaces Supabase with Aiven EU + self-managed PostGIS + decoupled Better Auth) and the **platform strategy** (recommended: staged React Native, iOS month 9-10, Android +4-8 weeks, ~29-31 pm; amends DEC-006 client stack). Phase 6 blocked until both close.
 - **Product:** **Know where to run.** Constraint-based adaptive route generation (hero / free-tier anchor), adaptive coaching (paid), voice navigation, privacy day-one. Governing doc: `research/04-synthesis/concept.md`. See [[Charter]].
 - **Review surface:** `dashboard/index.html` (dashboard-first gates). Also live on the protected Vercel preview with `graph/index.html` (interactive knowledge graph).
 - **Publishing:** GitHub → Vercel auto-deploy ([[DEC-007 Vercel publishing pipeline with protected previews]]). Real content: https://waypoint-git-main-mollypartys-projects.vercel.app (login required). Production domains serve a placeholder only.
@@ -33,10 +33,11 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Phase 4 synthesis; concept LOCKED → [[Concept and Positioning (Phase 4)]], DEC-006, tag v0.2.0
 - [x] Research dashboard (`dashboard/index.html`); graph explorer (`graph/index.html`); Vercel publishing (DEC-007)
 - [x] Phase 5 drafts: PRD, RICE, MVP scope, journeys, stack recommendation, stack validation → [[Product Definition Key Findings (Phase 5)]]; DEC-008 (partial gate)
+- [x] Phase 5 round 2 studies: `database-deep-dive.md` (Aiven split architecture beats Supabase), `dual-platform-strategy.md` (staged React Native recommended), `api-integration-map.md` (~20 integrations, ~$80-130/mo MVP); digests on dashboard cards 8 and 9
 
 ## What unlocks next (in order)
 
-1. **Finish Phase 5 open gate:** the three round 2 studies are **MISSING** (parallel agents hit an API usage limit and wrote nothing). Next session must create `database-deep-dive.md`, `dual-platform-strategy.md`, and `api-integration-map.md` in `research/05-product/`, publish digests to the dashboard, then Claudio decides stack + iOS/Android platform strategy. Record a new DEC if platform or stack changes.
+1. **Close the Phase 5 gate:** Claudio decides dashboard card 8 (revised stack: Aiven + self-managed PostGIS + Better Auth) and card 9 (platform: Option D staged React Native recommended). Each decision gets a new DEC; Option C/D also updates `mvp-scope.md` effort numbers and the Charter's client stack.
 2. **Phase 6:** business model, unit economics, metrics, GTM (`research/06-business-model/`).
 3. **Phase 7 formal close:** polish dashboard/Vercel packaging (core HTML already live).
 4. **Phase 8:** investor Business Blueprint (`blueprint/`).
@@ -44,8 +45,9 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Open threads
 
-- Round 2 stack/platform/API studies must complete before Phase 6. #open
-- Dual-platform MVP amends DEC-006 / DEC-008 iOS-first assumption; needs an explicit founder decision and decision record. #open
+- Stack and platform decisions (dashboard cards 8 and 9) block Phase 6; each needs its own DEC once made. #open
+- Dual-platform choice amends DEC-006 / DEC-008 iOS-first assumption (SwiftUI/MapKit → React Native/MapLibre under Option D). #open
+- Verify Garmin Connect writes into Health Connect before committing Android (H6 verified for HealthKit only). #open-question
 - Blueprint example URL (premiumcuts-blueprint.vercel.app) was unreachable; retry at Phase 8 or get section list from Claudio. #open-question
 - Partner onboarding: `CONTRIBUTING.md` ready; confirm which tool they use. #open-question
 - No app CI/CD yet (add when application code exists). #open-question

@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 142 nodes · 344 edges · 13 communities
+- 152 nodes · 361 edges · 13 communities (2026-07-30: +10 nodes/+17 edges for the Phase 5 round-2 studies: database deep dive, dual-platform strategy, API integration map)
 - Extraction: 44% EXTRACTED · 8% INFERRED · 1% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.74)
 - Token cost: 1,200 input · 400 output
 

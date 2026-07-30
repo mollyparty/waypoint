@@ -25,7 +25,7 @@ None new. Catalog only. Existing: DEC-005 through DEC-008 still govern.
 
 ## Open threads
 
-- Phase 5 round 2 files are **MISSING**. Agents [Database deep dive](6217846c-c090-4a13-8ff1-0f3f84c19397), [Dual-platform strategy](c8439ba1-f619-457f-86fd-a8a7dd1e9556), and [API integration map](4b696846-5394-414a-b4be-60b4ffba607c) all failed with "API usage limit reached" and produced no files. #open
+- ~~Phase 5 round 2 files MISSING~~ Resolved same day after Claudio fixed API access: all three written. See [[2026-07-30 Round 2 Stack Studies Complete]].
 - Dual-platform MVP decision still required before Phase 6. #open
 
 ## Next steps for the next agent (any tool)

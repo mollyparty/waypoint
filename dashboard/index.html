@@ -387,7 +387,7 @@
 <!-- ================= PRODUCT ================= -->
 <section id="product">
   <h2>Phase 5 · Product definition</h2>
-  <p class="section-sub">Five documents: PRD, RICE prioritization, MVP scope, user journeys, and the stack recommendation. All governed by the locked concept. Full detail in <span class="kbd">research/05-product/</span>. Four new gate decisions are at the bottom of this section.</p>
+  <p class="section-sub">Five documents: PRD, RICE prioritization, MVP scope, user journeys, and the stack recommendation. All governed by the locked concept, plus three round-2 studies (database deep dive, dual-platform strategy, API integration map). Full detail in <span class="kbd">research/05-product/</span>. The two open gate decisions (cards 8 and 9) are at the bottom of this section.</p>
 
   <div class="grid grid-4">
     <div class="card stat"><div class="num">15</div><div class="lbl">features inside the MVP line (of 30 scored candidates)</div></div>
@@ -407,7 +407,8 @@
     </tbody>
   </table></div>
 
-  <h3>The recommended stack</h3>
+  <h3>The recommended stack (round 1, now partially superseded)</h3>
+  <p class="section-sub" style="margin-bottom:10px">This was the original iOS-first recommendation. Round 2 research revised the database and auth layers and put the client framework in play; card 8 below holds the current recommendation, card 9 holds the platform decision.</p>
   <div class="table-wrap"><table>
     <thead><tr><th>Layer</th><th>Choice</th><th>Why</th><th>Biggest risk</th></tr></thead>
     <tbody>
@@ -454,23 +455,39 @@
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-amber">Round 2 research in progress</span></div>
-    <p style="margin: 8px 0 12px"><strong>Update:</strong> Claudio requested a deeper cut before deciding. Three studies were launched and <strong>failed before writing any files</strong> (API usage limit on the research agents, 2026-07-30). Still required: (1) security-first database deep dive beyond Supabase; (2) dual-platform MVP strategy (iOS + Android), which amends the iOS-first assumption; (3) complete API integration map. Round 1 validation below stands as interim evidence; the stack verdict waits on those three docs being rewritten.</p>
-    <p style="margin: 8px 0 12px">The requested deep validation is complete (<span class="kbd">stack-validation.md</span>: every claim cited with URL and access date). Verdict: <strong>no layer gets replaced.</strong> Every Supabase alternative failed on at least one criterion: Neon meters always-on compute with acquisition risk, AWS RDS is 5 to 10x the cost plus two platforms of glue work, Fly.io just deprecated its unmanaged Postgres, Firestore has no real geo queries, and PlanetScale's PostGIS was disabled vendor-side on the day of validation. Because Supabase is standard Postgres underneath, the data layer exits in days if ever needed; the one sticky part (Auth) gets contained by design from day one.</p>
+    <div class="d-head"><h4>8 · Approve the revised stack?</h4><span class="badge b-amber">Round 2 complete, awaiting decision</span></div>
+    <p style="margin: 8px 0 12px"><strong>Round 2 changed the answer.</strong> The security-first database deep dive (<span class="kbd">database-deep-dive.md</span>) asked your exact question, "is Supabase really necessary," and the honest answer is no: an option the earlier rounds never put on the table beats it on every one of your four pillars. The recommended data layer is now a <strong>split architecture</strong>:</p>
+    <ul style="margin: 0 0 12px 22px; font-size: 14px">
+      <li><strong>Personal data (accounts, entitlements, privacy zones): Aiven for PostgreSQL</strong>, an EU-incorporated (Finland) specialist with ISO 27001 plus SOC 2 Type II, dedicated VMs, a 99.99 percent credit-backed SLA, and point-in-time recovery standard. Firewalled to the app server's IP only. The cleanest EU data-sovereignty answer available (weighted score 4.46 of 5 vs Supabase 3.45).</li>
+      <li><strong>Geospatial moat (crossing graphs, lighting scores): self-managed Postgres+PostGIS on the Hetzner private network</strong>, zero public exposure, no personal data in it, rebuildable in hours, backed up off-provider.</li>
+      <li><strong>Auth: decoupled into Waypoint's own API layer (Better Auth)</strong>, with identity tables living in Aiven. This deletes round 1's hardest exit problem (auth lock-in) instead of merely containing it. Runner-up overall: OVHcloud managed Postgres.</li>
+    </ul>
+    <p style="margin: 8px 0 12px">Round 1 (<span class="kbd">stack-validation.md</span>) had confirmed Supabase "with conditions"; round 2 supersedes that verdict because it compared against the EU-owned managed-Postgres specialists round 1 skipped, and because splitting the rebuildable moat store from the small precious personal-data store shrinks both the compliance surface and the blast radius. Unchanged from round 1: Postgres+PostGIS itself, GraphHopper on Hetzner, and the on-device health-data wall.</p>
     <div class="table-wrap"><table>
-      <thead><tr><th>Layer</th><th>Verdict</th><th>Strongest evidence</th></tr></thead>
+      <thead><tr><th>Layer</th><th>Revised recommendation</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td>Supabase (Postgres+PostGIS)</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>Standard Postgres exits in days; $1B+ raised, 250k customers, sharding roadmap. Conditions: EU (Frankfurt) region day one, health data stays on-device (keeps compliance at $25/month instead of $950+), DPA executed, auth blast radius contained, nightly off-platform backups.</td></tr>
-        <tr><td>Hetzner VPS (routing)</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>One third the cost of the next credible option; GraphHopper serving is stateless and rebuildable anywhere in hours. Conditions: off-provider backups and infrastructure-as-code from week one, rehearsed restore drill, an OVH fallback runbook (Hetzner has documented abrupt account suspensions), week-one memory load test.</td></tr>
-        <tr><td>MapKit + custom voice</td><td><span class="badge b-green">Confirmed</span></td><td>Ferrostar is production-ready per Stadia Maps but beta-labeled; the week-one spike is now mandatory, Mapbox stays the fallback.</td></tr>
-        <tr><td>On-device Apple AI</td><td><span class="badge b-green">Confirmed, with conditions</span></td><td>450M+ capable iPhones shipped (about a third of the active base); older devices get template explanations; the framework accepts server models behind the same API later.</td></tr>
-        <tr><td>RevenueCat</td><td><span class="badge b-green">Confirmed</span></td><td>Pricing verified: free to $2.5k monthly revenue, then ~1.4 percent effective on net.</td></tr>
-        <tr><td>Vercel</td><td><span class="badge b-green">Confirmed: artifacts only, never the app</span></td><td>Vercel Functions cap at 4 GB and 30 minutes with no persistent processes; GraphHopper's multi-GB JVM structurally cannot run there. The app backend lives on the VPS.</td></tr>
+        <tr><td>Personal data DB</td><td><span class="badge b-blue">Aiven for PostgreSQL (EU)</span></td><td>EU-owned specialist; ISO 27001 + SOC 2 Type II; 99.99 percent SLA; PITR standard; firewalled to the app server only. Replaces Supabase.</td></tr>
+        <tr><td>Geospatial moat DB</td><td><span class="badge b-blue">Self-managed PostGIS on Hetzner private net</span></td><td>Zero public exposure, zero personal data, latest PostGIS, rebuildable in hours, off-provider backups.</td></tr>
+        <tr><td>Auth</td><td><span class="badge b-blue">Better Auth in Waypoint's own API layer</span></td><td>No vendor owns the users; identity tables live in Aiven, inheriting EU residency. Ory Kratos is the security-maximal alternative.</td></tr>
+        <tr><td>Routing</td><td><span class="badge b-green">Self-hosted GraphHopper on Hetzner (unchanged)</span></td><td>Round 1 conditions stand: off-provider backups, IaC, OVH fallback runbook, week-one memory load test.</td></tr>
+        <tr><td>Client framework</td><td><span class="badge b-blue">React Native + MapLibre (if dual-platform, card 9)</span></td><td>One codebase for both platforms; the Runna precedent. Replaces SwiftUI + MapKit if card 9 chooses staged cross-platform.</td></tr>
+        <tr><td>Coaching AI</td><td><span class="badge b-green">On-device Apple Foundation Models on iOS (unchanged)</span></td><td>Via native module under React Native; Android gets template explanations first.</td></tr>
+        <tr><td>Subscriptions</td><td><span class="badge b-green">RevenueCat (unchanged)</span></td><td>Covers StoreKit 2 and Play Billing both.</td></tr>
       </tbody>
     </table></div>
-    <p style="margin: 8px 0 12px"><strong>Scale narrative:</strong> MVP through 10k monthly actives is pure scale-up, zero migrations (~$110 to ~$450/month). 100k is a decision checkpoint, not a forced move (~$2,500 to $4,500/month). At 1M, every possible migration is a 2 to 6 week project with a proven playbook. <strong>Top risks:</strong> Supabase Auth lock-in (contained by day-one API-layer design), Hetzner account termination (contained by backups plus the OVH runbook), and GraphHopper US-wide memory sizing (settled by the mandatory week-one load test).</p>
-    <div class="option rec"><span class="opt-label">Approve with the named conditions</span><span class="opt-why">Recommended. The conditions are cheap now and expensive later; they become week-one setup tasks.</span></div>
-    <div class="option"><span class="opt-label">Discuss a layer</span><span class="opt-why">The full evidence, alternatives, and failure stories are in stack-validation.md.</span></div>
+    <p style="margin: 8px 0 12px"><strong>Cost and integrations:</strong> the full external-services inventory (<span class="kbd">api-integration-map.md</span>, roughly 20 required integrations across 7 domains with 30 cataloged including fallbacks, every price and rate limit verified) totals roughly <strong>$80 to $130/month at MVP</strong> and $350 to $500/month at 10k monthly actives, plus store commissions (15 percent small-business tiers on both stores) and RevenueCat (~1.4 percent of net). Only 6 integrations gate the walking skeleton. Top integration risks: Strava's discretionary program terms and AI ban, Android health/location review lead times (start paperwork month 1), WeatherKit's Android-use dependency (Open-Meteo at $29/month is the drop-in fallback), and the ODbL share-alike boundary on the moat (counsel review).</p>
+    <div class="option rec"><span class="opt-label">Approve the revised stack</span><span class="opt-why">Recommended. Aiven split architecture plus decoupled auth; GraphHopper, Hetzner, RevenueCat, and the on-device health wall unchanged. Client framework follows card 9.</span></div>
+    <div class="option"><span class="opt-label">Keep Supabase instead</span><span class="opt-why">Round 1's conditions still make it workable; it scored 3.45 vs Aiven's 4.46 on your four pillars.</span></div>
+    <div class="option"><span class="opt-label">Discuss a layer</span><span class="opt-why">Full evidence in database-deep-dive.md, stack-validation.md, and api-integration-map.md.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>9 · Platform strategy: how Android joins the MVP</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <p style="margin: 8px 0 12px">Your requirement: MVP on both iOS and Android. The strategy study (<span class="kbd">dual-platform-strategy.md</span>) costed four options against the approved ~25 person-month iOS plan. The blunt finding: <strong>simultaneous dual-native endangers the competitive window</strong> (38 to 40 person-months, launch at month 11 to 13, paid layer at the window's edge). The strongest evidence for the recommended path: <strong>Runna, the category leader Strava acquired, ships both platforms from one React Native codebase.</strong> iOS carries ~85 percent of category subscription revenue, and Strava, AllTrails, and Komoot all launched iOS-first.</p>
+    <div class="option rec"><span class="opt-label">D · Staged cross-platform (React Native)</span><span class="opt-why">Recommended. One codebase, ~29 to 31 person-months, iOS live month 9 to 10, Android 4 to 8 weeks behind. Window-safe, and every future feature is built once. Amends DEC-006's client stack (SwiftUI to React Native, MapKit to MapLibre).</span></div>
+    <div class="option"><span class="opt-label">C · Staged native (two codebases)</span><span class="opt-why">Keeps every approved stack choice; costs ~38 to 40 person-months and doubles client maintenance forever.</span></div>
+    <div class="option"><span class="opt-label">Reconsider: iOS-only launch, Android in v1.x</span><span class="opt-why">What the revenue evidence alone would support; Android joins after iOS proves retention.</span></div>
+    <p style="margin: 8px 0 0; font-size: 13px; color: var(--ink-faint)">Open question to verify before any Android commitment: whether Garmin Connect writes the needed data into Health Connect (H6 was verified for HealthKit only). Android long-lead paperwork (Play organization account, health and fine-location declarations) starts month 1 under either dual-platform option.</p>
   </div>
 
   <div class="callout">
