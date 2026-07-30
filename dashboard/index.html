@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Waypoint Research Dashboard</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --ink: #1a2233;
+    --ink-soft: #4a5568;
+    --ink-faint: #8a94a6;
+    --accent: #0f766e;
+    --accent-soft: #e6f4f2;
+    --amber: #b45309;
+    --amber-soft: #fef3e2;
+    --red: #b91c1c;
+    --red-soft: #fdeaea;
+    --green: #15803d;
+    --green-soft: #e8f5ec;
+    --blue: #1d4ed8;
+    --blue-soft: #e8eefc;
+    --border: #e2e6ec;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg); color: var(--ink);
+    font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .layout { display: flex; min-height: 100vh; }
+
+  /* ---------- Sidebar ---------- */
+  nav {
+    width: 250px; flex-shrink: 0; position: sticky; top: 0; height: 100vh;
+    background: var(--surface); border-right: 1px solid var(--border);
+    padding: 28px 18px; overflow-y: auto;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .brand-mark {
+    width: 34px; height: 34px; border-radius: 9px; background: var(--accent);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 17px;
+  }
+  .brand h1 { font-size: 18px; letter-spacing: -.01em; }
+  .brand-sub { font-size: 12px; color: var(--ink-faint); margin-bottom: 22px; }
+  nav a {
+    display: block; padding: 8px 12px; border-radius: 8px; margin-bottom: 2px;
+    color: var(--ink-soft); text-decoration: none; font-size: 14px; font-weight: 500;
+  }
+  nav a:hover { background: var(--bg); color: var(--ink); }
+  nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .nav-group { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-faint); margin: 18px 12px 6px; }
+
+  /* ---------- Main ---------- */
+  main { flex: 1; padding: 40px 48px 80px; max-width: 1060px; }
+  section { margin-bottom: 56px; scroll-margin-top: 24px; }
+  h2 { font-size: 26px; letter-spacing: -.02em; margin-bottom: 4px; }
+  .section-sub { color: var(--ink-soft); font-size: 15px; margin-bottom: 22px; max-width: 72ch; }
+  h3 { font-size: 18px; margin: 26px 0 10px; letter-spacing: -.01em; }
+  p, li { max-width: 78ch; color: var(--ink-soft); }
+  strong { color: var(--ink); }
+  ul, ol { padding-left: 22px; margin: 8px 0 14px; }
+  li { margin-bottom: 6px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow);
+    margin-bottom: 16px;
+  }
+  .card h4 { font-size: 16px; margin-bottom: 6px; }
+  .grid { display: grid; gap: 16px; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 980px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } nav { display: none; } main { padding: 24px; } }
+
+  .badge {
+    display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
+    padding: 3px 10px; border-radius: 99px; text-transform: uppercase; white-space: nowrap;
+  }
+  .b-green { background: var(--green-soft); color: var(--green); }
+  .b-amber { background: var(--amber-soft); color: var(--amber); }
+  .b-red { background: var(--red-soft); color: var(--red); }
+  .b-blue { background: var(--blue-soft); color: var(--blue); }
+  .b-accent { background: var(--accent-soft); color: var(--accent); }
+  .b-gray { background: #eef0f4; color: var(--ink-soft); }
+
+  .stat { text-align: left; }
+  .stat .num { font-size: 26px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); }
+  .stat .lbl { font-size: 13px; color: var(--ink-faint); margin-top: 2px; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); font-size: 14.5px; }
+  thead th { background: #f1f3f7; text-align: left; font-size: 12.5px; letter-spacing: .05em;
+    text-transform: uppercase; color: var(--ink-soft); padding: 10px 14px; }
+  tbody td { padding: 12px 14px; border-top: 1px solid var(--border); vertical-align: top; color: var(--ink-soft); }
+  tbody td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+  .table-wrap { border-radius: var(--radius); overflow-x: auto; margin-bottom: 16px; }
+
+  .callout {
+    border-left: 4px solid var(--accent); background: var(--accent-soft);
+    border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; margin: 16px 0;
+  }
+  .callout.warn { border-color: var(--amber); background: var(--amber-soft); }
+  .callout p { color: var(--ink); max-width: 78ch; }
+
+  .decision {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px 26px; margin-bottom: 20px;
+    border-top: 4px solid var(--accent);
+  }
+  .decision .d-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .decision h4 { font-size: 17px; }
+  .option { display: flex; gap: 10px; align-items: baseline; padding: 8px 12px; border-radius: 8px; margin: 4px 0; }
+  .option.rec { background: var(--green-soft); }
+  .option .opt-label { font-weight: 600; color: var(--ink); white-space: nowrap; font-size: 14px; }
+  .option .opt-why { font-size: 14px; color: var(--ink-soft); }
+
+  .persona { border-top: 4px solid var(--blue); }
+  .persona .p-name { font-size: 16px; font-weight: 700; }
+  .persona .p-role { font-size: 13px; color: var(--ink-faint); margin-bottom: 8px; }
+  .persona p { font-size: 14px; }
+
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .bar-label { width: 300px; font-size: 14px; color: var(--ink); font-weight: 500; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 10px; background: #e9edf2; border-radius: 99px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 99px; background: var(--accent); }
+  .bar-tag { width: 90px; font-size: 12px; color: var(--ink-faint); flex-shrink: 0; }
+
+  .phase-track { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 4px; }
+  .phase-pill { font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 99px; }
+  .ph-done { background: var(--green-soft); color: var(--green); }
+  .ph-now { background: var(--amber-soft); color: var(--amber); outline: 2px solid var(--amber); }
+  .ph-next { background: #eef0f4; color: var(--ink-faint); }
+
+  footer { color: var(--ink-faint); font-size: 12.5px; border-top: 1px solid var(--border); padding-top: 18px; }
+  .kbd { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; background: #eef0f4;
+    padding: 2px 6px; border-radius: 5px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav id="nav">
+  <div class="brand"><div class="brand-mark">W</div><h1>Waypoint</h1></div>
+  <div class="brand-sub">Research Dashboard · Confidential</div>
+  <a href="#overview">Overview</a>
+  <a href="#decisions">Gate Decisions</a>
+  <a href="#scorecard">Hypothesis Scorecard</a>
+  <div class="nav-group">Research</div>
+  <a href="#market">Phase 1 · Market</a>
+  <a href="#competitors">Phase 2 · Competitors</a>
+  <a href="#users">Phase 3 · Users</a>
+  <a href="#synthesis">Phase 4 · Synthesis</a>
+  <div class="nav-group">Reference</div>
+  <a href="#sources">Sources &amp; Method</a>
+</nav>
+
+<main>
+
+<!-- ================= OVERVIEW ================= -->
+<section id="overview">
+  <h2>Waypoint at a glance</h2>
+  <p class="section-sub">The running app that knows where you should run.</p>
+
+  <div class="card">
+    <p><strong>The concept in one breath:</strong> every training app prescribes workouts without knowing where you are standing; every route app draws static lines without knowing what your body needs today. Waypoint answers the question both halves ignore: <strong>"where should I run, right now, from here, for me."</strong> Constraint-based route generation is the hero feature; an adaptive coaching layer connects your training state to where you actually go; voice navigation executes it; privacy is day-one architecture.</p>
+    <div class="phase-track">
+      <span class="phase-pill ph-done">P0 Founder Brief</span>
+      <span class="phase-pill ph-done">P1 Market</span>
+      <span class="phase-pill ph-done">P2 Competitors</span>
+      <span class="phase-pill ph-done">P3 Users</span>
+      <span class="phase-pill ph-now">P4 Concept Lock (you are here)</span>
+      <span class="phase-pill ph-next">P5 Product</span>
+      <span class="phase-pill ph-next">P6 Business Model</span>
+      <span class="phase-pill ph-next">P7 Dashboard Deploy</span>
+      <span class="phase-pill ph-next">P8 Blueprint</span>
+    </div>
+  </div>
+
+  <div class="grid grid-4">
+    <div class="card stat"><div class="num">28</div><div class="lbl">research documents, every claim cited and confidence-labeled</div></div>
+    <div class="card stat"><div class="num">15+</div><div class="lbl">products examined; zero do constraint-based adaptive routes</div></div>
+    <div class="card stat"><div class="num">12 to 18 mo</div><div class="lbl">estimated window before Strava ships a plan-linked route v1</div></div>
+    <div class="card stat"><div class="num">6 of 7</div><div class="lbl">founder hypotheses supported or partially supported; none refuted</div></div>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>The one urgency signal:</strong> Strava launched Instant Workouts in January 2026, attaching basic heatmap routes to suggested workouts. They connected the first wire. Your differentiation (constraint depth, personalization, safety-awareness, training-state integration) is still unclaimed, but the window is consuming from now.</p>
+  </div>
+</section>
+
+<!-- ================= GATE DECISIONS ================= -->
+<section id="decisions">
+  <h2>Gate decisions</h2>
+  <p class="section-sub">Four calls are yours to make before the concept locks and product work begins. Recommended options are highlighted in green with the reasoning beside them.</p>
+
+  <div class="decision">
+    <div class="d-head"><h4>1 · Lock the concept?</h4><span class="badge b-accent">Heaviest decision</span></div>
+    <p style="margin: 8px 0 12px">The concept: route generation as the hero (free tier anchors here), adaptive coaching as the paid layer, voice navigation as the execution surface, privacy zones built in from day one. Explicitly NOT: a social network, a route library, multi-sport, a plan-quality brand war with Runna.</p>
+    <div class="option rec"><span class="opt-label">Lock as written</span><span class="opt-why">Recommended. Every element traces to evidence; amendments after interviews stay possible via decision records.</span></div>
+    <div class="option"><span class="opt-label">Lock with amendments</span><span class="opt-why">Tell me what to change and why.</span></div>
+    <div class="option"><span class="opt-label">Hold</span><span class="opt-why">Delays Phase 5; the Strava clock keeps running.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>2 · Positioning statement</h4></div>
+    <div class="option rec"><span class="opt-label">A · Route-first</span><span class="opt-why">Recommended. "For committed amateur runners who never quite know where today's run should go, Waypoint is the running app that generates the right route for you, right now, from wherever you stand." Claims the entire empty quadrant; safety and coaching survive inside it as messages.</span></div>
+    <div class="option"><span class="opt-label">B · Safety-first</span><span class="opt-why">Strongest single evidence base, but narrows the audience and carries claim-liability risk if it leads the brand.</span></div>
+    <div class="option"><span class="opt-label">C · Coach-first</span><span class="opt-why">Prices you against free Garmin and Apple, brands you against Runna. Weakest option per the competitive map.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>3 · Tagline direction</h4></div>
+    <p style="margin: 8px 0 12px">"Your AI Running Coach" claims the exact category that Garmin and Apple are commoditizing and that Runna owns. The research recommends evolving it.</p>
+    <div class="option rec"><span class="opt-label">"Know where to run"</span><span class="opt-why">Recommended. Shortest, ownable, route-led, and it doubles as the product promise.</span></div>
+    <div class="option"><span class="opt-label">"The app that knows where you should run"</span><span class="opt-why">More explicit, less punchy.</span></div>
+    <div class="option"><span class="opt-label">"Never wonder where to run"</span><span class="opt-why">Pain-led framing.</span></div>
+    <div class="option"><span class="opt-label">"The coach that knows the way"</span><span class="opt-why">Bridge option if you want coach continuity.</span></div>
+    <div class="option"><span class="opt-label">Keep "Your AI Running Coach"</span><span class="opt-why">Not recommended, for the category reasons above.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>4 · The H1 reframe</h4></div>
+    <p style="margin: 8px 0 12px">Your founding insight was travel ("where do I run in an unfamiliar place"). The evidence says: the travel pain is real and constant, but runners usually solve it with 15 to 20 minute workarounds. Two needs showed stronger daily-frequency evidence: safety-aware routing and route boredom at home.</p>
+    <div class="option rec"><span class="opt-label">Accept the reframe</span><span class="opt-why">Recommended. Travel becomes the activation moment and demo story; safety plus home novelty carry daily retention. Same product, same engine, sharper story.</span></div>
+    <div class="option"><span class="opt-label">Keep travel as headline</span><span class="opt-why">Preserves the founding story but leads with the weaker retention evidence.</span></div>
+    <div class="option"><span class="opt-label">Defer to interviews</span><span class="opt-why">Safe but slows messaging work; interviews can still recalibrate later.</span></div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Deferred by design:</strong> whether safety-critical routing must live in the free tier (an ethics and pricing call) lands in Phase 6 with the pricing work. The real-user interview backlog runs alongside Phase 5 and can adjust calibration without unlocking the concept.</p>
+  </div>
+</section>
+
+<!-- ================= SCORECARD ================= -->
+<section id="scorecard">
+  <h2>Hypothesis scorecard</h2>
+  <p class="section-sub">The seven testable statements from your founder interview, and what three phases of research did to them. None were refuted.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ID</th><th>Hypothesis</th><th>Verdict</th><th>What the evidence says</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Travel route friction drives adoption</td><td><span class="badge b-amber">Partial</span></td><td>The pain is constant (a whole workaround economy exists) but workarounds mostly succeed. Reframe: travel activates, safety plus novelty retain.</td></tr>
+      <tr><td>H2</td><td>No incumbent solves constraint-based adaptive routes</td><td><span class="badge b-green">Supported</span></td><td>Zero of 15+ products accept weather, crossings, or safety as inputs; zero connect routes to training state.</td></tr>
+      <tr><td>H3</td><td>Route wedge beats another plan product</td><td><span class="badge b-green">Supported</span></td><td>Plan market is crowded and floored at free. Caveat: the wedge acquires; the adaptive layer monetizes.</td></tr>
+      <tr><td>H4</td><td>Committed amateurs pay freemium for routes plus coaching</td><td><span class="badge b-amber">Partial</span></td><td>Category payment proven (Runna ~90k payers, RunGo $59.99/yr). Route-specific willingness to pay needs interviews.</td></tr>
+      <tr><td>H5</td><td>The market is venture-scale</td><td><span class="badge b-red">Uncertain</span></td><td>Wedge alone benchmarks to $5M to $30M ARR by year 5. Venture scale requires the expansion story.</td></tr>
+      <tr><td>H6</td><td>iOS-first with wearables is right for v1</td><td><span class="badge b-green">Supported</span></td><td>HealthKit is fully open; Garmin's developer program is paused; Strava bans AI use of its data. iOS-first is forced and correct.</td></tr>
+      <tr><td>H7</td><td>Personalized routines deepen retention</td><td><span class="badge b-amber">Partial</span></td><td>Plan-disruption pain is verified; the routes-to-routines retention link needs a live product to measure.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ================= MARKET ================= -->
+<section id="market">
+  <h2>Phase 1 · Market and industry</h2>
+  <p class="section-sub">Four documents: landscape, sizing, trends, and regulatory. Full citations live in <span class="kbd">research/01-market/</span>.</p>
+
+  <div class="grid grid-3">
+    <div class="card stat"><div class="num">$1.3B to $2.9B</div><div class="lbl">TAM: running app subscriptions globally (2025), growing 11 to 14 percent per year</div></div>
+    <div class="card stat"><div class="num">~14M</div><div class="lbl">SAM: committed amateur iOS runners in US, UK, EU, Canada, Australia</div></div>
+    <div class="card stat"><div class="num">$5M to $30M</div><div class="lbl">SOM: achievable ARR in years 3 to 5, anchored on Runna's real traction</div></div>
+  </div>
+
+  <h3>What matters most</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Participation is booming, led by Gen Z:</strong> global runners grew from 672M to 785M (2022 to 2025); record London Marathon ballot (1.13M applications); Strava run clubs quadrupled.</li>
+      <li><strong>The enabling stack is nearly free:</strong> OpenStreetMap routing, free elevation data, WeatherKit's free tier, Apple's on-device AI. The moat must be personalization and proprietary context data, not routing algorithms.</li>
+      <li><strong>2025 consolidated the map:</strong> Strava bought Runna; Bending Spoons bought Komoot and cut ~85 percent of staff. The two assets that could fuse training and routing landed with different owners.</li>
+      <li><strong>Platform squeeze:</strong> Garmin Connect+ ($6.99/mo) and Apple Workout Buddy commoditize generic AI coaching chat. Differentiation must be what they do not do.</li>
+    </ul>
+  </div>
+
+  <h3>Compliance guardrails (day-one architecture)</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Location is the most sensitive surface:</strong> routes anchored at home reveal home addresses (the Strava heatmap precedent). Privacy zones and private-by-default are mandatory from the MVP.</li>
+      <li><strong>Heart rate and training load are GDPR Article 9 special category data;</strong> the FTC Health Breach Notification Rule and Washington MHMD apply to consumer fitness apps.</li>
+      <li><strong>EU AI Act Article 50</strong> (disclose users are talking to AI) applies from August 2, 2026.</li>
+      <li>A 15-item MVP compliance checklist is ready in <span class="kbd">regulatory-compliance.md</span>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= COMPETITORS ================= -->
+<section id="competitors">
+  <h2>Phase 2 · Competitors</h2>
+  <p class="section-sub">Fourteen documents: ten profiles, adjacent platforms, and four synthesis matrices. Full detail in <span class="kbd">research/02-competitors/</span>.</p>
+
+  <div class="callout">
+    <p><strong>The whitespace, verified:</strong> training apps prescribe workouts with no location intelligence. Route apps draw static lines with no training context. Nobody generates the run itself, constraint-aware and on demand. That intersection is Waypoint's quadrant, and it is empty.</p>
+  </div>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Player</th><th>What they are</th><th>Threat</th><th>The one thing to know</th></tr></thead>
+    <tbody>
+      <tr><td>Strava (+ Runna)</td><td>Platform: heatmap, routes, plans</td><td><span class="badge b-red">High</span></td><td>Owns every piece needed to close the gap. Instant Workouts (Jan 2026) already links basic routes to workouts. Constraint depth is still unclaimed.</td></tr>
+      <tr><td>Runna</td><td>Category-leading AI training app</td><td><span class="badge b-red">High</span></td><td>Owns the target user's trust. Openings: injury discourse (too-aggressive paces), bundle billing friction, sync complaints.</td></tr>
+      <tr><td>AllTrails</td><td>Trail discovery, 95M+ users</td><td><span class="badge b-amber">Medium</span></td><td>Its "AI routes" only adjust existing trail routes. Blind spots: urban doorstep running, training context.</td></tr>
+      <tr><td>Komoot</td><td>Route planner, bike/hike-first</td><td><span class="badge b-amber">Medium</span></td><td>Declining under Bending Spoons. Cannot even take target distance as a routing input.</td></tr>
+      <tr><td>Garmin / Apple</td><td>Platform coaching</td><td><span class="badge b-amber">Medium</span></td><td>Commoditizing free AI coaching chat. Neither prescribes routes. Garmin's developer program is paused (integration risk).</td></tr>
+      <tr><td>TrainAsONE, Coopah, Joggo, AI Endurance</td><td>Smaller training apps</td><td><span class="badge b-green">Low</span></td><td>Zero route capability across all four. TrainAsONE's weather-adjusted pacing validates the thesis on the pace side.</td></tr>
+      <tr><td>Footpath, RunGo, web generators</td><td>Route utilities</td><td><span class="badge b-green">Low</span></td><td>Prove demand and price anchors (RunGo: $59.99/yr for navigation alone). No intelligence, no training link.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The threat that matters</h3>
+  <div class="card">
+    <p><strong>Strava connecting Runna's plan engine to its route generation is the kill shot.</strong> Estimated 50 to 60 percent likelihood of a v1 within 18 months, but only 20 to 30 percent for full constraint depth (weather, crossings, safety). Early-warning signals now monitored: Runna beta strings about routes, Strava routing-engineer job postings, bundle marketing language shifts.</p>
+    <p style="margin-top:10px"><strong>Data enclosure is the multiplier:</strong> Strava's API bans AI/ML use of its data and Garmin is paused, so personalization must be HealthKit-first and the moat must be data Waypoint builds itself: street-crossing graphs, lighting and safety scoring, micro-weather.</p>
+  </div>
+
+  <h3>Never compete on</h3>
+  <div class="card"><p>Community and the social graph (post TO Strava) · trail content libraries · coaching brand wars · hardware · price-zero basics · multi-sport breadth.</p></div>
+</section>
+
+<!-- ================= USERS ================= -->
+<section id="users">
+  <h2>Phase 3 · Users</h2>
+  <p class="section-sub">Five documents: pain mining, segmentation, personas, jobs-to-be-done, and ranked unmet needs. All desk research, honestly labeled; the interview backlog is the validation plan. Full detail in <span class="kbd">research/03-users/</span>.</p>
+
+  <h3>The four personas</h3>
+  <div class="grid grid-2">
+    <div class="card persona"><div class="p-name">Marcus</div><div class="p-role">The committed amateur racer · PRIMARY TARGET</div><p>Runs four times a week around a job and family, races a spring half and a fall marathon, coaches himself with apps, and is bored to death of his own three loops. The only segment with proven willingness to pay.</p></div>
+    <div class="card persona"><div class="p-name">Priya</div><div class="p-role">The traveling professional · ACTIVATION MOMENT</div><p>A consultant in a different city every week, mid marathon block, standing in a hotel lobby at 6 a.m. with 10 miles to do and no idea where to run them. The sharpest demo of the hero feature.</p></div>
+    <div class="card persona"><div class="p-name">Elena</div><div class="p-role">The safety-first city runner · STRONGEST EVIDENCE</div><p>Plans every run around daylight, lighting, and escape routes before pace. For her the route IS the safety decision. 54 percent of surveyed women runners changed routes over safety; zero products accept safety as an input.</p></div>
+    <div class="card persona"><div class="p-name">Jake</div><div class="p-role">The ambitious beginner · SECONDARY TARGET</div><p>Nine months in via a run club, signed up for a first half marathon, motivated, overconfident, and one aggressive training plan away from a shin splint. The Gen Z growth pipeline.</p></div>
+  </div>
+
+  <h3>Unmet needs, ranked by evidence strength</h3>
+  <div class="card">
+    <div class="bar-row"><div class="bar-label">Safety-aware routing</div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><div class="bar-tag">Strong</div></div>
+    <div class="bar-row"><div class="bar-label">Route novelty at home ("roads not yet run")</div><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><div class="bar-tag">Strong</div></div>
+    <div class="bar-row"><div class="bar-label">Training-state-to-route connection</div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><div class="bar-tag">Strong gap*</div></div>
+    <div class="bar-row"><div class="bar-label">"Where do I run" when traveling</div><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><div class="bar-tag">Episodic</div></div>
+    <div class="bar-row"><div class="bar-label">Plans that survive real life</div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><div class="bar-tag">Moderate</div></div>
+    <div class="bar-row"><div class="bar-label">Frictionless voice navigation</div><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><div class="bar-tag">Moderate</div></div>
+    <p style="font-size:13px; margin-top:10px; color:var(--ink-faint)">* Total market absence is verified; demand in users' own words needs interview confirmation.</p>
+  </div>
+
+  <h3>The main job Waypoint is hired for</h3>
+  <div class="callout"><p>"When it is time to run and my usual route does not fit today (a new city, a dark morning, a heat wave, a tempo workout, or plain boredom with my loops), hand me the right route for me, right now, from here, so I can spend my energy running instead of planning and worrying."</p></div>
+
+  <h3>What still needs real humans</h3>
+  <div class="card"><ul>
+    <li><strong>Committed amateurs (8 to 12):</strong> does route friction feel like pain or mild inconvenience, and would they pay against the free heatmap workflow?</li>
+    <li><strong>Women runners (4 to 6, specialist moderation):</strong> can an algorithmic safety claim earn trust at all? A wrong answer here is product-killing liability.</li>
+    <li><strong>Frequent travelers (3 to 5):</strong> the night-before ritual, minute by minute, and what deleting it is worth.</li>
+  </ul></div>
+</section>
+
+<!-- ================= SYNTHESIS ================= -->
+<section id="synthesis">
+  <h2>Phase 4 · Synthesis</h2>
+  <p class="section-sub">Four documents: opportunity, positioning, hypothesis review, and the concept proposed for lock. Full detail in <span class="kbd">research/04-synthesis/</span>.</p>
+
+  <h3>The opportunity in three sentences</h3>
+  <div class="card"><p>Every training app prescribes workouts without knowing where the runner is standing, and every route app plans static lines without knowing what the runner's body needs today. Waypoint claims that empty intersection with constraint-based adaptive route generation as the acquisition wedge, activated by the travel moment and retained daily by safety-aware routing and route novelty, with the coaching layer as the paid tier and the defensible seam. The enabling stack costs near zero at the margin, the one open personalization pathway (HealthKit) matches the iOS-first plan, and the window before the only credible incumbent assembles the same capability is estimated at 12 to 18 months.</p></div>
+
+  <h3>The feature architecture</h3>
+  <div class="grid grid-3">
+    <div class="card"><h4><span class="badge b-green">Free tier anchor</span></h4><p style="font-size:14px; margin-top:8px">On-demand route generation with constraints: distance, elevation, surface, crossing minimization, safety-aware and weather-aware routing. Route novelty ("roads you have not run"). Travel mode.</p></div>
+    <div class="card"><h4><span class="badge b-blue">Paid adaptive layer</span></h4><p style="font-size:14px; margin-top:8px">Training-state-aware generation (today's workout shapes the route). Adaptive routines that survive real life, calibrated between Runna-too-hard and TrainAsONE-too-soft. A coach that explains its reasoning.</p></div>
+    <div class="card"><h4><span class="badge b-gray">Execution surface</span></h4><p style="font-size:14px; margin-top:8px">Voice-guided turn-by-turn so the phone stays pocketed. Apple Watch companion. Post-run share to Strava (never compete with the social graph).</p></div>
+  </div>
+
+  <h3>The honest risk ledger (what an investor must believe)</h3>
+  <div class="card"><ul>
+    <li><strong>H5 is the weak link:</strong> the wedge alone is a $5M to $30M ARR business. The venture story requires the expansion path: iOS English-first, then Android, more geographies, then the same route engine pointed at walking, cycling, and hiking.</li>
+    <li><strong>The Strava clock is real:</strong> speed is a business requirement, not a preference.</li>
+    <li><strong>The safety tightrope:</strong> safety-aware routing is the strongest evidence AND the biggest liability. Never market "safe routes" as a guarantee.</li>
+    <li><strong>Validation debt:</strong> everything so far is desk research. The interview backlog runs alongside Phase 5.</li>
+  </ul></div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section id="sources">
+  <h2>Sources and method</h2>
+  <p class="section-sub">This dashboard summarizes 28 research documents. Every claim in those documents carries a source (publisher, URL, date accessed) and a confidence tag: [verified], [inferred], or [assumption].</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Phase</th><th>Folder</th><th>Documents</th></tr></thead>
+    <tbody>
+      <tr><td>Playbook</td><td><span class="kbd">research/00-RESEARCH-PLAYBOOK.md</span></td><td>Standards: citation rules, confidence labels, definition of done, gate process</td></tr>
+      <tr><td>Phase 0</td><td><span class="kbd">vault/01-Project/</span></td><td>Founder-Brief.md (the seven hypotheses), Charter.md</td></tr>
+      <tr><td>Phase 1</td><td><span class="kbd">research/01-market/</span></td><td>market-landscape, market-sizing, industry-trends, regulatory-compliance</td></tr>
+      <tr><td>Phase 2</td><td><span class="kbd">research/02-competitors/</span></td><td>10 profiles, adjacent-platforms, feature-matrix, pricing-matrix, positioning-map, gap-analysis</td></tr>
+      <tr><td>Phase 3</td><td><span class="kbd">research/03-users/</span></td><td>pain-points, segmentation, personas, jobs-to-be-done, unmet-needs</td></tr>
+      <tr><td>Phase 4</td><td><span class="kbd">research/04-synthesis/</span></td><td>opportunity, positioning, hypotheses-review, concept (proposed for lock)</td></tr>
+    </tbody>
+  </table></div>
+  <footer>
+    <p>Waypoint Research Dashboard · Confidential pre-launch material, do not distribute · Version-Timestamp: 2026-07-30 16:55:00 UTC-4</p>
+    <p>Generated from the Waypoint research corpus. The markdown documents remain the citable source of truth; this dashboard is the readable window into them.</p>
+  </footer>
+</section>
+
+</main>
+</div>
+
+<script>
+  const links = document.querySelectorAll('nav a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
+  const spy = () => {
+    let i = sections.length - 1;
+    while (i > 0 && window.scrollY + 120 < sections[i].offsetTop) i--;
+    links.forEach(l => l.classList.remove('active'));
+    links[i].classList.add('active');
+  };
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+</script>
+</body>
+</html>
