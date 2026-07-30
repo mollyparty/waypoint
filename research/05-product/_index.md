@@ -1,11 +1,19 @@
-# Phase 5: Product Definition and MVP Scope
+# Phase 5: Product definition and MVP scope
 
-Status: not started (gated on Phase 4 approval)
+> Version-Timestamp: 2026-07-30 17:30:00 UTC-4
 
-Expected deliverables (see `../00-RESEARCH-PLAYBOOK.md` for full specs and standards):
+Governed by the locked concept (`research/04-synthesis/concept.md`, DEC-006). Defines what gets built first and why.
 
-- [ ] `prd.md` - product requirements document
-- [ ] `prioritization.md` - RICE scoring of the feature set
-- [ ] `mvp-scope.md` - must have, should have, later; the ONE core job stated explicitly
-- [ ] `user-journeys.md` - complete experience maps including loading, error, empty, success states
-- [ ] `stack-recommendation.md` - architecture and stack with justification and alternatives
+## Deliverables
+
+| File | Contents | Status |
+|------|----------|--------|
+| `prd.md` | Product requirements: goals, non-goals, features with requirements and acceptance criteria | complete |
+| `rice-prioritization.md` | RICE scoring of every candidate feature | complete |
+| `mvp-scope.md` | The MVP line: what ships in v1, what explicitly waits, and why | complete |
+| `user-journeys.md` | End-to-end journeys for the four personas' critical flows | complete |
+| `stack-recommendation.md` | Recommended architecture and stack with justification, alternatives, and costs | complete |
+
+## Gate
+
+Claudio reviews via the dashboard and approves the MVP scope and stack before Phase 6 (business model).

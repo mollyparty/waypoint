@@ -26,6 +26,8 @@ Lay the groundwork for the research-to-blueprint program: build the phased resea
 - Mid-gate, Claudio asked for a readable review surface instead of raw markdown: built `dashboard/index.html` (single-file HTML dashboard, pulled forward from Phase 7), amended the playbook to dashboard-first gate reviews, and re-ran the gate against it.
 - **Concept LOCKED at the Phase 4 gate** ([[DEC-006 Concept lock route-first positioning]]): concept as written, route-first positioning, tagline changed to "Know where to run", H1 reframe accepted. README and [[Charter]] updated; v0.2.0 tagged (research milestone, Phases 1 to 4 complete).
 
+- Ran Phase 5 (product definition) with four parallel agents: `research/05-product/` now holds the PRD, RICE prioritization (30 features), MVP scope (15 features, ~25 person-months, 8 to 10 calendar months, walking skeleton at month 3 to 4), five user journeys with ten design principles, and the stack recommendation (self-hosted GraphHopper, Supabase+PostGIS, SwiftUI+MapKit, on-device Apple AI, RevenueCat; $75 to $95/month at MVP). Distilled into [[Product Definition Key Findings (Phase 5)]]. Dashboard updated with the Phase 5 section and gate cards 5 to 8. **Phase 5 gate pending Claudio's review.**
+
 ## Decisions made
 
 - [[DEC-005 Phased research program with gated approvals]]

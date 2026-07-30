@@ -128,7 +128,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 7,
       "norm_label": "waypoint agent protocol",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_protocol"
@@ -142,7 +142,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 4,
       "norm_label": "changelog",
       "community_name": "Changelog",
       "id": "changelog_changelog"
@@ -156,7 +156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 4,
       "norm_label": "readme overview",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_overview"
@@ -170,7 +170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "versioning strategy",
       "community_name": "Changelog",
       "id": "docs_versioning_strategy"
@@ -184,7 +184,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "start here (home note)",
       "community_name": "START HERE (Project Entry Point)",
       "id": "start_here_home"
@@ -198,7 +198,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 4,
       "norm_label": "charter",
       "community_name": "Decision Log",
       "id": "vault_01_project_charter_charter"
@@ -212,7 +212,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "dec-001 trunk-based versioning on main",
       "community_name": "Changelog",
       "rationale": "One branch to trust satisfies the 'latest approved version' requirement; lower overhead than GitFlow for a solo founder with no long-lived develop branch to drift; tags plus changelog give named, auditable milestones without ceremony. GitFlow and main-only/commit-direct were both considered and rejected. Amended by DEC-004 (2026-07-30): push cadence changed from session-end-only to continuous; everything else in the decision stands.",
@@ -227,7 +227,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "dec-002 obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_memory"
@@ -241,7 +241,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "dec-003 graphify as queryable project brain",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_graphify_brain"
@@ -255,7 +255,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "decision log",
       "community_name": "Decision Log",
       "id": "vault_02_decisions_decision_log_index"
@@ -269,7 +269,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "knowledge index",
       "community_name": "Knowledge Note Template",
       "id": "vault_04_knowledge_knowledge_index_index"
@@ -283,7 +283,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "architecture index",
       "community_name": "Decision Log",
       "id": "vault_05_architecture_architecture_index_index"
@@ -297,7 +297,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "decision record template",
       "community_name": "Decision Log",
       "id": "template_decision_record"
@@ -311,7 +311,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "knowledge note template",
       "community_name": "Knowledge Note Template",
       "id": "template_knowledge_note"
@@ -325,7 +325,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 3,
       "norm_label": "session note template",
       "community_name": "Waypoint Agent Protocol",
       "id": "template_session_note"
@@ -340,7 +340,7 @@
       "author": null,
       "contributor": null,
       "rationale": "The repository is the single source of truth: product definition, decisions, knowledge, architecture, and eventually code all live in one versioned repo pushed to GitHub, so any human or agent opening it sees the current truth.",
-      "community": 0,
+      "community": 4,
       "norm_label": "waypoint (startup project)",
       "community_name": "START HERE (Project Entry Point)",
       "id": "readme_waypoint_project"
@@ -355,7 +355,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Chosen so main is one branch to trust that always shows the latest approved version. Lower overhead than GitFlow for a solo founder (no long-lived develop branch to drift); main-only direct commits rejected because short-lived branches give a cheap review point before work becomes approved. Branches must stay short-lived (hours to days) or they defeat the model.",
-      "community": 1,
+      "community": 6,
       "norm_label": "trunk-based development",
       "community_name": "Changelog",
       "id": "docs_versioning_trunk_based_development"
@@ -370,7 +370,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Tags plus changelog give named, auditable milestones without ceremony. MAJOR = breaking/directional change, MINOR = new capability or phase, PATCH = fixes; pre-1.0 (v0.x.y) signals the project is still forming.",
-      "community": 1,
+      "community": 4,
       "norm_label": "semantic versioning",
       "community_name": "Changelog",
       "id": "changelog_semantic_versioning"
@@ -385,7 +385,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Human-readable history of approved versions; every tag gets an entry written when the tag is created, not after.",
-      "community": 1,
+      "community": 4,
       "norm_label": "keep a changelog format",
       "community_name": "Changelog",
       "id": "changelog_keep_a_changelog"
@@ -400,7 +400,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Structured commit messages (type(scope): summary) keep history legible; types are feat, fix, docs, chore, refactor, test.",
-      "community": 1,
+      "community": 6,
       "norm_label": "conventional commits",
       "community_name": "Changelog",
       "id": "docs_versioning_conventional_commits"
@@ -415,7 +415,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Multiple tools and machines may touch the repo, so every commit carries computer, tool, version, and timestamp read from the real environment to keep history traceable; unknown values are written as 'unknown', never omitted or guessed.",
-      "community": 1,
+      "community": 6,
       "norm_label": "agent attribution footer",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_attribution_footer"
@@ -430,7 +430,7 @@
       "author": null,
       "contributor": null,
       "rationale": "No silent undated versioned artifacts: every doc, deck, script, config, or report carries a visible Version-Timestamp header; vault notes use the 'updated:' YAML frontmatter field for the same purpose.",
-      "community": 1,
+      "community": 6,
       "norm_label": "version-timestamp convention",
       "community_name": "Waypoint Agent Protocol",
       "id": "docs_versioning_version_timestamp"
@@ -445,7 +445,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Persistent, versioned project memory exists to prevent agent amnesia across sessions: every session starts from START-HERE plus the latest session note rather than re-reading the repo.",
-      "community": 0,
+      "community": 4,
       "norm_label": "obsidian vault as project memory",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec002_vault_project_memory"
@@ -460,7 +460,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Serves as the queryable project brain: task-specific context is retrieved with graphify query against graph.json instead of re-reading raw repo files, minimizing token cost.",
-      "community": 0,
+      "community": 4,
       "norm_label": "graphify knowledge graph",
       "community_name": "START HERE (Project Entry Point)",
       "id": "dec003_graphify_knowledge_graph"
@@ -475,7 +475,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Rebuilds the graph from code changes for free using AST parsing, no LLM tokens. Limitation: covers only code; doc updates remain a manual, protocol-enforced --update step at session end.",
-      "community": 0,
+      "community": 3,
       "norm_label": "post-commit graph rebuild hook",
       "community_name": "Waypoint Agent Protocol",
       "id": "dec003_post_commit_hook"
@@ -490,7 +490,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Accumulates per-run token counts so the cost of maintaining and querying project memory stays visible instead of hidden.",
-      "community": 0,
+      "community": 4,
       "norm_label": "token cost telemetry",
       "community_name": "Changelog",
       "id": "dec003_cost_telemetry"
@@ -505,7 +505,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Mandatory, never skipped: write the session note, update START-HERE, rebuild the graph if docs changed, commit and push. Exists because local-only history does not count as saved and a brand-new session must be able to resume from START-HERE plus the latest session note alone.",
-      "community": 0,
+      "community": 3,
       "norm_label": "session-end checklist",
       "community_name": "Waypoint Agent Protocol",
       "id": "agents_session_end_checklist"
@@ -520,7 +520,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Ordered to minimize token cost: always-loaded protocol file, then START-HERE, then a budgeted graphify query, then targeted vault notes via wikilinks, with raw file reads as last resort. Exists to prevent amnesia-driven re-reading of the whole repo.",
-      "community": 0,
+      "community": 3,
       "norm_label": "context retrieval order",
       "community_name": "START HERE (Project Entry Point)",
       "id": "agents_context_retrieval_order"
@@ -535,7 +535,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Applies to everything shipped: validate input, handle errors on external calls, no silent failures, no hardcoded secrets, accessibility for anything user-facing; lint and verify before claiming done.",
-      "community": 1,
+      "community": 4,
       "norm_label": "engineering mantra (security, stability, reliability, compliance)",
       "community_name": "Decision Log",
       "id": "vault_01_project_charter_engineering_mantra"
@@ -550,7 +550,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Remote origin; pushing here at every milestone and session end is what makes history count as saved.",
-      "community": 0,
+      "community": 4,
       "norm_label": "github repo (mollyparty/waypoint)",
       "community_name": "Changelog",
       "id": "start_here_github_repo"
@@ -564,7 +564,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 4,
       "norm_label": "session 2026-07-30 foundation setup",
       "id": "session_2026_07_30_foundation_setup"
     },
@@ -578,7 +578,7 @@
       "author": null,
       "contributor": null,
       "rationale": "Working tagline discovered in the remote GitHub README; adopted as the product concept placeholder. Full product definition (features, differentiation, business model) is deliberately deferred to a dedicated product discovery session.",
-      "community": 0,
+      "community": 1,
       "norm_label": "your ai running coach (product concept)",
       "id": "product_ai_running_coach"
     },
@@ -586,7 +586,7 @@
       "label": "Charter (Waypoint product charter stub)",
       "file_type": "document",
       "source_file": "vault/01-Project/Charter.md",
-      "community": 0,
+      "community": 1,
       "norm_label": "charter (waypoint product charter stub)",
       "id": "charter_charter"
     },
@@ -594,7 +594,7 @@
       "label": "Decision Log index",
       "file_type": "document",
       "source_file": "vault/02-Decisions/_Decision-Log.md",
-      "community": 0,
+      "community": 3,
       "norm_label": "decision log index",
       "id": "decision_log_index"
     },
@@ -602,7 +602,7 @@
       "label": "Knowledge Index",
       "file_type": "document",
       "source_file": "vault/04-Knowledge/_Knowledge-Index.md",
-      "community": 0,
+      "community": 1,
       "norm_label": "knowledge index",
       "id": "knowledge_index_index"
     },
@@ -610,7 +610,7 @@
       "label": "Trunk-based development model",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "community": 1,
+      "community": 4,
       "norm_label": "trunk-based development model",
       "id": "versioning_trunk_based_development"
     },
@@ -618,7 +618,7 @@
       "label": "Conventional Commits convention",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "community": 1,
+      "community": 6,
       "norm_label": "conventional commits convention",
       "id": "versioning_conventional_commits"
     },
@@ -627,7 +627,7 @@
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
       "rationale": "Values are read from the real environment (hostname, tool, version, timestamp) so history stays traceable across the multiple machines and tools that may touch the repo; unknown values are written as 'unknown' rather than omitted.",
-      "community": 1,
+      "community": 6,
       "norm_label": "agent-attribution commit footer",
       "id": "versioning_attribution_footer"
     },
@@ -635,7 +635,7 @@
       "label": "Version-Timestamp versioned-artifact header",
       "file_type": "document",
       "source_file": "docs/VERSIONING.md",
-      "community": 1,
+      "community": 6,
       "norm_label": "version-timestamp versioned-artifact header",
       "id": "versioning_version_timestamp"
     },
@@ -643,7 +643,7 @@
       "label": "Engineering mantra: security, stability, reliability, compliance",
       "file_type": "document",
       "source_file": "vault/01-Project/Charter.md",
-      "community": 2,
+      "community": 1,
       "norm_label": "engineering mantra: security, stability, reliability, compliance",
       "id": "charter_engineering_mantra"
     },
@@ -652,7 +652,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "rationale": "A symlink from CLAUDE.md to AGENTS.md was considered but rejected because core.symlinks is disabled on this machine (common on Windows without developer mode), which would store the link as an unusable plain-text path reference; a real short pointer file works identically everywhere at the cost of one nearly-empty file to keep in sync. Duplicating full agent instructions per tool was also rejected because it guarantees drift.",
-      "community": 1,
+      "community": 7,
       "norm_label": "claude.md (claude code pointer file)",
       "id": "claude_md_pointer_file"
     },
@@ -661,7 +661,7 @@
       "file_type": "document",
       "source_file": "CONTRIBUTING.md",
       "rationale": "Added as the human-facing onboarding doc covering clone, git identity, tool choice, the Obsidian vault, Graphify setup, and contribution workflow, so any collaborator (including Claudio's partner) can pick the project up cold from any machine or tool.",
-      "community": 1,
+      "community": 7,
       "norm_label": "contributing.md (collaborator onboarding doc)",
       "id": "contributing_onboarding_doc"
     },
@@ -670,7 +670,7 @@
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Two requirements surfaced once a second collaborator (Claudio's partner) entered the picture: (1) GitHub must always reflect current work, not just work committed at session end, so a partner can pull main at any moment and see the latest; (2) the project must be fully usable from any AI coding tool on any machine, not only inside the Cursor workspace. Keeping push cadence at session-end only, and using separate tool-specific instruction files with duplicated content, were both rejected as alternatives.",
-      "community": 1,
+      "community": 7,
       "norm_label": "dec-004: continuous push and cross-ide agent files",
       "id": "dec004_continuous_push_cross_ide"
     },
@@ -679,7 +679,7 @@
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Amends DEC-001's session-end-only cadence. Continuous push has an overhead cost (more, smaller commits) but directly serves the goal that a human collaborator must never be blocked waiting for a session to 'finish'; more frequent commits in history are intentional, not noise.",
-      "community": 1,
+      "community": 7,
       "norm_label": "continuous push policy (commit and push after every meaningful unit of work)",
       "id": "policy_continuous_push"
     },
@@ -688,7 +688,7 @@
       "file_type": "document",
       "source_file": "AGENTS.md",
       "rationale": "One canonical AGENTS.md plus thin, non-duplicated pointer files (e.g. CLAUDE.md) avoids duplicating agent instructions per tool, which would guarantee drift; this is the maintainable version of a 'reference, don't embed' principle.",
-      "community": 1,
+      "community": 7,
       "norm_label": "cross-ide / cross-tool compatibility (cursor, codex cli, claude code, gemini cli, others)",
       "id": "concept_cross_ide_compatibility"
     },
@@ -697,7 +697,7 @@
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md",
       "rationale": "Normalizes line endings so the repo is byte-identical on Windows, macOS, and Linux, avoiding spurious diffs between collaborators on different operating systems; applied as a one-time repo-wide renormalization pass, already completed.",
-      "community": 1,
+      "community": 7,
       "norm_label": ".gitattributes line-ending normalization (eol=lf)",
       "id": "concept_line_ending_normalization"
     },
@@ -705,7 +705,7 @@
       "label": "Session 2026-07-30 - Continuous Push and Cross-IDE Setup",
       "file_type": "document",
       "source_file": "vault/03-Sessions/2026-07-30 Continuous Push and Cross-IDE Setup.md",
-      "community": 1,
+      "community": 7,
       "norm_label": "session 2026-07-30 - continuous push and cross-ide setup",
       "id": "session_2026_07_30_continuous_push_cross_ide"
     },
@@ -714,7 +714,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Operating manual for the research-to-blueprint program; any agent in any IDE runs phases to its standards.",
-      "community": 4,
+      "community": 0,
       "norm_label": "research playbook (research/00-research-playbook.md)",
       "id": "research_playbook"
     },
@@ -723,7 +723,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Founder brief through Business Blueprint; each phase gated on Claudio's approval, Phase 4 concept lock is the heaviest gate.",
-      "community": 5,
+      "community": 0,
       "norm_label": "nine-phase gated research program (phase 0 to phase 8)",
       "id": "research_program_nine_phases"
     },
@@ -732,7 +732,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Every claim sourced and labeled; no source, no claim; assumptions never silently absorbed.",
-      "community": 4,
+      "community": 0,
       "norm_label": "citation and confidence-labeling standard ([verified]/[inferred]/[assumption])",
       "id": "standard_citation_confidence"
     },
@@ -741,7 +741,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Nine conditions including vault knowledge notes, session note, graph update, push, and Claudio's gate approval.",
-      "community": 4,
+      "community": 0,
       "norm_label": "phase definition-of-done gate checklist",
       "id": "standard_definition_of_done"
     },
@@ -750,7 +750,7 @@
       "file_type": "document",
       "source_file": "research/01-market/_index.md",
       "rationale": "Market landscape, TAM-SAM-SOM with methodology, industry trends, regulatory compliance.",
-      "community": 2,
+      "community": 1,
       "norm_label": "phase 1: market and industry research",
       "id": "phase1_market_research"
     },
@@ -759,7 +759,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/_index.md",
       "rationale": "Profiles (Runna, TrainAsONE, AI Endurance, Coopah, Joggo; adjacent Strava, Garmin, Nike Run Club, WHOOP, Apple Fitness+), feature and pricing matrices, positioning map, gap analysis.",
-      "community": 3,
+      "community": 2,
       "norm_label": "phase 2: competitor analysis",
       "id": "phase2_competitor_analysis"
     },
@@ -768,7 +768,7 @@
       "file_type": "document",
       "source_file": "research/03-users/_index.md",
       "rationale": "Segmentation, evidence-based personas, jobs-to-be-done, pain points mined from reviews and forums, ranked unmet needs.",
-      "community": 6,
+      "community": 0,
       "norm_label": "phase 3: user research",
       "id": "phase3_user_research"
     },
@@ -777,7 +777,7 @@
       "file_type": "document",
       "source_file": "research/04-synthesis/_index.md",
       "rationale": "Opportunity, positioning, locked concept document, and the verdict on every Founder Brief hypothesis.",
-      "community": 7,
+      "community": 0,
       "norm_label": "phase 4: synthesis and concept lock",
       "id": "phase4_synthesis_concept"
     },
@@ -786,7 +786,7 @@
       "file_type": "document",
       "source_file": "research/05-product/_index.md",
       "rationale": "PRD, RICE prioritization, MVP scope with the ONE core job, user journeys, stack recommendation.",
-      "community": 2,
+      "community": 1,
       "norm_label": "phase 5: product definition and mvp scope",
       "id": "phase5_product_mvp"
     },
@@ -795,7 +795,7 @@
       "file_type": "document",
       "source_file": "research/06-business-model/_index.md",
       "rationale": "Business Model Canvas, revenue model, directional unit economics, North Star metric, GTM plan.",
-      "community": 2,
+      "community": 1,
       "norm_label": "phase 6: business model and go-to-market",
       "id": "phase6_business_model"
     },
@@ -804,7 +804,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Static HTML presenting all research; confidential pre-launch material must not deploy unprotected.",
-      "community": 5,
+      "community": 0,
       "norm_label": "phase 7: html research dashboard on vercel (deployment protection required)",
       "id": "phase7_research_dashboard"
     },
@@ -813,7 +813,7 @@
       "file_type": "document",
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Markdown master blueprint plus investor-facing HTML site on Vercel; the fundraising instrument.",
-      "community": 5,
+      "community": 0,
       "norm_label": "phase 8: business blueprint (investor deliverable)",
       "id": "phase8_business_blueprint"
     },
@@ -822,7 +822,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "Founder vision captured before research; source of testable hypotheses H1 to H7.",
-      "community": 4,
+      "community": 0,
       "norm_label": "founder brief (claudio's vision, 2026-07-30 interview)",
       "id": "founder_brief"
     },
@@ -831,7 +831,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "Routes adapting to distance, elevation, humidity and weather, street crossings, safety, surface; coaching layers on top. The product's atomic unit is the route.",
-      "community": 2,
+      "community": 1,
       "norm_label": "adaptive route generation (hero wedge)",
       "id": "concept_adaptive_route_generation"
     },
@@ -840,7 +840,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "Runners on vacation, travel, or unexpected scenarios do not know where to run or how to get a routine fit to their body, schedule, and needs.",
-      "community": 4,
+      "community": 0,
       "norm_label": "problem: where to run in unfamiliar situations",
       "id": "problem_where_to_run"
     },
@@ -849,7 +849,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "Runs 3 to 5 times per week, races a few times a year (5K to marathon), wants to improve, will not pay a human coach. To be validated in Phase 3.",
-      "community": 6,
+      "community": 0,
       "norm_label": "target user: the committed amateur runner",
       "id": "user_committed_amateur"
     },
@@ -858,7 +858,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "Route friction (H1), no incumbent solves constraint-based routes (H2), route wedge beats plan wedge (H3), freemium willingness to pay (H4), venture-scale market (H5), iOS-first form factor (H6), routine personalization deepens retention (H7).",
-      "community": 7,
+      "community": 0,
       "norm_label": "testable hypotheses h1 to h7",
       "id": "hypotheses_h1_h7"
     },
@@ -867,7 +867,7 @@
       "file_type": "document",
       "source_file": "vault/01-Project/Founder-Brief.md",
       "rationale": "MVP live with thousands of active runners and a seed round closed or in motion within 12 months; the blueprint is the fundraising instrument.",
-      "community": 5,
+      "community": 0,
       "norm_label": "business intent: venture-scale, freemium subscription, seed in 12 months",
       "id": "business_venture_scale_freemium"
     },
@@ -876,7 +876,7 @@
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-005 Phased research program with gated approvals.md",
       "rationale": "Locks the nine-phase pipeline, evidence standards, deliverable homes, Vercel for HTML deliverables, and version tags v0.2.0 to v0.4.0.",
-      "community": 4,
+      "community": 0,
       "norm_label": "dec-005: phased research program with gated approvals",
       "id": "dec005_gated_research_program"
     },
@@ -885,7 +885,7 @@
       "file_type": "document",
       "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
       "rationale": "Built research scaffolding, ran founder interview, recorded DEC-005; key reveal was the route-generation wedge.",
-      "community": 4,
+      "community": 0,
       "norm_label": "session 2026-07-30 - research program kickoff and founder brief",
       "id": "session_2026_07_30_research_kickoff"
     },
@@ -894,7 +894,7 @@
       "file_type": "document",
       "source_file": "research/01-market/market-landscape.md",
       "rationale": "Market definitions, published sizing, 2025 consolidation wave, value chain, participation data for US, England, races.",
-      "community": 2,
+      "community": 1,
       "norm_label": "market landscape research (running, fitness, ai coaching markets)",
       "id": "doc_market_landscape"
     },
@@ -903,7 +903,7 @@
       "file_type": "document",
       "source_file": "research/01-market/market-sizing.md",
       "rationale": "Tests H5 with top-down report figures, observable-revenue cross-checks, and a bottom-up build anchored on Runna's ~90k payers at acquisition.",
-      "community": 2,
+      "community": 1,
       "norm_label": "market sizing: tam $1.3b to $2.9b, sam 14m runners, som $5m to $30m arr",
       "id": "doc_market_sizing"
     },
@@ -912,7 +912,7 @@
       "file_type": "document",
       "source_file": "research/01-market/industry-trends.md",
       "rationale": "40 verified findings; three most consequential: platform squeeze, unowned route-generation hero feature with cheap stack, Gen Z running boom.",
-      "community": 2,
+      "community": 1,
       "norm_label": "industry trends research (wearables, ai coaching, subscriptions, routing tech, running culture)",
       "id": "doc_industry_trends"
     },
@@ -921,7 +921,7 @@
       "file_type": "document",
       "source_file": "research/01-market/regulatory-compliance.md",
       "rationale": "Concrete obligations plus a 15-item MVP compliance checklist; not legal advice.",
-      "community": 2,
+      "community": 1,
       "norm_label": "regulatory and compliance research (location, health data, ai act, accessibility, subscriptions)",
       "id": "doc_regulatory_compliance"
     },
@@ -930,7 +930,7 @@
       "file_type": "document",
       "source_file": "research/01-market/industry-trends.md",
       "rationale": "Training apps prescribe workouts without location intelligence; routing apps plan static routes without training context; nobody generates the run itself. Enabling stack (OSM routing, free elevation and weather, on-device AI) is nearly zero marginal cost, so the moat is personalization and execution.",
-      "community": 2,
+      "community": 1,
       "norm_label": "finding: route-generation whitespace is real and unowned",
       "id": "finding_route_whitespace"
     },
@@ -939,7 +939,7 @@
       "file_type": "document",
       "source_file": "research/01-market/market-sizing.md",
       "rationale": "The wedge alone benchmarks to $5M to $30M ARR by year 5 (Runna anchor): a strong business and strategic exit, but venture scale requires an expansion story (Android, geographies, broader coaching surface).",
-      "community": 5,
+      "community": 0,
       "norm_label": "finding: h5 venture-scale verdict uncertain",
       "id": "finding_h5_uncertain"
     },
@@ -948,7 +948,7 @@
       "file_type": "document",
       "source_file": "research/01-market/industry-trends.md",
       "rationale": "Garmin Connect+ ($6.99/mo) and Apple Workout Buddy (motivational, not prescriptive) raise the bar; differentiation must be what they do not do.",
-      "community": 2,
+      "community": 1,
       "norm_label": "finding: platform giants commoditize generic ai coaching",
       "id": "finding_platform_squeeze"
     },
@@ -957,7 +957,7 @@
       "file_type": "document",
       "source_file": "research/01-market/industry-trends.md",
       "rationale": "HealthKit remains fully open (validates iOS-first) but Garmin integration is a launch risk.",
-      "community": 2,
+      "community": 1,
       "norm_label": "risk: garmin connect developer program paused to new applicants",
       "id": "risk_garmin_api_paused"
     },
@@ -966,7 +966,7 @@
       "file_type": "document",
       "source_file": "research/01-market/regulatory-compliance.md",
       "rationale": "Generated routes anchored at home reveal home address (Strava heatmap precedent); precise geolocation is sensitive data across GDPR and ~19 of 20 US state laws; EU AI Act Article 50 transparency applies 2026-08-02.",
-      "community": 2,
+      "community": 1,
       "norm_label": "guardrail: location privacy is day-one architecture (privacy zones, private-by-default)",
       "id": "guardrail_location_privacy"
     },
@@ -975,7 +975,7 @@
       "file_type": "document",
       "source_file": "vault/04-Knowledge/Market Research Key Findings (Phase 1).md",
       "rationale": "Distilled Phase 1 findings for cheap future retrieval; full citations live in research/01-market/.",
-      "community": 2,
+      "community": 1,
       "norm_label": "market research key findings (phase 1) vault note",
       "id": "knowledge_market_phase1"
     },
@@ -984,7 +984,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/gap-analysis.md",
       "rationale": "Synthesis of 15+ products: 8 unmet needs, hypothesis verdicts, threat model, and what Waypoint must not compete on.",
-      "community": 3,
+      "community": 2,
       "norm_label": "competitive gap analysis (h2/h3 verdicts, threats, window)",
       "id": "doc_gap_analysis"
     },
@@ -993,7 +993,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/feature-matrix.md",
       "rationale": "Training, route, platform, and social capabilities across all competitors; the route constraint block is empty for everyone but Waypoint (planned).",
-      "community": 3,
+      "community": 2,
       "norm_label": "competitor feature matrix",
       "id": "doc_feature_matrix"
     },
@@ -1002,7 +1002,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/pricing-matrix.md",
       "rationale": "Price umbrella: Garmin Connect+ $70/yr to Strava+Runna bundle $150/yr; incumbents gate routes and adaptivity behind paid.",
-      "community": 5,
+      "community": 0,
       "norm_label": "competitor pricing matrix and freemium boundaries",
       "id": "doc_pricing_matrix"
     },
@@ -1011,7 +1011,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/positioning-map.md",
       "rationale": "The adaptive-training-plus-route-generation quadrant is empty; Waypoint claims it.",
-      "community": 3,
+      "community": 2,
       "norm_label": "competitor positioning maps (training vs route intelligence)",
       "id": "doc_positioning_map"
     },
@@ -1020,7 +1020,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/profile-runna.md",
       "rationale": "HIGH threat: owns the target user's trust ladder, ~$40M est. ARR at acquisition, Strava funnel. Openings: injury discourse, bundle billing friction, sync complaints. No route capability.",
-      "community": 3,
+      "community": 2,
       "norm_label": "runna (strava-owned, category-leading ai training app)",
       "id": "competitor_runna"
     },
@@ -1029,7 +1029,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/profile-strava-routes.md",
       "rationale": "Only incumbent with on-demand route generation (distance presets, flat/hilly, surface; popularity-ranked, not personalized, documented dangerous outputs). API bans AI/ML use of its data.",
-      "community": 3,
+      "community": 2,
       "norm_label": "strava (platform: routes, heatmap, runna owner)",
       "id": "competitor_strava"
     },
@@ -1038,7 +1038,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/profile-alltrails.md",
       "rationale": "MEDIUM threat with high optionality: AI accepts only 4 adjustments on existing trail routes, cannot generate from scratch; blind spot is urban doorstep running and training context.",
-      "community": 3,
+      "community": 2,
       "norm_label": "alltrails (peak tier ai route adjustments, trail-locked)",
       "id": "competitor_alltrails"
     },
@@ -1047,7 +1047,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/profile-komoot.md",
       "rationale": "MEDIUM trending down: 85 percent staff cut, user exodus, cannot take target distance as routing input; answers how-do-I-get-there, not where-should-I-run-today.",
-      "community": 3,
+      "community": 2,
       "norm_label": "komoot (bending spoons-owned, declining, bike/hike-first)",
       "id": "competitor_komoot"
     },
@@ -1056,7 +1056,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/gap-analysis.md",
       "rationale": "Across 15+ products: zero accept weather, crossings, or safety as routing constraints; zero connect routes to training state.",
-      "community": 3,
+      "community": 2,
       "norm_label": "finding: h2 supported (nobody does constraint-based adaptive route generation)",
       "id": "finding_h2_supported"
     },
@@ -1065,7 +1065,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/gap-analysis.md",
       "rationale": "Plan wedge crowded and floored at free; route wedge open and demand-validated at three price points; basic generation anchored at zero by free web tools.",
-      "community": 3,
+      "community": 2,
       "norm_label": "finding: h3 supported with monetization caveat (route wedge acquires, adaptive layer monetizes)",
       "id": "finding_h3_supported"
     },
@@ -1074,7 +1074,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/gap-analysis.md",
       "rationale": "50 to 60 percent likelihood of v1 within 18 months, 20 to 30 percent for full constraint depth. Early signals: Runna beta strings, routing-engineer postings, bundle marketing shifts.",
-      "community": 3,
+      "community": 2,
       "norm_label": "threat: strava+runna plan-linked route generation (12 to 18 month window)",
       "id": "threat_strava_runna_convergence"
     },
@@ -1083,7 +1083,7 @@
       "file_type": "document",
       "source_file": "research/02-competitors/adjacent-platforms.md",
       "rationale": "Strava API bans AI use of its data; Garmin developer program paused. Moat must be crossing graphs, safety scoring, micro-weather, not incumbent data.",
-      "community": 2,
+      "community": 1,
       "norm_label": "constraint: data enclosure forces healthkit-first and a proprietary context-data moat",
       "id": "constraint_data_enclosure"
     },
@@ -1092,7 +1092,7 @@
       "file_type": "document",
       "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
       "rationale": "Distilled Phase 2 findings including the 8 unmet needs carried into Phase 3 user research.",
-      "community": 3,
+      "community": 2,
       "norm_label": "competitive landscape key findings (phase 2) vault note",
       "id": "knowledge_competitors_phase2"
     },
@@ -1101,7 +1101,7 @@
       "file_type": "document",
       "source_file": "research/03-users/pain-points.md",
       "rationale": "Six pain themes from LetsRun, Reddit, C25K, Garmin forums, surveys; competitor complaints cross-referenced from Phase 2 profiles.",
-      "community": 6,
+      "community": 0,
       "norm_label": "runner pain points mined from communities",
       "id": "doc_pain_points"
     },
@@ -1110,7 +1110,7 @@
       "file_type": "document",
       "source_file": "research/03-users/segmentation.md",
       "rationale": "Committed amateur confirmed primary (only proven payer, flat not growing); ambitious beginner secondary (Gen Z growth pipeline); same product, gentler calibration.",
-      "community": 6,
+      "community": 0,
       "norm_label": "runner segmentation (five behavioral segments with sizing)",
       "id": "doc_segmentation"
     },
@@ -1119,7 +1119,7 @@
       "file_type": "document",
       "source_file": "research/03-users/personas.md",
       "rationale": "Marcus (committed amateur racer, bored of his loops), Priya (traveling consultant, hotel lobby at 6 a.m.), Elena (safety-first city runner), Jake (ambitious beginner).",
-      "community": 6,
+      "community": 0,
       "norm_label": "personas: marcus, priya, elena, jake",
       "id": "doc_personas"
     },
@@ -1128,7 +1128,7 @@
       "file_type": "document",
       "source_file": "research/03-users/jobs-to-be-done.md",
       "rationale": "Recommended main job: when my usual route does not fit today, hand me the right route for me, right now, from here.",
-      "community": 6,
+      "community": 0,
       "norm_label": "jobs-to-be-done (11 functional jobs, emotional and social jobs, persona job map)",
       "id": "doc_jobs_to_be_done"
     },
@@ -1137,7 +1137,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "11 needs ranked; H1 and H7 verdicts; consolidated interview backlog; 8 MVP telemetry signals.",
-      "community": 2,
+      "community": 1,
       "norm_label": "unmet needs ranked by evidence strength (phase 3 capstone)",
       "id": "doc_unmet_needs"
     },
@@ -1146,7 +1146,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "Travel route friction is frequent but the workaround economy mostly succeeds in 15 to 20 minutes; safety-aware routing and route novelty carry the strongest daily-pain evidence. Reframes the wedge story for Phase 4.",
-      "community": 7,
+      "community": 0,
       "norm_label": "finding: h1 partially supported (travel is activation, safety plus home novelty is daily retention)",
       "id": "finding_h1_partial"
     },
@@ -1155,7 +1155,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "54 percent of women runners changed routes over safety; 42 percent say safety dictates routine; Strava's generator has documented dangerous outputs; zero products accept safety as input.",
-      "community": 2,
+      "community": 1,
       "norm_label": "unmet need: safety-aware routing (strongest evidence)",
       "id": "need_safety_routing"
     },
@@ -1164,7 +1164,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "CityStrides (90k+ users, 6.7M streets) proves paying demand for roads-not-yet-run; incumbents rank by popularity, the opposite.",
-      "community": 2,
+      "community": 1,
       "norm_label": "unmet need: route novelty and personalization at home",
       "id": "need_route_novelty"
     },
@@ -1173,7 +1173,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "Priorities: committed amateurs (H1 base rate, bundling test, willingness to pay), women runners (algorithmic safety trust), frequent travelers (night-before ritual).",
-      "community": 2,
+      "community": 1,
       "norm_label": "interview backlog (validation plan for desk findings)",
       "id": "interview_backlog"
     },
@@ -1182,7 +1182,7 @@
       "file_type": "document",
       "source_file": "research/03-users/unmet-needs.md",
       "rationale": "Founder decision needed before Phase 6 pricing; flagged in personas and unmet-needs.",
-      "community": 2,
+      "community": 1,
       "norm_label": "open decision: must safety-critical routing be free (ethics and pricing)",
       "id": "open_decision_safety_free_tier"
     },
@@ -1191,7 +1191,7 @@
       "file_type": "document",
       "source_file": "vault/04-Knowledge/User Research Key Findings (Phase 3).md",
       "rationale": "Distilled Phase 3 findings including the travel-vs-daily-wedge reframe.",
-      "community": 6,
+      "community": 0,
       "norm_label": "user research key findings (phase 3) vault note",
       "id": "knowledge_users_phase3"
     },
@@ -1200,99 +1200,207 @@
       "file_type": "document",
       "source_file": "research/04-synthesis/concept.md",
       "rationale": "The governing concept: route generation hero (free anchor), adaptive coaching paid layer, voice navigation execution, privacy day-one. NOT social, not a route library, not multi-sport.",
-      "id": "doc_concept_locked",
-      "community": 9,
-      "norm_label": "concept definition (locked at phase 4 gate)"
+      "community": 1,
+      "norm_label": "concept definition (locked at phase 4 gate)",
+      "id": "doc_concept_locked"
     },
     {
       "label": "Opportunity definition (gap x need x feasibility)",
       "file_type": "document",
       "source_file": "research/04-synthesis/opportunity.md",
       "rationale": "Three-way intersection, why now, honest risk ledger, investor belief map.",
-      "id": "doc_opportunity",
-      "community": 7,
-      "norm_label": "opportunity definition (gap x need x feasibility)"
+      "community": 0,
+      "norm_label": "opportunity definition (gap x need x feasibility)",
+      "id": "doc_opportunity"
     },
     {
       "label": "Positioning (route-first recommended and chosen)",
       "file_type": "document",
       "source_file": "research/04-synthesis/positioning.md",
       "rationale": "Three candidates; category strategy: position inside the running app market; tagline verdict retired the old tagline.",
-      "id": "doc_positioning",
-      "community": 3,
-      "norm_label": "positioning (route-first recommended and chosen)"
+      "community": 2,
+      "norm_label": "positioning (route-first recommended and chosen)",
+      "id": "doc_positioning"
     },
     {
       "label": "Hypotheses review (formal H1 to H7 verdicts)",
       "file_type": "document",
       "source_file": "research/04-synthesis/hypotheses-review.md",
       "rationale": "H2, H3, H6 supported; H1, H4, H7 partial; H5 uncertain; none refuted.",
-      "id": "doc_hypotheses_review",
-      "community": 7,
-      "norm_label": "hypotheses review (formal h1 to h7 verdicts)"
+      "community": 0,
+      "norm_label": "hypotheses review (formal h1 to h7 verdicts)",
+      "id": "doc_hypotheses_review"
     },
     {
       "label": "DEC-006: Concept lock, route-first positioning, Know where to run",
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
       "rationale": "Claudio's four gate decisions on 2026-07-30: concept locked as written, Candidate A positioning, tagline changed to Know where to run, H1 reframe accepted.",
-      "id": "dec006_concept_lock",
-      "community": 9,
-      "norm_label": "dec-006: concept lock, route-first positioning, know where to run"
+      "community": 0,
+      "norm_label": "dec-006: concept lock, route-first positioning, know where to run",
+      "id": "dec006_concept_lock"
     },
     {
       "label": "Tagline: Know where to run (replaces Your AI Running Coach)",
       "file_type": "document",
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
       "rationale": "The old tagline priced Waypoint against free Garmin/Apple coaching and branded it against Runna.",
-      "id": "tagline_know_where_to_run",
-      "community": 9,
-      "norm_label": "tagline: know where to run (replaces your ai running coach)"
+      "community": 0,
+      "norm_label": "tagline: know where to run (replaces your ai running coach)",
+      "id": "tagline_know_where_to_run"
     },
     {
       "label": "Positioning statement (locked): the running app that generates the right route for you, right now, from wherever you stand",
       "file_type": "document",
       "source_file": "research/04-synthesis/positioning.md",
       "rationale": "For committed amateur runners who never quite know where today's run should go. Claims the empty quadrant; safety and coaching survive inside it.",
-      "id": "positioning_route_first",
-      "community": 9,
-      "norm_label": "positioning statement (locked): the running app that generates the right route for you, right now, from wherever you stand"
+      "community": 0,
+      "norm_label": "positioning statement (locked): the running app that generates the right route for you, right now, from wherever you stand",
+      "id": "positioning_route_first"
     },
     {
       "label": "HTML research dashboard (dashboard/index.html)",
       "file_type": "document",
       "source_file": "dashboard/index.html",
       "rationale": "Single-file readable summary of the research corpus; gate reviews are dashboard-first per the amended playbook. Pulled forward from Phase 7; Vercel deploy with protection remains the Phase 7 gate.",
-      "id": "dashboard_research",
-      "community": 4,
-      "norm_label": "html research dashboard (dashboard/index.html)"
+      "community": 0,
+      "norm_label": "html research dashboard (dashboard/index.html)",
+      "id": "dashboard_research"
     },
     {
       "label": "Milestone v0.2.0: research complete, concept locked",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
       "rationale": "Phases 1 to 4 complete per the version plan in DEC-005.",
-      "id": "milestone_v020",
-      "community": 5,
-      "norm_label": "milestone v0.2.0: research complete, concept locked"
+      "community": 0,
+      "norm_label": "milestone v0.2.0: research complete, concept locked",
+      "id": "milestone_v020"
     },
     {
       "label": "Watch item: Strava Instant Workouts (Jan 2026) links basic routes to workouts",
       "file_type": "document",
       "source_file": "research/04-synthesis/positioning.md",
       "rationale": "Partially stales the Phase 2 not-connected claim; differentiation rests on constraint depth, personalization, safety, training-state integration.",
-      "id": "update_strava_instant_workouts",
-      "community": 3,
-      "norm_label": "watch item: strava instant workouts (jan 2026) links basic routes to workouts"
+      "community": 2,
+      "norm_label": "watch item: strava instant workouts (jan 2026) links basic routes to workouts",
+      "id": "update_strava_instant_workouts"
     },
     {
       "label": "Concept and Positioning (Phase 4) vault note",
       "file_type": "document",
       "source_file": "vault/04-Knowledge/Concept and Positioning (Phase 4).md",
       "rationale": "Distilled Phase 4: locked concept, positioning, tagline, verdicts, opportunity spine for the blueprint.",
-      "id": "knowledge_concept_phase4",
-      "community": 7,
-      "norm_label": "concept and positioning (phase 4) vault note"
+      "community": 0,
+      "norm_label": "concept and positioning (phase 4) vault note",
+      "id": "knowledge_concept_phase4"
+    },
+    {
+      "label": "PRD: route engine 10 constraint inputs, compliance as requirements, safety-claim language rules",
+      "file_type": "document",
+      "source_file": "research/05-product/prd.md",
+      "rationale": "Full product requirements governed by the locked concept; honest degradation is an engine-wide requirement.",
+      "id": "phase5_prd",
+      "community": 1,
+      "norm_label": "prd: route engine 10 constraint inputs, compliance as requirements, safety-claim language rules"
+    },
+    {
+      "label": "RICE prioritization (30 features scored)",
+      "file_type": "document",
+      "source_file": "research/05-product/rice-prioritization.md",
+      "rationale": "Full math shown; confidence tied to Phase 3 evidence strength; 7 sensitivity flags mapped to the interview backlog.",
+      "id": "phase5_rice",
+      "community": 5,
+      "norm_label": "rice prioritization (30 features scored)"
+    },
+    {
+      "label": "MVP scope: 15 features, ~25 person-months, 8 to 10 calendar months",
+      "file_type": "document",
+      "source_file": "research/05-product/mvp-scope.md",
+      "rationale": "Walking skeleton on TestFlight month 3 to 4; launch month 8 to 9; paid layer months 10 to 12. Fits the Strava window.",
+      "id": "phase5_mvp_scope",
+      "community": 5,
+      "norm_label": "mvp scope: 15 features, ~25 person-months, 8 to 10 calendar months"
+    },
+    {
+      "label": "User journeys: 5 journeys, 10 design principles",
+      "file_type": "document",
+      "source_file": "research/05-product/user-journeys.md",
+      "rationale": "Onboarding under 3 minutes, Marcus daily, Priya hotel lobby under 30 seconds, Elena dark morning, Jake plan repair. Principles: explain reasoning, degrade honestly, never promise safe, free path always works.",
+      "id": "phase5_user_journeys",
+      "community": 5,
+      "norm_label": "user journeys: 5 journeys, 10 design principles"
+    },
+    {
+      "label": "Stack recommendation: self-hosted GraphHopper, Supabase PostGIS, SwiftUI MapKit, on-device Apple AI, RevenueCat",
+      "file_type": "document",
+      "source_file": "research/05-product/stack-recommendation.md",
+      "rationale": "GraphHopper is the only engine with a native round-trip primitive plus custom cost models over proprietary data. Infra $75 to $95/month at MVP.",
+      "id": "phase5_stack",
+      "community": 5,
+      "norm_label": "stack recommendation: self-hosted graphhopper, supabase postgis, swiftui mapkit, on-device apple ai, revenuecat"
+    },
+    {
+      "label": "Stack choice: self-hosted GraphHopper routing (moat data cannot run hosted)",
+      "file_type": "document",
+      "source_file": "research/05-product/stack-recommendation.md",
+      "rationale": "Hosted APIs cannot ingest proprietary crossing/lighting data; a hosted primary reduces Waypoint to commodity routing.",
+      "id": "decision_graphhopper_selfhost",
+      "community": 5,
+      "norm_label": "stack choice: self-hosted graphhopper routing (moat data cannot run hosted)"
+    },
+    {
+      "label": "Stack choice: on-device Apple Foundation Models for coaching",
+      "file_type": "document",
+      "source_file": "research/05-product/stack-recommendation.md",
+      "rationale": "Health data never leaves the device, collapsing the GDPR Article 9 server surface.",
+      "id": "decision_ondevice_ai",
+      "community": 5,
+      "norm_label": "stack choice: on-device apple foundation models for coaching"
+    },
+    {
+      "label": "Phase 5 gate pending: MVP scope, free/paid line, Watch timing, stack approval",
+      "file_type": "document",
+      "source_file": "research/05-product/mvp-scope.md",
+      "rationale": "Recommended: approve scope; launch v1 entirely free with safety routing free permanently; Watch at launch+30; approve stack.",
+      "id": "gate_phase5_pending",
+      "community": 5,
+      "norm_label": "phase 5 gate pending: mvp scope, free/paid line, watch timing, stack approval"
+    },
+    {
+      "label": "Design principle: degrade honestly, never fake confidence, never promise safe",
+      "file_type": "document",
+      "source_file": "research/05-product/user-journeys.md",
+      "rationale": "Safety-aware is the ceiling of the claim; banned-terms linter in CI; the honest refusal is a trust moment.",
+      "id": "principle_honest_degradation",
+      "community": 5,
+      "norm_label": "design principle: degrade honestly, never fake confidence, never promise safe"
+    },
+    {
+      "label": "Month-1 spike: safety/crossing data buildability at solo-founder scale (assumption A3)",
+      "file_type": "document",
+      "source_file": "research/05-product/prd.md",
+      "rationale": "The PRD's biggest credibility dependency; decides full data layer vs time-of-day heuristics at launch.",
+      "id": "spike_safety_data_buildability",
+      "community": 1,
+      "norm_label": "month-1 spike: safety/crossing data buildability at solo-founder scale (assumption a3)"
+    },
+    {
+      "label": "Product Definition Key Findings (Phase 5) vault note",
+      "file_type": "document",
+      "source_file": "vault/04-Knowledge/Product Definition Key Findings (Phase 5).md",
+      "rationale": "Distilled Phase 5 for fast retrieval.",
+      "id": "knowledge_product_phase5",
+      "community": 5,
+      "norm_label": "product definition key findings (phase 5) vault note"
+    },
+    {
+      "label": "Phase 5: Product definition and MVP scope (research/05-product/)",
+      "file_type": "document",
+      "source_file": "research/05-product/_index.md",
+      "rationale": "Five deliverables complete; gate pending.",
+      "id": "phase5_product_index",
+      "community": 5,
+      "norm_label": "phase 5: product definition and mvp scope (research/05-product/)"
     }
   ],
   "links": [
@@ -2925,9 +3033,9 @@
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
+      "confidence_score": 1.0,
       "source": "product_ai_running_coach",
-      "target": "tagline_know_where_to_run",
-      "confidence_score": 1.0
+      "target": "tagline_know_where_to_run"
     },
     {
       "relation": "references",
@@ -3173,9 +3281,9 @@
       "weight": 1.0,
       "source_file": "research/00-RESEARCH-PLAYBOOK.md",
       "rationale": "Playbook amended: dashboard-first gate reviews.",
+      "confidence_score": 1.0,
       "source": "research_playbook",
-      "target": "dashboard_research",
-      "confidence_score": 1.0
+      "target": "dashboard_research"
     },
     {
       "relation": "contains",
@@ -3264,9 +3372,9 @@
       "weight": 1.0,
       "source_file": "CHANGELOG.md",
       "rationale": "Version tag plan from DEC-005: v0.2.0 after Phases 1 to 4.",
+      "confidence_score": 1.0,
       "source": "research_program_nine_phases",
-      "target": "milestone_v020",
-      "confidence_score": 1.0
+      "target": "milestone_v020"
     },
     {
       "relation": "evaluated_in",
@@ -3540,54 +3648,54 @@
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/_index.md",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "doc_concept_locked",
-      "confidence_score": 1.0
+      "target": "doc_concept_locked"
     },
     {
       "relation": "contains",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/_index.md",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "doc_opportunity",
-      "confidence_score": 1.0
+      "target": "doc_opportunity"
     },
     {
       "relation": "contains",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/_index.md",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "doc_positioning",
-      "confidence_score": 1.0
+      "target": "doc_positioning"
     },
     {
       "relation": "contains",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/_index.md",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "doc_hypotheses_review",
-      "confidence_score": 1.0
+      "target": "doc_hypotheses_review"
     },
     {
       "relation": "summarizes",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "dashboard/index.html",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "dashboard_research",
-      "confidence_score": 1.0
+      "target": "dashboard_research"
     },
     {
       "relation": "summarizes",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/04-Knowledge/Concept and Positioning (Phase 4).md",
+      "confidence_score": 1.0,
       "source": "phase4_synthesis_concept",
-      "target": "knowledge_concept_phase4",
-      "confidence_score": 1.0
+      "target": "knowledge_concept_phase4"
     },
     {
       "relation": "constrains",
@@ -3625,9 +3733,9 @@
       "weight": 1.0,
       "source_file": "research/04-synthesis/concept.md",
       "rationale": "Phase 5 product work proceeds against the locked concept.",
+      "confidence_score": 1.0,
       "source": "phase5_product_mvp",
-      "target": "doc_concept_locked",
-      "confidence_score": 1.0
+      "target": "doc_concept_locked"
     },
     {
       "relation": "constrains",
@@ -3812,8 +3920,17 @@
       "weight": 1.0,
       "source_file": "research/04-synthesis/concept.md",
       "rationale": "The founder's wedge, now formalized with tiering and constraints.",
+      "confidence_score": 1.0,
       "source": "concept_adaptive_route_generation",
-      "target": "doc_concept_locked",
+      "target": "doc_concept_locked"
+    },
+    {
+      "relation": "enables",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/stack-recommendation.md",
+      "source": "concept_adaptive_route_generation",
+      "target": "decision_graphhopper_selfhost",
       "confidence_score": 1.0
     },
     {
@@ -3888,9 +4005,9 @@
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/hypotheses-review.md",
+      "confidence_score": 1.0,
       "source": "hypotheses_h1_h7",
-      "target": "doc_hypotheses_review",
-      "confidence_score": 1.0
+      "target": "doc_hypotheses_review"
     },
     {
       "relation": "challenges",
@@ -3926,9 +4043,18 @@
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "confidence_score": 1.0,
       "source": "session_2026_07_30_research_kickoff",
-      "target": "dec006_concept_lock",
-      "confidence_score": 1.0
+      "target": "dec006_concept_lock"
+    },
+    {
+      "relation": "documents",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
+      "confidence_score": 1.0,
+      "source": "session_2026_07_30_research_kickoff",
+      "target": "dashboard_research"
     },
     {
       "relation": "documents",
@@ -3936,7 +4062,7 @@
       "weight": 1.0,
       "source_file": "vault/03-Sessions/2026-07-30 Research Program Kickoff and Founder Brief.md",
       "source": "session_2026_07_30_research_kickoff",
-      "target": "dashboard_research",
+      "target": "phase5_product_index",
       "confidence_score": 1.0
     },
     {
@@ -4099,8 +4225,18 @@
       "weight": 1.0,
       "source_file": "research/04-synthesis/positioning.md",
       "rationale": "First observable move in the predicted convergence.",
+      "confidence_score": 1.0,
       "source": "threat_strava_runna_convergence",
-      "target": "update_strava_instant_workouts",
+      "target": "update_strava_instant_workouts"
+    },
+    {
+      "relation": "references",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/mvp-scope.md",
+      "rationale": "The 8 to 10 month calendar is sized to land inside the competitive window.",
+      "source": "threat_strava_runna_convergence",
+      "target": "phase5_mvp_scope",
       "confidence_score": 1.0
     },
     {
@@ -4181,17 +4317,26 @@
       "weight": 1.0,
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
       "rationale": "The accepted reframe originates in the Phase 3 H1 verdict.",
+      "confidence_score": 1.0,
       "source": "finding_h1_partial",
-      "target": "dec006_concept_lock",
-      "confidence_score": 1.0
+      "target": "dec006_concept_lock"
     },
     {
       "relation": "records",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
+      "confidence_score": 1.0,
       "source": "doc_concept_locked",
-      "target": "dec006_concept_lock",
+      "target": "dec006_concept_lock"
+    },
+    {
+      "relation": "governs",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/prd.md",
+      "source": "doc_concept_locked",
+      "target": "phase5_prd",
       "confidence_score": 1.0
     },
     {
@@ -4199,35 +4344,162 @@
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "research/04-synthesis/positioning.md",
+      "confidence_score": 1.0,
       "source": "doc_positioning",
-      "target": "update_strava_instant_workouts",
-      "confidence_score": 1.0
+      "target": "update_strava_instant_workouts"
     },
     {
       "relation": "defines",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
+      "confidence_score": 1.0,
       "source": "dec006_concept_lock",
-      "target": "tagline_know_where_to_run",
-      "confidence_score": 1.0
+      "target": "tagline_know_where_to_run"
     },
     {
       "relation": "defines",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "vault/02-Decisions/DEC-006 Concept lock route-first positioning.md",
+      "confidence_score": 1.0,
       "source": "dec006_concept_lock",
-      "target": "positioning_route_first",
-      "confidence_score": 1.0
+      "target": "positioning_route_first"
     },
     {
       "relation": "references",
       "confidence": "STATED",
       "weight": 1.0,
       "source_file": "CHANGELOG.md",
+      "confidence_score": 1.0,
       "source": "dec006_concept_lock",
-      "target": "milestone_v020",
+      "target": "milestone_v020"
+    },
+    {
+      "relation": "summarizes",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "dashboard/index.html",
+      "source": "dashboard_research",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/_index.md",
+      "source": "phase5_prd",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "requires",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/prd.md",
+      "source": "phase5_prd",
+      "target": "spike_safety_data_buildability",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/_index.md",
+      "source": "phase5_rice",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "supports",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/mvp-scope.md",
+      "rationale": "The MVP line is drawn through the RICE ranking plus dependencies plus the core hypothesis.",
+      "source": "phase5_rice",
+      "target": "phase5_mvp_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/_index.md",
+      "source": "phase5_mvp_scope",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluates",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/mvp-scope.md",
+      "source": "phase5_mvp_scope",
+      "target": "gate_phase5_pending",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/_index.md",
+      "source": "phase5_user_journeys",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/user-journeys.md",
+      "source": "phase5_user_journeys",
+      "target": "principle_honest_degradation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/_index.md",
+      "source": "phase5_stack",
+      "target": "phase5_product_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/stack-recommendation.md",
+      "source": "phase5_stack",
+      "target": "decision_graphhopper_selfhost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/stack-recommendation.md",
+      "source": "phase5_stack",
+      "target": "decision_ondevice_ai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "evaluates",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "research/05-product/stack-recommendation.md",
+      "source": "phase5_stack",
+      "target": "gate_phase5_pending",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "summarizes",
+      "confidence": "STATED",
+      "weight": 1.0,
+      "source_file": "vault/04-Knowledge/Product Definition Key Findings (Phase 5).md",
+      "source": "knowledge_product_phase5",
+      "target": "phase5_product_index",
       "confidence_score": 1.0
     }
   ],
@@ -4280,5 +4552,5 @@
       "source_file": "vault/02-Decisions/_Decision-Log.md"
     }
   ],
-  "built_at_commit": "473f53a1565a6b21e4665b28e6f8dc1ba825037e"
+  "built_at_commit": "32dcf1713f114836ec22b8953076e4bb61973c35"
 }

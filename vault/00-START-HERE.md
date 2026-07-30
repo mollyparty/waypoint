@@ -11,7 +11,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program, Phases 0 to 4 complete. **The concept is LOCKED** ([[DEC-006 Concept lock route-first positioning]]). Phase 5 (product definition and MVP scope) is next, gated on Claudio's go-ahead.
+- **Phase:** Research program, Phases 0 to 4 complete, concept LOCKED ([[DEC-006 Concept lock route-first positioning]]). Phase 5 (product definition) deliverables complete; **gate pending Claudio's review** (dashboard cards 5 to 8: MVP scope, free/paid line, Watch timing, stack).
 - **Product:** **Know where to run.** Waypoint is the running app that knows where you should run: constraint-based adaptive route generation as the hero (free-tier anchor), adaptive coaching as the paid layer, voice navigation as the execution surface, privacy as day-one architecture. Locked concept: `research/04-synthesis/concept.md`. See [[Charter]].
 - **Review surface:** Claudio reviews via `dashboard/index.html` (dashboard-first gate reviews, per the amended playbook), not raw markdown.
 - **Latest version:** v0.2.0 (research milestone: Phases 1 to 4, concept locked).
@@ -31,11 +31,14 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Phase 4 synthesis complete and **concept LOCKED** (DEC-006): route-first positioning, "Know where to run" tagline, H1 reframe accepted; key findings in [[Concept and Positioning (Phase 4)]]
 - [x] HTML research dashboard built (`dashboard/index.html`, pulled forward from Phase 7); playbook amended to dashboard-first gate reviews
 
+- [x] Phase 5 product definition complete in `research/05-product/` (5 documents); key findings in [[Product Definition Key Findings (Phase 5)]] (15-feature MVP, ~25 pm, GraphHopper stack)
+
 ## What unlocks next
 
-1. **Phase 5: product definition and MVP scope** (`research/05-product/`): PRD, RICE prioritization, MVP scope, user journeys, stack recommendation. Governed by the locked concept.
-2. The real-user interview backlog runs alongside Phase 5 (`research/03-users/unmet-needs.md`).
-3. The safety-free-tier decision lands in Phase 6 with pricing. #open-question
+1. **Phase 5 gate**: Claudio approves MVP scope, free/paid line, Watch timing, and stack (dashboard cards 5 to 8). The recommendation on the free/paid line (launch fully free, safety routing free permanently) would also resolve the deferred safety-free-tier question.
+2. **Phase 6: business model** (Business Model Canvas, unit economics, metrics, GTM) once the gate passes.
+3. The real-user interview backlog runs alongside build (`research/03-users/unmet-needs.md`).
+4. Operational, already sanctioned: month-1 safety-data buildability spike; week-1 GraphHopper crossing-penalty spike; 2-day voice-guidance spike.
 2. **Concept lock at the Phase 4 gate**: the heaviest decision point of the program.
 3. Capture the research pipeline as a reusable venture-discovery skill after Phase 4 if it performs well.
 

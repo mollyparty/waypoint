@@ -161,6 +161,7 @@
   <a href="#competitors">Phase 2 · Competitors</a>
   <a href="#users">Phase 3 · Users</a>
   <a href="#synthesis">Phase 4 · Synthesis</a>
+  <a href="#product">Phase 5 · Product</a>
   <div class="nav-group">Reference</div>
   <a href="#sources">Sources &amp; Method</a>
 </nav>
@@ -188,7 +189,7 @@
   </div>
 
   <div class="grid grid-4">
-    <div class="card stat"><div class="num">28</div><div class="lbl">research documents, every claim cited and confidence-labeled</div></div>
+    <div class="card stat"><div class="num">33</div><div class="lbl">research documents, every claim cited and confidence-labeled</div></div>
     <div class="card stat"><div class="num">15+</div><div class="lbl">products examined; zero do constraint-based adaptive routes</div></div>
     <div class="card stat"><div class="num">12 to 18 mo</div><div class="lbl">estimated window before Strava ships a plan-linked route v1</div></div>
     <div class="card stat"><div class="num">6 of 7</div><div class="lbl">founder hypotheses supported or partially supported; none refuted</div></div>
@@ -383,6 +384,87 @@
   </ul></div>
 </section>
 
+<!-- ================= PRODUCT ================= -->
+<section id="product">
+  <h2>Phase 5 · Product definition</h2>
+  <p class="section-sub">Five documents: PRD, RICE prioritization, MVP scope, user journeys, and the stack recommendation. All governed by the locked concept. Full detail in <span class="kbd">research/05-product/</span>. Four new gate decisions are at the bottom of this section.</p>
+
+  <div class="grid grid-4">
+    <div class="card stat"><div class="num">15</div><div class="lbl">features inside the MVP line (of 30 scored candidates)</div></div>
+    <div class="card stat"><div class="num">~25 pm</div><div class="lbl">total MVP effort; 8 to 10 calendar months with founder plus two contractors</div></div>
+    <div class="card stat"><div class="num">Month 3 to 4</div><div class="lbl">walking skeleton on TestFlight: generate a route, run it with voice, save it</div></div>
+    <div class="card stat"><div class="num">$75 to $95/mo</div><div class="lbl">infrastructure cost at MVP scale; ~$300/mo at 10k monthly actives</div></div>
+  </div>
+
+  <h3>What ships when</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Stage</th><th>What is in it</th><th>The reasoning</th></tr></thead>
+    <tbody>
+      <tr><td>MVP v1<br><span class="badge b-green">Month 8 to 9</span></td><td>Core constraint route generation (distance, start-anywhere, round-trip, elevation), route novelty, safety-aware routing v1, travel mode, honest degradation, voice turn-by-turn, GPS tracking, run history, HealthKit sync, Strava share, onboarding, full privacy and compliance architecture</td><td>Proves the core hypothesis: runners adopt and return for constraint-based generation. Entirely free at launch.</td></tr>
+      <tr><td>Fast-follow v1.x<br><span class="badge b-blue">Month 10 to 12</span></td><td>Paywall plus training-state-aware generation (shipped together), Apple Watch app (launch+30), street crossings, weather constraint, surface, offline generation, GPX export</td><td>Monetization lands once week-4 retention clears the bar; each deferral has a named pull-forward trigger.</td></tr>
+      <tr><td>v2+<br><span class="badge b-gray">Later</span></td><td>Adaptive training plans, injury calibration, race progression, readiness input, live location sharing (pending privacy review)</td><td>The full coaching layer follows once route retention is proven.</td></tr>
+      <tr><td>Never</td><td>Social network, route library, multi-sport, hardware, plan brand war</td><td>The DEC-006 NOT list, unchanged.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The recommended stack</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Layer</th><th>Choice</th><th>Why</th><th>Biggest risk</th></tr></thead>
+    <tbody>
+      <tr><td>Routing engine</td><td>Self-hosted GraphHopper (Apache 2.0)</td><td>The only engine with a native round-trip primitive AND custom cost models that can ingest Waypoint's proprietary crossing and lighting data. Hosted APIs cannot, which would reduce Waypoint to commodity routing.</td><td>Custom models are officially beta; solo ops burden</td></tr>
+      <tr><td>Moat data</td><td>Supabase (Postgres + PostGIS)</td><td>The spatial workshop for the crossing and lighting layers</td><td>OSM ODbL share-alike boundary needs counsel review</td></tr>
+      <tr><td>Weather</td><td>Apple WeatherKit</td><td>500k calls/month free with the developer membership</td><td>Apple dependency</td></tr>
+      <tr><td>Map and navigation</td><td>SwiftUI + MapKit, custom voice guidance</td><td>First-party, free, no third-party SDK privacy audit</td><td>Guidance effort may be underestimated (2-day spike planned)</td></tr>
+      <tr><td>Coaching AI</td><td>On-device Apple Foundation Models</td><td>Free, offline, and health data never leaves the device: collapses the GDPR Article 9 server surface</td><td>Older phones get template explanations</td></tr>
+      <tr><td>Subscriptions</td><td>Apple IAP via RevenueCat</td><td>1 percent of revenue buys back weeks of plumbing during the speed window</td><td>1 percent forever; revisit past ~$50k monthly revenue</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The journeys that define the experience</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Onboarding:</strong> install to first generated route in under 3 minutes; permissions asked at the moment of value, never at cold launch; location denial degrades to a manual start point, never a dead end.</li>
+      <li><strong>Marcus's daily run:</strong> boredom to a route with never-run streets matched to today's workout; the paid upsell fires once, contextually, and the free path is never degraded to force it.</li>
+      <li><strong>Priya's hotel lobby:</strong> travel context auto-activates away from home; a route in under 30 seconds with a "why this route" card of checkable reasons; night-before pre-generation for offline mornings.</li>
+      <li><strong>Elena's dark morning:</strong> safety-aware weighting as a first-class constraint; the copy rule is enforceable ("safety-aware" is the ceiling, "safe" fails review); missing data degrades honestly, including the honest refusal.</li>
+      <li><strong>Jake's missed week:</strong> no streak shame, a one-question triage, a rebuilt plan with reasoning shown, and a comeback run built to be finished.</li>
+    </ul>
+    <p style="margin-top:8px"><strong>Ten design principles</strong> govern all flows, led by: explain reasoning always, degrade honestly, never promise "safe", ask at the moment of value, the free path always works, feed Strava and never compete with it.</p>
+  </div>
+
+  <h3 id="p5-gates">Phase 5 gate decisions</h3>
+
+  <div class="decision">
+    <div class="d-head"><h4>5 · Approve the MVP scope?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <p style="margin: 8px 0 12px">The 15-feature MVP above, ~25 person-months, 8 to 10 calendar months with two contractors, walking skeleton on TestFlight at month 3 to 4. Deliberately excluded from v1: Watch app, paywall, weather and crossing constraints (each with a named trigger to pull it forward).</p>
+    <div class="option rec"><span class="opt-label">Approve as drawn</span><span class="opt-why">Recommended. It proves the core hypothesis inside the competitive window; anything bigger risks missing it.</span></div>
+    <div class="option"><span class="opt-label">Approve with amendments</span><span class="opt-why">Tell me what moves across the line and why.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>6 · The free/paid line at launch</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="option rec"><span class="opt-label">Launch v1 entirely free</span><span class="opt-why">Recommended. Paywall and training-state generation ship together in v1.x once week-4 retention clears the bar. Safety routing stays free permanently (resolves the deferred ethics question the simple way). Maximizes adoption speed during the window.</span></div>
+    <div class="option"><span class="opt-label">Launch with the paywall live</span><span class="opt-why">Earlier revenue signal, but slows adoption and adds 1 to 2 months before launch.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>7 · Apple Watch timing</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="option rec"><span class="opt-label">Fast-follow, launch+30 days</span><span class="opt-why">Recommended. Built during beta; v1 covers the Watch story via WorkoutKit sync to the native Workout app. Pulls into v1 only if the beta screener shows most runners execute watch-only.</span></div>
+    <div class="option"><span class="opt-label">In the MVP</span><span class="opt-why">Adds 2 to 3 person-months before any user feedback.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <p style="margin: 8px 0 12px">The table above: self-hosted GraphHopper, Supabase with PostGIS, SwiftUI plus MapKit with custom voice guidance, on-device Apple AI for coaching, RevenueCat for subscriptions. Week-1 spikes already planned: crossing-penalty feasibility in GraphHopper, and a 2-day voice-guidance spike.</p>
+    <div class="option rec"><span class="opt-label">Approve</span><span class="opt-why">Recommended. Every layer optimizes for solo-founder speed, privacy surface, and the proprietary-data moat.</span></div>
+    <div class="option"><span class="opt-label">Discuss a layer</span><span class="opt-why">Name the layer; alternatives and trade-offs are in the full document.</span></div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Proceeding without a gate (operational):</strong> the month-1 technical spike on safety-data buildability, and the real-user interviews (priorities 1 and 2) running in parallel with results landing at the walking-skeleton checkpoint.</p>
+  </div>
+</section>
+
 <!-- ================= SOURCES ================= -->
 <section id="sources">
   <h2>Sources and method</h2>
@@ -395,11 +477,12 @@
       <tr><td>Phase 1</td><td><span class="kbd">research/01-market/</span></td><td>market-landscape, market-sizing, industry-trends, regulatory-compliance</td></tr>
       <tr><td>Phase 2</td><td><span class="kbd">research/02-competitors/</span></td><td>10 profiles, adjacent-platforms, feature-matrix, pricing-matrix, positioning-map, gap-analysis</td></tr>
       <tr><td>Phase 3</td><td><span class="kbd">research/03-users/</span></td><td>pain-points, segmentation, personas, jobs-to-be-done, unmet-needs</td></tr>
-      <tr><td>Phase 4</td><td><span class="kbd">research/04-synthesis/</span></td><td>opportunity, positioning, hypotheses-review, concept (proposed for lock)</td></tr>
+      <tr><td>Phase 4</td><td><span class="kbd">research/04-synthesis/</span></td><td>opportunity, positioning, hypotheses-review, concept (LOCKED, DEC-006)</td></tr>
+      <tr><td>Phase 5</td><td><span class="kbd">research/05-product/</span></td><td>prd, rice-prioritization, mvp-scope, user-journeys, stack-recommendation</td></tr>
     </tbody>
   </table></div>
   <footer>
-    <p>Waypoint Research Dashboard · Confidential pre-launch material, do not distribute · Version-Timestamp: 2026-07-30 16:55:00 UTC-4</p>
+    <p>Waypoint Research Dashboard · Confidential pre-launch material, do not distribute · Version-Timestamp: 2026-07-30 18:05:00 UTC-4</p>
     <p>Generated from the Waypoint research corpus. The markdown documents remain the citable source of truth; this dashboard is the readable window into them.</p>
   </footer>
 </section>
