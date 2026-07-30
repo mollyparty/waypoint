@@ -14,8 +14,14 @@ Waypoint is a new startup project: an AI running coach. This repository is its s
 | `vault/00-START-HERE.md` | The always-current entry point. Read this first, every session. |
 | `graphify-out/` | Graphify knowledge graph: queryable project brain plus token cost telemetry. |
 | `docs/VERSIONING.md` | The versioning strategy for this repository. |
-| `AGENTS.md` | The memory and working protocol for AI agents working in this repo. |
+| `AGENTS.md` | The memory and working protocol for AI agents working in this repo, in any tool. |
+| `CLAUDE.md` | Thin pointer to `AGENTS.md` for Claude Code (which looks for this filename by convention). |
+| `CONTRIBUTING.md` | How to pick this project up from any machine, in any AI coding tool. |
 | `CHANGELOG.md` | Human-readable history of approved versions. |
+
+## Working from any IDE
+
+This project is not tied to one tool. Cursor, Codex CLI, Claude Code, or any other AI coding assistant can pick this up and have full context, because that context lives in the repo itself, not in any tool's chat history. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup steps if you are a collaborator (including a partner) joining from a different machine or tool.
 
 ## Versioning at a glance
 

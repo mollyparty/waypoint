@@ -1,7 +1,7 @@
 ---
 type: home
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-07-30T13:30
 tags: [home]
 ---
 
@@ -21,6 +21,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Obsidian vault built as persistent project memory ([[DEC-002 Obsidian vault as project memory]])
 - [x] Graphify knowledge graph integrated with git hook and cost telemetry ([[DEC-003 Graphify as queryable project brain]])
 - [x] Agent memory protocol codified in `AGENTS.md` and Cursor rule
+- [x] Cross-IDE support: `CLAUDE.md`, `CONTRIBUTING.md`, genericized `AGENTS.md`, continuous push cadence ([[DEC-004 Continuous push and cross-IDE agent files]])
 
 ## What unlocks next
 
@@ -32,6 +33,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 - Product definition beyond the "AI Running Coach" tagline is open. #open-question
 - No CI/CD yet; add when code exists. #open-question
+- Partner has not yet cloned the repo or confirmed which tool they will use; `CONTRIBUTING.md` is ready for whenever they do. #open-question
 
 ## Map of the vault
 

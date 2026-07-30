@@ -1,8 +1,8 @@
 # Waypoint Agent Protocol
 
-> Version-Timestamp: 2026-07-30 12:25:00 UTC-4
+> Version-Timestamp: 2026-07-30 13:15:00 UTC-4
 
-You are working on Waypoint, a startup project built from scratch. This file is the always-loaded contract for every agent session in this repo. It exists to prevent amnesia and wasted tokens. Follow it in every session, without being asked.
+You are working on Waypoint, a startup project built from scratch. This file is the always-loaded contract for every agent session in this repo, in any tool: Cursor, Codex CLI, Claude Code (via `CLAUDE.md`, which points here), Gemini CLI, or any other. It exists to prevent amnesia and wasted tokens. Follow it in every session, without being asked, regardless of which tool loaded it.
 
 ## Session start (do this first, always)
 
@@ -24,21 +24,25 @@ You are working on Waypoint, a startup project built from scratch. This file is 
 - New durable knowledge (research, domain facts, references) goes in `vault/04-Knowledge/` from the knowledge template, with sources cited.
 - Every versioned artifact you create or update carries a visible `Version-Timestamp: YYYY-MM-DD HH:mm:ss TZ` (vault notes use the `updated:` frontmatter field instead).
 
+## Push cadence (continuous, not just session end)
+
+Commit and push after every meaningful unit of work, not only at session end: after each todo completes, after each file group that forms a coherent change, and always before ending a turn. A human collaborator (partner) may pull `main` at any moment and expects it current. See `vault/02-Decisions/DEC-004 Continuous push and cross-IDE agent files.md`.
+
 ## Session end (mandatory checklist, never skip)
 
 1. Write or complete the session note in `vault/03-Sessions/` (from the session template).
 2. Update `vault/00-START-HERE.md`: project state, done list, next steps, open threads, `updated:` date.
 3. If docs or vault notes changed: rebuild the graph with the graphify `--update` flow. (Code changes rebuild automatically via the post-commit hook.)
-4. Commit and push to `main` (or the work branch) on GitHub. Local-only history does not count as saved.
+4. Final commit and push to `main` (or the work branch) on GitHub, confirming the working tree is clean. Local-only history does not count as saved.
 
 ## Git and versioning rules
 
 - `main` is always the latest approved version. Work on short-lived `feat/`, `fix/`, `docs/`, `chore/` branches; merge back fast. Full strategy: `docs/VERSIONING.md`.
 - Conventional Commits: `type(scope): summary`.
-- Every commit body ends with an attribution footer, values read from the real environment (`hostname`, tool version); write `unknown` rather than guess:
+- Every commit body ends with an attribution footer, values read from the real environment (`hostname`, the actual tool you are running as, its version); write `unknown` rather than guess:
 
 ```
-Agent-Attribution: computer=<hostname>; tool=Cursor; version=<version>; timestamp=<YYYY-MM-DD HH:mm:ss TZ>
+Agent-Attribution: computer=<hostname>; tool=<Cursor|Codex CLI|Claude Code|other>; version=<version>; timestamp=<YYYY-MM-DD HH:mm:ss TZ>
 ```
 
 - Approved milestones: semantic version tag (`v0.x.y`) plus a `CHANGELOG.md` entry written at tag time.

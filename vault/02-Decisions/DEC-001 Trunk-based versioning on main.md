@@ -33,6 +33,11 @@ Trunk-based development: `main` is always the latest approved version. Work happ
 - Branches must stay short-lived (hours to days) or they defeat the model.
 - Full strategy documented in `docs/VERSIONING.md`.
 
+## Amendment (2026-07-30)
+
+Push cadence amended by [[DEC-004 Continuous push and cross-IDE agent files]]: push continuously (after every meaningful unit of work), not only at session end. Everything else in this decision stands.
+
 ## Related
 
 - [[_Decision-Log]]
+- [[DEC-004 Continuous push and cross-IDE agent files]]

@@ -1,18 +1,18 @@
 {
   "vault/.obsidian/app.json": {
-    "mtime": 1785428197.1098404,
-    "ast_hash": "d64f581d542aaad693bd37a4f7b60f37",
-    "semantic_hash": "d64f581d542aaad693bd37a4f7b60f37"
+    "mtime": 1785429754.7224407,
+    "ast_hash": "6379c15e12018af2daa03b3cd336f49a",
+    "semantic_hash": ""
   },
   "vault/.obsidian/appearance.json": {
-    "mtime": 1785428198.021895,
-    "ast_hash": "8b1152ac6697f35a0cb3c7d66cfa2f82",
-    "semantic_hash": "8b1152ac6697f35a0cb3c7d66cfa2f82"
+    "mtime": 1785429754.7268114,
+    "ast_hash": "1c30754693b963610c4b6e538f88e015",
+    "semantic_hash": ""
   },
   "vault/.obsidian/graph.json": {
-    "mtime": 1785428203.469262,
-    "ast_hash": "ee1244f77c89de675176b1a1ee300df4",
-    "semantic_hash": "ee1244f77c89de675176b1a1ee300df4"
+    "mtime": 1785429780.473,
+    "ast_hash": "e854c997bfb5edcee75e9329c28f1af6",
+    "semantic_hash": ""
   },
   "vault/.obsidian/templates.json": {
     "mtime": 1785428199.5578794,
@@ -45,9 +45,9 @@
     "semantic_hash": "785cf7b4b4de63e561e395f31d8e8e45"
   },
   "vault/01-Project/Charter.md": {
-    "mtime": 1785428961.2471876,
-    "ast_hash": "691a09eac559caf6e7914083e4314617",
-    "semantic_hash": "691a09eac559caf6e7914083e4314617"
+    "mtime": 1785429780.3205912,
+    "ast_hash": "24f0474dae1a5d1827b6633f63f90d2b",
+    "semantic_hash": ""
   },
   "vault/02-Decisions/DEC-001 Trunk-based versioning on main.md": {
     "mtime": 1785428147.7284677,
@@ -65,14 +65,14 @@
     "semantic_hash": "013308a621310fd253a4a870c94e1c07"
   },
   "vault/02-Decisions/_Decision-Log.md": {
-    "mtime": 1785428140.0780218,
-    "ast_hash": "83ba32fd5642786b9041e6d570859ca1",
-    "semantic_hash": "83ba32fd5642786b9041e6d570859ca1"
+    "mtime": 1785429763.6800866,
+    "ast_hash": "905d00263e6d50c8a31c50ed19e9d210",
+    "semantic_hash": ""
   },
   "vault/04-Knowledge/_Knowledge-Index.md": {
-    "mtime": 1785428167.381724,
-    "ast_hash": "ee5424b923b50e9decd0d0dbdcc35b86",
-    "semantic_hash": "ee5424b923b50e9decd0d0dbdcc35b86"
+    "mtime": 1785429774.9898462,
+    "ast_hash": "1f7ac9d0a4479644471277cb1f9937bc",
+    "semantic_hash": ""
   },
   "vault/05-Architecture/_Architecture-Index.md": {
     "mtime": 1785428173.4783733,
@@ -98,5 +98,10 @@
     "mtime": 1785428994.3366866,
     "ast_hash": "7e0e245a67e6c7c9f798a190eefe9565",
     "semantic_hash": "7e0e245a67e6c7c9f798a190eefe9565"
+  },
+  "vault/.obsidian/core-plugins.json": {
+    "mtime": 1785429754.2691572,
+    "ast_hash": "7c877bea49eaeabb100563bd157b9051",
+    "semantic_hash": ""
   }
 }

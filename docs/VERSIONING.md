@@ -24,7 +24,7 @@ tags:  v0.1.0          v0.2.0        (approved milestones)
    - PATCH: fixes and small corrections.
    - Pre-1.0 (`v0.x.y`) signals the project is still forming.
 4. **Every tag gets a `CHANGELOG.md` entry** in Keep a Changelog format, written when the tag is created, not after.
-5. **Push at every milestone and at the end of every working session.** Local-only history does not exist as far as this project is concerned.
+5. **Push continuously, not just at session end.** Every meaningful unit of work (a completed todo, a coherent group of file changes, a milestone) gets committed and pushed to `origin/main` before moving on. Local-only history does not exist as far as this project is concerned. A human collaborator may pull `main` at any time and must see current work.
 
 ## Commit convention
 
