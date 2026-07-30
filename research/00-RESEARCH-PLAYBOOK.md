@@ -53,6 +53,10 @@ A phase is done only when all of the following are true:
 8. Graphify graph updated, everything committed with attribution footer and pushed.
 9. Claudio has reviewed and approved the phase at the gate.
 
+### Dashboard-first review (added 2026-07-30 at Claudio's request)
+
+Claudio reviews phases in the HTML dashboard (`dashboard/index.html`), not in raw markdown. Every phase must update the dashboard with its digest (key findings, tables, any new gate decisions) before its gate review. The markdown documents remain the citable source of truth; the dashboard is the readable window into them. Keep it a single self-contained file (no build step) until Phase 7 deploys it to Vercel with deployment protection.
+
 ### Memory protocol
 
 Follow `AGENTS.md` at the repo root. In short: start by reading `vault/00-START-HERE.md` and the newest session note; query the graph before re-reading the repo; record decisions as they happen; push continuously.
