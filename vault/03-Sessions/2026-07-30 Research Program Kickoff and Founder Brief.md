@@ -31,6 +31,9 @@ Lay the groundwork for the research-to-blueprint program: build the phased resea
 - **Phase 5 gate ([[DEC-008 Phase 5 gate MVP approved stack in validation]])**: MVP scope approved as drawn; launch v1 entirely free (safety routing free permanently, resolving the deferred ethics question); Watch fast-follow at launch+30. The stack was held: Claudio requires deep validation (Supabase doubt, VPS hosting options, long-term scalability); `stack-validation.md` study launched.
 - Built the interactive graph explorer (`graph/index.html`): search, topic-cluster filters, node detail panels, neighbor highlighting; reads live `graph.json` on every deploy. Replaces the bulky raw Graphify HTML as the primary graph surface. Landing page updated: dashboard and graph explorer cards now live on the Vercel preview.
 
+- Stack validation round 1 complete (`stack-validation.md`): no layer revised; Supabase and Hetzner confirmed with conditions. Published to dashboard card 8.
+- **Claudio was not satisfied and raised the stakes**: (1) deeper security-first database research beyond Supabase; (2) **the MVP must launch on BOTH iOS and Android**, which amends the iOS-first assumption in DEC-006/DEC-008 and reopens the client stack and effort estimate (flagged to him explicitly); (3) a complete API integration map for all launch functionality. Three parallel studies launched: `database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md`. Stack decision (card 8) remains open until they land.
+
 ## Decisions made
 
 - [[DEC-005 Phased research program with gated approvals]]
