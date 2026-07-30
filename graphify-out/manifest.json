@@ -125,24 +125,24 @@
     "semantic_hash": ""
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\app.json": {
-    "mtime": 1785431627.6767867,
+    "mtime": 1785437515.1264606,
     "ast_hash": "6379c15e12018af2daa03b3cd336f49a",
     "semantic_hash": "6379c15e12018af2daa03b3cd336f49a"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\appearance.json": {
-    "mtime": 1785431627.6817856,
+    "mtime": 1785437515.1314602,
     "ast_hash": "1c30754693b963610c4b6e538f88e015",
     "semantic_hash": "1c30754693b963610c4b6e538f88e015"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\core-plugins.json": {
-    "mtime": 1785431627.2434525,
+    "mtime": 1785437514.6821046,
     "ast_hash": "7c877bea49eaeabb100563bd157b9051",
     "semantic_hash": "7c877bea49eaeabb100563bd157b9051"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\graph.json": {
-    "mtime": 1785431666.432,
-    "ast_hash": "2f9f2b305785f85c858132a7c40f557a",
-    "semantic_hash": "2f9f2b305785f85c858132a7c40f557a"
+    "mtime": 1785437524.398,
+    "ast_hash": "57d09c48bfcda46b3637affacf6117bf",
+    "semantic_hash": "57d09c48bfcda46b3637affacf6117bf"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\.obsidian\\templates.json": {
     "mtime": 1785428199.5578794,
@@ -180,9 +180,9 @@
     "semantic_hash": "85986fcad43875615364ad4e6b54ed67"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\00-START-HERE.md": {
-    "mtime": 1785434146.2351818,
-    "ast_hash": "6010fc1186cf199d5cdb194e3fdea344",
-    "semantic_hash": "6010fc1186cf199d5cdb194e3fdea344"
+    "mtime": 1785437843.4991722,
+    "ast_hash": "1d1c5fce9081d9fd1222e35fddd6cb64",
+    "semantic_hash": "1d1c5fce9081d9fd1222e35fddd6cb64"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\01-Project\\Charter.md": {
     "mtime": 1785433114.2821498,
@@ -225,9 +225,9 @@
     "semantic_hash": "7e0e245a67e6c7c9f798a190eefe9565"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\_Knowledge-Index.md": {
-    "mtime": 1785434130.585931,
-    "ast_hash": "ec43b9d4bce7da1c8f6fae4016c05d4e",
-    "semantic_hash": "ec43b9d4bce7da1c8f6fae4016c05d4e"
+    "mtime": 1785437824.1518722,
+    "ast_hash": "8c5e27c9058d32998f8d4b0859f639f2",
+    "semantic_hash": "8c5e27c9058d32998f8d4b0859f639f2"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\05-Architecture\\_Architecture-Index.md": {
     "mtime": 1785428173.4783733,
@@ -260,9 +260,9 @@
     "semantic_hash": "26fc22dc71b6848b05728ce5a7bfee93"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\_index.md": {
-    "mtime": 1785432529.1622744,
-    "ast_hash": "0def1c6ec7b204f9a0b24a23c0af5e99",
-    "semantic_hash": "0def1c6ec7b204f9a0b24a23c0af5e99"
+    "mtime": 1785437799.6785321,
+    "ast_hash": "6e8a6caf1a003a2974022bd7e3493243",
+    "semantic_hash": "6e8a6caf1a003a2974022bd7e3493243"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\_index.md": {
     "mtime": 1785432531.9516113,
@@ -295,9 +295,9 @@
     "semantic_hash": "ac0b8e46991a716f5c6dc1dd76cf6a59"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\03-Sessions\\2026-07-30 Research Program Kickoff and Founder Brief.md": {
-    "mtime": 1785434136.3734026,
-    "ast_hash": "9194e8fc45140b7f454a9afcec3118ca",
-    "semantic_hash": "9194e8fc45140b7f454a9afcec3118ca"
+    "mtime": 1785437832.9624934,
+    "ast_hash": "e18072bbcc0f03e7baba42f7370db44f",
+    "semantic_hash": "e18072bbcc0f03e7baba42f7370db44f"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\industry-trends.md": {
     "mtime": 1785434004.8667343,
@@ -323,5 +323,80 @@
     "mtime": 1785434120.581764,
     "ast_hash": "a456165f3e8c712646106e63efbada5e",
     "semantic_hash": "a456165f3e8c712646106e63efbada5e"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\adjacent-platforms.md": {
+    "mtime": 1785437198.2914996,
+    "ast_hash": "cda3b7e3814752b83b51b4de9bd62352",
+    "semantic_hash": "cda3b7e3814752b83b51b4de9bd62352"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\feature-matrix.md": {
+    "mtime": 1785437529.5074444,
+    "ast_hash": "b33bafe4bb022d652618001981dad116",
+    "semantic_hash": "b33bafe4bb022d652618001981dad116"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\gap-analysis.md": {
+    "mtime": 1785437725.4959524,
+    "ast_hash": "c87608a7bb49aea31a2cd7820e35127d",
+    "semantic_hash": "c87608a7bb49aea31a2cd7820e35127d"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\positioning-map.md": {
+    "mtime": 1785437645.8562636,
+    "ast_hash": "d440d42e0a5a640618cf9a856c967c8b",
+    "semantic_hash": "d440d42e0a5a640618cf9a856c967c8b"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\pricing-matrix.md": {
+    "mtime": 1785437584.5569222,
+    "ast_hash": "5cef877a1c58e2318677f27018672517",
+    "semantic_hash": "5cef877a1c58e2318677f27018672517"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-ai-endurance.md": {
+    "mtime": 1785437232.4011023,
+    "ast_hash": "3c117456e3ac06cde86949c5f565933d",
+    "semantic_hash": "3c117456e3ac06cde86949c5f565933d"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-alltrails.md": {
+    "mtime": 1785437079.6842635,
+    "ast_hash": "897c8ab380428f0750692d2e3da020c1",
+    "semantic_hash": "897c8ab380428f0750692d2e3da020c1"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-coopah.md": {
+    "mtime": 1785437235.226812,
+    "ast_hash": "8795456df66186cc491f8a585277edec",
+    "semantic_hash": "8795456df66186cc491f8a585277edec"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-footpath-rungo.md": {
+    "mtime": 1785437196.8177583,
+    "ast_hash": "136bc02637d1647f8d89e09d1d193b25",
+    "semantic_hash": "136bc02637d1647f8d89e09d1d193b25"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-joggo.md": {
+    "mtime": 1785437238.4219337,
+    "ast_hash": "7fef2b8958a4f672a5a404147ff4ebc1",
+    "semantic_hash": "7fef2b8958a4f672a5a404147ff4ebc1"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-komoot.md": {
+    "mtime": 1785437019.0209205,
+    "ast_hash": "545f83091022db80f887c832d15713b3",
+    "semantic_hash": "545f83091022db80f887c832d15713b3"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-runna.md": {
+    "mtime": 1785437225.8228896,
+    "ast_hash": "ea923aef6e6fd78b3f4a501c6e37d23a",
+    "semantic_hash": "ea923aef6e6fd78b3f4a501c6e37d23a"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-strava-routes.md": {
+    "mtime": 1785437144.085201,
+    "ast_hash": "56b95dc6e188e9402420de7042d4ef79",
+    "semantic_hash": "56b95dc6e188e9402420de7042d4ef79"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\02-competitors\\profile-trainasone.md": {
+    "mtime": 1785437229.6007495,
+    "ast_hash": "c6c3280a492216a1f91f688708177398",
+    "semantic_hash": "c6c3280a492216a1f91f688708177398"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\Competitive Landscape Key Findings (Phase 2).md": {
+    "mtime": 1785437817.9099984,
+    "ast_hash": "6fa0f8e59312f4ce5efcfda9de116e37",
+    "semantic_hash": "6fa0f8e59312f4ce5efcfda9de116e37"
   }
 }

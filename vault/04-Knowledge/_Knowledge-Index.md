@@ -12,3 +12,4 @@ Domain knowledge, research, competitor notes, and references accumulate here as 
 | Note | Topic | Added |
 |------|-------|-------|
 | [[Market Research Key Findings (Phase 1)]] | Market landscape, sizing (H5 uncertain), trends, compliance guardrails | 2026-07-30 |
+| [[Competitive Landscape Key Findings (Phase 2)]] | 15+ products profiled; H2 and H3 supported; Strava+Runna is the kill-shot threat, 12 to 18 month window | 2026-07-30 |

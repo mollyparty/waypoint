@@ -11,7 +11,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program, Phases 0 and 1 complete. Phase 2 (competitor analysis) is gated on Claudio's review of the Phase 1 deliverables.
+- **Phase:** Research program, Phases 0 to 2 complete. Phase 3 (user research) is gated on Claudio's review of the Phase 2 deliverables.
 - **Product:** An AI running coach whose hero wedge is **adaptive route generation**: "where should I run, right now, from here, for me," with routes adapting to distance, elevation, weather, street crossings, and other constraints; coaching and routines layer on top. See [[Founder-Brief]] and [[Charter]].
 - **Latest version:** v0.1.0 (foundation); v0.2.0 lands when research Phases 1 to 4 are approved.
 
@@ -25,10 +25,11 @@ This is the single always-current entry point to the Waypoint project. Every ses
 - [x] Research program scaffolded: `research/00-RESEARCH-PLAYBOOK.md` plus per-phase folders; nine gated phases to the Business Blueprint ([[DEC-005 Phased research program with gated approvals]])
 - [x] Founder discovery interview captured as [[Founder-Brief]] with testable hypotheses H1 to H7; [[Charter]] upgraded from stub to draft
 - [x] Phase 1 market and industry research complete in `research/01-market/`; key findings in [[Market Research Key Findings (Phase 1)]] (route-generation whitespace real, H5 venture-scale verdict UNCERTAIN, location privacy is day-one architecture)
+- [x] Phase 2 competitor analysis complete in `research/02-competitors/` (14 documents); key findings in [[Competitive Landscape Key Findings (Phase 2)]] (H2 and H3 SUPPORTED; Strava+Runna convergence is the kill-shot threat, 12 to 18 month window; HealthKit-first with proprietary context-data moat)
 
 ## What unlocks next
 
-1. **Phase 2: competitor analysis** (`research/02-competitors/`), pending Claudio's review of Phase 1. Then Phases 3 to 8 per the playbook.
+1. **Phase 3: user research** (`research/03-users/`), pending Claudio's review of Phase 2. Competitor review complaints collected in Phase 2 are its primary desk-research input. Then Phases 4 to 8 per the playbook.
 2. **Concept lock at the Phase 4 gate**: the heaviest decision point of the program.
 3. Capture the research pipeline as a reusable venture-discovery skill after Phase 4 if it performs well.
 
