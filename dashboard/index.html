@@ -435,29 +435,27 @@
   <h3 id="p5-gates">Phase 5 gate decisions</h3>
 
   <div class="decision">
-    <div class="d-head"><h4>5 · Approve the MVP scope?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>5 · Approve the MVP scope?</h4><span class="badge b-green">Decided: approved</span></div>
     <p style="margin: 8px 0 12px">The 15-feature MVP above, ~25 person-months, 8 to 10 calendar months with two contractors, walking skeleton on TestFlight at month 3 to 4. Deliberately excluded from v1: Watch app, paywall, weather and crossing constraints (each with a named trigger to pull it forward).</p>
     <div class="option rec"><span class="opt-label">Approve as drawn</span><span class="opt-why">Recommended. It proves the core hypothesis inside the competitive window; anything bigger risks missing it.</span></div>
     <div class="option"><span class="opt-label">Approve with amendments</span><span class="opt-why">Tell me what moves across the line and why.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>6 · The free/paid line at launch</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>6 · The free/paid line at launch</h4><span class="badge b-green">Decided: launch free</span></div>
     <div class="option rec"><span class="opt-label">Launch v1 entirely free</span><span class="opt-why">Recommended. Paywall and training-state generation ship together in v1.x once week-4 retention clears the bar. Safety routing stays free permanently (resolves the deferred ethics question the simple way). Maximizes adoption speed during the window.</span></div>
     <div class="option"><span class="opt-label">Launch with the paywall live</span><span class="opt-why">Earlier revenue signal, but slows adoption and adds 1 to 2 months before launch.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>7 · Apple Watch timing</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>7 · Apple Watch timing</h4><span class="badge b-green">Decided: fast-follow</span></div>
     <div class="option rec"><span class="opt-label">Fast-follow, launch+30 days</span><span class="opt-why">Recommended. Built during beta; v1 covers the Watch story via WorkoutKit sync to the native Workout app. Pulls into v1 only if the beta screener shows most runners execute watch-only.</span></div>
     <div class="option"><span class="opt-label">In the MVP</span><span class="opt-why">Adds 2 to 3 person-months before any user feedback.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-accent">Awaiting decision</span></div>
-    <p style="margin: 8px 0 12px">The table above: self-hosted GraphHopper, Supabase with PostGIS, SwiftUI plus MapKit with custom voice guidance, on-device Apple AI for coaching, RevenueCat for subscriptions. Week-1 spikes already planned: crossing-penalty feasibility in GraphHopper, and a 2-day voice-guidance spike.</p>
-    <div class="option rec"><span class="opt-label">Approve</span><span class="opt-why">Recommended. Every layer optimizes for solo-founder speed, privacy surface, and the proprietary-data moat.</span></div>
-    <div class="option"><span class="opt-label">Discuss a layer</span><span class="opt-why">Name the layer; alternatives and trade-offs are in the full document.</span></div>
+    <div class="d-head"><h4>8 · Approve the stack?</h4><span class="badge b-amber">In deep validation</span></div>
+    <p style="margin: 8px 0 12px">Claudio asked for a rigorous second opinion before committing: is Supabase really the best database choice, is the hosting right (VPS options included), and does every layer hold up at 10k, 100k, and 1M users? A dedicated validation study (<span class="kbd">stack-validation.md</span>) is comparing alternatives layer by layer, including real-world failure stories and migration costs. The verdict lands in this section when complete.</p>
   </div>
 
   <div class="callout">

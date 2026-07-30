@@ -11,7 +11,8 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## Project state
 
-- **Phase:** Research program, Phases 0 to 4 complete, concept LOCKED ([[DEC-006 Concept lock route-first positioning]]). Phase 5 (product definition) deliverables complete; **gate pending Claudio's review** (dashboard cards 5 to 8: MVP scope, free/paid line, Watch timing, stack).
+- **Phase:** Phases 0 to 4 complete, concept LOCKED (DEC-006). Phase 5 gate mostly passed ([[DEC-008 Phase 5 gate MVP approved stack in validation]]): MVP scope approved, launch free, Watch fast-follow. **Open: the stack verdict**, pending the deep validation study (`research/05-product/stack-validation.md`). Phase 6 starts after the stack verdict.
+- **Publishing:** every push auto-deploys to the protected Vercel preview (DEC-007). Live surfaces: landing (`index.html`), dashboard (`/dashboard/`), interactive graph explorer (`/graph/`).
 - **Product:** **Know where to run.** Waypoint is the running app that knows where you should run: constraint-based adaptive route generation as the hero (free-tier anchor), adaptive coaching as the paid layer, voice navigation as the execution surface, privacy as day-one architecture. Locked concept: `research/04-synthesis/concept.md`. See [[Charter]].
 - **Review surface:** Claudio reviews via `dashboard/index.html` (dashboard-first gate reviews, per the amended playbook), not raw markdown.
 - **Latest version:** v0.2.0 (research milestone: Phases 1 to 4, concept locked).

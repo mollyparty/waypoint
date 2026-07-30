@@ -28,10 +28,14 @@ Lay the groundwork for the research-to-blueprint program: build the phased resea
 
 - Ran Phase 5 (product definition) with four parallel agents: `research/05-product/` now holds the PRD, RICE prioritization (30 features), MVP scope (15 features, ~25 person-months, 8 to 10 calendar months, walking skeleton at month 3 to 4), five user journeys with ten design principles, and the stack recommendation (self-hosted GraphHopper, Supabase+PostGIS, SwiftUI+MapKit, on-device Apple AI, RevenueCat; $75 to $95/month at MVP). Distilled into [[Product Definition Key Findings (Phase 5)]]. Dashboard updated with the Phase 5 section and gate cards 5 to 8. **Phase 5 gate pending Claudio's review.**
 
+- **Phase 5 gate ([[DEC-008 Phase 5 gate MVP approved stack in validation]])**: MVP scope approved as drawn; launch v1 entirely free (safety routing free permanently, resolving the deferred ethics question); Watch fast-follow at launch+30. The stack was held: Claudio requires deep validation (Supabase doubt, VPS hosting options, long-term scalability); `stack-validation.md` study launched.
+- Built the interactive graph explorer (`graph/index.html`): search, topic-cluster filters, node detail panels, neighbor highlighting; reads live `graph.json` on every deploy. Replaces the bulky raw Graphify HTML as the primary graph surface. Landing page updated: dashboard and graph explorer cards now live on the Vercel preview.
+
 ## Decisions made
 
 - [[DEC-005 Phased research program with gated approvals]]
 - [[DEC-006 Concept lock route-first positioning]]
+- [[DEC-008 Phase 5 gate MVP approved stack in validation]]
 
 ## Open threads
 
