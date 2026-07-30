@@ -180,9 +180,9 @@
     "semantic_hash": "85986fcad43875615364ad4e6b54ed67"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\00-START-HERE.md": {
-    "mtime": 1785437843.4991722,
-    "ast_hash": "1d1c5fce9081d9fd1222e35fddd6cb64",
-    "semantic_hash": "1d1c5fce9081d9fd1222e35fddd6cb64"
+    "mtime": 1785439142.3473835,
+    "ast_hash": "d539a726d961fc8c14fa327161b58f84",
+    "semantic_hash": "d539a726d961fc8c14fa327161b58f84"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\01-Project\\Charter.md": {
     "mtime": 1785433114.2821498,
@@ -225,9 +225,9 @@
     "semantic_hash": "7e0e245a67e6c7c9f798a190eefe9565"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\_Knowledge-Index.md": {
-    "mtime": 1785437824.1518722,
-    "ast_hash": "8c5e27c9058d32998f8d4b0859f639f2",
-    "semantic_hash": "8c5e27c9058d32998f8d4b0859f639f2"
+    "mtime": 1785439129.6200724,
+    "ast_hash": "80953fd98c57ab39851a7cd633f87199",
+    "semantic_hash": "80953fd98c57ab39851a7cd633f87199"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\05-Architecture\\_Architecture-Index.md": {
     "mtime": 1785428173.4783733,
@@ -265,9 +265,9 @@
     "semantic_hash": "6e8a6caf1a003a2974022bd7e3493243"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\_index.md": {
-    "mtime": 1785432531.9516113,
-    "ast_hash": "2f79aa35f3326c60172d398a3834405a",
-    "semantic_hash": "2f79aa35f3326c60172d398a3834405a"
+    "mtime": 1785439107.544479,
+    "ast_hash": "a23ead79b79be58b121ebcaec402fd4a",
+    "semantic_hash": "a23ead79b79be58b121ebcaec402fd4a"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\04-synthesis\\_index.md": {
     "mtime": 1785432534.790893,
@@ -295,9 +295,9 @@
     "semantic_hash": "ac0b8e46991a716f5c6dc1dd76cf6a59"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\03-Sessions\\2026-07-30 Research Program Kickoff and Founder Brief.md": {
-    "mtime": 1785437832.9624934,
-    "ast_hash": "e18072bbcc0f03e7baba42f7370db44f",
-    "semantic_hash": "e18072bbcc0f03e7baba42f7370db44f"
+    "mtime": 1785439164.0183704,
+    "ast_hash": "f18f664817903df5f2384edc5cc70d2a",
+    "semantic_hash": "f18f664817903df5f2384edc5cc70d2a"
   },
   "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\01-market\\industry-trends.md": {
     "mtime": 1785434004.8667343,
@@ -398,5 +398,35 @@
     "mtime": 1785437817.9099984,
     "ast_hash": "6fa0f8e59312f4ce5efcfda9de116e37",
     "semantic_hash": "6fa0f8e59312f4ce5efcfda9de116e37"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\jobs-to-be-done.md": {
+    "mtime": 1785438829.9839478,
+    "ast_hash": "1228b4b747485ab9dbea299ee55e824d",
+    "semantic_hash": "1228b4b747485ab9dbea299ee55e824d"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\pain-points.md": {
+    "mtime": 1785438586.6874962,
+    "ast_hash": "0b5ef799c84c24c7e765af0addbba94c",
+    "semantic_hash": "0b5ef799c84c24c7e765af0addbba94c"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\personas.md": {
+    "mtime": 1785438543.9400048,
+    "ast_hash": "c59ab6b1820229cde61b3474963ead44",
+    "semantic_hash": "c59ab6b1820229cde61b3474963ead44"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\segmentation.md": {
+    "mtime": 1785438411.955146,
+    "ast_hash": "80eb2a8f971a436d76951cd1ecc4ed76",
+    "semantic_hash": "80eb2a8f971a436d76951cd1ecc4ed76"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\research\\03-users\\unmet-needs.md": {
+    "mtime": 1785439046.2662082,
+    "ast_hash": "37a308fabc902ab01fd248940ae282ff",
+    "semantic_hash": "37a308fabc902ab01fd248940ae282ff"
+  },
+  "C:\\Users\\PC\\Documents\\Projects\\Waypoint\\vault\\04-Knowledge\\User Research Key Findings (Phase 3).md": {
+    "mtime": 1785439121.8830693,
+    "ast_hash": "52fceb2cd91ee8428afc7fa92713d853",
+    "semantic_hash": "52fceb2cd91ee8428afc7fa92713d853"
   }
 }
