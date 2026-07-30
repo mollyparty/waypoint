@@ -16,9 +16,9 @@ Governed by the locked concept (`../04-synthesis/concept.md`, DEC-006), subject 
 | `user-journeys.md` | Five journeys, ten design principles | complete |
 | `stack-recommendation.md` | Initial stack (GraphHopper, Supabase, SwiftUI, etc.) | complete |
 | `stack-validation.md` | Round 1 second opinion: no layer revised; conditions named | complete |
-| `database-deep-dive.md` | Round 2: security-first DB alternatives beyond Supabase | **expected / in flight** |
-| `dual-platform-strategy.md` | Round 2: iOS + Android MVP options and cost to the window | **expected / in flight** |
-| `api-integration-map.md` | Round 2: every external API for launch features (both platforms) | **expected / in flight** |
+| `database-deep-dive.md` | Round 2: security-first DB alternatives beyond Supabase | **MISSING** (agent failed: API limit; relaunch) |
+| `dual-platform-strategy.md` | Round 2: iOS + Android MVP options and cost to the window | **MISSING** (agent failed: API limit; relaunch) |
+| `api-integration-map.md` | Round 2: every external API for launch features (both platforms) | **MISSING** (agent failed: API limit; relaunch) |
 
 ## Gate status (DEC-008)
 

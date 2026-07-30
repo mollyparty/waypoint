@@ -36,7 +36,7 @@ This is the single always-current entry point to the Waypoint project. Every ses
 
 ## What unlocks next (in order)
 
-1. **Finish Phase 5 open gate:** land round 2 studies (`database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md` in `research/05-product/`), then Claudio decides stack + iOS/Android platform strategy. Record as a new DEC if the platform or stack changes.
+1. **Finish Phase 5 open gate:** the three round 2 studies are **MISSING** (parallel agents hit an API usage limit and wrote nothing). Next session must create `database-deep-dive.md`, `dual-platform-strategy.md`, and `api-integration-map.md` in `research/05-product/`, publish digests to the dashboard, then Claudio decides stack + iOS/Android platform strategy. Record a new DEC if platform or stack changes.
 2. **Phase 6:** business model, unit economics, metrics, GTM (`research/06-business-model/`).
 3. **Phase 7 formal close:** polish dashboard/Vercel packaging (core HTML already live).
 4. **Phase 8:** investor Business Blueprint (`blueprint/`).

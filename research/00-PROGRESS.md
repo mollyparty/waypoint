@@ -1,12 +1,12 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-07-30 21:05:00 UTC-4
+> Version-Timestamp: 2026-07-30 21:15:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
 ## Where we are right now (one paragraph)
 
-Phases **0 to 4 are complete and gated**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 product deliverables are written; Claudio approved MVP scope, free launch, and Watch as fast-follow (DEC-008). **Still open:** the stack decision. Round 1 validation (`stack-validation.md`) confirmed the original stack with conditions; Claudio asked for **round 2**: a deeper database study, a **dual-platform (iOS + Android) MVP strategy** (this amends the iOS-first assumption), and a full API integration map. Those three files are expected in `research/05-product/` and were in flight at last update. Phase 6 is blocked until the stack and platform decisions close. Review surface: `dashboard/index.html` (also live on the protected Vercel preview). Latest tag: **v0.2.0**.
+Phases **0 to 4 are complete and gated**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 product deliverables are written; Claudio approved MVP scope, free launch, and Watch as fast-follow (DEC-008). **Still open:** the stack decision. Round 1 validation (`stack-validation.md`) confirmed the original stack with conditions; Claudio asked for **round 2**: a deeper database study, a **dual-platform (iOS + Android) MVP strategy** (this amends the iOS-first assumption), and a full API integration map. Those three files do **not** exist yet: parallel research agents hit an API usage limit and produced no output (2026-07-30). **Next agent action: write or relaunch** `database-deep-dive.md`, `dual-platform-strategy.md`, and `api-integration-map.md` in `research/05-product/`, then bring Claudio the stack + platform gate. Phase 6 is blocked until those close. Review surface: `dashboard/index.html` (also live on the protected Vercel preview). Latest tag: **v0.2.0**.
 
 ## Phase status board
 
@@ -36,10 +36,10 @@ Phases **0 to 4 are complete and gated**. The concept is **LOCKED** (DEC-006): r
 
 - [ ] Stack final approval after round 2 research
 - [ ] Platform decision: simultaneous iOS + Android vs staged (amends DEC-006 / DEC-008 iOS-first)
-- [ ] Expected round 2 files (create if missing; do not invent status):
-  - `research/05-product/database-deep-dive.md`
-  - `research/05-product/dual-platform-strategy.md`
-  - `research/05-product/api-integration-map.md`
+- [ ] Round 2 files (**missing; prior agent run failed on API limit; relaunch required**):
+  - `research/05-product/database-deep-dive.md` (security-first DB beyond Supabase)
+  - `research/05-product/dual-platform-strategy.md` (iOS + Android MVP options)
+  - `research/05-product/api-integration-map.md` (every launch integration, both platforms)
 
 ## Decisions that govern the product (do not contradict without a new DEC)
 

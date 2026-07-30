@@ -23,16 +23,16 @@ Make sure every research phase is annotated and cataloged so Claude Code (or any
 
 None new. Catalog only. Existing: DEC-005 through DEC-008 still govern.
 
-## Open threads (unchanged substance)
+## Open threads
 
-- Phase 5 stack round 2 files (`database-deep-dive.md`, `dual-platform-strategy.md`, `api-integration-map.md`) may still be landing; status marked expected/in flight in PROGRESS. #open
+- Phase 5 round 2 files are **MISSING**. Agents [Database deep dive](6217846c-c090-4a13-8ff1-0f3f84c19397), [Dual-platform strategy](c8439ba1-f619-457f-86fd-a8a7dd1e9556), and [API integration map](4b696846-5394-414a-b4be-60b4ffba607c) all failed with "API usage limit reached" and produced no files. #open
 - Dual-platform MVP decision still required before Phase 6. #open
 
 ## Next steps for the next agent (any tool)
 
 1. `git pull` on `main`.
-2. Read START-HERE → this note (or whatever is newest in Sessions) → `research/00-PROGRESS.md`.
-3. If round 2 Phase 5 files exist, publish digests to the dashboard and bring Claudio the stack + platform gate.
+2. Read START-HERE → this note → `research/00-PROGRESS.md`.
+3. **Write (or relaunch research for) the three missing Phase 5 round 2 docs**, then digest them into `dashboard/index.html` and bring Claudio the stack + platform gate.
 4. Do not start Phase 6 until those gates close.
 
 ## Session-end checklist
