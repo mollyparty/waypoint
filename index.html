@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Version-Timestamp: 2026-07-30 16:05:00 UTC-4 -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Waypoint | Working Artifacts</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #131a22;
+      --border: #232d38;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #4ea1ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.5rem; }
+    header h1 { font-size: 1.8rem; font-weight: 650; margin: 0 0 0.25rem; }
+    header p { color: var(--muted); margin: 0 0 2.5rem; }
+    .card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease;
+    }
+    a.card:hover { border-color: var(--accent); }
+    .card h2 { font-size: 1.05rem; margin: 0 0 0.2rem; font-weight: 600; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .card.pending { opacity: 0.55; }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .tag.live { color: #5cd682; border-color: #2b4a35; }
+    footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Waypoint</h1>
+      <p>Working artifacts for the research and blueprint program. Confidential, for the team only.</p>
+    </header>
+
+    <a class="card" href="/graphify-out/graph.html">
+      <h2>Project Knowledge Graph <span class="tag live">live</span></h2>
+      <p>Interactive Graphify map of everything the project knows: decisions, research findings, hypotheses, and how they connect.</p>
+    </a>
+
+    <div class="card pending">
+      <h2>Research Dashboard <span class="tag">coming in Phase 7</span></h2>
+      <p>Single-page view of all research phases: market, competitors, users, synthesis, product, and business model.</p>
+    </div>
+
+    <div class="card pending">
+      <h2>Business Blueprint <span class="tag">coming in Phase 8</span></h2>
+      <p>The investor-facing blueprint site covering concept, market, product, and business model.</p>
+    </div>
+
+    <footer>
+      Source of truth: <a href="https://github.com/mollyparty/waypoint" style="color: var(--accent);">github.com/mollyparty/waypoint</a>. Every push to main publishes here automatically.
+    </footer>
+  </main>
+</body>
+</html>
