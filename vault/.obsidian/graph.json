@@ -9,23 +9,38 @@
   "colorGroups": [
     {
       "query": "path:\"01-Project\"",
-      "color": { "a": 1, "rgb": 11032055 }
+      "color": {
+        "a": 1,
+        "rgb": 11032055
+      }
     },
     {
       "query": "path:\"02-Decisions\"",
-      "color": { "a": 1, "rgb": 14701909 }
+      "color": {
+        "a": 1,
+        "rgb": 14701909
+      }
     },
     {
       "query": "path:\"03-Sessions\"",
-      "color": { "a": 1, "rgb": 5602272 }
+      "color": {
+        "a": 1,
+        "rgb": 5602272
+      }
     },
     {
       "query": "path:\"04-Knowledge\"",
-      "color": { "a": 1, "rgb": 5025616 }
+      "color": {
+        "a": 1,
+        "rgb": 5025616
+      }
     },
     {
       "query": "path:\"05-Architecture\"",
-      "color": { "a": 1, "rgb": 16750592 }
+      "color": {
+        "a": 1,
+        "rgb": 16750592
+      }
     }
   ],
   "collapse-display": false,
@@ -38,5 +53,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1
+  "scale": 0.8192455293420916,
+  "close": true
 }

@@ -1,1 +1,10 @@
 graphify-out/graph.json merge=graphify
+
+# Normalize line endings so the repo looks identical on Windows, macOS, and
+# Linux collaborators - avoids spurious whole-file diffs from autocrlf drift.
+* text=auto eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.mdc text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
