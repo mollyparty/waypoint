@@ -7,7 +7,7 @@ tags: [knowledge, research, business-model, pricing, gtm, metrics, phase-6]
 
 # Business Model and GTM Key Findings (Phase 6)
 
-Distilled from `research/06-business-model/` (5 documents: business-model-canvas, revenue-model, unit-economics, metrics, gtm-plan). Governed by [[DEC-006 Concept lock route-first positioning]], [[DEC-008 Phase 5 gate MVP approved stack in validation]], and [[DEC-010 Staged cross-platform MVP on React Native]]. **Gate open: six decisions pending.**
+Distilled from `research/06-business-model/` (5 documents: business-model-canvas, revenue-model, unit-economics, metrics, gtm-plan). Governed by [[DEC-006 Concept lock route-first positioning]], [[DEC-008 Phase 5 gate MVP approved stack in validation]], and [[DEC-010 Staged cross-platform MVP on React Native]]. **Gate CLOSED 2026-08-06:** [[DEC-011 Pricing and the permanent free tier]], [[DEC-012 Measurement corrections analytics identity and re-based targets]], [[DEC-013 Home-metro beachhead and iOS-first public launch]].
 
 ## The finding that governs everything else
 
@@ -56,14 +56,14 @@ The go-to-market plan independently rejects paid acquisition pre-funding, on sep
 - The revenue model plans on ~30 percent first-year annual renewal; the economics model uses the verified category median of 36 percent as base and 24 percent as pessimistic. The revenue model is the more conservative of the two, which is the safe direction to differ in.
 - Both independently flag that **AI-branded apps earn ~41 percent more per payer but churn ~30 percent faster**, which argues for marketing the utility of the route rather than the intelligence behind it. DEC-006's "Know where to run" already does this.
 
-## Open gate decisions (six)
+## Gate outcome (all six closed 2026-08-06)
 
-1. Price and the Founding Runner rate.
-2. Free/paid boundary breadth: everything but the coaching layer is free forever, including all routing constraints, the Watch app, and GPX. Largest revenue concession in the phase; decide the escape hatch now.
-3. Analytics identity conflict: TelemetryDeck deliberately provides no stable identifier, so it cannot deliver cohort retention. Recommended fix is a first-party Postgres event table on the account identifier already held.
-4. Re-base PRD goals G3 and G4 to activated-cohort definitions.
-5. The beachhead metro, subject to the month-1 pedestrian-data spike.
-6. Whether the Android date is the real public launch.
+1. **Price approved as recommended** (DEC-011).
+2. **Free/paid boundary approved, escape hatch declined** (DEC-011). Everything but the coaching layer is free forever, including all routing constraints, the Watch app and GPX, and the free tier is named publicly at launch. The paid product now rests on one job, and if training-state-aware generation is not felt value there is no fallback at v1.x.
+3. **Analytics fixed with a first-party Postgres cohort table** on the existing account identifier; TelemetryDeck keeps aggregate signals; PostHog EU deferred to v1.x (DEC-012).
+4. **PRD G3 and G4 re-based** to activated-cohort definitions with a separate install-level benchmark line; activation redefined as a completed recorded run (DEC-012).
+5. **Beachhead: the founder's home metro**, subject to the month-1 pedestrian-data spike (DEC-013).
+6. **Launch shape OVERRIDDEN: the iOS date at month 9 to 10 carries the public launch** (DEC-013). The Apple featuring nomination is iOS-only, speed matters in a 12 to 18 month window, and iOS carries ~85 percent of category subscription revenue. Losing the quiet burn-in attaches four conditions: the month-8 beta cohort target becomes a hard gate on the launch date, reviews are seeded from that cohort behind a 99.5 percent crash-free release gate, Android waitlist capture starts at launch, and the featuring nomination is filed at month 6 to 7.
 
 ## Riskiest assumption in the phase
 

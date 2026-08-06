@@ -1,6 +1,8 @@
 # Business Model Canvas
 
-> Version-Timestamp: 2026-08-06 12:35:00 UTC-4
+> Version-Timestamp: 2026-08-06 13:10:00 UTC-4
+>
+> **Status: Phase 6 gate CLOSED 2026-08-06.** All six decisions in section 11 are made and recorded as DEC-011, DEC-012, and DEC-013. Five followed the recommendation; the launch-sequence call was overridden in favor of an iOS-first public launch.
 
 **What this document is.** The integrating artifact for Phase 6. The other four documents in this folder each answer one question in depth: `revenue-model.md` sets price and the free/paid boundary, `unit-economics.md` models whether the arithmetic closes, `metrics.md` defines what gets measured, and `gtm-plan.md` decides how the product reaches people. This canvas holds all nine blocks in one place, states where the four documents agree, and — more usefully — states precisely where they disagree and what the founder has to decide as a result.
 
@@ -174,16 +176,24 @@ Both documents independently flag the same hazard from the same source: AI-brand
 
 ---
 
-## 11. What Phase 6 needs from the founder
+## 11. Gate outcome (decided 2026-08-06)
 
-| # | Decision | Recommendation |
+All six closed. Five followed the recommendation; one was overridden.
+
+| # | Decision | Outcome |
 |---|---|---|
-| 1 | Price: $99.99/yr list, $12.99/mo, 21-day annual-only trial, Founding Runner at $69.99/yr price-preserved | Approve. It sits 17 percent under Runna, a third under the assembled Strava-plus-Runna alternative, and above the utility band |
-| 2 | The free/paid boundary: all routing constraints, Watch, and GPX free forever, with only the coaching layer paid | Approve, but decide the escape hatch now. The concession is real and reversing it later is a trust event |
-| 3 | Analytics identity: first-party Postgres cohort table on the existing account identifier, rather than a new vendor | Approve. It resolves 10.4 with no new consent basis |
-| 4 | Re-base PRD goals G3 and G4 to activated-cohort definitions with a separate install-level benchmark line | Approve. The current G4 is outside the category's top decile |
-| 5 | The beachhead metro | Founder's home metro unless the month-1 spike shows it fails the pedestrian-data floor. Shortlist if geographically free: Seattle, then Boston, New York, London |
-| 6 | The Android date is the real public launch, with a hard fallback to iOS-only if Android is not certified by month 13 | Approve |
+| 1 | Price | **Approved as recommended.** $99.99/yr list, $12.99/mo, 21-day annual-only trial, Founding Runner at $69.99/yr price-preserved. [[DEC-011 Pricing and the permanent free tier]] |
+| 2 | Free/paid boundary | **Approved as recommended, escape hatch declined.** All routing constraints, the Watch app, and GPX are free forever; the coaching layer alone is paid; the free tier is named publicly at launch. DEC-011 |
+| 3 | Analytics identity | **First-party Postgres cohort table** on the existing account identifier. TelemetryDeck keeps aggregate signals; PostHog EU deferred to v1.x. [[DEC-012 Measurement corrections analytics identity and re-based targets]] |
+| 4 | PRD goals G3 and G4 | **Re-based** to activated-cohort definitions with a separate install-level benchmark line. Activation redefined as a completed recorded run. DEC-012 |
+| 5 | Beachhead metro | **Founder's home metro**, subject to the month-1 pedestrian-data spike. [[DEC-013 Home-metro beachhead and iOS-first public launch]] |
+| 6 | Which date is the real launch | **OVERRIDDEN: the iOS date at month 9 to 10 carries the public launch**, not the Android date. DEC-013 records the reasoning and the compensating conditions |
+
+### Why the launch override is defensible, and what it costs
+
+The recommendation favored Android because a mixed-platform run club is a bad room in which to tell half the people "not yet", and because four to eight quiet iOS weeks would buy a rating and route-quality burn-in before the loud moment. Three things outweighed it: the **Apple featuring nomination is iOS-only** and cannot be spent on an Android launch, which the plan underweighted; **speed is a business requirement** in a 12 to 18 month window the build already consumes ten months of; and **iOS carries roughly 85 percent of category subscription revenue**, so the audience whose behavior decides the paid layer is reached sooner.
+
+The cost is that the quiet burn-in disappears, and it was absorbing three real risks. DEC-013 converts each into a commitment: the beta cohort's month-8 target of 150 to 300 testers becomes a **hard gate on the launch date** rather than a milestone, since it now carries the route-quality load alone; reviews are seeded from the beta cohort with crash-free sessions above 99.5 percent as a release gate; Android runners met in person go onto a waitlist from launch onward; and the featuring nomination is filed at month 6 to 7.
 
 ## 12. Assumptions and open questions carried forward
 

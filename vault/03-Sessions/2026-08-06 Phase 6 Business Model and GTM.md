@@ -30,25 +30,35 @@ With the Phase 5 gate closed, run Phase 6 end to end: revenue model, unit econom
 
 ## Decisions made
 
-None. Six are staged for Claudio on the dashboard: price, free/paid boundary breadth, the analytics identity fix, re-basing PRD G3/G4, the beachhead metro, and which date is the real public launch.
+The gate closed in the same session. Claudio answered all six cards; five followed the recommendation and one did not.
 
-## Corrections to Phase 5 that this phase surfaced
+- [[DEC-011 Pricing and the permanent free tier]]: $99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. The generous free boundary approved and the escape hatch explicitly declined, so the coaching layer alone is paid and the free tier gets named publicly at launch.
+- [[DEC-012 Measurement corrections analytics identity and re-based targets]]: cohort retention moves to a first-party Postgres event table on the existing account identifier; PRD G3 and G4 re-based to activated-cohort definitions; activation redefined as a completed recorded run.
+- [[DEC-013 Home-metro beachhead and iOS-first public launch]]: home metro subject to the month-1 spike, and **the iOS date carries the public launch**.
 
-1. PRD goals G3 and G4 need re-basing; G4's 25 percent day-30 install-level retention sits far outside the category's top decile.
-2. `05-product/api-integration-map.md` names TelemetryDeck for analytics, and TelemetryDeck deliberately provides no stable per-user identifier, so it structurally cannot deliver the cohort retention the PRD's own goals require.
-3. The month-1 safety-data buildability spike should be treated as a **go-to-market gate**, not merely a technical one, because the beachhead metro choice depends on its result.
+### On the launch override
+
+The go-to-market plan argued for Android as the public launch, and its reasoning was sound: mixed-platform run clubs, and four to eight quiet weeks of route-quality burn-in. Claudio chose iOS. Three things support that: the Apple featuring nomination is iOS-only and cannot be spent on an Android launch (which the plan underweighted), speed matters in a 12 to 18 month window the build already consumes ten months of, and iOS carries roughly 85 percent of category subscription revenue.
+
+The honest cost is losing the burn-in, which was absorbing three real risks, so DEC-013 converts each into a commitment rather than leaving it implicit: the month-8 beta cohort target becomes a hard gate on the launch date, reviews are seeded from that cohort behind a 99.5 percent crash-free release gate, Android waitlist capture starts at launch, and the featuring nomination is filed at month 6 to 7. Recording the conditions was the point; an override without them would have quietly deleted the mitigations along with the recommendation.
+
+## Corrections to Phase 5 that this phase surfaced, and applied
+
+1. PRD goals G3 and G4 re-based; G4's 25 percent day-30 install-level retention sat far outside the category's top decile. Assumption A1 partly resolved.
+2. `05-product/api-integration-map.md` named TelemetryDeck for analytics, and TelemetryDeck deliberately provides no stable per-user identifier, so it structurally cannot deliver cohort retention. Section 6.2 now carries the split. While in the file, the stale Supabase references left over from DEC-009 were also cleared: section 4.2, the master integration table, and the critical path.
 
 ## Open threads
 
-- Six Phase 6 gate decisions. #open
-- A1, the riskiest assumption in the program: whether the beachhead metro clears the OpenStreetMap pedestrian-data floor. #open-question
-- Whether a distinct Founding Runner SKU can carry its own 21-day introductory trial on both stores. A 30-minute check that prevents a launch-week surprise. #open-question
+- A1, the riskiest assumption in the program: whether the home metro clears the OpenStreetMap pedestrian-data floor. Now a go-to-market gate. #open-question
+- The month-8 beta cohort is a hard gate on the launch date, a direct consequence of the override. #open
+- The paid product rests entirely on one job, with no v1.x fallback if training-state-aware generation is not felt value. #risk
+- Whether a distinct Founding Runner SKU can carry its own 21-day introductory trial on both stores. #open-question
 - Organic cost per subscriber excludes founder time, which must be disclosed alongside any ratio shown to an investor. #open
 
 ## Next steps for the next agent (any tool)
 
-1. If Claudio has answered the six cards: record the DECs (DEC-011 onward), apply the two Phase 5 corrections above, update the PRD and API integration map, then tag v0.3.0 with a CHANGELOG entry.
-2. Then Phase 7 formal close (dashboard and Vercel packaging polish), then Phase 8 (the investor blueprint).
+1. **Phase 7 formal close:** dashboard and Vercel packaging polish. The core HTML is already live and current through the Phase 6 gate.
+2. **Phase 8:** the investor Business Blueprint in `blueprint/`. `business-model-canvas.md` is the natural spine for its business section.
 
 ## Session-end checklist
 

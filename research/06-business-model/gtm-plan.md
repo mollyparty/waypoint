@@ -1,6 +1,8 @@
 # Go-to-Market Plan
 
-> Version-Timestamp: 2026-08-06 12:20:00 UTC-4
+> Version-Timestamp: 2026-08-06 13:05:00 UTC-4
+>
+> **Gate outcome 2026-08-06:** the beachhead recommendation was approved as the founder's home metro subject to the month-1 data spike, and the launch-sequence recommendation in section 5.1 was **overridden**: the iOS date carries the public launch. Both recorded in [[DEC-013 Home-metro beachhead and iOS-first public launch]], which also lists the compensating conditions the override creates.
 
 **Executive summary.** Waypoint's year-one go-to-market job is not revenue. It is proof that committed amateur runners adopt a route generator and come back to it, gathered cheaply enough that a solo founder can run the whole program alongside building the product. The plan concentrates on one metro and one segment: the urban committed amateur who runs three to five times a week from a home doorstep, with women runners as the highest-intensity cohort inside that group and monthly travelers as the demo carriers rather than the target. Concentration is not a stylistic preference here; route quality is a function of local pedestrian data density, and the safety layer is built metro by metro (`../05-product/mvp-scope.md`, GD-3), so a thin national launch ships bad routes in most of the country and a bad route is the one failure mode this product cannot survive. Channels rank in this order: physical run clubs, Reddit and running forums, store optimization, founder-led build-in-public content, micro-creators and coaches, press, and last, two channels that look obvious and are wrong for this company at this stage: SEO content (structurally broken by AI Overviews in 2026) and paid acquisition (unaffordable pre-seed against a $2.50 to $5.50 category cost per install with no revenue to pay it back). The launch is deliberately split: iOS at month 9 to 10 is a quiet quality burn-in for the beachhead metro, and the Android date at month 10 to 12 is the real public launch, because the one-shot assets (press, creators, Product Hunt, an Apple featuring nomination) can only be spent once and the top-ranked channel is a physically mixed-platform run club where telling half the room "not yet" kills the word of mouth. The paid layer at months 10 to 12 is the plan's most dangerous moment and gets a full transition protocol: never take anything away, grandfather the free cohort permanently and publicly, and pair the paywall with genuinely new capability rather than newly locked doors.
 
@@ -341,9 +343,11 @@ Working the funnel backwards with published benchmarks: at an 11 percent median 
 
 ### 5.1 The decision: which date is the real launch
 
-DEC-010 gives two launch moments: iOS at month 9 to 10 and Android 4 to 8 weeks later at month 10 to 12. The plan must pick which one carries the one-shot assets, because press, Product Hunt, the creator wave, and the coordinated waitlist email can each be spent exactly once.
+> **DECIDED 2026-08-06, and the recommendation below was OVERRIDDEN. See [[DEC-013 Home-metro beachhead and iOS-first public launch]].** The founder chose the **iOS date at month 9 to 10 as the real public launch**, carrying the one-shot assets, with Android following 4 to 8 weeks later as a smaller second moment. Three reasons outweighed the argument below: the most valuable one-shot asset, the Apple featuring nomination, is iOS-only and cannot be spent on an Android launch; speed is a business requirement inside a 12 to 18 month window that the build already consumes ten months of; and iOS carries roughly 85 percent of category subscription revenue, so the audience that determines whether the paid layer works is reached sooner.
+>
+> **The override removes the quiet burn-in, so the risks in point 3 below are now live and carry compensating conditions from DEC-013:** the beta cohort's month-8 target of 150 to 300 active testers becomes a **hard gate on the launch date** rather than a milestone, because it now carries the entire route-quality load the quiet weeks were going to carry; reviews are seeded from the beta cohort at launch since there is no established rating to launch into, with crash-free sessions above 99.5 percent as a release gate; Android runners met at in-person events go onto an Android waitlist from the launch onward; and the Apple featuring nomination is filed at **month 6 to 7** given its roughly three-month lead. Read the rest of section 5 with the iOS and Android sections' roles swapped: 5.2 is now the loud moment and 5.3 is the second one.
 
-**Recommendation: the Android date is the real public launch. The iOS date is a deliberately quiet quality burn-in.**
+**Recommendation as written (superseded): the Android date is the real public launch. The iOS date is a deliberately quiet quality burn-in.**
 
 Reasoning, strongest first: [inferred]
 
@@ -355,6 +359,8 @@ Reasoning, strongest first: [inferred]
 **The cost of this choice, stated plainly.** The iOS cohort gets a quieter arrival and some early iOS users will notice the Android launch got the fanfare. Mitigation: the iOS cohort is explicitly told they are first and gets the founding-runner status that later underwrites the paywall transition (Section 7). And the dependency risk is real: if Android slips, the public launch slips with it.
 
 **Hard rule against that risk:** if Android certification is not complete by **month 13**, the public launch fires on iOS alone within two weeks and Android gets a smaller second moment. The launch narrative does not wait indefinitely on a platform. Set this rule now, in writing, so it is not renegotiated under pressure in month 12.
+
+**Under DEC-013 this rule is moot as a fallback, because the iOS launch is now the plan rather than the contingency.** Its useful residue is the discipline it encoded: Android's month-1 paperwork start (DEC-010) is unchanged, and a late Android release is now a community-relations problem in the beachhead metro rather than a slipped launch narrative.
 
 ### 5.2 The iOS moment, week by week
 

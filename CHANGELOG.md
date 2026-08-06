@@ -1,12 +1,35 @@
 # Changelog
 
-> Version-Timestamp: 2026-07-30 17:20:00 UTC-4
+> Version-Timestamp: 2026-08-06 13:30:00 UTC-4
 
 All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.0] - 2026-08-06
+
+Product definition and business model both locked. Waypoint now has an approved MVP scope, a decided technical stack, a price, a free/paid boundary, a measurement system, and a go-to-market plan.
+
+### Added
+
+- Phase 5 round-2 studies (`research/05-product/`): `database-deep-dive.md`, `dual-platform-strategy.md`, and `api-integration-map.md`, the last cataloging roughly 20 required integrations across 7 domains at $80 to $130 per month at MVP scale.
+- Phase 6 business model (`research/06-business-model/`): `business-model-canvas.md` as the integrating document, plus `revenue-model.md`, `unit-economics.md`, `metrics.md`, and `gtm-plan.md`.
+- Interactive knowledge graph explorer (`graph/index.html`) and a root landing page for the published artifact set.
+- `research/00-PROGRESS.md`, the always-current phase catalog that makes cross-tool handoff possible without re-reading the repository.
+
+### Changed
+
+- **Data layer (DEC-009)**: Supabase dropped for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and Better Auth decoupled into Waypoint's own API layer. Carries an explicit revisit clause at four named checkpoints.
+- **Platform (DEC-010)**: the MVP ships both iOS and Android from one React Native codebase with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, revising effort to roughly 29 to 31 person-months.
+- **Pricing (DEC-011)**: $99.99 per year list, $12.99 per month, 21-day annual-only trial, and a price-preserved Founding Runner rate at $69.99 per year for the free-era cohort. The coaching layer is the only paid product; every routing constraint, the Watch app, and GPX export are free permanently and named publicly at launch. Lifetime tier and data monetization rejected on the record.
+- **Measurement (DEC-012)**: cohort retention moves to a first-party Postgres event table on the existing account identifier, because TelemetryDeck deliberately provides no stable per-user identifier and therefore cannot produce it. PRD goals G3 and G4 re-based to activated-cohort definitions, and activation redefined as a completed recorded run rather than a started one.
+- **Go-to-market (DEC-013)**: one segment in the founder's home metro, subject to a month-1 pedestrian-data spike that is now treated as a go-to-market gate. The iOS date at month 9 to 10 carries the public launch, overriding the plan's Android recommendation, with four compensating conditions attached.
+
+### Fixed
+
+- Stale Supabase references in `api-integration-map.md` (sign-in section, master integration table, and critical path) corrected to match DEC-009.
 
 ## [0.2.0] - 2026-07-30
 

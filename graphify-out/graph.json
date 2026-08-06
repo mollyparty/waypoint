@@ -1743,6 +1743,60 @@
    "community": 0,
    "norm_label": "phase 6 gate open: six founder decisions staged on the dashboard",
    "id": "gate_phase6_open"
+  },
+  {
+   "label": "DEC-011: pricing and the permanent free tier",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "rationale": "$99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. Coaching layer alone is paid; free tier named publicly at launch. Lifetime tier and data monetization rejected.",
+   "community": 0,
+   "norm_label": "dec-011: pricing and the permanent free tier",
+   "id": "dec011_pricing"
+  },
+  {
+   "label": "DEC-012: measurement corrections, analytics identity and re-based targets",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "rationale": "Cohort retention moves to a first-party Postgres event table on the existing account identifier. PRD G3 and G4 re-based to activated-cohort definitions. Activation redefined as a completed recorded run.",
+   "community": 0,
+   "norm_label": "dec-012: measurement corrections, analytics identity and re-based targets",
+   "id": "dec012_measurement"
+  },
+  {
+   "label": "DEC-013: home-metro beachhead and iOS-first public launch",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "rationale": "Beachhead is the founder's home metro subject to the month-1 data spike. The iOS date at month 9 to 10 carries the public launch, overriding the GTM plan's Android recommendation.",
+   "community": 0,
+   "norm_label": "dec-013: home-metro beachhead and ios-first public launch",
+   "id": "dec013_beachhead_launch"
+  },
+  {
+   "label": "Override: the iOS date carries the public launch, not Android",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "rationale": "Apple featuring nomination is iOS-only; speed matters in a 12 to 18 month window; iOS carries ~85 percent of category subscription revenue.",
+   "community": 0,
+   "norm_label": "override: the ios date carries the public launch, not android",
+   "id": "override_ios_public_launch"
+  },
+  {
+   "label": "Condition: the month-8 beta cohort becomes a hard gate on the launch date",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "rationale": "The launch override removed the quiet burn-in, so the beta cohort now carries the entire route-quality load alone. If the beta is thin, the launch slips.",
+   "community": 0,
+   "norm_label": "condition: the month-8 beta cohort becomes a hard gate on the launch date",
+   "id": "condition_beta_cohort_hard_gate"
+  },
+  {
+   "label": "Phase 6 gate CLOSED: five approvals and one override",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "rationale": "Closed 2026-08-06 as DEC-011, DEC-012 and DEC-013.",
+   "community": 0,
+   "norm_label": "phase 6 gate closed: five approvals and one override",
+   "id": "gate_phase6_closed"
   }
  ],
  "links": [
@@ -5513,6 +5567,175 @@
    "source": "dec010_dual_platform",
    "target": "phase6_gtm",
    "rationale": "The staggered iOS then Android calendar creates two launch moments."
+  },
+  {
+   "relation": "produces",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase6_closed",
+   "target": "dec011_pricing"
+  },
+  {
+   "relation": "produces",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase6_closed",
+   "target": "dec012_measurement"
+  },
+  {
+   "relation": "produces",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase6_closed",
+   "target": "dec013_beachhead_launch"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase6_closed",
+   "target": "gate_phase6_open"
+  },
+  {
+   "relation": "approves",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "confidence_score": 1.0,
+   "source": "dec011_pricing",
+   "target": "phase6_revenue_model"
+  },
+  {
+   "relation": "approves",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "confidence_score": 1.0,
+   "source": "dec011_pricing",
+   "target": "verdict_price_9999"
+  },
+  {
+   "relation": "resolves",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "confidence_score": 1.0,
+   "source": "dec012_measurement",
+   "target": "conflict_telemetrydeck_cohorts"
+  },
+  {
+   "relation": "amends",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "confidence_score": 1.0,
+   "source": "dec012_measurement",
+   "target": "phase5_prd",
+   "rationale": "Goals G3 and G4 re-based to activated-cohort definitions; activation redefined."
+  },
+  {
+   "relation": "amends",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "confidence_score": 1.0,
+   "source": "dec012_measurement",
+   "target": "phase5_api_map",
+   "rationale": "Section 6.2 split: TelemetryDeck keeps aggregate signals, cohort retention moves to first-party Postgres."
+  },
+  {
+   "relation": "approves",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "dec013_beachhead_launch",
+   "target": "verdict_beachhead_one_metro"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "dec013_beachhead_launch",
+   "target": "override_ios_public_launch"
+  },
+  {
+   "relation": "overrides",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "override_ios_public_launch",
+   "target": "phase6_gtm",
+   "rationale": "Section 5.1 recommended the Android date; the iOS date was chosen instead."
+  },
+  {
+   "relation": "requires",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "dec013_beachhead_launch",
+   "target": "condition_beta_cohort_hard_gate"
+  },
+  {
+   "relation": "causes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "override_ios_public_launch",
+   "target": "condition_beta_cohort_hard_gate",
+   "rationale": "Removing the quiet burn-in transfers the route-quality load onto the beta cohort."
+  },
+  {
+   "relation": "depends_on",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "dec013_beachhead_launch",
+   "target": "risk_beachhead_osm_data_floor"
+  },
+  {
+   "relation": "depends_on",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-013 Home-metro beachhead and iOS-first public launch.md",
+   "confidence_score": 1.0,
+   "source": "dec013_beachhead_launch",
+   "target": "dec010_dual_platform",
+   "rationale": "Sequences the staggered iOS then Android calendar DEC-010 established."
+  },
+  {
+   "relation": "depends_on",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-011 Pricing and the permanent free tier.md",
+   "confidence_score": 1.0,
+   "source": "dec011_pricing",
+   "target": "dec008_phase5_gate",
+   "rationale": "DEC-008 set the free launch and permanent free safety routing this boundary extends."
+  },
+  {
+   "relation": "depends_on",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-012 Measurement corrections analytics identity and re-based targets.md",
+   "confidence_score": 1.0,
+   "source": "dec012_measurement",
+   "target": "dec009_data_layer",
+   "rationale": "The cohort event table lives in the Aiven personal-data store."
   }
  ],
  "hyperedges": [

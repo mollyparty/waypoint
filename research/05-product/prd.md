@@ -28,8 +28,8 @@ Tagline: "Know where to run."
 |---|------|--------|-------------|-------|
 | G1 | Ship v1 to the App Store inside the competitive window | Public release within 12 months of Phase 5 approval | App Store release date | [verified] window per `concept.md` Section 6 |
 | G2 | Reach "thousands of active runners" (Founder Brief 12-month goal) | 3,000+ monthly active users within 6 months of launch | MAU, privacy-preserving analytics | Threshold of 3,000 is [assumption], the Founder Brief says "thousands" without a number |
-| G3 | Prove activation on the hero feature | 40 percent of new users generate a route and start a run within 7 days of install | Activation funnel (Section 6) | Target value [assumption], to be re-baselined after beta |
-| G4 | Prove retention on the daily wedge (safety plus novelty, per the H1 reframe) | 25 percent day-30 retention | Cohort retention | Target value [assumption], category benchmarks needed in Phase 6 |
+| G3 | Prove activation on the hero feature | **Re-based by DEC-012:** 40 percent of new users **complete a generated route as a recorded run** within 7 days of install. Leading indicator "Ignition": share of first sessions reaching a route on screen, median under 180 seconds | Activation funnel (Section 6), definitions in `../06-business-model/metrics.md` | Re-based 2026-08-06. The prior "generate and start" definition counted mid-run abandonment as success, which is the bad-route signature the MVP most needs to see |
+| G4 | Prove retention on the daily wedge (safety plus novelty, per the H1 reframe) | **Re-based by DEC-012:** 25 percent day-30 retention **of the activated cohort**, paired with a separate 8 to 12 percent install-level line kept for benchmark comparison only | Cohort retention, first-party Postgres event table (DEC-012) | Re-based 2026-08-06. At install level, 25 percent would sit far outside the top decile of the entire Health and Fitness category in month one |
 | G5 | Prove the paid seam | Measurable paywall encounter-to-conversion by triggering feature; conversion target set in Phase 6 with pricing | Signal 8, Section 6 | [verified] method per `unmet-needs.md` Section d |
 | G6 | Zero compliance regressions | All 15 checklist items (Section 5.1) verified before submission; no launch without them | Pre-submission compliance audit | [verified] checklist per `regulatory-compliance.md` Section 7 |
 
@@ -424,7 +424,7 @@ All instrumentation is privacy-preserving by design: no third-party ad or tracki
 | EX-3 Strava share | Connect rate; share rate per run | Ongoing share rate (proxy for Waypoint fitting the runner's existing identity loop) | Does post-to-Strava suffice versus social pull? |
 | Weather adaptation | Weather-adjusted route offer acceptance versus override (Signal 7) | Seasonal retention stability | Need 9: felt value once surfaced? |
 | Monetization | Paywall encounter-to-conversion by triggering feature (Signal 8) | Renewal rate (post-v1 horizon) | Revealed willingness to pay; feeds Phase 6 pricing |
-| Product-level | G3: 40 percent generate-and-run within 7 days [assumption] | G4: 25 percent day-30 retention [assumption]; D1, D7, D30 cohort curves | Overall thesis |
+| Product-level | G3 (re-based, DEC-012): 40 percent complete a generated route as a recorded run within 7 days; Ignition as the daily leading indicator | G4 (re-based, DEC-012): 25 percent day-30 retention of the activated cohort, plus an 8 to 12 percent install-level benchmark line; D1, D7, D30 cohort curves | Overall thesis. North Star and the full metric tree live in `../06-business-model/metrics.md` |
 
 What telemetry cannot resolve, interviews stay mandatory [verified] (`unmet-needs.md` Section d): trust formation for safety claims (a user who never installs never appears in telemetry), pre-adoption workarounds and switching triggers, price framing before launch.
 
@@ -454,7 +454,7 @@ What telemetry cannot resolve, interviews stay mandatory [verified] (`unmet-need
 
 ## 8. Assumptions (collected)
 
-- A1: Metric targets in G2 to G4 and NF-P1 (3,000 MAU, 40 percent activation, 25 percent day-30, 5 and 15 second latency) are unbenchmarked working numbers; Phase 6 and beta re-baseline them. [assumption]
+- A1: **Partly resolved.** G3 and G4 were re-based against category benchmarks by DEC-012 (see section 1.3); the definitions are now settled and the numbers are benchmarked. G2's 3,000 MAU and NF-P1's latency figures remain unbenchmarked working numbers to be re-baselined at beta. [assumption]
 - A2: The crossing graph and lighting scoring are buildable from open data at solo-founder scale (concept assumption A3); the stack recommendation must validate with a technical spike before this PRD's constraint table is credible. [assumption]
 - A3: Tier labels (free anchor, paid adaptive) anticipate the Phase 6 boundary decision; the safety-free-tier question (Elena ethics flag) can move features across the paywall without changing their requirements. [assumption]
 - A4: Distance tolerance (5 percent), candidate count (3), cue distances (80 to 30 m), and contrast ratio (7:1) are engineering placeholders to be tuned in beta. [assumption]

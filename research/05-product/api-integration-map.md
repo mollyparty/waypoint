@@ -214,6 +214,8 @@ Recommendation: DEFER to v1.x or later. No MVP v1 feature consumes air quality (
 
 ### 4.2 Sign-in
 
+> **AMENDED 2026-08-06 by [[DEC-009 Revised data layer Aiven split architecture with decoupled auth]].** This section predates the database verdict and names Supabase Auth throughout. Read every "Supabase Auth" below as **Better Auth running in Waypoint's own API layer**, with identity tables in the Aiven Postgres so identity inherits EU residency. The App Store 4.8 analysis, the recommendation to ship Sign in with Apple plus email/passkey, and the decision to skip Google Sign-In at MVP are all unaffected. Cost changes from "inside the Supabase Pro line" to "inside the Aiven line"; the auth-outage failure mode becomes Waypoint's own API rather than a vendor's.
+
 | Field | Detail |
 |---|---|
 | The rule | App Store guideline 4.8: apps using a third-party or social login (Google, Facebook, etc.) for the PRIMARY account must also offer an equivalent privacy-preserving option (limits data to name and email, private email relay, no ad tracking without consent). Sign in with Apple satisfies it by design. 4.8 does NOT apply if the app exclusively uses its own account system. [verified] (Apple App Review Guidelines section 4.8, https://developer.apple.com/app-store/review/guidelines/, accessed 2026-07-30) |
@@ -277,7 +279,9 @@ Recommendation: DEFER to v1.x or later. No MVP v1 feature consumes air quality (
 | Failure mode | Crash reporter down: app unaffected (fire-and-forget). |
 | Phase | WS (first build should report crashes) |
 
-### 6.2 Product analytics: TelemetryDeck (recommended) vs PostHog EU
+### 6.2 Product analytics: TelemetryDeck plus a first-party cohort table
+
+> **AMENDED 2026-08-06 by [[DEC-012 Measurement corrections analytics identity and re-based targets]].** The analysis below is correct about aggregate signals but incomplete, and the gap is load-bearing. TelemetryDeck deliberately provides **no stable per-user identifier**, which is exactly why it needs no consent banner, and that means it **structurally cannot produce cohort retention** — the number the MVP exists to prove and the gate for the paid layer. The approved split: **TelemetryDeck keeps the aggregate signal counters**, and **cohort retention lives in a first-party Postgres event table** keyed on the account identifier already held for sync, inside the Aiven personal-data store (DEC-009). No new vendor, no new consent basis, no new DPA. That event table is personal data and belongs in the DPIA and the consent ledger. PostHog EU stays the v1.x option for funnel analysis, as a deliberate decision rather than a default. Metric definitions live in `../06-business-model/metrics.md`.
 
 The PRD's eight telemetry signals (route generation counts, repeat-generation rate, travel-mode share, acceptance rates, and similar) are aggregate behavioral counters, not user-journey funnels, which is exactly the shape a no-PII analytics service handles.
 
@@ -341,22 +345,23 @@ Costs are monthly, both platforms included. Compliance flags: ODbL (attribution/
 | 13 | Health | Run sharing | Strava Upload API (activity:write only) | OAuth 2.0 | $0 | $0 | LOC, terms | MVP |
 | 14 | Platform | Push (iOS) | APNs direct | .p8 JWT | $0 | $0 | DPA n/a | v1.x |
 | 15 | Platform | Push (Android) | FCM | Service account | $0 | $0 | DPA (Google terms) | v1.x |
-| 16 | Platform | Sign-in | Sign in with Apple + Supabase Auth email/passkey | OIDC/JWT | $0 | $0 | DPA (Supabase, executed) | WS |
+| 16 | Platform | Sign-in | Sign in with Apple + **Better Auth** email/passkey (DEC-009) | OIDC/JWT | $0 | $0 | Inside the Aiven DPA | WS |
 | 17 | Platform | Beta channels | TestFlight + Play internal/closed testing | Store accounts | $8 (ADP) + $25 once (Play) | $8 | REV | WS |
 | 18 | Platform | Background location | iOS background mode; Android FGS + fine-location declaration | OS + Play declaration | $0 | $0 | LOC, REV | WS |
 | 19 | Monetization | Subscriptions | RevenueCat (StoreKit 2 + Play Billing) | SDK keys + store credentials | $0 | ~$65 | DPA | v1.x |
 | 20 | Monetization | Commission tiers | Apple SBP + Play 15% tier (enroll both) | Store consoles | $0 | 15% of revenue | Enrollment | v1.x |
 | 21 | Ops | Crash reporting | Sentry (Developer then Team) | DSN | $0 | $26 | DPA, config scrubbing | WS |
-| 22 | Ops | Product analytics | TelemetryDeck | SDK key | $0 | $10 to $30 | No-PII posture | MVP |
+| 22 | Ops | Product analytics (aggregate signals) | TelemetryDeck | SDK key | $0 | $10 to $30 | No-PII posture | MVP |
+| 22b | Ops | Cohort retention (DEC-012) | First-party Postgres event table in the Aiven store | Existing account identifier | $0 | $0 | Personal data: DPIA and consent ledger | MVP |
 | 23 | Ops | Monitoring | Uptime Kuma + Grafana Cloud Free + healthchecks.io | Self-host / free accounts | $0 to $5 | $5 to $20 | None | WS |
 | 24 | Comms | Transactional email | Resend (Postmark/SES alternates) | API key | $0 | $0 to $20 | DPA | MVP |
-| 25 | Backend | Platform (reference) | Supabase Pro, Frankfurt (from stack docs) | JWT/keys | $25 | $40 | DPA, EU region | WS |
+| 25 | Backend | Platform (reference) | **Superseded by DEC-009.** Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the moat, Better Auth in Waypoint's own API layer | Connection strings, IP allowlist | ~$80 to $120 | ~$150 to $250 | DPA, EU region | WS |
 
 ### 8.2 Total external-services cost
 
 | Line | MVP (~1k MAU) | 10k MAU |
 |---|---|---|
-| Stack baseline (routing VM, Supabase, ADP, misc; from `stack-recommendation.md` section 6) | $75 to $95 | $290 to $340 |
+| Stack baseline (routing VM, data layer, ADP, misc). Originally costed on Supabase; DEC-009 substitutes Aiven plus the self-managed PostGIS box, which `../06-business-model/unit-economics.md` re-prices at $135 to $255 and $540 to $770 | $75 to $95 | $290 to $340 |
 | New in this map: Android tiles, Sentry Team, TelemetryDeck, Open-Meteo commercial, email, monitoring VM, Play account amortized | $5 to $35 | $75 to $160 |
 | Total external services | roughly $80 to $130 per month | roughly $350 to $500 per month |
 
@@ -369,7 +374,7 @@ In dependency order; everything else can land after the skeleton demo.
 1. Apple Developer Program membership ($99/year): gates signing, TestFlight, HealthKit entitlement, WeatherKit, Sign in with Apple. Enroll day one. [verified dependencies]
 2. Geofabrik extract + elevation tiles + GraphHopper local instance: the routing graph build; the week-one "loop primitive" proof from the stack rec build order. No account or approval needed from anyone. [verified]
 3. Hetzner account with clean business verification (the account-risk mitigation from stack validation): production routing VM before any beta user. [verified in stack docs]
-4. Supabase project (Frankfurt) + DPA executed: accounts and consent ledger. [verified in stack docs]
+4. **Aiven for PostgreSQL (EU) project + DPA executed** (DEC-009, superseding the Supabase line): accounts, entitlements, consent ledger, and the DEC-012 cohort event table. Firewall allowlisted to the Hetzner VPS IP only.
 5. HealthKit entitlement + purpose strings + Sign in with Apple capability: in the first Xcode project configuration. [verified]
 6. Sentry DSN in the first build; TestFlight external beta review before the month 3 to 4 skeleton distribution. [inferred ordering]
 

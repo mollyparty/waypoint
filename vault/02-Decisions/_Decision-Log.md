@@ -21,6 +21,9 @@ Index of all project decisions. One note per decision, numbered sequentially. St
 | DEC-008 | [[DEC-008 Phase 5 gate MVP approved stack in validation]] | accepted | 2026-07-30 |
 | DEC-009 | [[DEC-009 Revised data layer Aiven split architecture with decoupled auth]] | accepted (revisitable, see clause) | 2026-08-06 |
 | DEC-010 | [[DEC-010 Staged cross-platform MVP on React Native]] | accepted | 2026-08-06 |
+| DEC-011 | [[DEC-011 Pricing and the permanent free tier]] | accepted | 2026-08-06 |
+| DEC-012 | [[DEC-012 Measurement corrections analytics identity and re-based targets]] | accepted | 2026-08-06 |
+| DEC-013 | [[DEC-013 Home-metro beachhead and iOS-first public launch]] | accepted | 2026-08-06 |
 
 ## How to add a decision
 

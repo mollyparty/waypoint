@@ -185,7 +185,7 @@
       <span class="phase-pill ph-done">P3 Users</span>
       <span class="phase-pill ph-done">P4 Concept Locked</span>
       <span class="phase-pill ph-done">P5 Product (gate closed)</span>
-      <span class="phase-pill ph-now">P6 Business Model (next gate)</span>
+      <span class="phase-pill ph-done">P6 Business Model (gate closed)</span>
       <span class="phase-pill ph-next">P7 Dashboard Deploy</span>
       <span class="phase-pill ph-next">P8 Blueprint</span>
     </div>
@@ -503,7 +503,7 @@
 <!-- ================= PHASE 6 ================= -->
 <section id="business">
   <h2>Phase 6 · Business model and go-to-market</h2>
-  <p class="section-sub">Five documents: business model canvas, revenue model, unit economics, metrics, and the go-to-market plan. Full detail in <span class="kbd">research/06-business-model/</span>. Six gate decisions sit at the bottom of this section.</p>
+  <p class="section-sub">Five documents: business model canvas, revenue model, unit economics, metrics, and the go-to-market plan. Full detail in <span class="kbd">research/06-business-model/</span>. <strong>Gate closed 2026-08-06</strong> (DEC-011, DEC-012, DEC-013); the six decisions are at the bottom of this section.</p>
 
   <div class="callout warn">
     <p><strong>The one sentence that matters most in this phase:</strong> Waypoint's unit economics are a function of its distribution strategy, not its pricing. Paid acquisition returns 53 to 70 cents on the dollar at every price in the credible band, so the business clears a healthy lifetime-value-to-acquisition-cost ratio only if roughly 84 percent or more of subscribers arrive organically. The community-first go-to-market plan is therefore load-bearing arithmetic, not a bootstrapping preference. If it fails, no price rescues the model.</p>
@@ -546,49 +546,56 @@
   </div>
 
   <h3 id="p6-gates">Phase 6 gate decisions</h3>
-  <p class="section-sub" style="margin-bottom:12px">Six calls. Recommendations in green. Cards 3 and 4 are corrections to Phase 5 that surfaced during this work.</p>
+  <p class="section-sub" style="margin-bottom:12px"><strong>All six closed 2026-08-06</strong> as DEC-011, DEC-012 and DEC-013. Five followed the recommendation; card 6 was overridden in favor of an iOS-first public launch, and the conditions that override creates are recorded with it. Cards 3 and 4 are corrections to Phase 5 that surfaced during this work and have been applied to the PRD and the API integration map.</p>
 
   <div class="decision">
-    <div class="d-head"><h4>1 · Approve the price?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>1 · Approve the price?</h4><span class="badge b-green">Decided: approved (DEC-011)</span></div>
     <p style="margin: 8px 0 12px">$99.99 a year list, $12.99 a month, 21-day annual-only trial, and a price-preserved Founding Runner rate at $69.99 a year for everyone who joined during the free era.</p>
-    <div class="option rec"><span class="opt-label">Approve as recommended</span><span class="opt-why">Recommended. It sits under Runna while doing what Runna cannot, above the utility band Footpath and Komoot occupy, and the annual anchor is what the unit economics model needs to clear its acquisition-cost bar.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: approve as recommended</span><span class="opt-why">Recommended. It sits under Runna while doing what Runna cannot, above the utility band Footpath and Komoot occupy, and the annual anchor is what the unit economics model needs to clear its acquisition-cost bar.</span></div>
     <div class="option"><span class="opt-label">Price lower to buy conversion</span><span class="opt-why">Not recommended. Category data shows higher-priced apps convert better, not worse, and discounting into the utility band re-frames the product as one.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>2 · How generous is the free tier, permanently?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>2 · How generous is the free tier, permanently?</h4><span class="badge b-green">Decided: approved, escape hatch declined (DEC-011)</span></div>
     <p style="margin: 8px 0 12px">The revenue model proposes that everything in MVP v1 stays free forever, <em>plus</em> every remaining routing constraint (crossings, weather, surface), <em>plus</em> the Watch app, GPX export, and the preference-learning loop. That leaves the coaching layer as the entire paid product: one nameable job, "your training, routed". This is the largest revenue concession in the phase, and the document asks you to decide the escape hatch now rather than improvise it in v2.</p>
-    <div class="option rec"><span class="opt-label">Approve the generous boundary, and name it publicly at launch</span><span class="opt-why">Recommended. Naming the permanent free tier before anyone has paid is what makes the later paywall a non-event; promising it at the paywall announcement reads as damage control.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: approve the generous boundary, and name it publicly at launch</span><span class="opt-why">Recommended. Naming the permanent free tier before anyone has paid is what makes the later paywall a non-event; promising it at the paywall announcement reads as damage control.</span></div>
     <div class="option"><span class="opt-label">Hold back one constraint (weather or surface) as future paid</span><span class="opt-why">Preserves an escape hatch, at the cost of a less clean promise.</span></div>
     <div class="option"><span class="opt-label">Hold back the Watch app as paid</span><span class="opt-why">The Watch app is a fast-follow with real build cost and is the most defensible thing to charge for outside the coaching layer.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>3 · Fix the analytics contradiction</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>3 · Fix the analytics contradiction</h4><span class="badge b-green">Decided: first-party Postgres (DEC-012)</span></div>
     <p style="margin: 8px 0 12px">A real conflict inside the existing plan, surfaced by the metrics work. Cohort retention is the number the whole MVP exists to produce and the gate for the paid layer, and it needs a stable per-user identifier over time. TelemetryDeck, the analytics vendor already chosen in the API integration map, <em>deliberately does not provide one</em> &mdash; which is precisely why it needs no consent banner. So the privacy-preserving analytics choice cannot deliver the metric the product's own goals require.</p>
-    <div class="option rec"><span class="opt-label">Keep cohort retention in first-party Postgres</span><span class="opt-why">Recommended. Keyed on the account identifier already held for sync: no new vendor, no new consent basis, a handful of hand-built SQL views. TelemetryDeck stays for aggregate product analytics.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: keep cohort retention in first-party Postgres</span><span class="opt-why">Recommended. Keyed on the account identifier already held for sync: no new vendor, no new consent basis, a handful of hand-built SQL views. TelemetryDeck stays for aggregate product analytics.</span></div>
     <div class="option"><span class="opt-label">Add PostHog EU</span><span class="opt-why">More capable out of the box, but it is a new vendor, a new consent basis, and a new data-processing agreement. Better as a deliberate v1.x decision than a default.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>4 · Re-base two PRD targets</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>4 · Re-base two PRD targets</h4><span class="badge b-green">Decided: re-based (DEC-012)</span></div>
     <p style="margin: 8px 0 12px">The PRD's G4 target of 25 percent day-30 retention, measured at install level, would put Waypoint far outside the top decile of the entire Health and Fitness category in its first month, against every published benchmark. G3 has a related problem.</p>
-    <div class="option rec"><span class="opt-label">Re-base to activated-cohort definitions, with a separate install-level line</span><span class="opt-why">Recommended. Keeps an honest internal target and a comparable external benchmark, instead of one number that fails at both jobs.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: re-base to activated-cohort definitions, with a separate install-level line</span><span class="opt-why">Recommended. Keeps an honest internal target and a comparable external benchmark, instead of one number that fails at both jobs.</span></div>
     <div class="option"><span class="opt-label">Leave the PRD as written</span><span class="opt-why">Not recommended. A target nobody can hit stops functioning as a target.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>5 · The beachhead metro</h4><span class="badge b-accent">Awaiting decision, and it needs your local knowledge</span></div>
+    <div class="d-head"><h4>5 · The beachhead metro</h4><span class="badge b-green">Decided: home metro (DEC-013)</span></div>
     <p style="margin: 8px 0 12px">This is the riskiest assumption in the phase, sitting underneath the segment choice, the channel plan, and the differentiation claim: <strong>does the chosen metro clear the OpenStreetMap pedestrian-data floor?</strong> The month-1 buildability spike answers it before any marketing effort is committed, which is an argument for treating that spike as a go-to-market gate and not merely a technical one.</p>
-    <div class="option rec"><span class="opt-label">Your home metro, subject to the month-1 spike</span><span class="opt-why">Recommended. You have to personally run these routes to catch the one failure mode the product cannot survive, and that is not delegable.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: your home metro, subject to the month-1 spike</span><span class="opt-why">Recommended. You have to personally run these routes to catch the one failure mode the product cannot survive, and that is not delegable.</span></div>
     <div class="option"><span class="opt-label">Pick from the data-quality shortlist</span><span class="opt-why">If you are geographically flexible: Seattle first (documented best-in-US pedestrian data, dark wet winters, hills), then Boston, New York, London.</span></div>
   </div>
 
   <div class="decision">
-    <div class="d-head"><h4>6 · Which date is the real launch?</h4><span class="badge b-accent">Awaiting decision</span></div>
+    <div class="d-head"><h4>6 · Which date is the real launch?</h4><span class="badge b-amber">Decided: iOS, overriding the recommendation (DEC-013)</span></div>
     <p style="margin: 8px 0 12px">The one-shot assets (press, creators, Product Hunt, an Apple featuring nomination) can only be spent once.</p>
-    <div class="option rec"><span class="opt-label">The Android date is the public launch</span><span class="opt-why">Recommended. Four to eight quiet iOS weeks buy the 4.5-plus rating and route-quality burn-in that make the loud launch credible, and the top-ranked channel is a physically mixed-platform run club. Hard rule: if Android is not certified by month 13, fire on iOS alone within two weeks.</span></div>
-    <div class="option"><span class="opt-label">Launch loudly on iOS</span><span class="opt-why">Gets the story out sooner, but spends the one-shot assets on half the room and on a version that has not yet been burned in on real streets.</span></div>
+    <div class="option"><span class="opt-label">The Android date is the public launch</span><span class="opt-why">Was recommended, not chosen. Four to eight quiet iOS weeks would have bought the 4.5-plus rating and route-quality burn-in, and the top-ranked channel is a physically mixed-platform run club.</span></div>
+    <div class="option chosen"><span class="opt-label">Chosen: launch loudly on iOS at month 9 to 10</span><span class="opt-why">Three things outweighed the recommendation. The Apple featuring nomination, the most valuable one-shot asset, is iOS-only and cannot be spent on an Android launch. Speed is a business requirement in a 12 to 18 month window the build already consumes ten months of. And iOS carries roughly 85 percent of category subscription revenue, so the audience whose behavior decides the paid layer is reached sooner.</span></div>
+    <div class="callout warn" style="margin-top:12px">
+      <p><strong>What the override costs, and the conditions attached to it.</strong> The quiet burn-in was absorbing three real risks, so DEC-013 converts each into a commitment rather than leaving it implicit. The beta cohort's month-8 target of 150 to 300 active testers becomes a <em>hard gate on the launch date</em> rather than a milestone to aim at, because it now carries the entire route-quality load alone &mdash; if the beta is thin, the launch slips. Reviews are seeded from the beta cohort at launch, with crash-free sessions above 99.5 percent as a release gate, since there is no established rating to launch into. Android runners met at in-person events go onto a waitlist from launch onward, because the mixed-platform run club problem is now live. And the Apple featuring nomination must be filed at month 6 to 7 given its roughly three-month lead.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Phase 6 gate closed 2026-08-06.</strong> Recorded as DEC-011 (pricing and the permanent free tier), DEC-012 (measurement corrections), and DEC-013 (beachhead and launch shape). Two Phase 5 documents were amended to match: the PRD's goals G3 and G4, and the API integration map's analytics section. Next: Phase 7 formal close, then the investor blueprint.</p>
   </div>
 </section>
 

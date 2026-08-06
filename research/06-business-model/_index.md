@@ -1,8 +1,8 @@
 # Phase 6: Business Model and Go-to-Market
 
-> Version-Timestamp: 2026-08-06 12:45:00 UTC-4
+> Version-Timestamp: 2026-08-06 13:20:00 UTC-4
 
-**Status: DELIVERABLES COMPLETE, gate open.** All five documents written 2026-08-06. Six gate decisions await the founder on `dashboard/index.html` section "Phase 6". Program catalog: `../00-PROGRESS.md`.
+**Status: COMPLETE. Gate closed 2026-08-06** as DEC-011, DEC-012 and DEC-013. Program catalog: `../00-PROGRESS.md`.
 
 ## Deliverables
 
@@ -20,20 +20,24 @@
 
 **Waypoint's unit economics are a function of its distribution strategy, not its pricing.** Paid acquisition returns 53 to 70 cents on the dollar at every price in the credible band, so the business clears a 3:1 lifetime-value-to-acquisition-cost ratio only at roughly 84 percent or better organic acquisition. The go-to-market plan independently rejects paid acquisition pre-funding, so the plans agree, but the dependency is permanent: if community-first distribution fails, no price rescues the model.
 
-## Open gate decisions (see dashboard, or `business-model-canvas.md` section 11)
+## Gate outcome (2026-08-06): all six closed
 
-1. Price: $99.99/yr list and the Founding Runner rate
-2. Free/paid boundary breadth, and whether to keep an escape hatch
-3. Analytics identity conflict (TelemetryDeck cannot deliver cohort retention)
-4. Re-base PRD goals G3 and G4
-5. Beachhead metro (needs the founder's local knowledge plus the month-1 spike)
-6. Whether the Android date is the real public launch
+| # | Decision | Outcome |
+|---|---|---|
+| 1 | Price | Approved as recommended: $99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved (DEC-011) |
+| 2 | Free/paid boundary | Approved as recommended, escape hatch declined. Coaching layer alone is paid; the free tier is named publicly at launch (DEC-011) |
+| 3 | Analytics identity | First-party Postgres cohort table on the existing account identifier; TelemetryDeck keeps aggregate signals (DEC-012) |
+| 4 | PRD G3 and G4 | Re-based to activated-cohort definitions with a separate install-level benchmark line (DEC-012) |
+| 5 | Beachhead metro | The founder's home metro, subject to the month-1 pedestrian-data spike (DEC-013) |
+| 6 | Which date is the real launch | **OVERRIDDEN: iOS at month 9 to 10**, not the Android date (DEC-013) |
 
-## Corrections to Phase 5 that this phase surfaced
+**On the override.** The Apple featuring nomination is iOS-only and cannot be spent on an Android launch, speed matters inside a 12 to 18 month window the build already consumes ten months of, and iOS carries roughly 85 percent of category subscription revenue. The cost is losing the quiet burn-in, so DEC-013 attaches four conditions: the month-8 beta cohort target becomes a hard gate on the launch date, reviews are seeded from that cohort with a 99.5 percent crash-free release gate, Android waitlist capture starts at launch, and the featuring nomination is filed at month 6 to 7.
 
-- PRD goals G3 and G4 need re-basing (gate card 4).
-- `../05-product/api-integration-map.md` names TelemetryDeck for analytics, which cannot support cohort retention (gate card 3).
-- The month-1 safety-data buildability spike should be treated as a **go-to-market gate**, not merely a technical one, because the beachhead choice depends on its result.
+## Corrections to Phase 5 this phase produced (all applied)
+
+- `../05-product/prd.md`: goals G3 and G4 re-based; activation redefined; assumption A1 partly resolved.
+- `../05-product/api-integration-map.md`: section 6.2 amended for the analytics split, section 4.2 for Better Auth, and the remaining Supabase references replaced per DEC-009.
+- The month-1 safety-data buildability spike is now a **go-to-market gate**, not merely a technical one, because the beachhead choice depends on its result.
 
 ## Inputs this phase depends on (all now available)
 
