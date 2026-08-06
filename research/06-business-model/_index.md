@@ -14,7 +14,7 @@
 | `revenue-model.md` | $99.99/yr list, $12.99/mo, 21-day annual trial, Founding Runner at $69.99/yr price-preserved; lifetime tier and data monetization rejected | complete |
 | `unit-economics.md` | Directional model across a $4.99-$11.99 band; break-even ~3,000 subscribers; paid acquisition unviable at every price | complete |
 | `metrics.md` | North Star = Weekly Routed Runners; activation = first generated route completed as a recorded run; Good Route Rate; ten guardrails | complete |
-| `gtm-plan.md` | One metro, one segment; run clubs > Reddit > store optimization; Android date is the real public launch; paywall transition protocol | complete |
+| `gtm-plan.md` | One metro, one segment; run clubs > Reddit > store optimization; paywall transition protocol. Its recommendation that the Android date carry the public launch was **overridden** at the gate | complete |
 
 ## The finding that governs this phase
 

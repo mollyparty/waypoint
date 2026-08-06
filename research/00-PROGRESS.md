@@ -22,7 +22,8 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 | 5 | Product definition and MVP | **COMPLETE** | Passed (all 5 cards) | `research/05-product/` | [[Product Definition Key Findings (Phase 5)]] | DEC-008, DEC-009, DEC-010 |
 | 6 | Business model and GTM | **COMPLETE** | **CLOSED** 2026-08-06 (DEC-011, DEC-012, DEC-013) | `research/06-business-model/` | [[Business Model and GTM Key Findings (Phase 6)]] | done |
 | 7 | HTML research dashboard | **COMPLETE** | Closed 2026-08-06; covers Phases 0-6, HTML validated | `dashboard/index.html`, `graph/index.html` (live on preview) | — | DEC-007 (publishing) |
-| 8 | Business Blueprint | **DRAFT COMPLETE** | **Open: founder review**, 4 items in `08-blueprint/_index.md` | `blueprint/blueprint.md`, `blueprint/index.html` | — | pending v0.4.0 |
+| 8 | Business Blueprint | **DRAFT COMPLETE** | **Open: founder review**, 4 items in `08-blueprint/_index.md`. Sections 12 and 13 rewritten by Phase 9 | `blueprint/blueprint.md`, `blueprint/index.html` | — | pending v0.4.0 |
+| 9 | Financial strategy and founding team | **DELIVERABLES COMPLETE** | **Open: 6 cards** in `09-financial-team/_index.md` | `research/09-financial-team/` | [[Financial Strategy and Founding Team (Phase 9)]] | pending |
 
 ## Phase 5 detail (closed 2026-08-06)
 
