@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<!-- Version-Timestamp: 2026-08-06 16:00:00 UTC-4 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Waypoint · Features and Functionality Catalog</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface2: #fbfcfd;
+    --ink: #1a2233;
+    --ink-soft: #4a5568;
+    --ink-faint: #8a94a6;
+    --accent: #0f766e;
+    --accent-soft: #e6f4f2;
+    --amber: #b45309;
+    --amber-soft: #fef3e2;
+    --red: #b91c1c;
+    --red-soft: #fdeaea;
+    --green: #15803d;
+    --green-soft: #e8f5ec;
+    --blue: #1d4ed8;
+    --blue-soft: #e8eefc;
+    --purple: #6d28d9;
+    --purple-soft: #efe9fd;
+    --border: #e2e6ec;
+    --radius: 12px;
+    --shadow: 0 1px 3px rgba(16,24,40,.06), 0 1px 2px rgba(16,24,40,.04);
+    --shadow-lg: 0 12px 32px rgba(16,24,40,.14);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Inter, sans-serif;
+    font-size: 15px; line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 0; }
+  .kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .86em; background: #eef1f5; border: 1px solid var(--border);
+    border-radius: 5px; padding: 1px 5px;
+  }
+
+  /* ---------- header ---------- */
+  header.page {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 26px 28px 20px;
+  }
+  .head-inner { max-width: 1500px; margin: 0 auto; }
+  header.page .eyebrow {
+    font-size: 12px; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 7px;
+  }
+  header.page h1 { font-size: 27px; letter-spacing: -.02em; }
+  header.page p.lede { color: var(--ink-soft); margin: 9px 0 0; max-width: 78ch; }
+  .head-links { margin-top: 13px; display: flex; gap: 16px; flex-wrap: wrap; font-size: 13.5px; }
+
+  /* ---------- sticky scenario bar ---------- */
+  .scenario {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow); padding: 13px 28px;
+  }
+  .scen-inner {
+    max-width: 1500px; margin: 0 auto;
+    display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+  }
+  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; flex: 1; min-width: 280px; }
+  .sstat { min-width: 86px; }
+  .sstat .n {
+    font-size: 21px; font-weight: 700; letter-spacing: -.02em;
+    font-variant-numeric: tabular-nums; line-height: 1.15;
+  }
+  .sstat .l {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: .055em;
+    color: var(--ink-faint); font-weight: 600; margin-top: 2px;
+  }
+  .sstat.hero .n { color: var(--accent); font-size: 24px; }
+  .sstat .n.ok { color: var(--green); }
+  .sstat .n.warn { color: var(--amber); }
+  .sstat .n.bad { color: var(--red); }
+  .verdict {
+    font-size: 12px; padding: 3px 9px; border-radius: 20px; font-weight: 600;
+    display: inline-block; margin-top: 4px;
+  }
+  .verdict.ok { background: var(--green-soft); color: var(--green); }
+  .verdict.warn { background: var(--amber-soft); color: var(--amber); }
+  .verdict.bad { background: var(--red-soft); color: var(--red); }
+
+  .slider-wrap { min-width: 210px; }
+  .slider-wrap label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: .055em;
+    color: var(--ink-faint); font-weight: 600; margin-bottom: 3px;
+  }
+  .slider-wrap label b { font-size: 14px; color: var(--ink); letter-spacing: 0; text-transform: none; }
+  input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+  .slider-note { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+
+  /* ---------- controls ---------- */
+  .controls { max-width: 1500px; margin: 0 auto; padding: 20px 28px 0; }
+  .presets { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+  .presets .plabel {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .055em;
+    color: var(--ink-faint); font-weight: 700; margin-right: 3px;
+  }
+  button {
+    font-family: inherit; font-size: 13px; cursor: pointer;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--border); border-radius: 8px; padding: 7px 13px;
+    transition: border-color .12s, background .12s;
+  }
+  button:hover { border-color: var(--accent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+  button.ghost { color: var(--ink-soft); }
+  button.rec::after {
+    content: "recommended"; font-size: 9.5px; text-transform: uppercase;
+    letter-spacing: .05em; margin-left: 7px; opacity: .8; font-weight: 700;
+  }
+
+  .filters {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 15px 17px; box-shadow: var(--shadow);
+  }
+  .frow { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end; }
+  .fgroup { display: flex; flex-direction: column; gap: 4px; }
+  .fgroup > span {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: .055em;
+    color: var(--ink-faint); font-weight: 600;
+  }
+  select, input[type=search] {
+    font-family: inherit; font-size: 13.5px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 7px 10px; min-width: 132px;
+  }
+  select:focus, input[type=search]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  input[type=search] { min-width: 230px; }
+  .fmeta {
+    margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    font-size: 13px; color: var(--ink-soft); align-items: center;
+  }
+
+  /* ---------- findings ---------- */
+  .findings { max-width: 1500px; margin: 18px auto 0; padding: 0 28px; }
+  .finding {
+    background: var(--amber-soft); border: 1px solid #f2d8ab;
+    border-left: 4px solid var(--amber);
+    border-radius: 9px; padding: 12px 15px; margin-bottom: 9px;
+  }
+  .finding.info { background: var(--blue-soft); border-color: #c9d8f7; border-left-color: var(--blue); }
+  .finding h4 { font-size: 14px; margin-bottom: 4px; }
+  .finding p { margin: 0; font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---------- module sections ---------- */
+  main { max-width: 1500px; margin: 0 auto; padding: 22px 28px 90px; }
+  .module { margin-top: 30px; }
+  .module > h2 {
+    font-size: 18px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .module .mcount {
+    font-size: 12px; font-weight: 600; color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .module > p.mtag { color: var(--ink-soft); font-size: 13.5px; margin: 4px 0 14px; }
+  .grid {
+    display: grid; gap: 13px;
+    grid-template-columns: repeat(auto-fill, minmax(345px, 1fr));
+  }
+
+  /* ---------- feature card ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 14px 15px; display: flex; flex-direction: column; gap: 9px;
+    border-left: 4px solid var(--border);
+  }
+  .card.rel-mvp { border-left-color: var(--green); }
+  .card.rel-v1x { border-left-color: var(--blue); }
+  .card.rel-v2 { border-left-color: var(--ink-faint); }
+  .card.rel-cut { border-left-color: var(--red); opacity: .68; }
+  .card.rel-never { border-left-color: var(--red); opacity: .55; }
+  .c-top { display: flex; justify-content: space-between; gap: 9px; align-items: flex-start; }
+  .c-id {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11.5px; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); border-radius: 5px; padding: 2px 6px;
+    white-space: nowrap;
+  }
+  .c-name {
+    font-size: 15px; font-weight: 650; letter-spacing: -.01em; cursor: pointer;
+    text-align: left; background: none; border: 0; padding: 0; color: var(--ink);
+    font-family: inherit; line-height: 1.3;
+  }
+  .c-name:hover { color: var(--accent); }
+  .c-summary { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  .c-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  .chip {
+    font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 20px;
+    background: #eef1f5; color: var(--ink-soft); white-space: nowrap;
+  }
+  .chip.p-marcus { background: var(--blue-soft); color: var(--blue); }
+  .chip.p-priya { background: var(--purple-soft); color: var(--purple); }
+  .chip.p-elena { background: var(--red-soft); color: var(--red); }
+  .chip.p-jake { background: var(--green-soft); color: var(--green); }
+  .chip.need { background: var(--accent-soft); color: var(--accent); }
+  .chip.conflict { background: var(--amber-soft); color: var(--amber); }
+  .chip.lock { background: #eceff3; color: var(--ink-soft); }
+  .c-metrics {
+    display: flex; gap: 14px; font-size: 11.5px; color: var(--ink-faint);
+    font-variant-numeric: tabular-nums; border-top: 1px solid var(--border);
+    padding-top: 8px; margin-top: auto; flex-wrap: wrap;
+  }
+  .c-metrics b { color: var(--ink); font-weight: 650; }
+
+  /* release segmented control */
+  .seg { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+  .seg button {
+    border: 0; border-radius: 0; padding: 4px 8px; font-size: 11px;
+    background: var(--surface2); color: var(--ink-faint); font-weight: 600;
+    border-right: 1px solid var(--border);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button:hover:not(:disabled) { background: #eef1f5; color: var(--ink); }
+  .seg button.on { background: var(--accent); color: #fff; }
+  .seg button:disabled { cursor: not-allowed; opacity: .55; }
+  .locked-note {
+    font-size: 11px; color: var(--ink-faint); display: flex; align-items: center; gap: 5px;
+  }
+
+  /* ---------- drawer ---------- */
+  .scrim {
+    position: fixed; inset: 0; background: rgba(16,24,40,.42); z-index: 90;
+    opacity: 0; pointer-events: none; transition: opacity .18s;
+  }
+  .scrim.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; height: 100%; width: 620px; max-width: 94vw;
+    background: var(--surface); z-index: 91; box-shadow: var(--shadow-lg);
+    transform: translateX(100%); transition: transform .22s;
+    display: flex; flex-direction: column;
+  }
+  .drawer.open { transform: translateX(0); }
+  .d-head {
+    padding: 18px 22px 14px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;
+  }
+  .d-head h3 { font-size: 19px; letter-spacing: -.015em; margin-top: 7px; }
+  .d-close {
+    border: 1px solid var(--border); background: var(--surface); border-radius: 8px;
+    width: 32px; height: 32px; font-size: 17px; line-height: 1; color: var(--ink-soft);
+    flex-shrink: 0;
+  }
+  .d-body { overflow-y: auto; padding: 18px 22px 60px; }
+  .d-body h4 {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--accent); font-weight: 700; margin: 21px 0 7px;
+  }
+  .d-body h4:first-child { margin-top: 0; }
+  .d-body p { margin: 0 0 9px; font-size: 14px; }
+  .d-body ul { margin: 0 0 9px; padding-left: 20px; font-size: 14px; }
+  .d-body li { margin-bottom: 4px; }
+  .d-body .muted { color: var(--ink-soft); }
+  table.kv { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.kv td { padding: 5px 0; vertical-align: top; border-bottom: 1px solid var(--border); }
+  table.kv td:first-child {
+    width: 34%; color: var(--ink-faint); font-weight: 600; font-size: 12.5px;
+    text-transform: uppercase; letter-spacing: .04em; padding-right: 12px;
+  }
+  .callout {
+    border-radius: 9px; padding: 11px 14px; margin: 0 0 11px; font-size: 13.5px;
+    background: var(--amber-soft); border: 1px solid #f2d8ab; border-left: 4px solid var(--amber);
+  }
+  .callout.crit { background: var(--red-soft); border-color: #f3cccc; border-left-color: var(--red); }
+  .callout.good { background: var(--green-soft); border-color: #c6e6d1; border-left-color: var(--green); }
+  .callout.info { background: var(--blue-soft); border-color: #c9d8f7; border-left-color: var(--blue); }
+  .callout strong { display: block; margin-bottom: 3px; }
+  .srclist { font-size: 12px; color: var(--ink-faint); word-break: break-word; }
+
+  .empty {
+    background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius);
+    padding: 40px 22px; text-align: center; color: var(--ink-soft); margin-top: 24px;
+  }
+  #loading { padding: 60px 28px; text-align: center; color: var(--ink-soft); }
+  footer.page {
+    max-width: 1500px; margin: 0 auto; padding: 26px 28px 50px;
+    border-top: 1px solid var(--border); color: var(--ink-faint); font-size: 12.5px;
+  }
+  .skip {
+    position: absolute; left: -9999px; top: 0; background: var(--accent); color: #fff;
+    padding: 9px 15px; z-index: 200; border-radius: 0 0 8px 0;
+  }
+  .skip:focus { left: 0; }
+
+  @media (max-width: 860px) {
+    header.page, .scenario, .controls, main, .findings, footer.page { padding-left: 16px; padding-right: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .drawer { width: 100%; }
+    .stat-row { gap: 14px; }
+    .sstat { min-width: 72px; }
+    .sstat .n { font-size: 18px; }
+    .sstat.hero .n { font-size: 21px; }
+    input[type=search] { min-width: 100%; }
+    .fgroup { flex: 1 1 132px; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#catalog">Skip to the catalog</a>
+
+<header class="page">
+  <div class="head-inner">
+    <div class="eyebrow">Waypoint · internal roadmap surface</div>
+    <h1>Features and Functionality Catalog</h1>
+    <p class="lede">Every feature, compliance requirement and quality obligation in one place, each tied to the personas and needs it serves. Move anything between releases and the effort, the calendar and the projected launch month recompute immediately. This file is the source of truth for release phase; the research documents keep their analysis.</p>
+    <div class="head-links">
+      <a href="/">All artifacts</a>
+      <a href="/dashboard/">Research dashboard</a>
+      <a href="/blueprint/">Business blueprint</a>
+      <a href="/graph/">Knowledge graph</a>
+    </div>
+  </div>
+</header>
+
+<div class="scenario" id="scenarioBar">
+  <div class="scen-inner">
+    <div class="stat-row">
+      <div class="sstat hero">
+        <div class="n" id="sLaunch">&mdash;</div>
+        <div class="l">Projected iOS launch</div>
+        <div id="sVerdict"></div>
+      </div>
+      <div class="sstat"><div class="n" id="sCount">&mdash;</div><div class="l">Items in release</div></div>
+      <div class="sstat"><div class="n" id="sRn">&mdash;</div><div class="l">Person-months (RN)</div></div>
+      <div class="sstat"><div class="n" id="sEff">&mdash;</div><div class="l">After AI leverage</div></div>
+      <div class="sstat"><div class="n" id="sYears">&mdash;</div><div class="l">Build duration</div></div>
+    </div>
+    <div class="slider-wrap">
+      <label for="aiSlider">AI leverage multiplier <b id="aiVal">1.8&times;</b></label>
+      <input type="range" id="aiSlider" min="1" max="2.5" step="0.1" value="1.8">
+      <div class="slider-note" id="aiNote">Unmeasured. Drag it and watch the plan move.</div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="presets" id="presets">
+    <span class="plabel">Scenario</span>
+  </div>
+
+  <div class="filters">
+    <div class="frow">
+      <div class="fgroup" style="flex:2 1 230px">
+        <span>Search</span>
+        <input type="search" id="q" placeholder="Name, description, capability, requirement ID&hellip;" autocomplete="off">
+      </div>
+      <div class="fgroup"><span>Module</span><select id="fModule"></select></div>
+      <div class="fgroup"><span>Release</span><select id="fRelease"></select></div>
+      <div class="fgroup"><span>Persona</span><select id="fPersona"></select></div>
+      <div class="fgroup"><span>Unmet need</span><select id="fNeed"></select></div>
+      <div class="fgroup"><span>Job to be done</span><select id="fJob"></select></div>
+      <div class="fgroup"><span>Type</span><select id="fKind"></select></div>
+      <div class="fgroup"><span>Effort</span><select id="fEffort"></select></div>
+      <div class="fgroup"><span>Flags</span><select id="fFlag"></select></div>
+    </div>
+    <div class="fmeta">
+      <div id="filterCount">&mdash;</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="ghost" id="clearFilters">Clear filters</button>
+        <button class="ghost" id="resetScenario">Reset to baseline</button>
+        <button id="exportBtn">Export scenario</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="findings" id="findings"></div>
+
+<main id="catalog">
+  <div id="loading">Loading the catalog&hellip;</div>
+  <div id="modules"></div>
+  <div class="empty" id="empty" hidden>Nothing matches those filters. Try clearing one.</div>
+</main>
+
+<footer class="page">
+  <p><strong>Waypoint &mdash; confidential.</strong> Source of truth: <span class="kbd">catalog/features.json</span>. The markdown mirror at <span class="kbd">catalog/FEATURES.md</span> is generated by <span class="kbd">catalog/build.py</span>; never edit it by hand. Scenario changes made here are stored in this browser only and never reach the repository, so use Export scenario to hand a decision back for committing.</p>
+  <p id="footMeta"></p>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+  <div class="d-head">
+    <div>
+      <span class="c-id" id="drawerId"></span>
+      <h3 id="drawerTitle"></h3>
+    </div>
+    <button class="d-close" id="drawerClose" aria-label="Close details">&times;</button>
+  </div>
+  <div class="d-body" id="drawerBody"></div>
+</aside>
+
+<script>
+"use strict";
+
+const STORE_KEY = 'waypoint-catalog-scenario-v1';
+const RELEASES = [
+  { id: 'mvp',   short: 'MVP' },
+  { id: 'v1.x',  short: 'v1.x' },
+  { id: 'v2',    short: 'v2+' },
+  { id: 'cut',   short: 'Cut' }
+];
+
+const state = {
+  data: null,
+  assign: {},          // id -> release, overrides only
+  ai: 1.8,
+  preset: 'recut',
+  filters: { q: '', module: '', release: '', persona: '', need: '', job: '', kind: '', effort: '', flag: '' }
+};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? '' : s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/* ---------- baseline scenarios ---------- */
+
+// What each preset assigns, expressed as a function so presets stay declarative.
+function baselineFor(entry, mode) {
+  if (entry.kind === 'excluded') return 'never';
+  const inSkeleton = entry.skeletonEffort != null;
+  const obligation = entry.kind !== 'feature';
+  switch (mode) {
+    case 'skeleton-only':
+      return inSkeleton ? 'mvp' : 'cut';
+    case 'skeleton-plus-obligations':
+      if (obligation) return 'mvp';
+      return inSkeleton ? 'mvp' : (entry.baselines.mvpScope === 'v2' ? 'v2' : 'v1.x');
+    case 'mvp-baseline':
+      if (obligation) return 'mvp';
+      return entry.assignedOriginal;
+    case 'prd-p0':
+      if (obligation) return 'mvp';
+      if (entry.prdP0) return 'mvp';
+      return (entry.baselines.prdPriority || '').indexOf('P1') === 0 ? 'v1.x' : 'v2';
+    default:
+      return entry.assignedOriginal;
+  }
+}
+
+// Effort actually consumed by an entry in the current scenario. Skeleton-scoped
+// presets use the reduced slice; everything else uses the full figure.
+function effortOf(entry) {
+  if (releaseOf(entry) !== 'mvp') return { native: 0, counted: false };
+  const mode = state.data.presets[state.preset] && state.data.presets[state.preset].mode;
+  const useSkeleton = (mode === 'skeleton-only' || mode === 'skeleton-plus-obligations')
+    && entry.skeletonEffort != null;
+  return { native: useSkeleton ? entry.skeletonEffort : entry.effortNative, counted: true };
+}
+
+function releaseOf(entry) {
+  if (Object.prototype.hasOwnProperty.call(state.assign, entry.id)) return state.assign[entry.id];
+  return baselineFor(entry, state.data.presets[state.preset] ? state.data.presets[state.preset].mode : 'mvp-baseline');
+}
+
+/* ---------- the recompute ---------- */
+
+function recompute() {
+  const p = state.data.planning;
+  const mvp = state.data.entries.filter(e => releaseOf(e) === 'mvp');
+  const native = mvp.reduce((s, e) => s + effortOf(e).native, 0);
+  const rn = native * p.platformMultiplier;
+  const eff = rn / state.ai;
+  const buildMonths = eff / p.capacityPmPerYear * 12;
+  const launch = buildMonths + p.preLaunchOffsetMonths;
+
+  $('sCount').textContent = mvp.length;
+  $('sRn').textContent = rn.toFixed(1);
+  $('sEff').textContent = eff.toFixed(1);
+  $('sYears').textContent = buildMonths < 1 ? '<1 mo' : Math.round(buildMonths) + ' mo';
+
+  const [lo, hi] = p.competitiveWindowMonths;
+  const el = $('sLaunch');
+  el.textContent = 'Month ' + Math.round(launch);
+  el.className = 'n ' + (launch <= lo ? 'ok' : launch <= hi ? 'warn' : 'bad');
+
+  const v = $('sVerdict');
+  if (launch <= lo) {
+    v.className = 'verdict ok';
+    v.textContent = 'Inside the window with room';
+  } else if (launch <= hi) {
+    v.className = 'verdict warn';
+    v.textContent = 'Inside the window, only just';
+  } else {
+    v.className = 'verdict bad';
+    v.textContent = 'Past the ' + hi + '-month window';
+  }
+
+  const note = $('aiNote');
+  if (state.ai < 1.2) {
+    note.textContent = 'Below 1.2\u00d7 the plan gets rebuilt, not adjusted.';
+    note.style.color = 'var(--red)';
+  } else if (state.ai > 2.0) {
+    note.textContent = 'Optimistic. Nothing has measured this yet.';
+    note.style.color = 'var(--amber)';
+  } else {
+    note.textContent = 'Unmeasured. Drag it and watch the plan move.';
+    note.style.color = 'var(--ink-faint)';
+  }
+  $('aiVal').innerHTML = state.ai.toFixed(1) + '&times;';
+  persist();
+}
+
+/* ---------- filtering ---------- */
+
+function matches(e) {
+  const f = state.filters;
+  if (f.module && e.module !== f.module) return false;
+  if (f.release && releaseOf(e) !== f.release) return false;
+  if (f.kind && e.kind !== f.kind) return false;
+  if (f.persona && !(e.personas || []).some(p => p.id === f.persona)) return false;
+  if (f.need && !(e.needs || []).includes(f.need)) return false;
+  if (f.job && !(e.jobs || []).includes(f.job)) return false;
+  if (f.effort) {
+    const v = e.effortNative;
+    if (f.effort === 'lt1' && !(v < 1)) return false;
+    if (f.effort === '1to3' && !(v >= 1 && v <= 3)) return false;
+    if (f.effort === 'gt3' && !(v > 3)) return false;
+  }
+  if (f.flag) {
+    if (f.flag === 'conflict' && !(e.conflictIds || []).length) return false;
+    if (f.flag === 'locked' && !e.locked) return false;
+    if (f.flag === 'moved' && !Object.prototype.hasOwnProperty.call(state.assign, e.id)) return false;
+    if (f.flag === 'risk' && !(e.risks || []).length) return false;
+    if (f.flag === 'open' && !(e.openQuestions || []).length) return false;
+    if (f.flag === 'top10' && !(e.rice && e.rice.rank <= 10)) return false;
+  }
+  if (f.q) {
+    const hay = [
+      e.id, e.name, e.summary, e.description,
+      (e.capabilities || []).join(' '),
+      (e.prdRequirements || []).join(' '),
+      (e.integrations || []).join(' '),
+      (e.acceptanceCriteria || []).join(' ')
+    ].join(' ').toLowerCase();
+    if (!hay.includes(f.q.toLowerCase())) return false;
+  }
+  return true;
+}
+
+/* ---------- rendering ---------- */
+
+function personaChip(pid) {
+  const p = state.data.personas.find(x => x.id === pid);
+  return '<span class="chip p-' + pid + '">' + esc(p ? p.name : pid) + '</span>';
+}
+
+function cardHtml(e) {
+  const rel = releaseOf(e);
+  const relClass = 'rel-' + rel.replace('.', '');
+  const moved = Object.prototype.hasOwnProperty.call(state.assign, e.id);
+  const counted = effortOf(e);
+  const mode = state.data.presets[state.preset].mode;
+  const usingSkeleton = (mode === 'skeleton-only' || mode === 'skeleton-plus-obligations') && e.skeletonEffort != null;
+
+  let chips = '';
+  (e.personas || []).forEach(p => { chips += personaChip(p.id); });
+  (e.needs || []).forEach(n => { chips += '<span class="chip need">' + esc(n) + '</span>'; });
+  if ((e.conflictIds || []).length) chips += '<span class="chip conflict">conflict</span>';
+  if (e.kind === 'compliance') chips += '<span class="chip lock">compliance</span>';
+  if (e.kind === 'nonfunctional') chips += '<span class="chip lock">quality floor</span>';
+  if (e.kind === 'excluded') chips += '<span class="chip" style="background:var(--red-soft);color:var(--red)">ruled out</span>';
+  if (moved) chips += '<span class="chip" style="background:var(--purple-soft);color:var(--purple)">moved</span>';
+
+  let seg = '';
+  if (e.locked) {
+    seg = '<div class="locked-note" title="' + esc(e.lockReason || '') + '">' +
+      (e.kind === 'excluded' ? 'Ruled out by DEC-006' : 'Locked into the MVP') + '</div>';
+  } else {
+    seg = '<div class="seg" role="group" aria-label="Release for ' + esc(e.id) + '">' +
+      RELEASES.map(r =>
+        '<button type="button" class="' + (rel === r.id ? 'on' : '') +
+        '" data-assign="' + e.id + '" data-rel="' + r.id + '"' +
+        (rel === r.id ? ' aria-pressed="true"' : ' aria-pressed="false"') +
+        '>' + r.short + '</button>').join('') + '</div>';
+  }
+
+  const effortLabel = usingSkeleton
+    ? '<b>' + e.skeletonEffort.toFixed(2) + '</b> pm <span title="Reduced walking-skeleton slice of the full ' + e.effortNative + ' pm">(slice)</span>'
+    : '<b>' + e.effortNative.toFixed(2) + '</b> pm';
+
+  return '<article class="card ' + relClass + '">' +
+    '<div class="c-top">' +
+      '<button class="c-name" data-open="' + esc(e.id) + '">' + esc(e.name) + '</button>' +
+      '<span class="c-id">' + esc(e.id) + '</span>' +
+    '</div>' +
+    '<p class="c-summary">' + esc(e.summary) + '</p>' +
+    (chips ? '<div class="c-chips">' + chips + '</div>' : '') +
+    '<div class="c-metrics">' +
+      '<span>' + effortLabel + '</span>' +
+      (e.rice ? '<span>RICE <b>#' + e.rice.rank + '</b></span>' : '<span class="muted">not scored</span>') +
+      (counted.counted ? '' : '<span style="color:var(--ink-faint)">not in this release</span>') +
+    '</div>' +
+    seg +
+  '</article>';
+}
+
+function render() {
+  const visible = state.data.entries.filter(matches);
+  const host = $('modules');
+  const byModule = {};
+  visible.forEach(e => { (byModule[e.module] = byModule[e.module] || []).push(e); });
+
+  let html = '';
+  state.data.modules.slice().sort((a, b) => a.order - b.order).forEach(m => {
+    const items = byModule[m.id];
+    if (!items || !items.length) return;
+    items.sort((a, b) => {
+      const ra = a.rice ? a.rice.rank : 900, rb = b.rice ? b.rice.rank : 900;
+      if (ra !== rb) return ra - rb;
+      return a.id.localeCompare(b.id);
+    });
+    const pm = items.reduce((s, e) => s + e.effortNative, 0);
+    html += '<section class="module"><h2>' + esc(m.name) +
+      '<span class="mcount">' + items.length + ' item' + (items.length === 1 ? '' : 's') +
+      ' · ' + pm.toFixed(2) + ' pm</span></h2>' +
+      '<p class="mtag">' + esc(m.tagline) + '</p>' +
+      '<div class="grid">' + items.map(cardHtml).join('') + '</div></section>';
+  });
+
+  host.innerHTML = html;
+  $('empty').hidden = visible.length > 0;
+  const total = state.data.entries.length;
+  $('filterCount').innerHTML = '<strong>' + visible.length + '</strong> of ' + total +
+    ' items shown' + (visible.length === total ? '' : ' (filtered)');
+  recompute();
+}
+
+/* ---------- drawer ---------- */
+
+let lastFocus = null;
+
+function openDrawer(id) {
+  const e = state.data.entries.find(x => x.id === id);
+  if (!e) return;
+  lastFocus = document.activeElement;
+  $('drawerId').textContent = e.id;
+  $('drawerTitle').textContent = e.name;
+
+  const mod = state.data.modules.find(m => m.id === e.module);
+  const rel = releaseOf(e);
+  let h = '';
+
+  h += '<p>' + esc(e.description) + '</p>';
+
+  if (e.locked) {
+    h += '<div class="callout' + (e.kind === 'excluded' ? ' crit' : '') + '"><strong>' +
+      (e.kind === 'excluded' ? 'Deliberately not being built.' : 'This one cannot be moved out of the MVP.') +
+      '</strong>' + esc(e.lockReason || '') + '</div>';
+  }
+
+  (e.conflictIds || []).forEach(cid => {
+    const c = state.data.conflicts.find(x => x.id === cid);
+    if (!c) return;
+    h += '<div class="callout"><strong>Documents disagree: ' + esc(c.title) + '</strong>' +
+      c.positions.map(p => '<div style="margin:5px 0"><span class="kbd">' + esc(p.source) +
+        '</span> ' + esc(p.says) + '</div>').join('') +
+      '<div style="margin-top:7px"><strong style="display:inline">Recommendation.</strong> ' +
+      esc(c.recommendation) + '</div></div>';
+  });
+
+  if ((e.capabilities || []).length) {
+    h += '<h4>What it actually does</h4><ul>' +
+      e.capabilities.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul>';
+  }
+
+  if ((e.acceptanceCriteria || []).length) {
+    h += '<h4>Done means</h4><ul>' +
+      e.acceptanceCriteria.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul>';
+  }
+
+  h += '<h4>Who it serves</h4>';
+  if ((e.personas || []).length) {
+    h += '<table class="kv">';
+    e.personas.forEach(p => {
+      const per = state.data.personas.find(x => x.id === p.id) || {};
+      h += '<tr><td>' + esc(per.name || p.id) + ' <span style="font-weight:400;text-transform:none;letter-spacing:0">(' +
+        esc(p.weight) + ')</span></td><td>' + esc(per.role || '') + '. ' + esc(per.essence || '') + '</td></tr>';
+    });
+    h += '</table>';
+  } else {
+    h += '<p class="muted">No direct persona. This is an obligation or a platform quality floor that serves everyone by being met and nobody by being visible.</p>';
+  }
+
+  if ((e.needs || []).length || (e.jobs || []).length || (e.emotionalJobs || []).length) {
+    h += '<h4>Needs and jobs</h4><table class="kv">';
+    (e.needs || []).forEach(nid => {
+      const n = state.data.needs.find(x => x.id === nid);
+      if (n) h += '<tr><td>' + esc(n.id) + ' · evidence ' + esc(n.evidence) + '</td><td><strong>' +
+        esc(n.name) + '</strong>. ' + esc(n.detail) + '</td></tr>';
+    });
+    (e.jobs || []).forEach(jid => {
+      const j = state.data.jobs.find(x => x.id === jid);
+      if (j) h += '<tr><td>' + esc(j.id) + ' · ' + esc(j.layer) + '</td><td>' + esc(j.name) + '</td></tr>';
+    });
+    (e.emotionalJobs || []).forEach(eid => {
+      const ej = state.data.emotionalJobs.find(x => x.id === eid);
+      if (ej) h += '<tr><td>' + esc(ej.id) + ' · emotional</td><td>' + esc(ej.name) + '</td></tr>';
+    });
+    h += '</table>';
+  }
+
+  h += '<h4>Effort and priority</h4><table class="kv">';
+  h += '<tr><td>Module</td><td>' + esc(mod ? mod.name : e.module) + '</td></tr>';
+  h += '<tr><td>Effort, iOS-native</td><td>' + e.effortNative.toFixed(2) + ' person-months' +
+    (e.effortNote ? ' &mdash; ' + esc(e.effortNote) : '') + '</td></tr>';
+  h += '<tr><td>Effort, React Native</td><td>' +
+    (e.effortNative * state.data.planning.platformMultiplier).toFixed(2) + ' person-months</td></tr>';
+  if (e.skeletonEffort != null) {
+    h += '<tr><td>Walking-skeleton slice</td><td>' + e.skeletonEffort.toFixed(2) +
+      ' person-months. ' + esc(e.skeletonScope || '') + '</td></tr>';
+  }
+  if (e.rice) {
+    h += '<tr><td>RICE</td><td>rank <strong>#' + e.rice.rank + '</strong> of 30, score ' +
+      e.rice.score.toLocaleString() + ' (reach ' + e.rice.reach.toLocaleString() +
+      ', impact ' + e.rice.impact + ', confidence ' + Math.round(e.rice.confidence * 100) +
+      '%, effort ' + e.rice.effort + ')</td></tr>';
+  }
+  h += '<tr><td>Release now</td><td><strong>' + esc(rel) + '</strong></td></tr>';
+  h += '</table>';
+
+  h += '<h4>What each document says</h4><table class="kv">';
+  h += '<tr><td>mvp-scope.md</td><td>' + esc(e.baselines.mvpScope) + '</td></tr>';
+  h += '<tr><td>prd.md priority</td><td>' + esc(e.baselines.prdPriority) +
+    (e.prdP0Basis ? '<br><span class="muted" style="font-size:12.5px">Counted in the P0 preset &mdash; ' +
+      esc(e.prdP0Basis) + '</span>' : '') + '</td></tr>';
+  h += '<tr><td>team-roadmap.md</td><td>' + esc(e.baselines.teamRoadmap) + '</td></tr>';
+  h += '</table>';
+
+  if (e.pullForwardTrigger) {
+    h += '<h4>What pulls it forward</h4><div class="callout good">' + esc(e.pullForwardTrigger) + '</div>';
+  }
+
+  if ((e.dependsOn || []).length || (e.blocks || []).length || (e.satisfies || []).length || e.satisfiedBy) {
+    h += '<h4>Relationships</h4><table class="kv">';
+    if ((e.dependsOn || []).length) h += '<tr><td>Depends on</td><td>' + e.dependsOn.map(esc).join(', ') + '</td></tr>';
+    if ((e.blocks || []).length) h += '<tr><td>Blocks</td><td>' + e.blocks.map(esc).join(', ') + '</td></tr>';
+    if ((e.satisfies || []).length) h += '<tr><td>Satisfies</td><td>' + e.satisfies.map(esc).join(', ') + '</td></tr>';
+    if (e.satisfiedBy) h += '<tr><td>Engineered by</td><td>' + esc(e.satisfiedBy) + '</td></tr>';
+    h += '</table>';
+  }
+
+  if ((e.integrations || []).length) {
+    h += '<h4>Integrations it needs</h4><ul>' +
+      e.integrations.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
+  }
+
+  if ((e.prdRequirements || []).length) {
+    h += '<h4>Requirement IDs</h4><p>' +
+      e.prdRequirements.map(r => '<span class="kbd">' + esc(r) + '</span>').join(' ') + '</p>';
+  }
+
+  if ((e.risks || []).length) {
+    h += '<h4>Risks</h4>' + e.risks.map(r =>
+      '<div class="callout crit">' + esc(r) + '</div>').join('');
+  }
+
+  if ((e.openQuestions || []).length) {
+    h += '<h4>Still open</h4><ul>' +
+      e.openQuestions.map(q => '<li>' + esc(q) + '</li>').join('') + '</ul>';
+  }
+
+  h += '<h4>Sources</h4><p class="srclist">' +
+    (e.sources || []).map(s => '<span class="kbd">' + esc(s) + '</span>').join('<br>') + '</p>';
+
+  $('drawerBody').innerHTML = h;
+  $('drawerBody').scrollTop = 0;
+  $('drawer').classList.add('open');
+  $('scrim').classList.add('open');
+  $('drawer').focus();
+}
+
+function closeDrawer() {
+  $('drawer').classList.remove('open');
+  $('scrim').classList.remove('open');
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+
+/* ---------- persistence and export ---------- */
+
+function persist() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify({
+      assign: state.assign, ai: state.ai, preset: state.preset
+    }));
+  } catch (err) { /* private browsing or a full quota; the page still works */ }
+}
+
+function restore() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return;
+    const s = JSON.parse(raw);
+    if (s && typeof s === 'object') {
+      if (s.assign && typeof s.assign === 'object') state.assign = s.assign;
+      if (typeof s.ai === 'number' && s.ai >= 1 && s.ai <= 2.5) state.ai = s.ai;
+      if (s.preset && state.data.presets[s.preset]) state.preset = s.preset;
+    }
+  } catch (err) { /* corrupt stored scenario; fall back to the baseline */ }
+}
+
+function exportScenario() {
+  const p = state.data.planning;
+  const mvp = state.data.entries.filter(e => releaseOf(e) === 'mvp');
+  const native = mvp.reduce((s, e) => s + effortOf(e).native, 0);
+  const rn = native * p.platformMultiplier;
+  const eff = rn / state.ai;
+  const launch = eff / p.capacityPmPerYear * 12 + p.preLaunchOffsetMonths;
+  const moves = Object.keys(state.assign).map(id => {
+    const e = state.data.entries.find(x => x.id === id);
+    const base = baselineFor(e, state.data.presets[state.preset].mode);
+    return { id: id, name: e.name, from: base, to: state.assign[id] };
+  }).filter(m => m.from !== m.to);
+
+  const preset = state.data.presets[state.preset];
+  let md = '# Waypoint catalog scenario\n\n';
+  md += '- Exported: ' + new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC\n';
+  md += '- Starting preset: ' + preset.name + '\n';
+  md += '- AI leverage multiplier: ' + state.ai.toFixed(1) + 'x' +
+    (state.ai === p.aiMultiplierDefault ? ' (default)' : ' (changed from ' + p.aiMultiplierDefault + 'x)') + '\n\n';
+  md += '## Result\n\n';
+  md += '| Measure | Value |\n|---|---|\n';
+  md += '| Items in the release | ' + mvp.length + ' |\n';
+  md += '| Effort, iOS-native | ' + native.toFixed(2) + ' pm |\n';
+  md += '| Effort, React Native | ' + rn.toFixed(2) + ' pm |\n';
+  md += '| After AI leverage | ' + eff.toFixed(2) + ' pm |\n';
+  md += '| Projected iOS launch | month ' + Math.round(launch) + ' |\n';
+  md += '| Competitive window | ' + p.competitiveWindowMonths.join(' to ') + ' months |\n';
+  md += '| Verdict | ' + (launch <= p.competitiveWindowMonths[1]
+    ? 'inside the window' : 'past the window') + ' |\n\n';
+
+  if (moves.length) {
+    md += '## Changes from the preset\n\n| ID | Feature | From | To |\n|---|---|---|---|\n';
+    moves.forEach(m => { md += '| ' + m.id + ' | ' + m.name + ' | ' + m.from + ' | ' + m.to + ' |\n'; });
+    md += '\n';
+  } else {
+    md += 'No changes from the preset.\n\n';
+  }
+
+  md += '## Release contents\n\n';
+  ['mvp', 'v1.x', 'v2', 'cut'].forEach(r => {
+    const items = state.data.entries.filter(e => releaseOf(e) === r);
+    if (!items.length) return;
+    md += '### ' + r + ' (' + items.length + ' items, ' +
+      items.reduce((s, e) => s + e.effortNative, 0).toFixed(2) + ' native pm)\n\n';
+    items.forEach(e => { md += '- `' + e.id + '` ' + e.name + '\n'; });
+    md += '\n';
+  });
+
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    preset: state.preset,
+    aiMultiplier: state.ai,
+    overrides: state.assign,
+    computed: {
+      itemCount: mvp.length,
+      effortNative: Number(native.toFixed(2)),
+      effortReactNative: Number(rn.toFixed(2)),
+      effortAfterLeverage: Number(eff.toFixed(2)),
+      projectedLaunchMonth: Number(launch.toFixed(1))
+    },
+    markdown: md
+  };
+
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'waypoint-scenario-' + new Date().toISOString().slice(0, 10) + '.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(md).then(() => {
+      const b = $('exportBtn');
+      const old = b.textContent;
+      b.textContent = 'Downloaded, summary copied';
+      setTimeout(() => { b.textContent = old; }, 2600);
+    }).catch(() => {});
+  }
+}
+
+/* ---------- wiring ---------- */
+
+function fillSelect(el, opts, allLabel) {
+  el.innerHTML = '<option value="">' + allLabel + '</option>' +
+    opts.map(o => '<option value="' + esc(o.v) + '">' + esc(o.t) + '</option>').join('');
+}
+
+function buildControls() {
+  const d = state.data;
+
+  $('presets').innerHTML = '<span class="plabel">Scenario</span>' +
+    Object.keys(d.presets).map(k =>
+      '<button type="button" data-preset="' + k + '" class="' +
+      (state.preset === k ? 'active ' : '') + (k === 'recut' ? 'rec' : '') + '" title="' +
+      esc(d.presets[k].detail) + '">' + esc(d.presets[k].name.replace(' (recommended)', '')) +
+      '</button>').join('');
+
+  fillSelect($('fModule'), d.modules.slice().sort((a, b) => a.order - b.order)
+    .map(m => ({ v: m.id, t: m.name })), 'All modules');
+  fillSelect($('fRelease'), d.releases.map(r => ({ v: r.id, t: r.name }))
+    .concat([{ v: 'cut', t: 'Cut' }]).filter((r, i, arr) => arr.findIndex(x => x.v === r.v) === i),
+    'Any release');
+  fillSelect($('fPersona'), d.personas.map(p => ({ v: p.id, t: p.name + ' · ' + p.role })), 'Any persona');
+  fillSelect($('fNeed'), d.needs.map(n => ({ v: n.id, t: n.id + ' · ' + n.name })), 'Any need');
+  fillSelect($('fJob'), d.jobs.map(j => ({ v: j.id, t: j.id + ' · ' + j.name })), 'Any job');
+  fillSelect($('fKind'), [
+    { v: 'feature', t: 'Features' },
+    { v: 'compliance', t: 'Compliance requirements' },
+    { v: 'nonfunctional', t: 'Quality obligations' },
+    { v: 'excluded', t: 'Ruled out (DEC-006)' }
+  ], 'Everything');
+  fillSelect($('fEffort'), [
+    { v: 'lt1', t: 'Under 1 pm' },
+    { v: '1to3', t: '1 to 3 pm' },
+    { v: 'gt3', t: 'Over 3 pm' }
+  ], 'Any effort');
+  fillSelect($('fFlag'), [
+    { v: 'conflict', t: 'Documents disagree' },
+    { v: 'locked', t: 'Locked obligations' },
+    { v: 'moved', t: 'Changed by me' },
+    { v: 'risk', t: 'Carries a risk' },
+    { v: 'open', t: 'Has open questions' },
+    { v: 'top10', t: 'RICE top 10' }
+  ], 'No flag filter');
+
+  $('findings').innerHTML = (d.findings || []).map(f =>
+    '<div class="finding' + (f.severity === 'info' ? ' info' : '') + '">' +
+    '<h4>' + esc(f.title) + '</h4><p>' + esc(f.detail) + '</p></div>').join('');
+
+  $('aiSlider').value = state.ai;
+  const n = k => d.entries.filter(e => e.kind === k).length;
+  $('footMeta').textContent = 'Catalog version ' + d.meta.versionTimestamp + ' · ' +
+    d.entries.length + ' entries: ' + n('feature') + ' features, ' + n('compliance') +
+    ' compliance requirements, ' + n('nonfunctional') + ' quality obligations, ' +
+    n('excluded') + ' ruled out.';
+}
+
+function bind() {
+  $('presets').addEventListener('click', ev => {
+    const b = ev.target.closest('[data-preset]');
+    if (!b) return;
+    state.preset = b.dataset.preset;
+    state.assign = {};
+    document.querySelectorAll('[data-preset]').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    render();
+  });
+
+  document.addEventListener('click', ev => {
+    const openBtn = ev.target.closest('[data-open]');
+    if (openBtn) { openDrawer(openBtn.dataset.open); return; }
+    const asn = ev.target.closest('[data-assign]');
+    if (asn) {
+      const e = state.data.entries.find(x => x.id === asn.dataset.assign);
+      if (e && e.locked) return;
+      state.assign[asn.dataset.assign] = asn.dataset.rel;
+      render();
+    }
+  });
+
+  $('aiSlider').addEventListener('input', ev => {
+    state.ai = parseFloat(ev.target.value);
+    recompute();
+  });
+
+  const fmap = {
+    q: 'q', fModule: 'module', fRelease: 'release', fPersona: 'persona',
+    fNeed: 'need', fJob: 'job', fKind: 'kind', fEffort: 'effort', fFlag: 'flag'
+  };
+  Object.keys(fmap).forEach(id => {
+    const el = $(id);
+    el.addEventListener(id === 'q' ? 'input' : 'change', () => {
+      state.filters[fmap[id]] = el.value;
+      render();
+    });
+  });
+
+  $('clearFilters').addEventListener('click', () => {
+    Object.keys(state.filters).forEach(k => { state.filters[k] = ''; });
+    Object.keys(fmap).forEach(id => { $(id).value = ''; });
+    render();
+  });
+
+  $('resetScenario').addEventListener('click', () => {
+    state.assign = {};
+    state.ai = state.data.planning.aiMultiplierDefault;
+    $('aiSlider').value = state.ai;
+    render();
+  });
+
+  $('exportBtn').addEventListener('click', exportScenario);
+  $('drawerClose').addEventListener('click', closeDrawer);
+  $('scrim').addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape') closeDrawer();
+  });
+}
+
+async function load() {
+  let raw;
+  try {
+    const res = await fetch('features.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(res.status);
+    raw = await res.json();
+  } catch (err) {
+    $('loading').innerHTML = 'Could not load <span class="kbd">features.json</span>.<br>' +
+      '<span style="font-size:13px">If you opened this file straight from disk, serve the repository over http instead. ' +
+      'On Vercel it loads automatically.</span>';
+    return;
+  }
+  state.data = raw;
+  state.ai = raw.planning.aiMultiplierDefault;
+  raw.entries.forEach(e => { e.assignedOriginal = e.assigned; });
+  restore();
+  buildControls();
+  bind();
+  $('loading').hidden = true;
+  render();
+}
+
+load();
+</script>
+</body>
+</html>

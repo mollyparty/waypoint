@@ -167,25 +167,58 @@ const CURATED = {
   ]
 };
 
+const TOPIC_RULES = [
+  [/\bmvp\b|\brice\b|\bprd\b|person-month|walking skeleton|release phase/g, 'Product scope and effort'],
+  [/graphhopper|postgis|supabase|hetzner|react native|swiftui|healthkit|database|stack/g, 'Technical stack'],
+  [/strava|runna|komoot|alltrails|competitor|threat|positioning map/g, 'Competitive landscape'],
+  [/persona|segment|pain point|jobs-to-be-done|unmet need|user research|marcus|priya|elena|jake/g, 'Users and needs'],
+  [/concept lock|positioning|tagline|know where to run|opportunity|hypothes/g, 'Concept and positioning'],
+  [/market|\btam\b|sizing|regulatory|compliance|industry trend|whitespace|\bai act\b/g, 'Market and compliance'],
+  [/burn rate|equity|vesting|safe|fundrais|runway|founder|payroll|capital/g, 'Financials and founding team'],
+  [/pricing|revenue|subscription|freemium|paywall|\bgtm\b|channel|funnel/g, 'Business model and GTM'],
+  [/research program|phase \d|dashboard|\bgate\b|blueprint|progress catalog/g, 'Research program and gates'],
+  [/versioning|conventional commit|changelog|semantic version|trunk|attribution/g, 'Versioning and git'],
+  [/agent protocol|claude|contributing|cross-ide|line-ending|push policy/g, 'Agent and collaboration setup'],
+  [/obsidian|vault|template|start here|session-end|retrieval|graphify|token|memory/g, 'Memory system'],
+  [/\.obsidian|app\.json/g, 'Tool configuration'],
+];
+
 function communityName(members) {
-  // Prefer the phase/topic implied by the most connected member labels.
+  // A community_name shared by every member is a deliberate label and wins outright.
+  // Most older clusters carry two or three different names left over from extraction,
+  // which name nothing, so those fall through to the keyword scoring below.
+  const named = new Set(members.map(m => m.community_name).filter(Boolean));
+  if (named.size === 1 && members.every(m => m.community_name)) return [...named][0];
+
+  // Score every rule by how often it hits, rather than taking the first rule that
+  // matches anywhere. First-match gave five different clusters the same name,
+  // because almost every cluster mentions the MVP or the stack somewhere.
   const joined = members.map(m => m.label).join(' | ').toLowerCase();
-  const tests = [
-    [/mvp|rice|prd|stack|user journey|product definition/, 'Product and MVP'],
-    [/strava|runna|komoot|alltrails|competitor|threat/, 'Competitive landscape'],
-    [/persona|segment|pain point|jobs-to-be-done|unmet need|user research/, 'Users and needs'],
-    [/concept lock|positioning|tagline|know where to run/, 'Concept and positioning'],
-    [/market|tam|sizing|regulatory|compliance|industry trend|whitespace/, 'Market and compliance'],
-    [/founder brief|playbook|research program|phase|dashboard|gate/, 'Research program'],
-    [/versioning|commit|changelog|semantic|trunk|attribution/, 'Versioning and git'],
-    [/agent protocol|claude|contributing|cross-ide|line-ending|push policy/, 'Agent and collaboration setup'],
-    [/obsidian|vault|template|start here|session-end|retrieval|graphify|token|memory/, 'Memory system'],
-    [/app\.json|\.obsidian/, 'Tool configuration'],
-  ];
-  for (const [re, name] of tests) if (re.test(joined)) return name;
+  let best = null, bestHits = 0;
+  for (const [re, name] of TOPIC_RULES) {
+    const hits = (joined.match(re) || []).length;
+    if (hits > bestHits) { best = name; bestHits = hits; }
+  }
+  if (best) return best;
+
   // Fallback: highest-degree member label, trimmed.
   const top = members.slice().sort((a,b) => (b._deg||0)-(a._deg||0))[0];
   return top ? top.label.replace(/\(.*?\)/g,'').trim().slice(0, 34) : 'Cluster';
+}
+
+function disambiguate(meta) {
+  // Two clusters can still score the same topic. Suffix the losers with their hub
+  // node so the legend never shows the same name twice, which made the
+  // show/hide toggles impossible to tell apart.
+  const seen = new Map();
+  for (const m of meta) {
+    const n = seen.get(m.name) || 0;
+    seen.set(m.name, n + 1);
+    if (n === 0) continue;
+    const hub = m.members.slice().sort((a,b) => (b._deg||0)-(a._deg||0))[0];
+    const hint = hub ? hub.label.replace(/\(.*?\)/g,'').replace(/[:,].*$/,'').trim().slice(0, 24) : String(n + 1);
+    m.name = `${m.name} · ${hint}`;
+  }
 }
 
 const state = { hiddenComms: new Set(), showTech: false, showLabels: true, selected: null, hover: null };
@@ -221,9 +254,13 @@ async function load() {
     if (!groups.has(c)) groups.set(c, []);
     groups.get(c).push(n);
   });
-  [...groups.entries()].sort((a,b) => b[1].length - a[1].length).forEach(([c, members], i) => {
-    commMeta.set(c, { color: PALETTE[i % PALETTE.length], name: communityName(members), count: members.length });
-  });
+  const ordered = [...groups.entries()].sort((a,b) => b[1].length - a[1].length)
+    .map(([c, members], i) => ({
+      c, members, color: PALETTE[i % PALETTE.length],
+      name: communityName(members), count: members.length,
+    }));
+  disambiguate(ordered);
+  ordered.forEach(m => commMeta.set(m.c, { color: m.color, name: m.name, count: m.count }));
 
   DATA = { nodes, links };
   buildLegend();

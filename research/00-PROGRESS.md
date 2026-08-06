@@ -1,6 +1,6 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-06 15:00:00 UTC-4
+> Version-Timestamp: 2026-08-06 15:45:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
@@ -12,7 +12,9 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 
 **Phase 9 deliverables are COMPLETE and its gate is OPEN with six cards.** It was opened on 2026-08-06 when the founding team was defined for the first time as three part-time partners, two of them minors, building AI-assisted rather than hiring. That invalidated three figures that eight phases of research had rested on: the ~$230k cash build, the ~$15k/month operating base, and the ~$350k to $400k pre-seed, which was their sum. Real burn is ~$400/month, break-even is ~235 paying subscribers rather than ~3,000, and the recommended ask is $50k on a post-money SAFE at a $1.5M cap. **The governing finding: the binding constraint is calendar time, not money** — 29 to 31 person-months of approved scope against roughly 7.5 person-months a year of capacity does not fit a 12 to 18 month window, so gate card 1 recommends shipping the walking skeleton as the product, landing iOS at month 12 to 14 and superseding DEC-010's dates.
 
-**Next agent action: answer the six Phase 9 gate cards** on `dashboard/index.html` and record DEC-014 onward. Blueprint approval and the v0.4.0 tag follow. Review surfaces: `dashboard/index.html` for research, `blueprint/index.html` for the investor document, both on the protected Vercel preview. Latest tag: **v0.3.0**.
+**The features catalog now holds release-phase authority** (2026-08-06, DEC-020). `catalog/features.json` carries 70 entries — 30 features, 15 compliance requirements, 19 non-functional requirements and the 6 items DEC-006 ruled out — each with its persona, need and job linkage, capabilities breakout, acceptance criteria, RICE values and dependencies. `catalog/index.html` is the working surface: filter by any of those dimensions, move a feature between MVP, v1.x, v2 and cut, and read the recomputed effort and projected iOS launch month against the competitive window. `mvp-scope.md`, `prd.md` and `rice-prioritization.md` are annotated: their analysis stands, their phase columns do not. **It corrected full scope from 29-31 to roughly 32-33 React Native person-months**, because pricing the 34 obligations individually costs 4.35 native person-months against the single ~2.0 "release overhead" line the planning documents carried. The recut v1 is unaffected and validated: the model reproduces the published walking skeleton, compliance minimum, hardening line, v1 total and month-13 launch independently. See [[Features Catalog and Scope Arithmetic]].
+
+**Next agent action: answer the six Phase 9 gate cards** on `dashboard/index.html` and record DEC-014 onward. **Card 1 should be settled in `catalog/index.html`**, which loads the recommended recut by default with the three alternatives one click away; then update `features.json` to match and rerun `python catalog/build.py`. Blueprint approval and the v0.4.0 tag follow. Review surfaces: `dashboard/index.html` for research, `catalog/index.html` for scope, `blueprint/index.html` for the investor document, all on the protected Vercel preview. Latest tag: **v0.3.0**.
 
 ## Phase status board
 
@@ -112,7 +114,7 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 
 | # | Decision | Recommendation |
 |---|---|---|
-| 1 | Scope and timeline | Ship the walking skeleton as the product. iOS month 12 to 14. **Supersedes DEC-010's dates** |
+| 1 | Scope and timeline | Ship the walking skeleton as the product. iOS month 12 to 14. **Supersedes DEC-010's dates.** Settle it in `catalog/index.html`, where this is the default preset and the alternatives are one click away |
 | 2 | Founder equity split | Daniel 40, Claudio 30, Asher 30 |
 | 3 | Vesting | Four years, one-year cliff, all three, plus a college-transition review |
 | 4 | Option pool | 10 percent at formation |
@@ -124,6 +126,60 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 - [ ] The 1.8x AI leverage multiplier is unmeasured and underwrites the schedule, the scope cut and the round size. The month-6 checkpoint replaces it with evidence; below 1.2x the plan is rebuilt.
 - [ ] Decide explicitly whether the goal is venture scale or profitable independence. Break-even at ~235 subscribers makes the second genuinely available, and it fits the uncertain H5 verdict.
 - [ ] Map Daniel's other business's seasonality against this schedule before finalizing it.
+
+## Features catalog (built 2026-08-06, DEC-020)
+
+Not a research phase. A standing surface, and the source of truth for release phase.
+
+### Files
+
+- `catalog/features.json` — 70 entries. **Edit this, then run `python catalog/build.py`.**
+- `catalog/index.html` — the interactive surface. Filter, reassign, recompute.
+- `catalog/FEATURES.md` — generated mirror, 2,500-plus lines. Read this if you have no browser. Never edit it.
+- `catalog/build.py` — validator plus generator. `--check` validates without writing.
+
+### What it contains
+
+| Kind | Count | Notes |
+|---|---:|---|
+| Features | 30 | H-01 to H-10, X-01 to X-03, TS-01 to TS-10, P-01 to P-06, O-01. Capabilities, acceptance criteria, persona / need / job linkage, RICE, dependencies, integrations, pull-forward triggers, risks, sources |
+| Compliance requirements | 15 | C-1 to C-15, locked into the MVP. C-1, C-2, C-3 and C-11 are engineered by O-01 and carry zero effort with a `satisfiedBy` pointer; C-14 points at TS-08. That is how double counting is avoided |
+| Non-functional requirements | 19 | NF-P1-4, NF-O1-3, NF-A1-6, NF-L1-6, locked. These answer `team-roadmap.md` open question 4, which flagged launch hardening as its least-specified line |
+| Ruled out | 6 | N-01 to N-06, the DEC-006 NOT list, zero effort and locked out, so nobody re-proposes a social feed |
+
+### The effort model, and what it validated
+
+`calendarMonths = (nativeEffort x 1.20 / aiMultiplier) / 7.5 x 12 + 1.5`
+
+| Scenario | React Native pm | Projected iOS launch | Published figure |
+|---|---:|---:|---|
+| Walking skeleton only | 8.16 | month 9 | 8 to 9 pm ✓ |
+| **Recut v1 (default)** | **13.38** | **month 13** | 12 to 15 pm, month 12 to 14 ✓ |
+| Full MVP v1 | 32.52 | month 30 | **29 to 31 pm — corrected upward** |
+| PRD P0 list | 51.72 | month 47 | never costed before |
+
+Four published figures reproduce from one set of constants, which is the check that the model is not inventing numbers. The correction: pricing the 34 obligations individually costs 4.35 native person-months against the single ~2.0 "release overhead" line the planning documents carried, so full scope is ~32-33 rather than 29-31. The recut is unaffected because `team-roadmap.md` had already broken those lines out.
+
+### Documents annotated (analysis kept, phase authority moved)
+
+- [x] `research/05-product/mvp-scope.md` — plus the finding that its section 6 walking skeleton is a thin slice through eight features, not a subset of whole ones; read as a feature list it over-estimates by 2x.
+- [x] `research/05-product/prd.md` — plus the arithmetic showing its P0 tier projects to month 47 at real capacity.
+- [x] `research/05-product/rice-prioritization.md` — plus the warning that its effort column is in iOS-native units and must not be mixed with React Native figures.
+
+### The four conflicts, each with a written recommendation
+
+| ID | Question | Resolution |
+|---|---|---|
+| CF-1 | Apple Watch: P0 or v1.x? | v1.x, per GD-2 |
+| CF-2 | All ten constraints at launch? | Subset; the deferred three cost 6.0 pm for the weakest-evidenced needs |
+| CF-3 | Route explanations at launch? | Split: H-09 at launch, P-03 after |
+| CF-4 | Paid seam at launch? | Free launch, per GD-1 and DEC-011 |
+
+### Carried forward
+
+- [ ] The 1.20x platform multiplier is a reconciliation of two published conversions, not a measurement. The walking-skeleton build is the first chance to check it.
+- [ ] Scenario state in the browser is `localStorage` only. A scope decision made in the UI must be exported and written back into `features.json` or it exists in one browser.
+- [ ] `build.py` is not wired into a hook. Editing the JSON without running it leaves `FEATURES.md` stale, which is the exact drift this catalog was built to end. Consider `--check` in pre-commit.
 
 ## Decisions that govern the product (do not contradict without a new DEC)
 
@@ -137,6 +193,7 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 | DEC-011 | Pricing and the permanent free tier: $99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. Coaching layer is the only paid product; everything else free forever and named publicly at launch. Lifetime tier and data monetization rejected |
 | DEC-012 | Measurement corrections: cohort retention moves to a first-party Postgres event table (TelemetryDeck cannot provide a stable identifier); PRD G3 and G4 re-based to activated-cohort definitions; activation redefined as a completed recorded run |
 | DEC-013 | Beachhead is the founder's home metro subject to the month-1 data spike; **the iOS date carries the public launch**, overriding the GTM plan's Android recommendation, with four compensating conditions |
+| DEC-020 | **`catalog/features.json` is the source of truth for release phase.** 70 entries; `mvp-scope.md`, `prd.md` and `rice-prioritization.md` keep their analysis and lose their phase columns. Compliance and non-functional entries are locked into the MVP with their effort counted; the DEC-006 NOT list is locked out. Refines DEC-010's total to ~32-33 person-months. DEC-014 to DEC-019 stay reserved for the open Phase 9 gate |
 
 ## Surfaces every agent must know
 
@@ -146,8 +203,11 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 | This catalog | `research/00-PROGRESS.md` | Phase-by-phase status |
 | Playbook | `research/00-RESEARCH-PLAYBOOK.md` | Standards, citation, gate definition of done |
 | Readable review | `dashboard/index.html` | Claudio's review surface (dashboard-first) |
+| **Scope source of truth** | `catalog/features.json` | **Canonical release phase for all 70 entries (DEC-020). Regenerate the mirror with `python catalog/build.py` after any edit** |
+| Scope working surface | `catalog/index.html` | Filter by persona, need, job, module or release; reassign features and watch the launch month recompute |
+| Scope mirror for agents | `catalog/FEATURES.md` | Generated. Read it instead of the JSON; never edit it |
 | Knowledge graph UI | `graph/index.html` | Interactive explorer over `graphify-out/graph.json` |
-| Landing (Vercel) | `index.html` | Links dashboard + graph |
+| Landing (Vercel) | `index.html` | Links dashboard, catalog, graph and blueprint |
 | Agent protocol | `AGENTS.md` (Claude Code via `CLAUDE.md`) | Memory, git, engineering rules |
 | Collaborator setup | `CONTRIBUTING.md` | Clone and tool onboarding |
 
@@ -168,5 +228,7 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 ## How to update this file
 
 When a phase advances: change the status board row, tick or add items in that phase's detail section, update the one-paragraph "Where we are" block, bump the Version-Timestamp, then update `vault/00-START-HERE.md` to match. Never leave START-HERE and this file disagreeing.
+
+**Graph state.** 227 nodes, 542 edges, 15 communities as of 2026-08-06, with coverage measured at 104 of 104 corpus documents (rule: every `.md` file except `vault/_templates/` and `GRAPH_REPORT.md` itself), zero dangling links, zero isolated nodes. The catalog merge added 20 nodes and 46 edges, so a question about what ships when resolves to `catalog/features.json` rather than to one of the three documents that disagree.
 
 **A note on the graph.** The graphify post-commit hook has been scoped to code file extensions, because its rebuild runs without an LLM pass and on a markdown-only tree it extracts headings as nodes while dropping curated ones. Documentation commits no longer trigger it; update the graph deliberately instead. **That fix lives in `.git/hooks/post-commit`, which git does not track**, so a fresh clone on another machine will not have it. Watch for the graph losing nodes after a doc commit and reapply it if so.

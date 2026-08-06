@@ -1,14 +1,15 @@
 # Graph Report - .  (2026-07-30)
 
 ## Corpus Check
-- 94 markdown documents across `research/`, `vault/` and `blueprint/`, plus root and `docs/` files · ~150,000 words
+- 104 markdown documents · 259,550 words. Counting rule, so the number is reproducible: every `.md` file in the repository except the three files in `vault/_templates/` and this report. Earlier revisions of this line said 94 documents and ~150,000 words against an unstated rule; the recount was measured, not estimated.
 - Verdict: corpus is large enough that graph structure adds value.
-- **Coverage: 94 of 94 project documents have at least one node** (verified 2026-08-06). Zero dangling links, zero isolated nodes.
+- **Coverage: 104 of 104 documents have at least one node** (measured 2026-08-06 by matching every corpus path against `source_file` across all nodes). Zero dangling links, zero isolated nodes.
+- One non-markdown source is represented directly: `catalog/features.json`, which holds the release-phase assignment for all 70 catalog entries and is therefore graph-visible even though it is data rather than prose.
 
 > **The post-commit hook no longer rebuilds on documentation commits.** Its rebuild runs without an LLM pass, so on a markdown-only tree it extracts headings as nodes and drops curated ones; one commit lost 9 nodes and 19 links before being restored. It is now scoped to code file extensions in `.git/hooks/post-commit`, which git does not track, so a fresh clone will not have the fix. Update the graph deliberately via the graphify `--update` flow after doc changes.
 
 ## Summary
-- 207 nodes · 497 edges · 14 communities (2026-08-06 Phase 9: +18 nodes/+35 edges covering financial strategy, the founding team, and the three superseded figures, so a cost query lands on the correction rather than the original. Same day, memory-audit remediation: +14 nodes/+31 edges covering the eleven documents that had no representation at all, minus 6 Obsidian settings nodes and their 5 edges. Earlier the same day: +7/+18 for Phases 7 and 8, +6/+18 for the Phase 6 gate close, +12/+24 for the Phase 6 business model, +4/+14 for the Phase 5 gate close. 2026-07-30: +10/+17 for the round-2 studies)
+- 227 nodes · 542 edges · 15 communities (2026-08-06 features catalog: +20 nodes/+46 edges covering `catalog/features.json` as the release-phase authority, the effort model and its 1.20x platform multiplier, the three catalog findings, the four resolved document conflicts, and the compliance, non-functional and never-ship entry sets. A query about what ships when now lands on the catalog rather than on one of the three documents that disagree. Same day, Phase 9: +18 nodes/+35 edges covering financial strategy, the founding team, and the three superseded figures, so a cost query lands on the correction rather than the original. Same day, memory-audit remediation: +14 nodes/+31 edges covering the eleven documents that had no representation at all, minus 6 Obsidian settings nodes and their 5 edges. Earlier the same day: +7/+18 for Phases 7 and 8, +6/+18 for the Phase 6 gate close, +12/+24 for the Phase 6 business model, +4/+14 for the Phase 5 gate close. 2026-07-30: +10/+17 for the round-2 studies)
 - Extraction: 44% EXTRACTED · 8% INFERRED · 1% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.74)
 - Token cost: 1,200 input · 400 output
 
@@ -20,6 +21,7 @@
 - Research Program, Constraints, and Open Decisions
 - Phase 3 User Research and Personas
 - Phase 9 Financial Strategy and Founding Team
+- Features Catalog and Scope Arithmetic
 - Community 7
 - Community 8
 - Community 9

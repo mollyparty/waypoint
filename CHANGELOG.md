@@ -1,6 +1,6 @@
 # Changelog
 
-> Version-Timestamp: 2026-08-06 15:00:00 UTC-4
+> Version-Timestamp: 2026-08-06 15:45:00 UTC-4
 
 All notable changes to this project are documented in this file.
 
@@ -12,9 +12,10 @@ Staged for **v0.4.0**, which tags once the blueprint is signed off and the Phase
 
 ### Added
 
-- **Phase 9, financial strategy and founding team** (`research/09-financial-team/`): `legal-formation.md`, `operating-model.md`, `team-roadmap.md`, `capital-structure.md`, `fundraising-plan.md`. Opened outside the original program, which [DEC-005] ended at Phase 8, because the founding team was defined for the first time and the definition invalidated assumptions eight phases had rested on.
+- **Phase 9, financial strategy and founding team** (`research/09-financial-team/`): `legal-formation.md`, `operating-model.md`, `team-roadmap.md`, `capital-structure.md`, `fundraising-plan.md`. Opened outside the original program, which DEC-005 ended at Phase 8, because the founding team was defined for the first time and the definition invalidated assumptions eight phases had rested on.
 - Investor business blueprint (`blueprint/blueprint.md` and `blueprint/index.html`), 17 sections, drafted at Phase 8 and awaiting founder review.
 - Phase 9 section on the research dashboard with six open gate cards.
+- **Features and functionality catalog** (DEC-020): `catalog/features.json` as the source of truth for release phase, `catalog/index.html` as the interactive surface, `catalog/FEATURES.md` as a generated mirror, and `catalog/build.py` as validator and generator. 70 entries: 30 features with capabilities breakout, acceptance criteria, persona / need / job linkage, RICE values, dependencies, integrations and pull-forward triggers; 15 compliance requirements and 19 non-functional requirements as locked, effort-bearing entries; and the 6 items DEC-006 ruled out, carried so they cannot be quietly re-proposed. Filter by any dimension, move a feature between releases, and the effort, calendar and projected iOS launch month recompute against the competitive window. The 1.8x AI leverage multiplier is a slider from 1.0x to 2.5x rather than a constant, because it is the least-evidenced number in the repository.
 
 ### Changed
 
@@ -23,6 +24,9 @@ Staged for **v0.4.0**, which tags once the blueprint is signed off and the Phase
 - **Blueprint sections 12 and 13 rewritten**, the executive summary corrected, and four risks added covering founder capacity, the AI-leverage assumption, key-person concentration, and the minor-founder IP question.
 - **DEC-010's iOS date is superseded pending the Phase 9 gate.** It assumed 2.5 to 3.0 full-time-equivalent people; the actual team has none. The recommendation is to ship the walking skeleton as the product, landing iOS at month 12 to 14.
 - Charter now names the three founders and their roles, replacing "solo founder building from scratch".
+- **Release phase assignment moved out of the research documents and into the catalog** (DEC-020). `research/05-product/mvp-scope.md`, `prd.md` and `rice-prioritization.md` are annotated: their analysis, gate decisions, requirement specifications and RICE scores remain authoritative, but they no longer decide what ships when. Four documents had been disagreeing with each other with nothing to say which won.
+- **Full approved MVP scope corrected upward to roughly 32 to 33 React Native person-months** from DEC-010's 29 to 31. Priced individually, the 15 compliance requirements need about 2.1 native person-months of engineering beyond what O-01 already covers and the non-functional set another 2.25, against the single ~2.0 "release overhead" line the planning documents carried. The recut v1 at 12 to 15 is unaffected, because `team-roadmap.md` had already broken compliance and hardening out as separate lines.
+- Root landing page and the dashboard navigation both link the catalog; Phase 9 gate card 1 now points at it as the instrument for settling the capacity gap by comparison rather than argument.
 
 ### Fixed
 
@@ -32,6 +36,11 @@ Staged for **v0.4.0**, which tags once the blueprint is signed off and the Phase
 - Phases 7 and 8 were recorded inside the Phase 6 session note, where filename-based lookup could not find them. Split into their own dated note.
 - Three cross-document cost conflicts reconciled with the reason stated: infrastructure at MVP ($135 to $255, not $80 to $130), the net revenue multiplier (0.8088, not 0.84), and the note that `unit-economics.md` is still priced against a $7.99/month case that DEC-011 replaced.
 - Stale catalog claims in `vault/00-START-HERE.md` and `research/00-PROGRESS.md`; open questions in the Phase 3 and 4 distillates that DEC-008 and DEC-011 had already closed; the architecture index still calling the stack decision future work; DEC-007's missing alternatives section.
+- **The walking-skeleton effort figure was being read wrongly.** `mvp-scope.md` section 6 quotes 6 to 7 person-months, but the whole features it names total 14.0, because the skeleton is reduced versions of them rather than a subset. The catalog now records a separate reduced figure per feature, and those sum to 6.8. Anyone treating section 6 as a feature list was over-estimating by 2x.
+- **`team-roadmap.md`'s open question 4 answered.** It flagged "public-launch hardening" as the least-specified line in the recut estimate. It is now 19 named non-functional requirements with individual effort figures.
+- The catalog's own validator caught two silent defects during construction: eleven `dependsOn` relationships had no matching reverse edge, now derived by the build script rather than hand-maintained; and the PRD-P0 scenario was string-matching a priority field, which over-counted by roughly 4 person-months and is now an explicit per-entry flag with its basis recorded.
+- **The PRD-P0 projection is month 47, not month 48.** `catalog/build.py` rounded the figure to one decimal and then again to whole months, turning 47.47 into 48 while `catalog/index.html` showed 47 from the same inputs. The generator now rounds once, half-up, matching the JavaScript, and the six documents that had quoted 48 were corrected.
+- **The graph explorer's community legend no longer shows the same name twice.** It picked the first keyword rule that matched anywhere in a cluster, and since nearly every cluster mentions the MVP or the stack somewhere, five of fourteen clusters came out labeled "Product and MVP" and their show/hide toggles were indistinguishable. Rules are now scored by hit count, a `community_name` shared by every member of a cluster wins outright, and any remaining collision is suffixed with the cluster's hub node.
 
 ## [0.3.0] - 2026-08-06
 
@@ -81,6 +90,7 @@ Product definition and business model both locked. Waypoint now has an approved 
 - Graphify knowledge graph integration (`graphify-out/`) with git post-commit hook and token cost telemetry.
 - Agent memory protocol (`AGENTS.md` and Cursor rule) codifying session start and session end routines.
 
-[Unreleased]: https://github.com/mollyparty/waypoint/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/mollyparty/waypoint/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/mollyparty/waypoint/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/mollyparty/waypoint/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/mollyparty/waypoint/releases/tag/v0.1.0

@@ -6,6 +6,14 @@ Status: DRAFT for the Phase 5 gate. Governed by the locked concept (`research/04
 
 How to read this document: [verified] traces to a sourced claim in Phase 1 to 4 research (citation inline), [inferred] is a reasoned conclusion from verified inputs, [assumption] is unvalidated and listed again in Section 8. Requirement IDs (RG-x, TM-x, AC-x, EX-x, NF-x, C-x) exist for traceability into `mvp-scope.md`, `rice-prioritization.md`, and engineering tickets.
 
+> **ANNOTATED 2026-08-06 by [[DEC-020 Features catalog is the source of truth for release phase]].** The P0, P1 and P2 tiers in section 4 are no longer the release plan. Release phase is canonical in `catalog/features.json`, adjustable at `catalog/index.html`, and every requirement ID in this document is cross-referenced there.
+>
+> The requirements themselves are untouched and remain authoritative. What changed is arithmetic rather than judgement: the P0 tier was written against an assumed 2.5 to 3.0 full-time-equivalent team, and Phase 9 established the real figure at three part-time founders delivering roughly 7.5 person-months a year. Priced at that capacity, the 19 features marked P0 plus the launch-gating obligations come to 43.1 native person-months and project to **month 47**, against a 12-to-18-month competitive window. The tiers are still the right description of what the product eventually is. They are not a description of what ships first.
+>
+> Where this document disagrees with `mvp-scope.md`, the catalog records both positions and a written recommendation: the Apple Watch companion (CF-1), the full ten-constraint set (CF-2), route explanations (CF-3), and whether the paid seam exists at launch (CF-4). In all four cases a later gate decision or decision record settled the question, and the catalog follows that rather than this document's tier.
+>
+> One thing this document under-specified rather than got wrong: the 15 compliance requirements in section 5.1 and the non-functional set in 5.2 to 5.5 are real engineering work, and the planning documents absorbed them into a single ~2 person-month overhead line. The catalog prices them individually at 4.35 native person-months, which is why full scope now reads 32 to 33 React Native person-months instead of 29 to 31.
+
 ---
 
 ## 1. Overview

@@ -2,6 +2,12 @@
 
 Version-Timestamp: 2026-07-30 16:15:00 UTC-4
 
+> **ANNOTATED 2026-08-06 by [[DEC-020 Features catalog is the source of truth for release phase]].** The thirty scores and rankings below are unchanged and remain the authoritative prioritization input. They are now mirrored per feature in `catalog/features.json`, alongside the persona, need and job linkage, the acceptance criteria, and the release assignment, at `catalog/index.html`.
+>
+> Two notes for anyone reading the effort column. First, every figure here is in **iOS-native** terms. DEC-010 moved the build to one React Native codebase, and the catalog applies a 1.20x factor to convert; that factor reproduces both DEC-010's 29-to-31 restatement of the 15-feature scope and `team-roadmap.md`'s 8-to-9 walking skeleton independently, which is the check that it is not an invented number. Do not mix the two units. Second, the note in section 1 that effort excludes "shared release overhead (counted once in `mvp-scope.md`)" is where the compliance and non-functional work went missing: that single ~2 person-month line covers work the catalog now prices at 4.35 native person-months across 34 individually-listed obligations.
+>
+> The RICE ranking also should not be read as a release order, and this document already says why in its own summary: core constraint generation ranks eleventh purely because effort is the denominator. The catalog keeps rank visible on every card for exactly that reason, as one input among several rather than the answer.
+
 **Executive summary.** Thirty candidate features, drawn from the locked concept (`research/04-synthesis/concept.md`, DEC-006) plus the table-stakes capabilities the category demands (`research/02-competitors/feature-matrix.md`), are scored with RICE. The top of the ranking is dominated by cheap, high-reach enablers (HealthKit sync, privacy architecture, GPS tracking, Strava share) and by low-effort hero surfaces (route novelty, travel mode, honest degradation). The hero engine itself (core constraint generation) ranks eleventh on raw RICE because its effort is the largest single line item, which is a property of the formula, not a verdict: without it, nothing above it matters. The paid coaching layer scores in the bottom third across the board, driven by inferred (not expressed) demand and heavy effort, which is exactly why it belongs after the free-tier hypothesis is proven. Eight scores carry explicit sensitivity flags tied to the open interview backlog (`research/03-users/unmet-needs.md`, Section c).
 
 ## 1. Method

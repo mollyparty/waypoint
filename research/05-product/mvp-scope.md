@@ -2,6 +2,16 @@
 
 Version-Timestamp: 2026-07-30 16:20:00 UTC-4
 
+> **ANNOTATED 2026-08-06 by [[DEC-020 Features catalog is the source of truth for release phase]].** Release phase assignment is now canonical in `catalog/features.json`, viewable and adjustable at `catalog/index.html`. This document's reasoning stays authoritative: the RICE line, the gate decisions GD-1 to GD-4, the walking-skeleton definition and the deferral triggers are all still the argument of record. What moved is only the answer to "what ships when", because that answer now has to be recomputable against the part-time capacity established in Phase 9, and recomputing it by hand across three documents is how the three came to disagree.
+>
+> Three things the catalog found while reconciling this document with `prd.md` and `research/09-financial-team/team-roadmap.md`:
+>
+> 1. **The 15-feature MVP line no longer fits the team.** At 7.5 person-months a year of real capacity it projects to month 30, well past the 12-to-18-month competitive window. The recut v1 in `team-roadmap.md` is the standing recommendation and the catalog's default preset.
+> 2. **The ~2 person-month release-overhead line in section 7 under-counts.** Priced individually, the 15 compliance requirements need about 2.1 native person-months beyond what O-01 covers, and the non-functional set another 2.25. Full scope is closer to 32 to 33 React Native person-months than DEC-010's 29 to 31.
+> 3. **The walking skeleton in section 6 is a thin slice through eight features, not a subset of whole ones.** The whole features it names total 14.0 person-months against the 6 to 7 quoted here, so the catalog records a separate reduced figure per feature. Those sum to 6.8, which is what makes the 6-to-7 estimate correct.
+>
+> This document also disagrees with `prd.md` on four items: the Apple Watch companion, the full ten-constraint set, route explanations, and whether the paid seam exists at launch. Each carries a written recommendation in the catalog rather than a silent pick. On all four the catalog sides with this document, because in every case a gate decision or a decision record settled it after the PRD was written.
+
 **Executive summary.** The MVP exists to prove one hypothesis: committed amateur runners will adopt and return for constraint-based route generation. Everything in MVP v1 either proves that hypothesis, is a table-stakes prerequisite for testing it, or is a day-one legal and trust obligation. Fifteen items make the cut at roughly 23 person-months of scored effort (about 25 with release overhead), which a founder plus two contractors can ship in 8 to 10 calendar months: walking skeleton on TestFlight by month 3 to 4, App Store launch by month 9. The entire paid coaching layer, the Apple Watch app, and every remaining constraint wait for v1.x or v2, each with a named pull-forward trigger. The concept's NOT list (DEC-006) stays never. Four gate decisions close the document, each with a recommendation.
 
 **The ONE core job** (from `research/03-users/jobs-to-be-done.md` via `concept.md`): the right route, right now, from here, for me. Travel is the demo; safety plus home novelty are the daily muscles [verified: DEC-006 point 4].
