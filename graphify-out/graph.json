@@ -1797,6 +1797,69 @@
    "community": 0,
    "norm_label": "phase 6 gate closed: five approvals and one override",
    "id": "gate_phase6_closed"
+  },
+  {
+   "label": "Phase 7: HTML research dashboard, complete",
+   "file_type": "document",
+   "source_file": "research/07-dashboard/_index.md",
+   "rationale": "Dashboard covers Phases 0 to 6 with every gate card and outcome. Established the standing rule that gate reviews happen on the dashboard while markdown stays the citable source of truth.",
+   "community": 0,
+   "norm_label": "phase 7: html research dashboard, complete",
+   "id": "phase7_dashboard"
+  },
+  {
+   "label": "Phase 8: investor business blueprint, draft complete",
+   "file_type": "document",
+   "source_file": "research/08-blueprint/_index.md",
+   "rationale": "blueprint/blueprint.md as the citable master and blueprint/index.html as the investor-facing site, 17 sections each. Awaiting founder review before v0.4.0.",
+   "community": 0,
+   "norm_label": "phase 8: investor business blueprint, draft complete",
+   "id": "phase8_blueprint"
+  },
+  {
+   "label": "Business blueprint: 17 sections from problem to self-audit",
+   "file_type": "document",
+   "source_file": "blueprint/blueprint.md",
+   "rationale": "Executive summary, problem, market, competition, product, users, business model, unit economics, GTM, measurement, technology, timeline, capital, risk, legal, what we do not know, appendix.",
+   "community": 0,
+   "norm_label": "business blueprint: 17 sections from problem to self-audit",
+   "id": "blueprint_master"
+  },
+  {
+   "label": "Investor-facing blueprint site",
+   "file_type": "document",
+   "source_file": "blueprint/index.html",
+   "rationale": "Numbered sections, fixed navigator, headline stat cards, risk matrix, print stylesheet. Structure modeled on the founder's example, minus its bilingual toggle.",
+   "community": 0,
+   "norm_label": "investor-facing blueprint site",
+   "id": "blueprint_site"
+  },
+  {
+   "label": "Editorial stance: confidence tags survive into investor-facing text",
+   "file_type": "document",
+   "source_file": "blueprint/blueprint.md",
+   "rationale": "Three findings a weaker document would bury are given emphasis instead: H5 uncertain, zero user interviews, and economics governed by distribution. An investor finds them in diligence anyway.",
+   "community": 0,
+   "norm_label": "editorial stance: confidence tags survive into investor-facing text",
+   "id": "blueprint_honesty_stance"
+  },
+  {
+   "label": "Capital requirement ~$350k to $400k pre-seed, derived not decided",
+   "file_type": "document",
+   "source_file": "blueprint/blueprint.md",
+   "rationale": "~$230k build to dual-platform launch plus 6 to 9 months runway at ~$15k/month. No decision record covers a raise, so the arithmetic is shown rather than a number asserted.",
+   "community": 0,
+   "norm_label": "capital requirement ~$350k to $400k pre-seed, derived not decided",
+   "id": "capital_requirement_derived"
+  },
+  {
+   "label": "H5 uncertain: the wedge alone is $5M to $30M ARR, so the venture case needs expansion",
+   "file_type": "document",
+   "source_file": "blueprint/blueprint.md",
+   "rationale": "Four named paths: Android, non-English geographies, the coaching layer, and outdoor navigation adjacency. Named tests would resolve it.",
+   "community": 0,
+   "norm_label": "h5 uncertain: the wedge alone is $5m to $30m arr, so the venture case needs expansion",
+   "id": "h5_uncertain_expansion_case"
   }
  ],
  "links": [
@@ -5736,6 +5799,170 @@
    "source": "dec012_measurement",
    "target": "dec009_data_layer",
    "rationale": "The cohort event table lives in the Aiven personal-data store."
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/08-blueprint/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase8_blueprint",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/08-blueprint/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase8_blueprint",
+   "target": "blueprint_site"
+  },
+  {
+   "relation": "sources",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "blueprint_site"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "blueprint_honesty_stance"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "capital_requirement_derived"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "h5_uncertain_expansion_case"
+  },
+  {
+   "relation": "unblocks",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/08-blueprint/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase7_dashboard",
+   "target": "phase8_blueprint"
+  },
+  {
+   "relation": "unblocks",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/08-blueprint/_index.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase6_closed",
+   "target": "phase8_blueprint"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "phase6_canvas",
+   "rationale": "The business model canvas is the spine of the blueprint's business sections."
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "finding_distribution_governs_economics"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "verdict_price_9999"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "verdict_north_star_wrr"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "verdict_beachhead_one_metro"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "risk_beachhead_osm_data_floor"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "override_ios_public_launch"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "dec009_data_layer"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_master",
+   "target": "dec011_pricing"
+  },
+  {
+   "relation": "requires",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "blueprint/blueprint.md",
+   "confidence_score": 1.0,
+   "source": "blueprint_honesty_stance",
+   "target": "h5_uncertain_expansion_case",
+   "rationale": "Disclosing the uncertain sizing verdict is the clearest application of the stance."
   }
  ],
  "hyperedges": [
