@@ -64,6 +64,12 @@ Worth recording because both were silent.
 
 Browser-verified end to end: no console errors across the whole interaction; all four presets recompute correctly; the slider moves the launch month at both extremes; persona, search, type and flag filters all correct; reassignment updates the totals and the card's border colour; the detail drawer renders every section with no undefined, null or raw markup; the conflict callout appears on X-02; scenario state survives a reload and Reset restores the baseline; and the 390-wide mobile layout has no horizontal overflow, with cards stacking and filter controls wrapping.
 
+## The post-commit hook clobbered the graph again
+
+Worth writing down because the earlier fix looked sufficient and was not. The hook was scoped to code file extensions after a doc commit dropped curated nodes. This commit contained `catalog/build.py`, which is a generator rather than application code, and that was enough: the hook fired, rebuilt without an LLM pass, and cut the graph from 227 nodes to 216. Restored with `git checkout -- graphify-out/` since the curated version was already in the commit.
+
+The filter now excludes `catalog/`, `scripts/` and `tools/` as well as matching on extension, verified three ways: repository tooling skips, application source still triggers, doc-only commits still skip. The general lesson is that "is this code" was the wrong question. The right one is "does the AST pass have anything useful to say about this," and for build scripts it does not. `.git/hooks/` is untracked, so none of this travels to another machine, and the session-end habit of checking `git status` for `graphify-out/` churn after every commit is the only thing that catches it.
+
 ## Two more defects found while merging the graph
 
 Both were caught by cross-checking the generated markdown against the interactive page, which is worth doing every time because the two compute the same numbers independently.
