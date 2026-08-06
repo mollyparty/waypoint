@@ -11,6 +11,7 @@
 | `blueprint/blueprint.md` | Master markdown, the citable source of truth. 17 sections | complete |
 | `blueprint/index.html` | Investor-facing site: numbered sections, fixed nav, stat cards, risk matrix, print stylesheet | complete |
 | Root `index.html` | Landing page updated, blueprint card now live | complete |
+| Browser render verification | 2026-08-06: all 17 nav anchors resolve, no console errors, mobile Contents toggle opens and closes, no unrendered entities or placeholder text | passed |
 | CHANGELOG entry and **v0.4.0** tag | At founder approval | pending |
 
 ## Structure

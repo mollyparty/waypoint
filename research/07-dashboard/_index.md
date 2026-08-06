@@ -12,6 +12,7 @@
 - [x] GitHub to Vercel auto-publish with protected previews ([[DEC-007 Vercel publishing pipeline with protected previews]])
 - [x] Phase 6 section wired in with the six gate decisions and their outcomes
 - [x] HTML structure validated (no unclosed or mismatched tags)
+- [x] Browser-rendered and verified 2026-08-06: nav anchors resolve, no console errors, readable at a 390px mobile viewport, all six Phase 6 gate cards show their decided state
 
 ## Access
 
