@@ -1,10 +1,10 @@
 # Phase 5: Product definition and MVP scope
 
-> Version-Timestamp: 2026-07-30 22:30:00 UTC-4
+> Version-Timestamp: 2026-08-06 11:40:00 UTC-4
 
-**Status: IN PROGRESS.** All deliverables written, including the three round-2 studies. Gate **partially passed** (DEC-008). **Awaiting founder decisions on the revised stack and the platform strategy** (evidence on the dashboard, cards 8 and 9). Distilled in vault: `vault/04-Knowledge/Product Definition Key Findings (Phase 5).md`. Program catalog: `../00-PROGRESS.md`.
+**Status: COMPLETE. Gate passed.** All deliverables written including the three round-2 studies; all five gate decisions closed (DEC-008 on 2026-07-30; DEC-009 and DEC-010 on 2026-08-06). Distilled in vault: `vault/04-Knowledge/Product Definition Key Findings (Phase 5).md`. Program catalog: `../00-PROGRESS.md`.
 
-Governed by the locked concept (`../04-synthesis/concept.md`, DEC-006), subject to amendment if dual-platform MVP is adopted.
+Governed by the locked concept (`../04-synthesis/concept.md`, DEC-006), whose client stack is amended by DEC-010 (React Native + MapLibre, dual-platform).
 
 ## Deliverables
 
@@ -27,11 +27,15 @@ Governed by the locked concept (`../04-synthesis/concept.md`, DEC-006), subject 
 | MVP scope as drawn | **Approved** |
 | Free/paid line | **Launch v1 entirely free**; safety routing free permanently |
 | Apple Watch | **Fast-follow** at launch+30 |
-| Stack | **Held**; round 2 complete and it revises the recommendation (Aiven split architecture replaces Supabase; auth decoupled). Awaiting founder approval (dashboard card 8) |
-| Platform | Round 2 strategy complete; recommends staged React Native (Option D), which amends the DEC-006 client stack. Awaiting founder choice (dashboard card 9) |
+| Stack | **Approved as revised** (DEC-009): Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on Hetzner for the moat, auth decoupled via Better Auth. Supabase dropped. Carries an explicit revisit clause |
+| Platform | **Option D approved** (DEC-010): one React Native codebase, MapLibre both platforms, iOS month 9-10, Android 4-8 weeks later, ~29-31 person-months |
 
-## Do not start Phase 6 until
+## Amendments this gate produced
 
-1. ~~Round 2 files exist and are reviewed on the dashboard.~~ Done: all three written and digested on the dashboard.
-2. Claudio approves the revised stack (dashboard card 8).
-3. Claudio chooses a platform option (dashboard card 9); the choice needs a new DEC and, under Option C or D, updated MVP effort numbers.
+- `mvp-scope.md` section 7: effort ~25 → **~29 to 31 person-months**; calendar now iOS month 9-10, Android month 10-12; Android long-lead paperwork added at month 1.
+- Charter: client stack is React Native + MapLibre, dual-platform; Android removed from the expansion narrative.
+- `api-integration-map.md` section 4 predates DEC-009 and still names Supabase Auth; read it as "the auth layer" (Better Auth).
+
+## Phase 6 is now unblocked
+
+Business model, unit economics, metrics, and GTM proceed in `../06-business-model/`, using the DEC-009 cost lines and the DEC-010 launch calendar.

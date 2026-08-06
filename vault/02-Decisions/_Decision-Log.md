@@ -1,7 +1,7 @@
 ---
 type: index
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [decision, index]
 ---
 
@@ -19,6 +19,8 @@ Index of all project decisions. One note per decision, numbered sequentially. St
 | DEC-006 | [[DEC-006 Concept lock route-first positioning]] | accepted | 2026-07-30 |
 | DEC-007 | [[DEC-007 Vercel publishing pipeline with protected previews]] | accepted | 2026-07-30 |
 | DEC-008 | [[DEC-008 Phase 5 gate MVP approved stack in validation]] | accepted | 2026-07-30 |
+| DEC-009 | [[DEC-009 Revised data layer Aiven split architecture with decoupled auth]] | accepted (revisitable, see clause) | 2026-08-06 |
+| DEC-010 | [[DEC-010 Staged cross-platform MVP on React Native]] | accepted | 2026-08-06 |
 
 ## How to add a decision
 

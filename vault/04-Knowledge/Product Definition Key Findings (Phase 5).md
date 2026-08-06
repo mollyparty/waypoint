@@ -1,18 +1,20 @@
 ---
 type: knowledge
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [knowledge, research, product, mvp, stack, phase-5]
 ---
 
 # Product Definition Key Findings (Phase 5)
 
-Distilled from `research/05-product/` (9 documents: prd, rice-prioritization, mvp-scope, user-journeys, stack-recommendation, stack-validation, database-deep-dive, dual-platform-strategy, api-integration-map). Governed by the locked concept ([[DEC-006 Concept lock route-first positioning]]). Gate partially passed (DEC-008); stack and platform decisions open.
+Distilled from `research/05-product/` (9 documents: prd, rice-prioritization, mvp-scope, user-journeys, stack-recommendation, stack-validation, database-deep-dive, dual-platform-strategy, api-integration-map). Governed by the locked concept ([[DEC-006 Concept lock route-first positioning]]). **Phase 5 is complete: all five gate decisions closed** (DEC-008, DEC-009, DEC-010).
+
+> **Read this first.** Two things below were superseded at the 2026-08-06 gate. The data layer is no longer Supabase (see DEC-009 and the round 2 section), and the client is no longer SwiftUI + MapKit iOS-only (see DEC-010). The "recommended stack" and "stack validation" sections are kept for provenance, not as current truth.
 
 ## The MVP line
 
 - **15 features in MVP v1** (of 30 RICE-scored candidates): core constraint generation (distance, start-anywhere, round-trip, elevation), route novelty, safety-aware routing v1, travel mode, honest degradation, voice turn-by-turn, GPS tracking, run history, HealthKit sync, Strava share, onboarding, full privacy/compliance architecture.
-- **Effort**: ~25 person-months; 8 to 10 calendar months with founder plus two contractors. Walking skeleton (generate route, run with voice, save) on TestFlight month 3 to 4; App Store launch month 8 to 9; paid layer months 10 to 12. Fits inside the Strava window.
+- **Effort**: originally ~25 person-months iOS-native; **amended by DEC-010 to ~29 to 31 person-months** for both platforms from one codebase. Walking skeleton (generate route, run with voice, save) on TestFlight month 3 to 4; iOS launch month 9 to 10; Android month 10 to 12; paid layer months 10 to 12. Still fits inside the Strava window.
 - **Fast-follow v1.x**: paywall plus training-state generation (together), Watch app (launch+30), crossings, weather, surface, offline, GPX. Each deferral has a named pull-forward trigger.
 - **v2+**: adaptive plans, injury calibration, race progression, readiness, live location sharing (pending privacy review).
 
@@ -44,10 +46,10 @@ Five journeys mapped (onboarding under 3 minutes, Marcus daily, Priya hotel lobb
 1. MVP scope as drawn: **approved** (DEC-008).
 2. Free/paid line: **launch v1 entirely free**; safety routing free permanently (DEC-008).
 3. Watch: **fast-follow** at launch+30 (DEC-008).
-4. Stack: **awaiting decision** (card 8). Round 2 recommends the Aiven split architecture with decoupled auth, replacing Supabase.
-5. Platform: **awaiting decision** (card 9). Round 2 recommends staged React Native (Option D). Whichever way it goes needs a new DEC.
+4. Stack: **approved as revised**, 2026-08-06 ([[DEC-009 Revised data layer Aiven split architecture with decoupled auth]]). Aiven (EU) for personal data, self-managed PostGIS on Hetzner for the moat, Better Auth in Waypoint's own API layer. Supabase dropped. Approved "for now" with an explicit revisit clause: infrastructure detail must not block product definition, and four re-open checkpoints are named.
+5. Platform: **Option D approved**, 2026-08-06 ([[DEC-010 Staged cross-platform MVP on React Native]]). One React Native codebase, MapLibre on both platforms, iOS month 9-10, Android month 10-12, ~29-31 person-months. Amends the MVP effort and the DEC-006 client stack; the 15-feature scope is unchanged.
 
-Operational, no gate once stack locks: month-1 safety-data buildability spike; interviews priorities 1 and 2 in parallel.
+Operational, no gate: month-1 safety-data buildability spike; interviews priorities 1 and 2 in parallel; Android long-lead paperwork in month 1.
 
 ## Open items carried forward
 

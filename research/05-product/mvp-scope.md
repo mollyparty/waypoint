@@ -96,18 +96,21 @@ Skeleton effort: roughly 6 to 7 person-months of the 22.75 total, reachable by m
 
 ## 7. Effort and calendar
 
-| Line | Value |
+> **AMENDED 2026-08-06 by [[DEC-010 Staged cross-platform MVP on React Native]].** The figures below were the iOS-native estimate. Under the approved staged cross-platform plan (one React Native codebase, MapLibre on both platforms), total effort is **~29 to 31 person-months**, iOS ships **month 9 to 10**, Android **month 10 to 12**, full dual-platform launch **month 11 to 13**, with no added headcount. The 15-feature scope itself is unchanged. The contractor mix shifts from "senior iOS" to "senior React Native with native-module experience". Every other row below still holds. See `dual-platform-strategy.md` section 4 for the option-by-option costing.
+
+| Line | Value (original iOS-native estimate) |
 |---|---|
 | MVP v1 scored effort | 22.75 person-months |
 | Release overhead (App Store review cycles, beta management, QA hardening, crash triage) | ~2 person-months [assumption] |
-| Total | ~25 person-months |
-| Team | Founder full time (product, iOS, routing) plus 2 contractors: senior iOS (0.75 to 1.0 FTE) and backend/routing plus data (0.5 to 1.0 FTE) [assumption] |
+| Total | ~25 person-months (**amended: ~29 to 31** under DEC-010) |
+| Team | Founder full time (product, client, routing) plus 2 contractors: senior client engineer (0.75 to 1.0 FTE) and backend/routing plus data (0.5 to 1.0 FTE) [assumption] |
 | Effective capacity | 2.5 to 3.0 FTE |
-| Calendar | 8 to 10 months to App Store launch |
+| Calendar | 8 to 10 months to App Store launch (**amended: iOS month 9 to 10, Android 4 to 8 weeks later**) |
 
 | Milestone | Month |
 |---|---|
-| A3 technical spike verdict (GD-3) | 1 |
+| Android long-lead paperwork begins (Play org account, Health Connect + fine-location declarations, DEC-010) | 1 |
+| A3 technical spike verdict (GD-3), now answering for both platforms | 1 |
 | Walking skeleton on TestFlight | 3 to 4 |
 | Interview priorities 1 and 2 complete, scope checkpoint | 3 to 4 |
 | Feature-complete beta (all 15 items) | 7 |

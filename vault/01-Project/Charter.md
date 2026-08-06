@@ -30,14 +30,15 @@ Runners never quite know where today's run should go: a new city, a dark morning
 ## Success criteria
 
 - 12 months out: MVP live, thousands of active runners, seed round closed or in motion.
-- The Business Blueprint (Phase 8) is the fundraising instrument; the investor story carries the expansion path (Android, geographies, the same route engine pointed at walking, cycling, hiking).
+- The Business Blueprint (Phase 8) is the fundraising instrument; the investor story carries the expansion path (geographies, the same route engine pointed at walking, cycling, hiking). Android is no longer an expansion item: it ships with the MVP under DEC-010.
 - Monetization: freemium subscription; free tier anchors on route generation, paid tier on the adaptive layer; exact boundary set in Phase 6 (including the deferred safety-free-tier decision).
 
 ## Constraints
 
 - Solo founder (Claudio) building from scratch; engineering mantra (security, stability, reliability, compliance) applies to everything shipped.
 - Location plus health data make privacy compliance first-class: privacy zones, private-by-default, the 15-item MVP compliance checklist.
-- v1: native iOS app, HealthKit-first (Garmin developer program paused; Strava API bans AI use of its data).
+- v1: **one React Native codebase shipping iOS and Android** ([[DEC-010 Staged cross-platform MVP on React Native]]); iOS first at month 9 to 10, Android 4 to 8 weeks later; MapLibre maps on both. HealthKit-first on iOS, Health Connect on Android (Garmin developer program paused; Strava API bans AI use of its data).
+- Data layer: Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on Hetzner for the geospatial moat, auth in Waypoint's own API layer ([[DEC-009 Revised data layer Aiven split architecture with decoupled auth]]; revisitable before the walking skeleton).
 - Execution window: an estimated 12 to 18 months before Strava plausibly ships plan-linked route generation. Speed is a business requirement.
 
 ## Related

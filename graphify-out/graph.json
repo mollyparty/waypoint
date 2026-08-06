@@ -1599,6 +1599,42 @@
    "community": 0,
    "norm_label": "open gate: revised stack (dashboard card 8) and platform strategy (card 9) await founder decision",
    "id": "gate_stack_platform_open"
+  },
+  {
+   "label": "DEC-009: data layer revised to Aiven split architecture with decoupled auth",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "rationale": "Supabase dropped. Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on Hetzner for the moat, Better Auth in Waypoint's API layer. Approved 2026-08-06 with an explicit revisit clause.",
+   "community": 0,
+   "norm_label": "dec-009: data layer revised to aiven split architecture with decoupled auth",
+   "id": "dec009_data_layer"
+  },
+  {
+   "label": "DEC-010: staged cross-platform MVP on React Native, iOS first then Android",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "rationale": "One React Native codebase with MapLibre on both platforms; iOS month 9-10, Android month 10-12; effort amended to ~29-31 person-months. Approved 2026-08-06.",
+   "community": 0,
+   "norm_label": "dec-010: staged cross-platform mvp on react native, ios first then android",
+   "id": "dec010_dual_platform"
+  },
+  {
+   "label": "Stack revisit clause: DEC-009 is deliberately re-openable at four checkpoints",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "rationale": "Founder instruction that infrastructure detail must not block product definition. Re-open before the walking skeleton, when architecture design starts, at Aiven contract time, or if ops burden proves real.",
+   "community": 0,
+   "norm_label": "stack revisit clause: dec-009 is deliberately re-openable at four checkpoints",
+   "id": "stack_revisit_clause"
+  },
+  {
+   "label": "Phase 5 gate CLOSED: all five decisions made, Phase 6 unblocked",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "rationale": "DEC-008 (scope, free launch, Watch), DEC-009 (data layer), DEC-010 (platform). Closed 2026-08-06.",
+   "community": 0,
+   "norm_label": "phase 5 gate closed: all five decisions made, phase 6 unblocked",
+   "id": "gate_phase5_closed"
   }
  ],
  "links": [
@@ -5019,6 +5055,135 @@
    "confidence_score": 1.0,
    "source": "gate_stack_platform_open",
    "target": "gate_phase5_pending"
+  },
+  {
+   "relation": "informs",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "phase5_db_deep_dive",
+   "target": "dec009_data_layer"
+  },
+  {
+   "relation": "adopts",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "verdict_aiven_personal_data"
+  },
+  {
+   "relation": "adopts",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "verdict_selfmanaged_postgis_moat"
+  },
+  {
+   "relation": "adopts",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "verdict_better_auth_decoupled"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "condition_supabase_containment",
+   "rationale": "Supabase is dropped, so its containment conditions no longer apply."
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "stack_revisit_clause"
+  },
+  {
+   "relation": "informs",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "phase5_dual_platform",
+   "target": "dec010_dual_platform"
+  },
+  {
+   "relation": "adopts",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "dec010_dual_platform",
+   "target": "verdict_react_native_maplibre"
+  },
+  {
+   "relation": "amends",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "dec010_dual_platform",
+   "target": "phase5_product_mvp",
+   "rationale": "MVP effort ~25 to ~29-31 person-months; iOS month 9-10, Android month 10-12; 15-feature scope unchanged."
+  },
+  {
+   "relation": "amends",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "dec010_dual_platform",
+   "target": "dec008_phase5_gate"
+  },
+  {
+   "relation": "closes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "dec009_data_layer",
+   "target": "gate_phase5_closed"
+  },
+  {
+   "relation": "closes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "dec010_dual_platform",
+   "target": "gate_phase5_closed"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-010 Staged cross-platform MVP on React Native.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase5_closed",
+   "target": "gate_stack_platform_open"
+  },
+  {
+   "relation": "constrains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "vault/02-Decisions/DEC-009 Revised data layer Aiven split architecture with decoupled auth.md",
+   "confidence_score": 1.0,
+   "source": "condition_hetzner_resilience",
+   "target": "verdict_selfmanaged_postgis_moat",
+   "rationale": "The moat database inherits the Hetzner resilience conditions: off-provider backups, IaC, restore drills, OVH fallback."
   }
  ],
  "hyperedges": [
