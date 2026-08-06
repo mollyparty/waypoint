@@ -20,10 +20,11 @@ Index of all project decisions. One note per decision, numbered sequentially. St
 | DEC-007 | [[DEC-007 Vercel publishing pipeline with protected previews]] | accepted | 2026-07-30 |
 | DEC-008 | [[DEC-008 Phase 5 gate MVP approved stack in validation]] | accepted | 2026-07-30 |
 | DEC-009 | [[DEC-009 Revised data layer Aiven split architecture with decoupled auth]] | accepted (revisitable, see clause) | 2026-08-06 |
-| DEC-010 | [[DEC-010 Staged cross-platform MVP on React Native]] | accepted | 2026-08-06 |
+| DEC-010 | [[DEC-010 Staged cross-platform MVP on React Native]] | accepted; **its iOS month 9-10 date is superseded pending Phase 9 gate card 1** | 2026-08-06 |
 | DEC-011 | [[DEC-011 Pricing and the permanent free tier]] | accepted | 2026-08-06 |
 | DEC-012 | [[DEC-012 Measurement corrections analytics identity and re-based targets]] | accepted | 2026-08-06 |
 | DEC-013 | [[DEC-013 Home-metro beachhead and iOS-first public launch]] | accepted | 2026-08-06 |
+| DEC-014 to DEC-019 | **Reserved for the Phase 9 gate**, open as of 2026-08-06: scope and timeline (supersedes DEC-010's dates), founder equity split, vesting, option pool, formation timing, and the friends-and-family round. Cards are live on `dashboard/index.html`; recommendations in `research/09-financial-team/`. | pending | — |
 
 ## How to add a decision
 

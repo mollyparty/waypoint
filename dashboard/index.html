@@ -165,6 +165,7 @@
   <a href="#synthesis">Phase 4 · Synthesis</a>
   <a href="#product">Phase 5 · Product</a>
   <a href="#business">Phase 6 · Business Model</a>
+  <a href="#financial">Phase 9 · Financial &amp; Team</a>
   <div class="nav-group">Reference</div>
   <a href="#sources">Sources &amp; Method</a>
 </nav>
@@ -186,13 +187,14 @@
       <span class="phase-pill ph-done">P4 Concept Locked</span>
       <span class="phase-pill ph-done">P5 Product (gate closed)</span>
       <span class="phase-pill ph-done">P6 Business Model (gate closed)</span>
-      <span class="phase-pill ph-next">P7 Dashboard Deploy</span>
-      <span class="phase-pill ph-next">P8 Blueprint</span>
+      <span class="phase-pill ph-done">P7 Dashboard</span>
+      <span class="phase-pill ph-done">P8 Blueprint (draft)</span>
+      <span class="phase-pill ph-now">P9 Financial &amp; Team (gate open)</span>
     </div>
   </div>
 
   <div class="grid grid-4">
-    <div class="card stat"><div class="num">41</div><div class="lbl">research documents, every claim cited and confidence-labeled</div></div>
+    <div class="card stat"><div class="num">46</div><div class="lbl">research documents, every claim cited and confidence-labeled</div></div>
     <div class="card stat"><div class="num">15+</div><div class="lbl">products examined; zero do constraint-based adaptive routes</div></div>
     <div class="card stat"><div class="num">12 to 18 mo</div><div class="lbl">estimated window before Strava ships a plan-linked route v1</div></div>
     <div class="card stat"><div class="num">6 of 7</div><div class="lbl">founder hypotheses supported or partially supported; none refuted</div></div>
@@ -599,10 +601,125 @@
   </div>
 </section>
 
+<!-- ================= PHASE 9: FINANCIAL AND TEAM ================= -->
+<section id="financial">
+  <h2>Phase 9 · Financial strategy and founding team</h2>
+  <p class="section-sub">Overhead, burn, the three-way equity split, and the fundraising path. Five documents. <strong>Gate open: six decisions below.</strong></p>
+
+  <div class="callout warn">
+    <p><strong>Why this phase exists, and why it invalidates numbers you have already seen.</strong> Every financial figure in this project rested on one sentence in the Charter: <em>"Solo founder building from scratch."</em> That sentence was wrong. The real team is three partners, none full-time, two of them in 10th grade, building with AI agents instead of contractors. The $230,000 cash build was the price of contractor person-months nobody is buying. The $15,000 monthly base was a founder salary plus a contractor retainer nobody is drawing. The $350,000 to $400,000 pre-seed ask in the blueprint was simply the sum of those two. All three are gone.</p>
+  </div>
+
+  <div class="grid grid-4">
+    <div class="card stat"><div class="num">~$400</div><div class="lbl">monthly burn during the build, against the $15,000 previously modeled</div></div>
+    <div class="card stat"><div class="num">~235</div><div class="lbl">paying subscribers to break even, against the ~3,000 the research asserted</div></div>
+    <div class="card stat"><div class="num">$40k&ndash;53k</div><div class="lbl">total cash consumed over three years, all the way to break-even</div></div>
+    <div class="card stat"><div class="num">$50k</div><div class="lbl">recommended raise, on a post-money SAFE at a $1.5M cap (~3.3%)</div></div>
+  </div>
+
+  <h3>The finding that governs the phase</h3>
+  <div class="card">
+    <p><strong>The binding constraint is no longer money. It is calendar time, and there is not enough of it.</strong> Burn falls by roughly 97 percent, which sounds like unambiguously good news and is not. The old model was capital-constrained: buy contractor months for $230,000 or do not ship. The new model is capacity-constrained, and capacity cannot be bought back, because the scarce input is hours the founders do not have.</p>
+    <p style="margin-top:8px">The approved MVP is <strong>29 to 31 person-months</strong>, dated by DEC-010 at iOS month 9 to 10 on an explicit assumption of <strong>2.5 to 3.0 full-time-equivalent people</strong>. This team has zero. Modeled honestly &mdash; roughly 20 effective engineering hours a week in term time, about 35 in summer, call it 7.5 person-months a year &mdash; and applying a generous but defensible AI leverage multiplier, the full scope lands at <strong>21 to 28 months</strong> against a <strong>12 to 18 month</strong> competitive window.</p>
+    <p style="margin-top:8px">There is also no financial forcing function anymore. At $400 a month nothing ever runs out, so nothing ever forces the decision. That is why the scope question is card 1 and why it matters more than the funding question.</p>
+  </div>
+
+  <h3>Where the AI leverage assumption actually sits</h3>
+  <div class="card">
+    <p>The claim that one part-time builder can deliver work scoped for two to three full-time engineers is the load-bearing assumption of the entire plan, and it is the least validated number anywhere in this project. AI assistance is genuinely strong on conventional application surface (auth, settings, history, forms, store integration, tests) and genuinely weak on exactly Waypoint's hard parts: GraphHopper customization with crossing penalties, OpenStreetMap ingestion, background geolocation across fragmented Android OEMs, and the constraint solver at the center of the product.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Blended multiplier</th><th>Effective person-months</th><th>Calendar at 7.5 pm/year</th><th>Inside the window?</th></tr></thead>
+      <tbody>
+        <tr><td>1.3&times; pessimistic</td><td>23.1</td><td>37 months</td><td>No</td></tr>
+        <tr><td><strong>1.8&times; modeled</strong></td><td><strong>16.4</strong></td><td><strong>26 months</strong></td><td>No</td></tr>
+        <tr><td>2.5&times; optimistic</td><td>12.0</td><td>19 months</td><td>No</td></tr>
+        <tr><td>4.0&times; the marketing claim</td><td>7.5</td><td>12 months</td><td>Only here</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:8px"><strong>Even the optimistic case misses.</strong> Only the marketing claim fits, and no plan should be built on it. A month-6 checkpoint replaces this guess with a measured number and has pre-committed actions attached to each outcome band.</p>
+  </div>
+
+  <h3>The legal item that could actually kill the company</h3>
+  <div class="card">
+    <p><strong>An IP assignment signed by a minor is voidable at the minor's election.</strong> Under US copyright and patent law, code and inventions belong to their individual creators until assigned to the corporation in writing. The two founders whose assignments are voidable are the two the concept came from.</p>
+    <p style="margin-top:8px">The cure needs both halves and neither alone is sufficient: <strong>guardian co-signature at formation</strong>, which makes title defensible today, and <strong>re-execution by each founder within 30 days of turning 18</strong>, which makes it clean. The second is the one teams forget, because it falls two or three years after the excitement of incorporating. Both dates go in the diligence tracker now. Shares themselves are held under Delaware's Uniform Transfers to Minors Act, where the property vests indefeasibly in the minor while a custodian holds the voting and contractual rights and files the 83(b).</p>
+  </div>
+
+  <h3>Dilution waterfall</h3>
+  <div class="card">
+    <p>At the recommended 40/30/30 split, a 10 percent pool at formation, $50,000 on a SAFE at a $1.5M cap, then a pre-seed and seed at conventional dilution with the pool topped back to 10 percent each round.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Stage</th><th>Daniel</th><th>Claudio</th><th>Asher</th><th>Pool</th><th>F&amp;F</th><th>Pre-seed</th><th>Seed</th></tr></thead>
+      <tbody>
+        <tr><td>Founders only</td><td>40.0%</td><td>30.0%</td><td>30.0%</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>After 10% pool</td><td>36.0%</td><td>27.0%</td><td>27.0%</td><td>10.0%</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>After F&amp;F SAFE</td><td>34.8%</td><td>26.1%</td><td>26.1%</td><td>9.7%</td><td>3.3%</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr><td>After pre-seed (15%)</td><td>28.9%</td><td>21.7%</td><td>21.7%</td><td>10.0%</td><td>2.8%</td><td>15.0%</td><td>&mdash;</td></tr>
+        <tr><td><strong>After seed (20%)</strong></td><td><strong>22.5%</strong></td><td><strong>16.9%</strong></td><td><strong>16.9%</strong></td><td>10.0%</td><td>2.2%</td><td>11.7%</td><td>20.0%</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:8px">Founders hold roughly <strong>56 percent combined after a seed</strong>, comfortably above where investors start worrying about founder motivation. Note also how cheap the friends-and-family round is: 3.3 percent, falling to 2.2 percent by the seed, in exchange for funding the entire path to launch. The real dilution lives in the priced rounds, not in the small one being contemplated now.</p>
+  </div>
+
+  <h3 id="p9-gates">Phase 9 gate decisions</h3>
+  <p class="section-sub" style="margin-bottom:12px"><strong>Six open.</strong> Card 1 is the consequential one and it supersedes part of DEC-010. Cards 2 through 4 are the founder agreement. Cards 5 and 6 are sequencing and money.</p>
+
+  <div class="decision">
+    <div class="d-head"><h4>1 · How do you close the capacity gap?</h4><span class="badge b-amber">Open &mdash; supersedes DEC-010's dates</span></div>
+    <p style="margin: 8px 0 12px">29 to 31 person-months of approved scope against roughly 7.5 person-months a year of real capacity. The gap cannot be closed by working harder, and it cannot be closed with money, because there is no cash for salaries and hiring against an unmeasured assumption spends both money and equity on a guess. It can only be closed by shipping less.</p>
+    <div class="option rec"><span class="opt-label">Ship the walking skeleton as the product</span><span class="opt-why"><strong>Recommended.</strong> The MVP scope document already defines it &mdash; generate a route, run it with voice guidance, save the run &mdash; and already says its job is to make the core hypothesis testable, because the real MVP risk is bad routes rather than missing features. Add the compliance minimum and public-launch hardening and v1 is 12 to 15 person-months, landing iOS at <strong>month 12 to 14</strong>. Safety-aware routing, privacy architecture and honest refusal are explicitly <em>not</em> cut. Android moves to month 20 to 26.</span></div>
+    <div class="option"><span class="opt-label">Keep full scope, accept 21 to 28 months</span><span class="opt-why">Not recommended. It puts launch outside the competitive window entirely, and it spends two years before learning whether anyone wants the product.</span></div>
+    <div class="option"><span class="opt-label">Raise more and hire an engineer now</span><span class="opt-why">Not recommended <em>yet</em>. There is no evidence about what this team can deliver, and a hire before the month-6 checkpoint is a guess. The trigger conditions for hiring are already defined.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>2 · The founder equity split</h4><span class="badge b-amber">Open</span></div>
+    <p style="margin: 8px 0 12px">Not money is being divided; the future is. Asher and Claudio originated the concept and contribute customer access and coordination. Daniel writes all the code, funds it, and holds the only legal capacity in the company. These do not convert into each other, and any framework claiming to price them precisely is pretending.</p>
+    <div class="option rec"><span class="opt-label">Daniel 40 · Claudio 30 · Asher 30</span><span class="opt-why"><strong>Recommended.</strong> Ten points of premium for execution, capital and legal capacity, but no majority, so any decision needs two founders to agree &mdash; worth protecting in a company where two founders already depend on the third's legal capacity. Claudio and Asher stay equal because they co-originated together, and a five-point difference between two friends buys almost nothing while creating a permanent quiet ranking.</span></div>
+    <div class="option"><span class="opt-label">34 / 33 / 33, essentially equal</span><span class="opt-why">Defensible, and the relational value of equality is real. But it does not describe what is happening, and investors read equal splits at this asymmetry as a hard conversation that was avoided. Most likely of the three to be quietly regretted.</span></div>
+    <div class="option"><span class="opt-label">50 / 25 / 25, Daniel-controlled</span><span class="opt-why">Matches near-term contribution most literally, but overstates it: Daniel is part-time too and did not originate the concept. It also creates a controlling founder where power is structurally concentrated already.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>3 · Vesting, and what happens at college</h4><span class="badge b-amber">Open</span></div>
+    <p style="margin: 8px 0 12px">Asher and Claudio are in 10th grade. Applications land in late 2027 and 2028, matriculation in 2029. Availability will change, and that is a scheduled event rather than a hypothetical.</p>
+    <div class="option rec"><span class="opt-label">Four years, one-year cliff, all three, plus a scheduled role review at each college transition</span><span class="opt-why"><strong>Recommended.</strong> Vesting is what makes card 2 safe to agree to, because it means the numbers describe a commitment rather than a claim. The review is not automatic forfeiture &mdash; that would punish people for being 15 &mdash; but a documented conversation with three named outcomes: continue as is, reduced role with proportionally slowed vesting, or transition out with unvested shares repurchased and vested shares kept. Naming these while nothing is at stake is worth more than the rest of the document.</span></div>
+    <div class="option"><span class="opt-label">Standard four-year vesting, no special trigger</span><span class="opt-why">Simpler, and it does work: someone who stops contributing stops vesting. But it leaves the hardest conversation to be improvised at the worst moment.</span></div>
+    <div class="option"><span class="opt-label">No vesting</span><span class="opt-why">Not recommended under any circumstances. It leaves two founders potentially carrying a company a third of which belongs to someone who left in month eight, and no investor will accept it.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>4 · Option pool size</h4><span class="badge b-amber">Open</span></div>
+    <p style="margin: 8px 0 12px">The usual reason for a pool is hiring employees. Here it is sharper: equity is the <em>only</em> currency available, because there is no cash for salaries. A GIS contractor, an Android OEM specialist, or a part-time engineer if the AI multiplier disappoints all get paid the same way.</p>
+    <div class="option rec"><span class="opt-label">10 percent, created at formation</span><span class="opt-why"><strong>Recommended.</strong> The low end of the conventional 10 to 20 percent range, which is right for a company intending to hire almost nobody before a priced round, and expandable later. Create it now: founders who carve their own pool control its size, and founders who arrive at a term sheet without one get told what it will be.</span></div>
+    <div class="option"><span class="opt-label">15 to 20 percent</span><span class="opt-why">More headroom if the capacity gap forces earlier hiring than planned, at the cost of diluting the founders now for people who may never be hired.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>5 · Formation timing</h4><span class="badge b-amber">Open</span></div>
+    <p style="margin: 8px 0 12px">Formation costs $3,300 to $9,000, of which $1,000 to $3,000 is the premium the minor-founder structure carries.</p>
+    <div class="option rec"><span class="opt-label">Incorporate before the round, not after</span><span class="opt-why"><strong>Recommended.</strong> Three reasons. The round needs an entity to receive money and issue the instrument. The 83(b) clock is far safer to run while the company is provably worth nothing, and it is a hard 30-day deadline with no extensions. And the Apple and Play enrollments take weeks &mdash; the D-U-N-S number alone runs up to 14 business days &mdash; so starting them late delays the build for nothing.</span></div>
+    <div class="option"><span class="opt-label">Wait until the product works</span><span class="opt-why">Saves a few thousand dollars in the short term, at the cost of accumulating unassigned IP created by two people whose assignment is voidable. That is the wrong thing to defer.</span></div>
+  </div>
+
+  <div class="decision">
+    <div class="d-head"><h4>6 · Round size and terms</h4><span class="badge b-amber">Open</span></div>
+    <p style="margin: 8px 0 12px">Three-year cash to break-even is roughly $40,000 to $53,000. The single largest line is not engineering &mdash; it is the $8,000 to $20,000 privacy and compliance package that location plus health data makes non-negotiable before a public launch.</p>
+    <div class="option rec"><span class="opt-label">$50,000 on a post-money SAFE at a $1.5M cap (~3.3%)</span><span class="opt-why"><strong>Recommended.</strong> Sized to reach revenue rather than to reach the next round, which is unusual and correct here. Post-money because the dilution is then unambiguous, which matters with investors who are not professionals. A SAFE rather than a note because a note has a maturity date, meaning a day when friends and family are technically entitled to demand money the company does not have.</span></div>
+    <div class="option"><span class="opt-label">$25,000</span><span class="opt-why">The privacy counsel bill alone can consume most of it, leaving no contingency in a plan whose central assumption is explicitly unvalidated. Running out at month 15 with a nearly finished product is the worst available outcome.</span></div>
+    <div class="option"><span class="opt-label">$75,000</span><span class="opt-why">About $25,000 sits unused for two years while costing 1.7 extra points. Raise it later at a much better price, if it is needed at all.</span></div>
+    <div class="option"><span class="opt-label">Raise nothing; bootstrap entirely</span><span class="opt-why">Genuinely viable on burn alone, and break-even at ~235 subscribers makes it more viable than it sounds. The problem is the legal package: bootstrapping means either finding that money at month 15 or launching a location-plus-health product with an inadequate legal position.</span></div>
+  </div>
+
+  <div class="callout">
+    <p><strong>One thing worth deciding explicitly rather than by default.</strong> Break-even at ~235 paying subscribers, against a base case of 480 by month 12 of revenue, means Waypoint can plausibly become self-sustaining without institutional money at all. That is a genuine strategic option, not a fallback, and it fits the honest reading of H5, which came back <em>uncertain</em> on whether the route wedge alone supports a venture-scale outcome. A profitable $3M to $10M business is an excellent outcome for three founders and a poor one for a fund. Knowing which game is being played is worth more than optimism about it, and the answer changes what to build, how fast, and whom to talk to.</p>
+  </div>
+</section>
+
 <!-- ================= SOURCES ================= -->
 <section id="sources">
   <h2>Sources and method</h2>
-  <p class="section-sub">This dashboard summarizes 41 research documents. Every claim in those documents carries a source (publisher, URL, date accessed) and a confidence tag: [verified], [inferred], or [assumption].</p>
+  <p class="section-sub">This dashboard summarizes 46 research documents. Every claim in those documents carries a source (publisher, URL, date accessed) and a confidence tag: [verified], [inferred], or [assumption].</p>
   <div class="table-wrap"><table>
     <thead><tr><th>Phase</th><th>Folder</th><th>Documents</th></tr></thead>
     <tbody>
@@ -614,10 +731,15 @@
       <tr><td>Phase 4</td><td><span class="kbd">research/04-synthesis/</span></td><td>opportunity, positioning, hypotheses-review, concept (LOCKED, DEC-006)</td></tr>
       <tr><td>Phase 5</td><td><span class="kbd">research/05-product/</span></td><td>prd, rice-prioritization, mvp-scope, user-journeys, stack-recommendation, stack-validation, database-deep-dive, dual-platform-strategy, api-integration-map</td></tr>
       <tr><td>Phase 6</td><td><span class="kbd">research/06-business-model/</span></td><td>business-model-canvas, revenue-model, unit-economics, metrics, gtm-plan</td></tr>
+      <tr><td>Phase 9</td><td><span class="kbd">research/09-financial-team/</span></td><td>legal-formation, operating-model, team-roadmap, capital-structure, fundraising-plan</td></tr>
     </tbody>
   </table></div>
+  <div class="callout warn" style="margin-top:16px">
+    <p><strong>Phase 9 supersedes three figures you may have read elsewhere in this dashboard or in the blueprint.</strong> The ~$230,000 cash build and the ~$15,000 monthly operating base in <span class="kbd">unit-economics.md</span> assumed a solo founder with contractors, and the ~$350,000 to $400,000 pre-seed in the blueprint was their sum. Break-even is ~235 paying subscribers, not ~3,000. Where documents disagree, <span class="kbd">research/09-financial-team/operating-model.md</span> section 5 shows the reconciliation and the reason.</p>
+    <p style="margin-top:8px"><strong>Also unreconciled:</strong> the unit-economics tables are still priced against a $7.99/month mid case that DEC-011 replaced with $99.99/year. Every correction runs in Waypoint's favor, so nothing is being hidden, but the published figures understate the business and should not be quoted to an investor as they stand.</p>
+  </div>
   <footer>
-    <p>Waypoint Research Dashboard · Confidential pre-launch material, do not distribute · Version-Timestamp: 2026-08-06 12:40:00 UTC-4</p>
+    <p>Waypoint Research Dashboard · Confidential pre-launch material, do not distribute · Version-Timestamp: 2026-08-06 14:30:00 UTC-4</p>
     <p>Generated from the Waypoint research corpus. The markdown documents remain the citable source of truth; this dashboard is the readable window into them.</p>
   </footer>
 </section>

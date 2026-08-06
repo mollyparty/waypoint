@@ -1,6 +1,6 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-06 13:30:00 UTC-4
+> Version-Timestamp: 2026-08-06 15:00:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
@@ -8,7 +8,11 @@
 
 Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder review and **Phase 9 (financial strategy and founding team) now the active workstream**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). **Phase 6 is COMPLETE and its gate is CLOSED** (2026-08-06, DEC-011 / DEC-012 / DEC-013). The governing finding: unit economics are a function of distribution, not pricing, since paid acquisition returns 53 to 70 cents on the dollar at every credible price and the model needs roughly 84 percent organic acquisition to clear 3:1. Price is $99.99/yr with the coaching layer as the only paid product; the beachhead is the founder's home metro; **the iOS date at month 9 to 10 carries the public launch**, overriding the plan's Android recommendation.
 
-**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections). **Next agent action: Phase 9**, which supplies the financial and team foundation the blueprint's capital and team sections were missing. Phase 9 was opened on 2026-08-06 when the founding team was defined as three partners rather than a solo founder, invalidating the ~$350k to $400k capital figure (it was composed of contractor cost plus salary runway, and neither input survives). Blueprint approval and the v0.4.0 tag now wait on the Phase 9 rewrite. Review surfaces: `dashboard/index.html` for research, `blueprint/index.html` for the investor document, both on the protected Vercel preview. Latest tag: **v0.3.0**.
+**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections), with sections 12 and 13 rewritten by Phase 9.
+
+**Phase 9 deliverables are COMPLETE and its gate is OPEN with six cards.** It was opened on 2026-08-06 when the founding team was defined for the first time as three part-time partners, two of them minors, building AI-assisted rather than hiring. That invalidated three figures that eight phases of research had rested on: the ~$230k cash build, the ~$15k/month operating base, and the ~$350k to $400k pre-seed, which was their sum. Real burn is ~$400/month, break-even is ~235 paying subscribers rather than ~3,000, and the recommended ask is $50k on a post-money SAFE at a $1.5M cap. **The governing finding: the binding constraint is calendar time, not money** — 29 to 31 person-months of approved scope against roughly 7.5 person-months a year of capacity does not fit a 12 to 18 month window, so gate card 1 recommends shipping the walking skeleton as the product, landing iOS at month 12 to 14 and superseding DEC-010's dates.
+
+**Next agent action: answer the six Phase 9 gate cards** on `dashboard/index.html` and record DEC-014 onward. Blueprint approval and the v0.4.0 tag follow. Review surfaces: `dashboard/index.html` for research, `blueprint/index.html` for the investor document, both on the protected Vercel preview. Latest tag: **v0.3.0**.
 
 ## Phase status board
 
@@ -53,9 +57,9 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 
 - [x] `business-model-canvas.md` — nine blocks plus the cross-document reconciliation. **The document to read first.**
 - [x] `revenue-model.md` — $99.99/yr list, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. Lifetime tier and data monetization rejected on the record.
-- [x] `unit-economics.md` — break-even ~3,000 paying subscribers; free active user costs under $1/year; paid acquisition returns 53 to 70 cents on the dollar at every credible price.
+- [x] `unit-economics.md` — free active user costs under $1/year; paid acquisition returns 53 to 70 cents on the dollar at every credible price. **Its break-even figure of ~3,000 subscribers is superseded by Phase 9 (~235), and its tables are still priced at a $7.99/mo mid case that DEC-011 replaced.**
 - [x] `metrics.md` — North Star Weekly Routed Runners (80 percent completion floor inside the definition); activation = first generated route completed as a recorded run; Good Route Rate; ten guardrails.
-- [x] `gtm-plan.md` — one metro, one segment; run clubs, then Reddit, then store optimization; SEO and paid acquisition argued against; Android date is the real public launch.
+- [x] `gtm-plan.md` — one metro, one segment; run clubs, then Reddit, then store optimization; SEO and paid acquisition argued against. Its recommendation that the Android date carry the public launch was **overridden** at the gate.
 
 ### Gate outcome (2026-08-06): all six closed
 
@@ -87,6 +91,40 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 - [x] ~~`api-integration-map.md` section 4 still names Supabase Auth~~ **Resolved 2026-08-06:** section 4.2 now carries a DEC-009 amendment banner, and the Supabase rows in the master integration table and the critical path were replaced
 - [ ] Android long-lead paperwork (Play org account, Health Connect + fine-location declarations) starts month 1 of the build
 
+## Phase 9 detail (deliverables complete, gate OPEN)
+
+### Written
+
+- [x] `legal-formation.md` — Delaware C-corp sequence; UTMA custodial shares for the two minor founders; the voidable-IP cure path (guardian co-signature plus re-execution at 18); 83(b) inside 30 days with no extensions; Daniel as Apple Account Holder (legal age of majority plus authority to bind; D-U-N-S up to 14 business days); formation at $3,300 to $9,000 including the minor-founder premium.
+- [x] `operating-model.md` — burn of ~$260 pre-formation, ~$400 build, ~$900 beta, ~$1,050 post-launch; AI tooling at $160/mo plus a $50 overage allowance; cash to launch ~$12k to $18k excluding privacy counsel; 36-month projection totaling ~$40k to $53k; **and the reconciliation of three cross-document cost conflicts.**
+- [x] `team-roadmap.md` — roles per founder; ~7.5 person-months a year of real capacity against 29 to 31 of scope; the AI-multiplier sensitivity table; the recut v1 at 12 to 15 person-months; the re-derived schedule; school seasonality; hiring triggers; the month-6 checkpoint.
+- [x] `capital-structure.md` — 40/30/30 recommended with 34/33/33 and 50/25/25 argued rather than dismissed; four-year vesting with a one-year cliff plus a college-transition review with three named outcomes; a 10 percent pool; the dilution waterfall (founders ~56 percent combined after a seed).
+- [x] `fundraising-plan.md` — $50k on a post-money SAFE at a $1.5M cap; why a SAFE and not a note or priced equity; milestones that make a pre-seed raisable; how investors will read a part-time team with two minors; the diligence-readiness checklist.
+
+### Cross-document corrections this phase made (use these, not the originals)
+
+- [x] **Infrastructure at MVP: $135 to $255/month** (`unit-economics.md` 1.1), not the $80 to $130 in `api-integration-map.md` 8.2, which was summed before DEC-009 replaced Supabase. The integration map's per-service table is still correct; only its 8.2 total is stale.
+- [x] **Net revenue multiplier: 0.8088** (`unit-economics.md` 1.3), not 0.84 (`revenue-model.md` 6.2). The former includes the refund allowance.
+- [x] **Break-even: ~235 paying subscribers**, not ~3,000. The old figure divided a $15,000 monthly base that assumed salaries and contractors.
+- [ ] **Not yet done: re-run the `unit-economics.md` tables at the locked $99.99/yr price.** They are still built on a $7.99/mo mid case. Every correction runs in Waypoint's favor (LTV ~$107 to $115 rather than $86), so nothing is hidden, but the published figures understate the business and must not be quoted to an investor as they stand.
+
+### Gate: six cards OPEN on `dashboard/index.html`
+
+| # | Decision | Recommendation |
+|---|---|---|
+| 1 | Scope and timeline | Ship the walking skeleton as the product. iOS month 12 to 14. **Supersedes DEC-010's dates** |
+| 2 | Founder equity split | Daniel 40, Claudio 30, Asher 30 |
+| 3 | Vesting | Four years, one-year cliff, all three, plus a college-transition review |
+| 4 | Option pool | 10 percent at formation |
+| 5 | Formation timing | Incorporate before the round |
+| 6 | Round size and terms | $50k post-money SAFE at a $1.5M cap |
+
+### Carried forward
+
+- [ ] The 1.8x AI leverage multiplier is unmeasured and underwrites the schedule, the scope cut and the round size. The month-6 checkpoint replaces it with evidence; below 1.2x the plan is rebuilt.
+- [ ] Decide explicitly whether the goal is venture scale or profitable independence. Break-even at ~235 subscribers makes the second genuinely available, and it fits the uncertain H5 verdict.
+- [ ] Map Daniel's other business's seasonality against this schedule before finalizing it.
+
 ## Decisions that govern the product (do not contradict without a new DEC)
 
 | ID | Summary |
@@ -95,7 +133,7 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 | DEC-007 | GitHub → Vercel auto-publish; real content on protected `main` preview only; production branch is placeholder |
 | DEC-008 | MVP scope / free launch / Watch fast-follow approved; stack held for validation; graph explorer required |
 | DEC-009 | Data layer: Aiven for PostgreSQL (EU) for personal data + self-managed PostGIS on Hetzner for the moat + Better Auth decoupled into the API layer. Supabase dropped. Revisitable at four named checkpoints |
-| DEC-010 | Staged cross-platform MVP: one React Native codebase, MapLibre both platforms, iOS month 9-10, Android +4-8 weeks, ~29-31 person-months. Amends DEC-006 client stack and DEC-008 effort |
+| DEC-010 | Staged cross-platform MVP: one React Native codebase, MapLibre both platforms, ~29-31 person-months. Amends DEC-006 client stack and DEC-008 effort. **Its month 9-10 iOS date assumed 2.5 to 3.0 FTE and is superseded pending Phase 9 gate card 1** |
 | DEC-011 | Pricing and the permanent free tier: $99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. Coaching layer is the only paid product; everything else free forever and named publicly at launch. Lifetime tier and data monetization rejected |
 | DEC-012 | Measurement corrections: cohort retention moves to a first-party Postgres event table (TelemetryDeck cannot provide a stable identifier); PRD G3 and G4 re-based to activated-cohort definitions; activation redefined as a completed recorded run |
 | DEC-013 | Beachhead is the founder's home metro subject to the month-1 data spike; **the iOS date carries the public launch**, overriding the GTM plan's Android recommendation, with four compensating conditions |
@@ -125,8 +163,10 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 | v0.1.0 | Foundation (done) |
 | v0.2.0 | Phases 1 to 4, concept locked (done) |
 | v0.3.0 | Phases 5 to 6 approved |
-| v0.4.0 | Phases 7 to 8 approved |
+| v0.4.0 | Phases 7 to 9 approved (blueprint signed off and the Phase 9 gate closed). Entry already staged under Unreleased in `CHANGELOG.md` |
 
 ## How to update this file
 
-When a phase advances: change the status board row, tick or add Phase 5 detail items, update the one-paragraph "Where we are" block, bump the Version-Timestamp, then update `vault/00-START-HERE.md` to match. Never leave START-HERE and this file disagreeing.
+When a phase advances: change the status board row, tick or add items in that phase's detail section, update the one-paragraph "Where we are" block, bump the Version-Timestamp, then update `vault/00-START-HERE.md` to match. Never leave START-HERE and this file disagreeing.
+
+**A note on the graph.** The graphify post-commit hook has been scoped to code file extensions, because its rebuild runs without an LLM pass and on a markdown-only tree it extracts headings as nodes while dropping curated ones. Documentation commits no longer trigger it; update the graph deliberately instead. **That fix lives in `.git/hooks/post-commit`, which git does not track**, so a fresh clone on another machine will not have it. Watch for the graph losing nodes after a doc commit and reapply it if so.

@@ -28,7 +28,7 @@ The go-to-market plan independently rejects paid acquisition pre-funding, on sep
 ## Unit economics
 
 - Gross margin per subscriber: **63 percent at the mid price at 10k monthly actives**, 78 percent at 100k, 84 percent at 1M. Negative at MVP scale, because a ~$195/month infrastructure floor spread across ~30 payers exceeds net revenue per subscriber.
-- **Break-even ~3,000 paying subscribers** against a $15,000/month base; ~6,800 held for a year also repays the ~$230,000 cash build. For scale, 3,000 is 3.3 percent of Runna's year-three payer base.
+- ~~Break-even ~3,000 paying subscribers against a $15,000/month base; ~6,800 held for a year also repays the ~$230,000 cash build.~~ **SUPERSEDED by [[Financial Strategy and Founding Team (Phase 9)]].** Both inputs assumed a solo founder with contractors. Against the real team's ~$1,050/month post-launch base, **break-even is ~235 paying subscribers**, and there is no $230,000 build to repay. Do not quote the 3,000 figure.
 - **A free active user costs under $1 per year.** "Free users are expensive" is false in absolute terms. What bites is revenue share: the free base consumes 55 percent of net subscription revenue at 2 percent conversion, 36 percent at 3 percent, and becomes a rounding error above roughly 5.3 percent.
 - Net revenue multiplier **0.8088** after the 15 percent store commission, RevenueCat's ~1.4 percent of net, and a 3.5 percent refund allowance.
 - The three variables that move the outcome: **organic share of acquisition** (an 8.4x swing in blended acquisition cost), **free-to-paid conversion**, and **annual first-renewal rate**. Price is a distant fourth; infrastructure cost does not make the top five.

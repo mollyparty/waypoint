@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Version-Timestamp: 2026-08-06 14:15:00 UTC-4 -->
+<!-- Version-Timestamp: 2026-08-06 14:45:00 UTC-4 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -179,13 +179,13 @@ footer a{color:var(--accent);text-decoration:none}
     </div>
     <div class="stat">
       <div class="k">Break-even</div>
-      <div class="v">~3,000</div>
-      <div class="d">Paying subscribers. 3.3% of Runna's year-three payer base</div>
+      <div class="v">~235</div>
+      <div class="d">Paying subscribers, against a base case of 480 by month 12 of revenue</div>
     </div>
     <div class="stat">
-      <div class="k">Build cost</div>
-      <div class="v">~$230K</div>
-      <div class="d">29 to 31 person-months, founder plus two contractors</div>
+      <div class="k">The ask</div>
+      <div class="v">$50K</div>
+      <div class="d">Post-money SAFE at a $1.5M cap, ~3.3%. Cash to launch is $27K to $47K</div>
     </div>
     <div class="stat">
       <div class="k">Window</div>
@@ -193,12 +193,13 @@ footer a{color:var(--accent);text-decoration:none}
       <div class="d">Before Strava could ship a shallow version of this</div>
     </div>
   </div>
-  <p class="meta">Prepared 2026-08-06 from 41 research documents across eight phases. Every claim carries a source and a confidence label.</p>
+  <p class="meta">Prepared 2026-08-06 from 46 research documents across nine phases. Every claim carries a source and a confidence label.</p>
 </div>
 
 <div class="callout warn" style="margin-top:34px">
   <span class="lbl">Read this first</span>
   <p>Waypoint has no users, no code in production, and has conducted <strong>zero user interviews</strong>. Everything here is desk research plus reasoning. The personas are assembled from published surveys and competitor review mining, not from conversations. The financial model is directional.</p>
+  <p style="margin-top:9px"><strong>No founder is full-time</strong>, and two of the three are in 10th grade. The binding constraint on this company is calendar time rather than money, and <a class="ref" href="#s12">section 12</a> shows how the scope was cut to fit rather than the estimate massaged.</p>
   <p style="margin-top:9px"><a class="ref" href="#s16">Section 16</a> lists what we do not know and the 90-day plan to find out. An investor who reads only the executive summary and section 16 will have an honest picture of this company.</p>
 </div>
 
@@ -238,16 +239,20 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <tbody>
       <tr><td style="width:32%"><strong>Price</strong></td><td>$99.99/year, $12.99/month. Only the coaching layer is paid; routing, safety constraints, the Watch app and GPX export are free permanently</td></tr>
-      <tr><td><strong>Break-even</strong></td><td>~3,000 paying subscribers, or 3.3% of Runna's year-three payer base</td></tr>
-      <tr><td><strong>Build</strong></td><td>~$230,000 cash, from 29 to 31 person-months across a founder plus two contractors</td></tr>
-      <tr><td><strong>Launch</strong></td><td>iOS public launch at month 9 to 10, Android 4 to 8 weeks later, one React Native codebase</td></tr>
+      <tr><td><strong>Break-even</strong></td><td>~235 paying subscribers, against a base case of 480 by month 12 of revenue</td></tr>
+      <tr><td><strong>Cash to launch</strong></td><td>~$27,000 to $47,000, of which the largest single line is legal rather than engineering</td></tr>
+      <tr><td><strong>Monthly burn</strong></td><td>~$400 during the build. Three founders, none full-time, building AI-assisted rather than hiring</td></tr>
+      <tr><td><strong>Launch</strong></td><td>iOS at month 12 to 14 from one React Native codebase; Android at month 20 to 26</td></tr>
       <tr><td><strong>Window</strong></td><td>12 to 18 months before Strava could ship a shallow version; ~24 months before anyone matches the constraint depth</td></tr>
       <tr><td><strong>The governing constraint</strong></td><td><strong>Unit economics are a function of distribution, not pricing.</strong> Paid acquisition returns 53 to 70 cents on the dollar at every credible price, so the model needs roughly 84% organic acquisition to work</td></tr>
     </tbody>
   </table></div>
 
-  <h3>What the money buys</h3>
-  <p>The pre-seed requirement derives to roughly <strong>$350,000 to $400,000</strong>: about $230,000 to reach a dual-platform launch, plus six to nine months of runway past it at roughly $15,000 a month to prove week-4 retention and test the paid layer. This is a derived figure, not yet a decided ask; the arithmetic is shown in <a class="ref" href="#s13">section 13</a> so it can be argued with.</p>
+  <h3>The ask</h3>
+  <p><strong>$50,000 on a post-money SAFE at a $1.5 million cap</strong>, roughly 3.3 percent. Sized to reach revenue rather than to reach the next round: three-year cash consumed all the way to break-even is roughly $40,000 to $53,000. Detail in <a class="ref" href="#s13">section 13</a>.</p>
+
+  <h3>The honest constraint</h3>
+  <p><strong>No founder is full-time, and the binding constraint is calendar time rather than money.</strong> The approved feature scope was 29 to 31 person-months against a real capacity of roughly 7.5 person-months a year, so the scope was cut to fit rather than the estimate massaged. <a class="ref" href="#s12">Section 12</a> shows the arithmetic and the schedule that results. An investor will find this in diligence regardless; it reads better here.</p>
 </section>
 
 <!-- 02 -->
@@ -710,23 +715,30 @@ footer a{color:var(--accent);text-decoration:none}
 <section id="s12">
   <div class="sec-num">12</div>
   <h2>Execution timeline</h2>
-  <p class="sec-sub">Twelve months from start to a measured retention number.</p>
+  <p class="sec-sub">Derived from measured capacity, not from a target date.</p>
+
+  <h3>The scope decision behind these dates</h3>
+  <p>The full 15-item MVP is 29 to 31 person-months. This team's realistic capacity is about <strong>7.5 person-months a year</strong>, and even a generous AI-leverage assumption puts full scope at 21 to 28 months, which falls outside the 12 to 18 month competitive window in <a class="ref" href="#s04">section 04</a>.</p>
+  <p>So the scope was cut rather than the estimate massaged. <strong>v1 is the walking skeleton plus what a public launch requires</strong>: generate a route, run it with voice guidance, save the run, wrapped in the compliance minimum and launch hardening. That is 12 to 15 person-months, and it lands inside the window.</p>
+  <p>Three things are explicitly <strong>not</strong> cut. Safety-aware routing stays, subject to the month-1 spike, because it is the strongest-evidenced unmet need and the differentiation claim. Privacy architecture stays, because retrofitting it is both harder and less credible. Honest refusal stays, because quietly relaxing constraints when the engine struggles is the easy way to fake quality. Everything else becomes post-launch iteration prioritized by what real users do, which is better information than the prioritization it replaces.</p>
 
   <div class="timeline">
-    <div class="tl-item key"><div class="tl-m">Month 1</div><p><strong>A3 technical spike: is the safety layer buildable from open data at solo-founder scale?</strong> Android long-lead paperwork starts. Reddit and forum participation begins with zero promotion.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 1&ndash;2</div><p><strong>Formation, IP assignments, 83(b).</strong> Apple and Play long-lead paperwork. <strong>A3 technical spike: is the safety layer buildable from open data at this team's scale?</strong> Reddit and forum participation begins with zero promotion.</p></div>
     <div class="tl-item"><div class="tl-m">Month 2&ndash;3</div><p>Run club presence begins. First OpenStreetMap local mapping meetup, as a contributor.</p></div>
-    <div class="tl-item key"><div class="tl-m">Month 3&ndash;4</div><p><strong>Walking skeleton on TestFlight.</strong> Interview priorities 1 and 2 complete: 12 to 18 conversations. TestFlight cohort of 20 to 50 target-segment runners.</p></div>
-    <div class="tl-item"><div class="tl-m">Month 6&ndash;7</div><p>Apple featuring nomination filed (three-month lead). Store assets, press list, creator outreach.</p></div>
-    <div class="tl-item"><div class="tl-m">Month 7</div><p>Feature-complete beta: all 15 MVP items.</p></div>
-    <div class="tl-item key"><div class="tl-m">Month 8</div><p><strong>Beta cohort of 150 to 300 active testers &mdash; a hard gate on the launch date.</strong></p></div>
-    <div class="tl-item key"><div class="tl-m">Month 9&ndash;10</div><p><strong>iOS public launch.</strong> One-shot assets spent here.</p></div>
-    <div class="tl-item key"><div class="tl-m">Month 10&ndash;11</div><p><strong>Week-4 retention measured. The number the MVP exists to produce.</strong></p></div>
-    <div class="tl-item"><div class="tl-m">Month 10&ndash;12</div><p>Android certification and release, as a second local moment. Paid coaching layer ships, behind the retention gate.</p></div>
-    <div class="tl-item"><div class="tl-m">Month 12</div><p>2,000 to 5,000 monthly active runners. Seed round in motion.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 3&ndash;8</div><p><strong>Walking skeleton to TestFlight.</strong> Interview priorities 1 and 2 complete: 12 to 18 conversations.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 6</div><p><strong>Checkpoint: measure the AI-leverage multiplier against actual delivery.</strong> Pre-committed actions attached to each outcome band, including rebuilding the plan if it lands below 1.2&times;.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 8&ndash;10</div><p>TestFlight cohort of 20 to 50 target-segment runners. Route-quality burn-in.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 9&ndash;11</div><p>Privacy and compliance package; counsel engaged. Apple featuring nomination filed (three-month lead).</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 11&ndash;13</div><p>Launch hardening. <strong>Beta cohort of 150 to 300 active testers &mdash; a hard gate on the launch date.</strong></p></div>
+    <div class="tl-item key"><div class="tl-m">Month 12&ndash;14</div><p><strong>iOS public launch, free.</strong> One-shot assets spent here.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 14&ndash;15</div><p><strong>Week-4 retention measured. The number the MVP exists to produce.</strong></p></div>
+    <div class="tl-item"><div class="tl-m">Month 16&ndash;20</div><p>Paid coaching layer ships, behind the retention gate.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 20&ndash;26</div><p>Android certification and release, as a second local moment.</p></div>
   </div>
 
   <div class="callout">
     <p><strong>The month-1 spike deserves its emphasis.</strong> Whether lighting and population scoring can be built from open data at this scale is the riskiest technical assumption in the plan &mdash; and because the beachhead metro choice depends on the answer, it is a <strong>go-to-market gate and not merely a technical one</strong>. It converts the largest unknown into a scoped decision before any marketing effort is committed.</p>
+    <p style="margin-top:9px"><strong>School seasonality is planned around, not ignored.</strong> Two of three founders are on an academic calendar, so summer capacity is roughly double term-time capacity and exam weeks are near zero. The heaviest work sits in the summer block and no milestone is scheduled into an exam period.</p>
   </div>
 </section>
 
@@ -734,32 +746,70 @@ footer a{color:var(--accent);text-decoration:none}
 <section id="s13">
   <div class="sec-num">13</div>
   <h2>Capital and team</h2>
-  <p class="sec-sub">A derived requirement, with the arithmetic shown so it can be argued with.</p>
+  <p class="sec-sub">Three part-time founders, $50,000, and a path to break-even that does not require another round.</p>
 
-  <h3>The team the plan assumes</h3>
-  <p><strong>Founder full-time</strong>, covering product ownership, client engineering and routing. Plus <strong>two contractors</strong>: a senior client engineer at 0.75 to 1.0 FTE, and a backend, routing and data engineer at 0.5 to 1.0 FTE. Effective capacity: <strong>2.5 to 3.0 FTE</strong>.</p>
-  <p>This is the constraint that shapes every other decision in this document. It is why the NOT list is long, why the MVP is 15 items, why paid acquisition is off the table, and why the top-ranked channel is one the founder must run personally.</p>
+  <h3>The team</h3>
+  <p>Three founding partners. <strong>None of them full-time.</strong></p>
+  <div class="tw"><table>
+    <thead><tr><th>Founder</th><th>Role</th><th>Situation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Asher</strong></td><td>Embedded target user and testing lead. Owns real-world route testing and the qualitative half of route quality</td><td>Co-originated the concept. In 10th grade</td></tr>
+      <tr><td><strong>Claudio</strong></td><td>Project management and operations. Owns coordination, store operations and go-to-market execution</td><td>Co-originated the concept. In 10th grade</td></tr>
+      <tr><td><strong>Daniel</strong></td><td>Technical and commercial lead. Owns the entire build, product management, business development, and every account requiring legal capacity</td><td>Runs another business full-time</td></tr>
+    </tbody>
+  </table></div>
+  <p>The build is <strong>AI-agent-assisted rather than contracted</strong>. No engineers are being hired.</p>
 
+  <h3>Why this team is unusual, in both directions</h3>
+  <p>Two things here are real advantages and should not be read as spin. <strong>An embedded target user as a co-founder</strong>: Asher is a runner in the exact segment Waypoint serves, and he runs the generated routes. <a class="ref" href="#s14">Section 14</a> names bad routes as the one failure mode this product cannot survive, and the primary instrument for detecting it is a committed target-segment runner testing continuously and honestly. Consumer teams routinely spend heavily for worse customer access and most never get it at all. And <strong>capital efficiency that is difficult to overstate</strong>: roughly $40,000 to $53,000 of total cash consumed over three years, all the way to break-even.</p>
+  <p>Two things are real constraints, stated here rather than left for diligence. <strong>Nobody is full-time</strong>, which is the most common single reason investors pass at this stage; the response is not reassurance but that scope was cut to fit capacity, the schedule is derived from measured hours, and a month-6 checkpoint recalibrates against real delivery data. And <strong>key-person concentration on Daniel</strong>: if he stops, everything stops, and the mitigations are real but partial.</p>
+  <p>There is also a structural item. <strong>Two founders are minors, which makes their IP assignments voidable at their election.</strong> Handled at formation with guardian co-signature plus re-execution at 18, it costs a few extra documents. Left unhandled, it is a defect in the company's title to its own technology. It is treated in <a class="ref" href="#s15">section 15</a> and tracked as a dated diligence item, not deferred.</p>
+
+  <h3>What it costs to build this</h3>
   <div class="tw"><table>
     <thead><tr><th>Line</th><th>Amount</th><th>Basis</th></tr></thead>
     <tbody>
-      <tr><td>Build to dual-platform launch</td><td><strong>~$230,000</strong></td><td>29 to 31 person-months at the assumed team shape</td></tr>
-      <tr><td>Post-launch runway, 6 to 9 months</td><td><strong>~$90,000&ndash;135,000</strong></td><td>~$15,000/month operating base, through the retention proof and the paid-layer test</td></tr>
-      <tr><td><strong>Total</strong></td><td><strong>~$320,000&ndash;365,000</strong></td><td>Round to a <strong>$350,000&ndash;400,000</strong> pre-seed with buffer</td></tr>
+      <tr><td>Formation and legal, including the minor-founder structure</td><td><strong>$3,300&ndash;9,000</strong></td><td>Delaware C-corp, counsel, UTMA custodial issuance</td></tr>
+      <tr><td>Operating burn to launch, ~18 months</td><td><strong>~$7,000</strong></td><td>~$400/month: AI tooling, infrastructure, store fees, domain</td></tr>
+      <tr><td>Test devices</td><td>$500&ndash;3,000</td><td>Android fragmentation is the driver</td></tr>
+      <tr><td>Privacy and compliance counsel</td><td><strong>$8,000&ndash;20,000</strong></td><td>Non-negotiable before public launch with location plus health data</td></tr>
+      <tr><td>Contingency</td><td>~$8,000</td><td>~20 percent</td></tr>
+      <tr><td><strong>Total to public launch</strong></td><td><strong>~$27,000&ndash;47,000</strong></td><td></td></tr>
     </tbody>
   </table></div>
-  <p><strong>This is a derived figure and not yet a decided ask.</strong> No decision record covers the raise, and the Founder Brief states the funding goal only as "seed round closed or in motion within 12 months".</p>
+  <p class="pull">The largest single line is legal, not engineering. That is the shape of this company.</p>
 
-  <h3>What it buys, stated as evidence rather than features</h3>
-  <p>Twelve months of capital produces four things an investor can check: a dual-platform product in both stores, a <strong>measured week-4 retention number</strong> for runners who generate routes, a revealed-preference read on whether anyone pays for training-state-aware routing, and a validated or invalidated answer on whether one metro's pedestrian data can carry a safety layer.</p>
-  <p class="pull">If week-4 retention clears 20 percent, this is a company. If it does not, the capital bought a definitive answer for well under a million dollars.</p>
+  <h3>The ask</h3>
+  <p><strong>$50,000 on a post-money SAFE at a $1,500,000 valuation cap</strong>, or roughly 3.3 percent.</p>
+  <p>This is deliberately not a pre-seed. Sized to reach revenue rather than to reach the next round, it funds the entire path to launch and past it. Raising ten times as much now would price a company with no product at a valuation it would have to grow into, sell 15 to 20 percent for money there is no plan to spend, and impose institutional expectations on a team that needs eighteen quiet months to build.</p>
+  <div class="callout">
+    <p>An earlier version of this document asked for <strong>$350,000 to $400,000</strong>. That figure was arithmetically sound and factually obsolete: it was the price of contractor person-months nobody is buying plus salary runway nobody is drawing. It is corrected here rather than quietly dropped.</p>
+  </div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Stage</th><th>Founders combined</th><th>Pool</th><th>Outside investors</th></tr></thead>
+    <tbody>
+      <tr><td>At formation, after a 10% pool</td><td>90.0%</td><td>10.0%</td><td>&mdash;</td></tr>
+      <tr><td>After this SAFE</td><td>87.0%</td><td>9.7%</td><td>3.3%</td></tr>
+      <tr><td>After a pre-seed at 15%</td><td>72.3%</td><td>10.0%</td><td>17.8%</td></tr>
+      <tr><td><strong>After a seed at 20%</strong></td><td><strong>56.2%</strong></td><td>10.0%</td><td>33.8%</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Break-even, corrected</h3>
+  <p><strong>Roughly 235 paying subscribers.</strong> An earlier figure of ~3,000 was computed against a $15,000 monthly base that assumed salaries and contractors; against a real base of about $1,050 a month post-launch, the number falls by an order of magnitude. <a class="ref" href="#s08">Section 08</a>'s base case reaches 480 subscribers by month 12 of revenue. It counts no founder compensation, so it is break-even on cash out the door rather than on the true cost of the work, and it holds only while the team stays unpaid.</p>
+  <p><strong>What that implies is worth saying directly.</strong> Waypoint can plausibly reach self-sustaining operation without institutional capital at all. That is a genuine strategic option rather than a fallback, and it is consistent with the honest reading of H5 in <a class="ref" href="#s03">section 03</a>, which came back <em>uncertain</em> on whether the route wedge alone supports a venture-scale outcome. A profitable independent business is an excellent outcome for three founders and a modest one for a fund, and this document would rather name that tension than paper over it.</p>
+
+  <h3>What the money buys, as evidence rather than features</h3>
+  <p>Four things an investor can check: a shipped iOS product with a <strong>measured week-4 retention number</strong> for runners who generate routes; a validated or invalidated answer on whether one metro's pedestrian data can carry a safety layer; real route-quality data from a beta cohort; and a measured answer to whether AI-assisted development actually delivers at the rate this plan assumes.</p>
+  <p class="pull">If week-4 retention clears 20 percent, this is a company. If it does not, the capital bought a definitive answer for under $50,000.</p>
 </section>
 
 <!-- 14 -->
 <section id="s14">
   <div class="sec-num">14</div>
   <h2>Risk analysis</h2>
-  <p class="sec-sub">Eleven risks, four of them critical, each with what we actually do about it.</p>
+  <p class="sec-sub">Fourteen risks, six of them critical, each with what we actually do about it.</p>
 
   <div class="tw"><table>
     <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
@@ -773,7 +823,10 @@ footer a{color:var(--accent);text-decoration:none}
       <tr><td><strong>ODbL share-alike narrows the moat</strong></td><td><span class="badge b-amber">Med-High</span></td><td>Counsel review of layer boundaries. Keep municipal and user-derived layers as separate Collective Database members. Accept that scoring models and freshness are the truly defensible part</td></tr>
       <tr><td><strong>The launch override backfires</strong>, since public launch now happens without a quiet burn-in</td><td><span class="badge b-amber">Med-High</span></td><td>Four named compensating conditions in section 09, with the beta cohort as a hard gate</td></tr>
       <tr><td><strong>H5 stays uncertain</strong> and the wedge proves to be a $10M business rather than a venture one</td><td><span class="badge b-amber">Medium</span></td><td>Four named expansion paths. Named tests that would resolve it. Disclosed rather than hidden</td></tr>
-      <tr><td><strong>Solo-founder key-person risk</strong></td><td><span class="badge b-amber">Medium</span></td><td>Two contractors on the build. The one thing that cannot be delegated, run-club presence, is explicitly acknowledged as founder-only</td></tr>
+      <tr><td><strong>Founder capacity against the competitive window.</strong> No founder is full-time, and the approved scope was 29 to 31 person-months against roughly 7.5 person-months a year of capacity</td><td><span class="badge b-red">Critical</span></td><td>Scope cut to the walking skeleton plus launch requirements, 12 to 15 person-months, landing at month 12 to 14 (section 12). A month-6 checkpoint measures actual delivery with pre-committed actions per outcome band, rather than defending the assumption</td></tr>
+      <tr><td><strong>AI-assisted development underdelivers.</strong> The plan assumes one part-time builder can deliver work scoped for 2.5 to 3.0 engineers. The least validated assumption in this document</td><td><span class="badge b-red">Critical</span></td><td>Leverage is strong on conventional surface and weak on exactly this product's hard parts. The month-6 checkpoint measures it; below 1.2&times; the plan is rebuilt rather than adjusted. Contingency is a contract engineer paid from the option pool</td></tr>
+      <tr><td><strong>Key-person concentration on Daniel.</strong> Sole builder and sole signatory; every account requiring legal capacity runs through him</td><td><span class="badge b-amber">High</span></td><td>Architecture decisions documented as made rather than after. A second founder brought into the codebase and the AI workflow. Both real, both partial</td></tr>
+      <tr><td><strong>Minor-founder IP assignments are voidable</strong>, and the two minors are the two the concept originated with</td><td><span class="badge b-amber">High</span></td><td>Guardian co-signature at formation plus re-execution within 30 days of each founder turning 18, both tracked as dated diligence items. Section 15</td></tr>
       <tr><td><strong>Renewal lands at the 24% pessimistic case</strong> rather than the 36% median</td><td><span class="badge b-amber">Medium</span></td><td>Annual-only trial, price-preserved founding cohort, and a brand positioned on route utility rather than AI</td></tr>
     </tbody>
   </table></div>
@@ -786,6 +839,14 @@ footer a{color:var(--accent);text-decoration:none}
   <p class="sec-sub">Fifteen items gate launch. The architecture is the compliance strategy.</p>
 
   <p>Goal G6 is <strong>zero compliance regressions</strong>: no submission happens without all fifteen checklist items verified.</p>
+
+  <h3>Entity and founder structure</h3>
+  <p>Delaware C-corp, incorporated <strong>before</strong> the round rather than after: the round needs an entity to receive money, the 83(b) clock is far safer to run while the company is provably worth nothing, and Apple and Play enrollment take weeks. Daniel is the Apple Developer Program Account Holder, since Apple requires the legal age of majority and authority to bind the organization, and the same reasoning governs the Play Console, banking, and every vendor contract.</p>
+  <div class="callout warn">
+    <span class="lbl">The minor-founder items, stated rather than buried</span>
+    <p>Two of three founders are minors. Under US contract law their agreements are generally <strong>voidable at their election</strong>, which includes the IP assignment; and under US copyright and patent law, code and inventions belong to their creators until assigned in writing. The two founders whose assignments are voidable are the two the concept came from, so this is a question about the company's title to its own technology, not a formality.</p>
+    <p style="margin-top:9px">The cure requires both halves. <strong>Guardian co-signature at formation</strong>, which makes title defensible today. And <strong>re-execution by each founder within 30 days of turning 18</strong>, which makes it clean. Both dates are recorded as dated diligence items now rather than remembered later. Their shares are held under Delaware's Uniform Transfers to Minors Act, where the property vests indefeasibly in the minor while an adult custodian holds the voting and contractual rights and files the 83(b) election. Guardians are engaged and willing, which is what makes the structure available at all.</p>
+  </div>
 
   <h3>GDPR, which applies from day one</h3>
   <p>Heart rate, training load and injury reports are <strong>Article 9 special category health data</strong>, requiring explicit consent through a dedicated gateway. GPS and planned routes are personal data under Article 4(1), and can themselves become Article 9 data when they reveal health information. A <strong>DPIA is required</strong> under Article 35, since systematic location plus health processing at scale is high-risk. Data processing agreements are needed with every processor, an EU representative under Article 27 if there is no EU establishment, and consent withdrawal must be as easy as granting it, with a defined degraded mode when health consent is withdrawn.</p>
@@ -814,7 +875,7 @@ footer a{color:var(--accent);text-decoration:none}
     <li><strong>Zero user interviews.</strong> Every persona, pain point and job-to-be-done here is assembled from published surveys and mined competitor reviews. This is the largest gap and it is first for a reason.</li>
     <li><strong>The paid job is unvalidated.</strong> Demand for training-state-aware route generation is inferred from the market's total absence of it. Nobody has been observed paying for it.</li>
     <li><strong>Market sizing rests on report mills</strong> with undisclosed methodology that disagree by more than 2x. H5 is UNCERTAIN and is presented that way.</li>
-    <li><strong>The safety layer's buildability is unproven.</strong> Whether lighting and population scoring can be built from open data at solo-founder scale is the riskiest technical assumption in the plan.</li>
+    <li><strong>The safety layer's buildability is unproven.</strong> Whether lighting and population scoring can be built from open data at this team's scale is the riskiest technical assumption in the plan.</li>
     <li><strong>No willingness-to-pay research at the feature level.</strong> Category willingness to pay is proven; Waypoint's specific free/paid split is not.</li>
     <li><strong>Route quality has never been tested on a real street</strong> by anyone.</li>
     <li><strong>Organic cost per subscriber excludes founder time</strong>, a deliberate understatement that must be disclosed alongside any ratio shown to an investor.</li>
@@ -851,7 +912,7 @@ footer a{color:var(--accent);text-decoration:none}
 <section id="s17">
   <div class="sec-num">17</div>
   <h2>Appendix and sources</h2>
-  <p class="sec-sub">41 documents across eight phases. Every claim carries a publisher, URL, access date and confidence tag.</p>
+  <p class="sec-sub">46 documents across nine phases. Every claim carries a publisher, URL, access date and confidence tag.</p>
 
   <h3>The seven hypotheses, and their verdicts</h3>
   <div class="tw"><table>
@@ -893,6 +954,7 @@ footer a{color:var(--accent);text-decoration:none}
       <tr><td>4 · Synthesis</td><td><span class="kbd">research/04-synthesis/</span></td><td>Opportunity, positioning, hypothesis verdicts, locked concept</td></tr>
       <tr><td>5 · Product</td><td><span class="kbd">research/05-product/</span></td><td>PRD, RICE prioritization, MVP scope, journeys, stack recommendation and validation, database deep dive, dual-platform strategy, API integration map</td></tr>
       <tr><td>6 · Business</td><td><span class="kbd">research/06-business-model/</span></td><td>Business model canvas, revenue model, unit economics, metrics, go-to-market plan</td></tr>
+      <tr><td>9 · Financial and team</td><td><span class="kbd">research/09-financial-team/</span></td><td>Legal formation, operating model and burn, team roadmap and capacity, capital structure, fundraising plan</td></tr>
     </tbody>
   </table></div>
 
@@ -900,7 +962,7 @@ footer a{color:var(--accent);text-decoration:none}
   <p>Outdoor Industry Association 2026 Running Report · Sport England Active Lives · Strava press and Year in Sport 2025 · RevenueCat State of Subscription Apps 2025 and 2026 · Business of Apps · Sensor Tower · Grand View Research · GWI via Samba Digital · Running Industry Association · Apple Developer WWDC25 and App Store Review Guidelines · Google Play Console Help · OpenStreetMap Foundation license guidance. All accessed 2026-07-30 or 2026-08-06.</p>
 
   <footer>
-    <p>Waypoint · Business Blueprint · Version-Timestamp: 2026-08-06 14:15:00 UTC-4</p>
+    <p>Waypoint · Business Blueprint · Version-Timestamp: 2026-08-06 14:45:00 UTC-4</p>
     <p>Confidential pre-launch material. Do not distribute. Markdown source of truth: <span class="kbd">blueprint/blueprint.md</span> · <a href="https://github.com/mollyparty/waypoint">github.com/mollyparty/waypoint</a></p>
   </footer>
 </section>

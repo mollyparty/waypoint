@@ -1,12 +1,37 @@
 # Changelog
 
-> Version-Timestamp: 2026-08-06 13:30:00 UTC-4
+> Version-Timestamp: 2026-08-06 15:00:00 UTC-4
 
 All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+Staged for **v0.4.0**, which tags once the blueprint is signed off and the Phase 9 gate is closed. Neither has happened, so this is not yet a release.
+
+### Added
+
+- **Phase 9, financial strategy and founding team** (`research/09-financial-team/`): `legal-formation.md`, `operating-model.md`, `team-roadmap.md`, `capital-structure.md`, `fundraising-plan.md`. Opened outside the original program, which [DEC-005] ended at Phase 8, because the founding team was defined for the first time and the definition invalidated assumptions eight phases had rested on.
+- Investor business blueprint (`blueprint/blueprint.md` and `blueprint/index.html`), 17 sections, drafted at Phase 8 and awaiting founder review.
+- Phase 9 section on the research dashboard with six open gate cards.
+
+### Changed
+
+- **The financial model was rebuilt from the ground up.** The founding team is three part-time partners, two of them minors, building AI-assisted rather than hiring. Monthly burn is roughly $400 rather than $15,000; cash to public launch is $27,000 to $47,000 rather than $230,000; the ask is $50,000 on a post-money SAFE at a $1.5M cap rather than a $350,000 to $400,000 pre-seed. Three-year cash consumed all the way to break-even is roughly $40,000 to $53,000.
+- **Break-even fell by an order of magnitude, to roughly 235 paying subscribers** from the ~3,000 quoted since Phase 6. The old figure divided a $15,000 monthly base that assumed a founder salary and a contractor retainer, neither of which exists.
+- **Blueprint sections 12 and 13 rewritten**, the executive summary corrected, and four risks added covering founder capacity, the AI-leverage assumption, key-person concentration, and the minor-founder IP question.
+- **DEC-010's iOS date is superseded pending the Phase 9 gate.** It assumed 2.5 to 3.0 full-time-equivalent people; the actual team has none. The recommendation is to ship the walking skeleton as the product, landing iOS at month 12 to 14.
+- Charter now names the three founders and their roles, replacing "solo founder building from scratch".
+
+### Fixed
+
+- **A self-contradiction in the Phase 6 knowledge note**, which asserted both that the Android date was the public launch and that DEC-013 had overridden it to iOS. The graph carried the same error in a node label. An agent reading only the distillate, which is what the retrieval order instructs, could have acted on the wrong one.
+- **Knowledge graph coverage: 86 of 86 project documents now have a node**, up from 75. Eleven were entirely absent and therefore invisible to every query: five competitor profiles, DEC-007, four session notes, and the Phase 6 distillate. Also removed six Obsidian settings nodes that the AST pass had extracted from configuration, and corrected three node labels still asserting "gate pending" or "not started" for closed work.
+- **The graphify post-commit hook is now scoped to code paths.** Its rebuild runs without an LLM pass, so on a markdown-only tree it extracts headings as nodes and drops curated ones; one commit lost 9 nodes and 19 links before being restored. Note that `.git/hooks/` is untracked, so this fix does not travel to a fresh clone.
+- Phases 7 and 8 were recorded inside the Phase 6 session note, where filename-based lookup could not find them. Split into their own dated note.
+- Three cross-document cost conflicts reconciled with the reason stated: infrastructure at MVP ($135 to $255, not $80 to $130), the net revenue multiplier (0.8088, not 0.84), and the note that `unit-economics.md` is still priced against a $7.99/month case that DEC-011 replaced.
+- Stale catalog claims in `vault/00-START-HERE.md` and `research/00-PROGRESS.md`; open questions in the Phase 3 and 4 distillates that DEC-008 and DEC-011 had already closed; the architecture index still calling the stack decision future work; DEC-007's missing alternatives section.
 
 ## [0.3.0] - 2026-08-06
 

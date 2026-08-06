@@ -1247,12 +1247,12 @@
    "id": "phase5_rice"
   },
   {
-   "label": "MVP scope: 15 features, ~25 person-months, 8 to 10 calendar months",
+   "label": "MVP scope: 15 features, ~29 to 31 person-months (Phase 9 recuts v1 to 12 to 15)",
    "file_type": "document",
    "source_file": "research/05-product/mvp-scope.md",
-   "rationale": "Walking skeleton on TestFlight month 3 to 4; launch month 8 to 9; paid layer months 10 to 12. Fits the Strava window.",
+   "rationale": "The 25 person-month / 8 to 10 month figure was the iOS-native estimate. DEC-010 revised it to 29 to 31 across both platforms, and Phase 9 recuts v1 to the walking skeleton plus launch requirements at 12 to 15, landing iOS at month 12 to 14 against real founder capacity.",
    "community": 0,
-   "norm_label": "mvp scope: 15 features, ~25 person-months, 8 to 10 calendar months",
+   "norm_label": "mvp scope: 15 features, ~29 to 31 person-months (phase 9 recuts v1 to 12 to 15)",
    "id": "phase5_mvp_scope"
   },
   {
@@ -1917,9 +1917,171 @@
    "file_type": "document",
    "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
    "rationale": "Found DEC numbering and wikilinks clean, but eleven documents absent from the graph, a self-contradiction in the Phase 6 knowledge note about the launch shape, and stale claims in START-HERE and 00-PROGRESS. All remediated the same day.",
-   "community": 12,
+   "community": 13,
    "norm_label": "memory audit 2026-08-06: vault and graph coverage gaps",
    "id": "memory_audit_2026_08_06"
+  },
+  {
+   "label": "Phase 9: financial strategy and founding team, gate OPEN with 6 cards",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/_index.md",
+   "rationale": "Opened outside the original program when the founding team was defined as three part-time partners, two of them minors, building AI-assisted rather than hiring. Amends DEC-005, which ended the program at Phase 8.",
+   "community": 13,
+   "norm_label": "phase 9: financial strategy and founding team, gate open with 6 cards",
+   "id": "phase9_index"
+  },
+  {
+   "label": "Legal formation: Delaware C-corp with two minor founders",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/legal-formation.md",
+   "rationale": "Formation sequence, UTMA custodial shares, the IP-assignment cure path, 83(b) inside 30 days with no extensions, and who must hold the Apple, Play, banking and vendor accounts. $3,300 to $9,000 including the minor-founder premium.",
+   "community": 13,
+   "norm_label": "legal formation: delaware c-corp with two minor founders",
+   "id": "p9_legal_formation"
+  },
+  {
+   "label": "Operating model: burn ~$400/month, not $15,000",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/operating-model.md",
+   "rationale": "Overhead by category, a four-stage burn table, runway, and a 36-month projection totaling ~$40k to $53k of cash all the way to break-even. Also reconciles three cross-document cost conflicts.",
+   "community": 13,
+   "norm_label": "operating model: burn ~$400/month, not $15,000",
+   "id": "p9_operating_model"
+  },
+  {
+   "label": "Team roadmap: 29 to 31 person-months against ~7.5 per year of capacity",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "rationale": "Roles per founder, the capacity reconciliation, the AI-multiplier sensitivity table, the recut v1 at 12 to 15 person-months, the re-derived schedule, school seasonality, hiring triggers, and the month-6 checkpoint.",
+   "community": 13,
+   "norm_label": "team roadmap: 29 to 31 person-months against ~7.5 per year of capacity",
+   "id": "p9_team_roadmap"
+  },
+  {
+   "label": "Capital structure: 40/30/30 proposed, vesting, pool, dilution waterfall",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/capital-structure.md",
+   "rationale": "Founder split with 34/33/33 and 50/25/25 argued rather than dismissed. Four-year vesting with a one-year cliff plus a college-transition review. 10 percent pool. Founders hold ~56 percent combined after a seed.",
+   "community": 13,
+   "norm_label": "capital structure: 40/30/30 proposed, vesting, pool, dilution waterfall",
+   "id": "p9_capital_structure"
+  },
+  {
+   "label": "Fundraising: $50k post-money SAFE at a $1.5M cap, ~3.3 percent",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "rationale": "Why a SAFE rather than a note or priced equity, the $1.5M cap reasoning, milestones that make a pre-seed raisable, how investors will read a part-time team with two minors, and the diligence-readiness checklist.",
+   "community": 13,
+   "norm_label": "fundraising: $50k post-money safe at a $1.5m cap, ~3.3 percent",
+   "id": "p9_fundraising_plan"
+  },
+  {
+   "label": "GOVERNING FINDING: the binding constraint is calendar time, not money",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "rationale": "Burn fell ~97 percent, which is not unambiguously good news. The constraint moved rather than disappeared: founder hours cannot be bought at any price, and at $400/month nothing ever runs out, so nothing ever forces a decision. 21 to 28 months of scope against a 12 to 18 month window.",
+   "community": 13,
+   "norm_label": "governing finding: the binding constraint is calendar time, not money",
+   "id": "finding_constraint_is_time"
+  },
+  {
+   "label": "Break-even is ~235 paying subscribers, not ~3,000",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/operating-model.md",
+   "rationale": "The ~3,000 figure divided a $15,000 monthly base that assumed a founder salary plus a contractor retainer. Against a real ~$1,050/month post-launch base it falls by an order of magnitude. Counts no founder compensation and holds only while the team is unpaid.",
+   "community": 13,
+   "norm_label": "break-even is ~235 paying subscribers, not ~3,000",
+   "id": "finding_break_even_235"
+  },
+  {
+   "label": "RISKIEST ASSUMPTION: the 1.8x AI leverage multiplier is unmeasured",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "rationale": "Underwrites the schedule, the scope cut and the round size, and has never been measured on this team. Strong on conventional surface, weak on routing customization, OSM ingestion and Android OEM geolocation. Even the 2.5x optimistic case misses the window. Month-6 checkpoint replaces it with evidence; below 1.2x the plan is rebuilt.",
+   "community": 13,
+   "norm_label": "riskiest assumption: the 1.8x ai leverage multiplier is unmeasured",
+   "id": "finding_ai_multiplier_risk"
+  },
+  {
+   "label": "An IP assignment signed by a minor is voidable, and the minors originated the concept",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/legal-formation.md",
+   "rationale": "A question about the company's title to its own technology, not a formality. Cure needs both halves: guardian co-signature at formation, plus re-execution within 30 days of each founder turning 18. The second is the one teams forget.",
+   "community": 13,
+   "norm_label": "an ip assignment signed by a minor is voidable, and the minors originated the concept",
+   "id": "finding_minor_ip_voidable"
+  },
+  {
+   "label": "Waypoint can plausibly self-sustain without institutional money",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "rationale": "Break-even at ~235 subscribers against a base case of 480 by month 12 of revenue. A genuine strategic option rather than a fallback, consistent with H5 coming back uncertain on venture scale. Venture scale versus profitable independence should be decided explicitly.",
+   "community": 13,
+   "norm_label": "waypoint can plausibly self-sustain without institutional money",
+   "id": "finding_bootstrap_option"
+  },
+  {
+   "label": "Recommendation: ship the walking skeleton as the product, iOS month 12 to 14",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "rationale": "v1 becomes 12 to 15 person-months: skeleton 8 to 9, compliance minimum 2 to 3, launch hardening 2 to 3. Not cut: safety-aware routing, privacy architecture, honest refusal. Android moves to month 20 to 26. Supersedes DEC-010's dates.",
+   "community": 13,
+   "norm_label": "recommendation: ship the walking skeleton as the product, ios month 12 to 14",
+   "id": "rec_ship_the_skeleton"
+  },
+  {
+   "label": "SUPERSEDED: the ~$230,000 cash build",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/operating-model.md",
+   "rationale": "It was the price of buying 18 to 20 contractor person-months. The team is not buying them. Cash to public launch is ~$27,000 to $47,000.",
+   "community": 13,
+   "norm_label": "superseded: the ~$230,000 cash build",
+   "id": "superseded_230k_build"
+  },
+  {
+   "label": "SUPERSEDED: the ~$15,000/month operating base",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/operating-model.md",
+   "rationale": "A $7,000 founder draw plus a $6,000 contractor retainer. Nobody draws a salary. Real burn is ~$400/month during the build and ~$1,050 post-launch.",
+   "community": 13,
+   "norm_label": "superseded: the ~$15,000/month operating base",
+   "id": "superseded_15k_base"
+  },
+  {
+   "label": "SUPERSEDED: the ~$350,000 to $400,000 pre-seed ask",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "rationale": "Simply the sum of the $230k build and the $15k/month runway. Both inputs are gone. Replaced by $50,000 on a post-money SAFE at a $1.5M cap.",
+   "community": 13,
+   "norm_label": "superseded: the ~$350,000 to $400,000 pre-seed ask",
+   "id": "superseded_350k_ask"
+  },
+  {
+   "label": "UNRESOLVED: unit-economics.md is still priced at a $7.99/mo mid case",
+   "file_type": "document",
+   "source_file": "research/09-financial-team/operating-model.md",
+   "rationale": "DEC-011 locked $99.99/year. Every correction runs in Waypoint's favor (LTV ~$107 to $115 rather than $86), so nothing is hidden, but the published tables understate the business and must not be quoted to an investor as they stand. A full re-run is queued, not done.",
+   "community": 13,
+   "norm_label": "unresolved: unit-economics.md is still priced at a $7.99/mo mid case",
+   "id": "conflict_unit_econ_price"
+  },
+  {
+   "label": "Financial Strategy and Founding Team (Phase 9) vault note",
+   "file_type": "document",
+   "source_file": "vault/04-Knowledge/Financial Strategy and Founding Team (Phase 9).md",
+   "rationale": "Distilled Phase 9. Carries the governing finding, the corrected numbers, the equity proposal, the legal cure path, and the three cross-document corrections.",
+   "community": 1,
+   "norm_label": "financial strategy and founding team (phase 9) vault note",
+   "id": "knowledge_financial_phase9"
+  },
+  {
+   "label": "Session: Phase 9 financial strategy, plus the memory audit",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "rationale": "Part A closed the vault and graph gaps found by three parallel audits. Part B produced the five Phase 9 documents after the founding team definition invalidated three load-bearing figures.",
+   "community": 3,
+   "norm_label": "session: phase 9 financial strategy, plus the memory audit",
+   "id": "session_phase9"
   }
  ],
  "links": [
@@ -6278,6 +6440,356 @@
    "weight": 1.0,
    "source": "knowledge_business_phase6",
    "target": "phase6_gtm"
+  },
+  {
+   "relation": "contains",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "p9_legal_formation"
+  },
+  {
+   "relation": "contains",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "p9_operating_model"
+  },
+  {
+   "relation": "contains",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "p9_team_roadmap"
+  },
+  {
+   "relation": "contains",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "p9_capital_structure"
+  },
+  {
+   "relation": "contains",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "p9_fundraising_plan"
+  },
+  {
+   "relation": "establishes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_team_roadmap",
+   "target": "finding_constraint_is_time"
+  },
+  {
+   "relation": "establishes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_team_roadmap",
+   "target": "finding_ai_multiplier_risk"
+  },
+  {
+   "relation": "recommends",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_team_roadmap",
+   "target": "rec_ship_the_skeleton"
+  },
+  {
+   "relation": "establishes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_operating_model",
+   "target": "finding_break_even_235"
+  },
+  {
+   "relation": "establishes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/legal-formation.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_legal_formation",
+   "target": "finding_minor_ip_voidable"
+  },
+  {
+   "relation": "establishes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_fundraising_plan",
+   "target": "finding_bootstrap_option"
+  },
+  {
+   "relation": "underpins",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "finding_ai_multiplier_risk",
+   "target": "finding_constraint_is_time"
+  },
+  {
+   "relation": "enables",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "finding_break_even_235",
+   "target": "finding_bootstrap_option"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "rec_ship_the_skeleton",
+   "target": "dec010_dual_platform"
+  },
+  {
+   "relation": "forces",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/team-roadmap.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "finding_constraint_is_time",
+   "target": "rec_ship_the_skeleton"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_operating_model",
+   "target": "superseded_230k_build"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_operating_model",
+   "target": "superseded_15k_base"
+  },
+  {
+   "relation": "supersedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_fundraising_plan",
+   "target": "superseded_350k_ask"
+  },
+  {
+   "relation": "corrected_by",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "superseded_15k_base",
+   "target": "finding_break_even_235"
+  },
+  {
+   "relation": "was_stated_in",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/fundraising-plan.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "superseded_350k_ask",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "flags",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_operating_model",
+   "target": "conflict_unit_econ_price"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "conflict_unit_econ_price",
+   "target": "dec011_pricing"
+  },
+  {
+   "relation": "precedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/legal-formation.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_legal_formation",
+   "target": "p9_capital_structure"
+  },
+  {
+   "relation": "precedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/capital-structure.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_capital_structure",
+   "target": "p9_fundraising_plan"
+  },
+  {
+   "relation": "informs",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/operating-model.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "p9_operating_model",
+   "target": "p9_fundraising_plan"
+  },
+  {
+   "relation": "summarizes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Financial Strategy and Founding Team (Phase 9).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_financial_phase9",
+   "target": "phase9_index"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Financial Strategy and Founding Team (Phase 9).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_financial_phase9",
+   "target": "finding_constraint_is_time"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Financial Strategy and Founding Team (Phase 9).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_financial_phase9",
+   "target": "finding_break_even_235"
+  },
+  {
+   "relation": "follows",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Financial Strategy and Founding Team (Phase 9).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_financial_phase9",
+   "target": "knowledge_business_phase6"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase9",
+   "target": "phase9_index"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase9",
+   "target": "knowledge_financial_phase9"
+  },
+  {
+   "relation": "performed",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase9",
+   "target": "memory_audit_2026_08_06"
+  },
+  {
+   "relation": "precedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 7 Dashboard Closed and Phase 8 Blueprint Drafted.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase7_phase8",
+   "target": "session_phase9"
+  },
+  {
+   "relation": "revises",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "amends",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/09-financial-team/_index.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase9_index",
+   "target": "dec005_gated_research_program"
   }
  ],
  "hyperedges": [
