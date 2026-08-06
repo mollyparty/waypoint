@@ -57,24 +57,11 @@ The honest cost is losing the burn-in, which was absorbing three real risks, so 
 
 ## Phases 7 and 8, same session
 
-With the gate closed, both remaining phases were completed rather than deferred.
-
-**Phase 7 closed.** The dashboard now covers Phases 0 through 6 with every gate card and outcome, its HTML validates with no unclosed or mismatched tags, and the landing page links all three artifacts. The phase index records the standing rule this phase established: gate reviews happen on the dashboard, markdown stays the citable source of truth.
-
-**Phase 8 drafted.** The example blueprint URL that timed out in the planning session fetched successfully on the retry, so the structure follows it: numbered sections, a hero with headline stat cards, a fixed navigator, and — the most valuable borrowing — a dedicated self-audit with known gaps, a 90-day validation sprint, and an explicit go / no-go. The bilingual EN/ES toggle was deliberately not adopted; the example serves a Dominican market and a half-built translation would read worse than none.
-
-Deliverables: `blueprint/blueprint.md` as the citable master and `blueprint/index.html` as the investor-facing site, 17 sections each.
-
-### The editorial call worth recording
-
-The blueprint invents nothing and lets the confidence tags survive into investor-facing text rather than laundering them into false precision. Three findings a weaker document would bury are given emphasis instead: **H5 came back uncertain**, so the route wedge alone is a $5M to $30M business and the venture case is argued from four named expansion paths; **zero user interviews have been conducted**, stated in a callout directly under the hero; and **unit economics depend on distribution rather than pricing**. An investor finds all three in diligence anyway, and finding them there is much worse than reading them on page one.
-
-The capital figure (~$350k to $400k pre-seed) is derived and labeled as such. No decision record covers a raise, so section 13 shows the arithmetic instead of asserting a number.
+Both remaining phases were completed in this same working session, but their record now lives in its own note so it can be found by filename: [[2026-08-06 Phase 7 Dashboard Closed and Phase 8 Blueprint Drafted]].
 
 ## Next steps for the next agent (any tool)
 
-1. **Founder review of the blueprint**, then tag v0.4.0. Four open items are listed in `research/08-blueprint/_index.md`.
-2. **Then the build begins.** The month-1 A3 safety-data buildability spike is the first task, and it is a go-to-market gate rather than only a technical one.
+Superseded. The founding team was defined as three partners later the same day, which opened Phase 9 and put blueprint approval behind it. Current next steps live in [[2026-08-06 Phase 9 Financial Strategy and Founding Team]] and `research/00-PROGRESS.md`.
 
 ## Session-end checklist
 

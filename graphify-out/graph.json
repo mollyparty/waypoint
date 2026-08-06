@@ -54,72 +54,6 @@
  },
  "nodes": [
   {
-   "label": "app.json",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L1",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "app.json",
-   "id": "vault_obsidian_app"
-  },
-  {
-   "label": "alwaysUpdateLinks",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L2",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "alwaysupdatelinks",
-   "id": "vault_obsidian_app_alwaysupdatelinks"
-  },
-  {
-   "label": "newLinkFormat",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L3",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "newlinkformat",
-   "id": "vault_obsidian_app_newlinkformat"
-  },
-  {
-   "label": "useMarkdownLinks",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L4",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "usemarkdownlinks",
-   "id": "vault_obsidian_app_usemarkdownlinks"
-  },
-  {
-   "label": "attachmentFolderPath",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L5",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "attachmentfolderpath",
-   "id": "vault_obsidian_app_attachmentfolderpath"
-  },
-  {
-   "label": "showUnsupportedFiles",
-   "file_type": "code",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L6",
-   "_origin": "ast",
-   "community": 11,
-   "community_name": "app.json",
-   "norm_label": "showunsupportedfiles",
-   "id": "vault_obsidian_app_showunsupportedfiles"
-  },
-  {
    "label": "Waypoint Agent Protocol",
    "file_type": "document",
    "source_file": "AGENTS.md",
@@ -1358,12 +1292,12 @@
    "id": "decision_ondevice_ai"
   },
   {
-   "label": "Phase 5 gate pending: MVP scope, free/paid line, Watch timing, stack approval",
+   "label": "Phase 5 gate: all five cards CLOSED 2026-08-06",
    "file_type": "document",
    "source_file": "research/05-product/mvp-scope.md",
-   "rationale": "Recommended: approve scope; launch v1 entirely free with safety routing free permanently; Watch at launch+30; approve stack.",
+   "rationale": "Scope approved as drawn, v1 launches entirely free with safety routing free permanently, Watch at launch+30 (DEC-008). Stack and platform were held for round 2 and then closed as DEC-009 and DEC-010.",
    "community": 0,
-   "norm_label": "phase 5 gate pending: mvp scope, free/paid line, watch timing, stack approval",
+   "norm_label": "phase 5 gate: all five cards closed 2026-08-06",
    "id": "gate_phase5_pending"
   },
   {
@@ -1394,12 +1328,12 @@
    "id": "knowledge_product_phase5"
   },
   {
-   "label": "Phase 5: Product definition and MVP scope (research/05-product/)",
+   "label": "Phase 5: Product definition and MVP scope, complete",
    "file_type": "document",
    "source_file": "research/05-product/_index.md",
-   "rationale": "Five deliverables complete; gate pending.",
+   "rationale": "Nine deliverables including the three round-2 studies. Gate closed 2026-08-06 across DEC-008, DEC-009 and DEC-010.",
    "community": 0,
-   "norm_label": "phase 5: product definition and mvp scope (research/05-product/)",
+   "norm_label": "phase 5: product definition and mvp scope, complete",
    "id": "phase5_product_index"
   },
   {
@@ -1502,13 +1436,13 @@
    "norm_label": "phase 7: html research dashboard (partially done, pulled forward)"
   },
   {
-   "label": "Phase 8: Business Blueprint (not started)",
+   "label": "Phase 8: Business Blueprint, draft complete and under review",
    "file_type": "document",
    "source_file": "research/08-blueprint/_index.md",
-   "rationale": "Blocked on Phases 5 to 7.",
+   "rationale": "blueprint/blueprint.md and blueprint/index.html, 17 sections. Four open founder-review items, the largest being that the capital figure was derived rather than decided. Its capital and team sections are being rewritten in Phase 9.",
    "id": "phase8_blueprint_index",
    "community": 7,
-   "norm_label": "phase 8: business blueprint (not started)"
+   "norm_label": "phase 8: business blueprint, draft complete and under review"
   },
   {
    "label": "Database deep dive round 2: split architecture verdict",
@@ -1673,12 +1607,12 @@
    "id": "phase6_metrics"
   },
   {
-   "label": "GTM: one metro, one segment, run clubs first, Android date is the real launch",
+   "label": "GTM: one metro, one segment, run clubs first (its Android-launch recommendation was overridden)",
    "file_type": "document",
    "source_file": "research/06-business-model/gtm-plan.md",
-   "rationale": "Beachhead is the urban committed amateur running from a home doorstep. SEO and paid acquisition argued against explicitly.",
+   "rationale": "Beachhead is one metro and one segment, channels ranked run clubs then Reddit then store optimization, with SEO and paid acquisition argued against. Its recommendation that the Android date carry the public launch was OVERRIDDEN at the gate by DEC-013: the iOS date carries it.",
    "community": 0,
-   "norm_label": "gtm: one metro, one segment, run clubs first, android date is the real launch",
+   "norm_label": "gtm: one metro, one segment, run clubs first (its android-launch recommendation was overridden)",
    "id": "phase6_gtm"
   },
   {
@@ -1860,64 +1794,135 @@
    "community": 0,
    "norm_label": "h5 uncertain: the wedge alone is $5m to $30m arr, so the venture case needs expansion",
    "id": "h5_uncertain_expansion_case"
+  },
+  {
+   "label": "AI Endurance (neural-network training plans, no route layer)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-ai-endurance.md",
+   "rationale": "Canadian, ~2 employees. Deepest physiological modeling in the set (HRV, DFA alpha 1) plus an LLM chat coach that edits the plan in conversation. Zero route or location intelligence. Threat LOW.",
+   "community": 4,
+   "norm_label": "ai endurance (neural-network training plans, no route layer)",
+   "id": "competitor_ai_endurance"
+  },
+  {
+   "label": "Coopah (human coaches plus adaptive plans, London Marathon backed)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-coopah.md",
+   "rationale": "London. Differentiators are 24/7 real human coaches, a PB money-back guarantee, and official TCS London Marathon training partner status. Positioned as friendlier and cheaper than Runna. No route intelligence. Threat LOW to MEDIUM.",
+   "community": 4,
+   "norm_label": "coopah (human coaches plus adaptive plans, london marathon backed)",
+   "id": "competitor_coopah"
+  },
+  {
+   "label": "Footpath and RunGo (manual drawing and voice navigation)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-footpath-rungo.md",
+   "rationale": "Each owns one slice of the route problem: Footpath is best-in-class manual drawing, RunGo leads voice-guided navigation over a curated library. Neither generates from constraints.",
+   "community": 4,
+   "norm_label": "footpath and rungo (manual drawing and voice navigation)",
+   "id": "competitor_footpath_rungo"
+  },
+  {
+   "label": "On-demand route generator long tail (price anchor near zero)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-footpath-rungo.md",
+   "rationale": "Routeshuffle, Route Random, JustGo, Circa, Run Randomizer. Free or near-free web tools accepting only distance and a start point. Individually trivial, collectively they validate demand for 'just give me a route from here' and anchor basic generation at zero.",
+   "community": 4,
+   "norm_label": "on-demand route generator long tail (price anchor near zero)",
+   "id": "competitor_ondemand_generators"
+  },
+  {
+   "label": "Joggo (Kilo Health quiz funnel, beginner and weight-loss)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-joggo.md",
+   "rationale": "Lithuanian venture-studio product. Template plans with bi-weekly adjustment marketed as coaching; reputation dominated by billing and refund complaints. Different user than the committed amateur. Threat LOW.",
+   "community": 4,
+   "norm_label": "joggo (kilo health quiz funnel, beginner and weight-loss)",
+   "id": "competitor_joggo"
+  },
+  {
+   "label": "TrainAsONE (most credible adaptive engine, no routes)",
+   "file_type": "document",
+   "source_file": "research/02-competitors/profile-trainasone.md",
+   "rationale": "UK, founded 2014. Rebuilds the whole plan after every run via proprietary deep neural nets. The only competitor with genuine environment-aware pace intelligence (Environment Adjusted Pace from weather and undulation). Tiny, dated, web-first, no route generation. Threat LOW despite conceptual overlap.",
+   "community": 4,
+   "norm_label": "trainasone (most credible adaptive engine, no routes)",
+   "id": "competitor_trainasone"
+  },
+  {
+   "label": "DEC-007: Vercel publishing with protected previews",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-007 Vercel publishing pipeline with protected previews.md",
+   "rationale": "Git-connected Vercel project serving the repo root statically. Production branch points at an orphan placeholder branch, so pushes to main produce protected previews only. Real content requires a Vercel login. Investor-facing material should get its own public project.",
+   "community": 0,
+   "norm_label": "dec-007: vercel publishing with protected previews",
+   "id": "dec007_vercel_publishing"
+  },
+  {
+   "label": "Session: round 2 stack studies staged",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-07-30 Round 2 Stack Studies Complete.md",
+   "rationale": "Database deep dive, dual-platform strategy and API integration map written and staged for the Phase 5 gate.",
+   "community": 3,
+   "norm_label": "session: round 2 stack studies staged",
+   "id": "session_round2_stack_studies"
+  },
+  {
+   "label": "Session: Vercel publishing pipeline",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-07-30 Vercel Publishing Pipeline.md",
+   "rationale": "Set up git-connected publishing and handled an exposure incident: Vercel auto-deployed main to production before the branch switch. Placeholder promoted over it, confidential deployment deleted.",
+   "community": 3,
+   "norm_label": "session: vercel publishing pipeline",
+   "id": "session_vercel_pipeline"
+  },
+  {
+   "label": "Session: Phase 5 gate closed, stack and platform",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 5 Gate Closed Stack and Platform.md",
+   "rationale": "Closed the two held cards: data layer revised to the Aiven split architecture (DEC-009) and the staged React Native dual-platform MVP approved (DEC-010).",
+   "community": 3,
+   "norm_label": "session: phase 5 gate closed, stack and platform",
+   "id": "session_phase5_gate"
+  },
+  {
+   "label": "Session: Phase 6 business model and GTM gate",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 6 Business Model and GTM.md",
+   "rationale": "Five business model documents written and reconciled, then all six gate cards closed as DEC-011, DEC-012 and DEC-013, including the launch-shape override.",
+   "community": 3,
+   "norm_label": "session: phase 6 business model and gtm gate",
+   "id": "session_phase6_gate"
+  },
+  {
+   "label": "Session: Phase 7 closed and Phase 8 blueprint drafted",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 7 Dashboard Closed and Phase 8 Blueprint Drafted.md",
+   "rationale": "Dashboard phase closed and the 17-section investor blueprint drafted. Split out of the Phase 6 session note on 2026-08-06 because agents locate the newest session note by filename.",
+   "community": 3,
+   "norm_label": "session: phase 7 closed and phase 8 blueprint drafted",
+   "id": "session_phase7_phase8"
+  },
+  {
+   "label": "Business Model and GTM Key Findings (Phase 6) vault note",
+   "file_type": "document",
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "rationale": "Distilled Phase 6. Governing finding: unit economics are a function of distribution, not pricing. Carries the pricing lock, the metric tree, the beachhead, and the launch override.",
+   "community": 1,
+   "norm_label": "business model and gtm key findings (phase 6) vault note",
+   "id": "knowledge_business_phase6"
+  },
+  {
+   "label": "Memory audit 2026-08-06: vault and graph coverage gaps",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "rationale": "Found DEC numbering and wikilinks clean, but eleven documents absent from the graph, a self-contradiction in the Phase 6 knowledge note about the launch shape, and stale claims in START-HERE and 00-PROGRESS. All remediated the same day.",
+   "community": 12,
+   "norm_label": "memory audit 2026-08-06: vault and graph coverage gaps",
+   "id": "memory_audit_2026_08_06"
   }
  ],
  "links": [
-  {
-   "relation": "contains",
-   "confidence": "EXTRACTED",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L2",
-   "weight": 1.0,
-   "_origin": "ast",
-   "confidence_score": 1.0,
-   "source": "vault_obsidian_app",
-   "target": "vault_obsidian_app_alwaysupdatelinks"
-  },
-  {
-   "relation": "contains",
-   "confidence": "EXTRACTED",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L5",
-   "weight": 1.0,
-   "_origin": "ast",
-   "confidence_score": 1.0,
-   "source": "vault_obsidian_app",
-   "target": "vault_obsidian_app_attachmentfolderpath"
-  },
-  {
-   "relation": "contains",
-   "confidence": "EXTRACTED",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L3",
-   "weight": 1.0,
-   "_origin": "ast",
-   "confidence_score": 1.0,
-   "source": "vault_obsidian_app",
-   "target": "vault_obsidian_app_newlinkformat"
-  },
-  {
-   "relation": "contains",
-   "confidence": "EXTRACTED",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L6",
-   "weight": 1.0,
-   "_origin": "ast",
-   "confidence_score": 1.0,
-   "source": "vault_obsidian_app",
-   "target": "vault_obsidian_app_showunsupportedfiles"
-  },
-  {
-   "relation": "contains",
-   "confidence": "EXTRACTED",
-   "source_file": "vault/.obsidian/app.json",
-   "source_location": "L4",
-   "weight": 1.0,
-   "_origin": "ast",
-   "confidence_score": 1.0,
-   "source": "vault_obsidian_app",
-   "target": "vault_obsidian_app_usemarkdownlinks"
-  },
   {
    "relation": "references",
    "confidence": "EXTRACTED",
@@ -5963,6 +5968,316 @@
    "source": "blueprint_honesty_stance",
    "target": "h5_uncertain_expansion_case",
    "rationale": "Disclosing the uncertain sizing verdict is the clearest application of the stance."
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_competitors_phase2",
+   "target": "competitor_ai_endurance"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_competitors_phase2",
+   "target": "competitor_coopah"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_competitors_phase2",
+   "target": "competitor_footpath_rungo"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_competitors_phase2",
+   "target": "competitor_joggo"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Competitive Landscape Key Findings (Phase 2).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_competitors_phase2",
+   "target": "competitor_trainasone"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/02-competitors/profile-footpath-rungo.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "competitor_footpath_rungo",
+   "target": "competitor_ondemand_generators"
+  },
+  {
+   "relation": "related_to",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/02-competitors/profile-trainasone.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "competitor_trainasone",
+   "target": "competitor_ai_endurance"
+  },
+  {
+   "relation": "competes_with",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/02-competitors/profile-coopah.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "competitor_coopah",
+   "target": "competitor_runna"
+  },
+  {
+   "relation": "related_to",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "research/02-competitors/profile-joggo.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "competitor_joggo",
+   "target": "competitor_coopah"
+  },
+  {
+   "relation": "enables",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-007 Vercel publishing pipeline with protected previews.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec007_vercel_publishing",
+   "target": "phase7_dashboard"
+  },
+  {
+   "relation": "enables",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-007 Vercel publishing pipeline with protected previews.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec007_vercel_publishing",
+   "target": "phase8_blueprint_index"
+  },
+  {
+   "relation": "enables",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-007 Vercel publishing pipeline with protected previews.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec007_vercel_publishing",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-07-30 Vercel Publishing Pipeline.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_vercel_pipeline",
+   "target": "dec007_vercel_publishing"
+  },
+  {
+   "relation": "informs",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-07-30 Round 2 Stack Studies Complete.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_round2_stack_studies",
+   "target": "dec009_data_layer"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 5 Gate Closed Stack and Platform.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase5_gate",
+   "target": "dec009_data_layer"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 6 Business Model and GTM.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase6_gate",
+   "target": "dec011_pricing"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 6 Business Model and GTM.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase6_gate",
+   "target": "dec012_measurement"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 6 Business Model and GTM.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase6_gate",
+   "target": "dec013_beachhead_launch"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 7 Dashboard Closed and Phase 8 Blueprint Drafted.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase7_phase8",
+   "target": "phase7_dashboard"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 7 Dashboard Closed and Phase 8 Blueprint Drafted.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase7_phase8",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "precedes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 6 Business Model and GTM.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase6_gate",
+   "target": "session_phase7_phase8"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_business_phase6",
+   "target": "dec011_pricing"
+  },
+  {
+   "relation": "references",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_business_phase6",
+   "target": "dec013_beachhead_launch"
+  },
+  {
+   "relation": "summarizes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_business_phase6",
+   "target": "phase6_revenue_model"
+  },
+  {
+   "relation": "follows",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_business_phase6",
+   "target": "knowledge_product_phase5"
+  },
+  {
+   "relation": "corrected",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "memory_audit_2026_08_06",
+   "target": "knowledge_business_phase6"
+  },
+  {
+   "relation": "restored",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "memory_audit_2026_08_06",
+   "target": "dec007_vercel_publishing"
+  },
+  {
+   "relation": "created",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 9 Financial Strategy and Founding Team.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "memory_audit_2026_08_06",
+   "target": "session_phase7_phase8"
+  },
+  {
+   "relation": "informs",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-07-30 Round 2 Stack Studies Complete.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_round2_stack_studies",
+   "target": "dec010_dual_platform"
+  },
+  {
+   "relation": "produced",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/03-Sessions/2026-08-06 Phase 5 Gate Closed Stack and Platform.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_phase5_gate",
+   "target": "dec010_dual_platform"
+  },
+  {
+   "relation": "summarizes",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/04-Knowledge/Business Model and GTM Key Findings (Phase 6).md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_business_phase6",
+   "target": "phase6_gtm"
   }
  ],
  "hyperedges": [

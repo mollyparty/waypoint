@@ -3,7 +3,7 @@ type: decision
 id: DEC-007
 status: accepted
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [decision, infrastructure, vercel, security]
 ---
 
@@ -20,14 +20,21 @@ Claudio wants every HTML artifact (knowledge graph, research dashboard, blueprin
 3. **Stable access URL.** The team views the real content at `https://waypoint-git-main-mollypartys-projects.vercel.app` after logging into Vercel. The public production domains (`waypoint-khaki.vercel.app`, `waypoint-mollypartys-projects.vercel.app`) serve only the placeholder.
 4. **Landing page.** A root `index.html` on `main` acts as the front door, linking the knowledge graph now and the Phase 7 dashboard and Phase 8 blueprint when they exist.
 
+## Alternatives considered
+
+- **Curated public production site via `.vercelignore`.** Rejected: it makes confidentiality depend on an ignore file staying correct forever, and one mistaken path exposes pre-launch research permanently. The failure is silent and unrecoverable.
+- **Upgrade to Vercel Pro** so production itself can carry Vercel Authentication. Rejected for now on cost, with nothing lost: the chosen option can convert to this at any time by re-pointing production at `main`.
+- **Do not publish at all; review artifacts locally.** Rejected because the partner needs a stable URL, and local-only review was the exact friction that made markdown-wall gate reviews fail.
+
 ## Rationale
 
-- Chosen by Claudio over (a) a curated public production site via `.vercelignore` and (b) upgrading to Vercel Pro. This option is free, fully confidential, and still auto-publishes on every push.
+- Chosen by Claudio over the two alternatives above. This option is free, fully confidential, and still auto-publishes on every push.
 - During setup Vercel auto-deployed `main` to production before the branch switch, briefly exposing the repo on the production domain. The placeholder was promoted over it and the confidential deployment was deleted. Verified afterwards: production serves the placeholder (HTTP 200), `main` previews redirect to Vercel login (HTTP 302).
 
 ## Consequences
 
 - Viewing any real artifact requires a Vercel login (owner or invited team member). Investor-facing material in Phase 8 should ship as a separate public Vercel project, not this one.
+- **Status as of 2026-08-06:** the landing page now links three live artifacts (graph explorer, research dashboard, investor blueprint), all still behind login. The separate public project for the blueprint has not been created and remains an open founder decision in `research/08-blueprint/_index.md`.
 - `vercel-production-locked` is a permanent orphan branch; do not delete it and do not merge it with `main`.
 - `.vercel/` and `.env*` stay gitignored (CLI credentials and OIDC tokens).
 - If the account ever upgrades to Pro, production can be re-pointed to `main` with full Vercel Authentication instead.

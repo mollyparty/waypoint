@@ -1,11 +1,12 @@
 # Graph Report - .  (2026-07-30)
 
 ## Corpus Check
-- 84 files · ~124,775 words
+- 86 markdown documents across `research/`, `vault/` and `blueprint/`, plus root and `docs/` files · ~124,775 words
 - Verdict: corpus is large enough that graph structure adds value.
+- **Coverage: 86 of 86 project documents have at least one node** (verified 2026-08-06). Zero dangling links, zero isolated nodes.
 
 ## Summary
-- 181 nodes · 435 edges · 13 communities (2026-08-06: +7 nodes/+18 edges for Phases 7 and 8, +6/+18 for the Phase 6 gate close, +12/+24 for the Phase 6 business model, +4/+14 for the Phase 5 gate close. 2026-07-30: +10/+17 for the round-2 studies)
+- 189 nodes · 461 edges · 13 communities (2026-08-06 memory-audit remediation: +14 nodes/+31 edges covering the eleven documents that had no representation at all, minus 6 Obsidian settings nodes and their 5 edges. Earlier the same day: +7/+18 for Phases 7 and 8, +6/+18 for the Phase 6 gate close, +12/+24 for the Phase 6 business model, +4/+14 for the Phase 5 gate close. 2026-07-30: +10/+17 for the round-2 studies)
 - Extraction: 44% EXTRACTED · 8% INFERRED · 1% AMBIGUOUS · INFERRED: 27 edges (avg confidence: 0.74)
 - Token cost: 1,200 input · 400 output
 
@@ -16,7 +17,6 @@
 - Phase 2 Competitive Landscape and Threats
 - Research Program, Constraints, and Open Decisions
 - Phase 3 User Research and Personas
-- Obsidian App Settings
 - Community 7
 - Community 8
 - Community 9

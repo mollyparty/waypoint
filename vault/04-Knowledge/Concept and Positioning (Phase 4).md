@@ -1,7 +1,7 @@
 ---
 type: knowledge
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [knowledge, research, concept, positioning, phase-4]
 ---
 
@@ -34,7 +34,7 @@ Strava Instant Workouts (January 2026) already attaches basic heatmap routes to 
 
 ## What is deferred, not forgotten
 
-- Safety-free-tier decision: Phase 6, with pricing. #open-question
+- ~~Safety-free-tier decision: Phase 6, with pricing.~~ **Closed** by [[DEC-011 Pricing and the permanent free tier]]: safety-aware routing and every other routing constraint are free permanently.
 - Real-user interview backlog: runs alongside Phase 5; can recalibrate without unlocking the concept.
 
 ## Related

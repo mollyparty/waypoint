@@ -1,7 +1,7 @@
 ---
 type: knowledge
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [knowledge, research, users, phase-3]
 ---
 
@@ -39,9 +39,9 @@ Untested risk: whether runners experience these situations as one job at all (th
 2. Women runners (4 to 6, specialist moderation): can an algorithmic safety claim earn trust at all; a wrong answer is product-killing liability.
 3. Frequent travelers (3 to 5): the night-before ritual, failure frequency, value of deleting it.
 
-## Open founder decision
+## Founder decision, now closed
 
-Whether safety-critical routing must be free (ethics and positioning). Needs a DEC record before Phase 6 pricing. #open-question
+Whether safety-critical routing must be free (ethics and positioning). **Resolved:** [[DEC-008 Phase 5 gate MVP approved stack in validation]] launched v1 entirely free and made safety-aware routing free permanently; [[DEC-011 Pricing and the permanent free tier]] then confirmed it at the paywall, holding every routing constraint on the free side and naming the permanent free tier publicly at launch. The coaching layer alone is paid.
 
 ## Related
 

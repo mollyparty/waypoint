@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 status: locked
 tags: [project, charter]
 ---
@@ -31,13 +31,23 @@ Runners never quite know where today's run should go: a new city, a dark morning
 
 - 12 months out: MVP live, thousands of active runners, seed round closed or in motion.
 - The Business Blueprint (Phase 8) is the fundraising instrument; the investor story carries the expansion path (geographies, the same route engine pointed at walking, cycling, hiking). Android is no longer an expansion item: it ships with the MVP under DEC-010.
-- Monetization: freemium subscription; free tier anchors on route generation, paid tier on the adaptive layer; exact boundary set in Phase 6 (including the deferred safety-free-tier decision).
+- Monetization: freemium subscription; free tier anchors on route generation, paid tier on the adaptive layer. Boundary set at the Phase 6 gate by [[DEC-011 Pricing and the permanent free tier]]: the coaching layer alone is paid, everything else including safety-aware routing is free permanently, and the safety-free-tier question deferred from Phase 3 is closed.
+
+## Team
+
+Three founding partners, none full-time. Equity, vesting and legal structure are Phase 9 work and are not yet decided.
+
+- **Asher** - embedded target user and subject matter expert; owns real-world route testing. In 10th grade.
+- **Claudio** - project manager and operations; the elastic role that covers whatever the business needs. In 10th grade. Co-originated the concept with Asher.
+- **Daniel** - technical and commercial lead; product management, business and brand development; funds the initial AI tooling. Runs another business full-time.
+
+The build is AI-assisted rather than contracted: the plan is to avoid hiring while the team is this small.
 
 ## Constraints
 
-- Solo founder (Claudio) building from scratch; engineering mantra (security, stability, reliability, compliance) applies to everything shipped.
+- No founder is full-time, and two are minors. This governs capacity, legal capacity, and the timeline (Phase 9). The engineering mantra (security, stability, reliability, compliance) applies to everything shipped regardless.
 - Location plus health data make privacy compliance first-class: privacy zones, private-by-default, the 15-item MVP compliance checklist.
-- v1: **one React Native codebase shipping iOS and Android** ([[DEC-010 Staged cross-platform MVP on React Native]]); iOS first at month 9 to 10, Android 4 to 8 weeks later; MapLibre maps on both. HealthKit-first on iOS, Health Connect on Android (Garmin developer program paused; Strava API bans AI use of its data).
+- v1: **one React Native codebase shipping iOS and Android** ([[DEC-010 Staged cross-platform MVP on React Native]]); MapLibre maps on both. **The month 9 to 10 iOS date is under review in Phase 9**, because DEC-010 assumed 2.5 to 3.0 full-time-equivalent people and the actual founding team has none. HealthKit-first on iOS, Health Connect on Android (Garmin developer program paused; Strava API bans AI use of its data).
 - Data layer: Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on Hetzner for the geospatial moat, auth in Waypoint's own API layer ([[DEC-009 Revised data layer Aiven split architecture with decoupled auth]]; revisitable before the walking skeleton).
 - Execution window: an estimated 12 to 18 months before Strava plausibly ships plan-linked route generation. Speed is a business requirement.
 

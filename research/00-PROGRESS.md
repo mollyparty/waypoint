@@ -1,14 +1,14 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-06 12:45:00 UTC-4
+> Version-Timestamp: 2026-08-06 13:30:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
 ## Where we are right now (one paragraph)
 
-Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). **Phase 6 is COMPLETE and its gate is CLOSED** (2026-08-06, DEC-011 / DEC-012 / DEC-013). The governing finding: unit economics are a function of distribution, not pricing, since paid acquisition returns 53 to 70 cents on the dollar at every credible price and the model needs roughly 84 percent organic acquisition to clear 3:1. Price is $99.99/yr with the coaching layer as the only paid product; the beachhead is the founder's home metro; **the iOS date at month 9 to 10 carries the public launch**, overriding the plan's Android recommendation.
+Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder review and **Phase 9 (financial strategy and founding team) now the active workstream**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). **Phase 6 is COMPLETE and its gate is CLOSED** (2026-08-06, DEC-011 / DEC-012 / DEC-013). The governing finding: unit economics are a function of distribution, not pricing, since paid acquisition returns 53 to 70 cents on the dollar at every credible price and the model needs roughly 84 percent organic acquisition to clear 3:1. Price is $99.99/yr with the coaching layer as the only paid product; the beachhead is the founder's home metro; **the iOS date at month 9 to 10 carries the public launch**, overriding the plan's Android recommendation.
 
-**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections). **Next agent action: founder review of the blueprint**, then tag v0.4.0. Four open items are listed in `08-blueprint/_index.md`, the largest being that the ~$350k to $400k capital figure is derived and not decided. Review surfaces: `dashboard/index.html` for research, `blueprint/index.html` for the investor document, both on the protected Vercel preview. Latest tag: **v0.3.0**.
+**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections). **Next agent action: Phase 9**, which supplies the financial and team foundation the blueprint's capital and team sections were missing. Phase 9 was opened on 2026-08-06 when the founding team was defined as three partners rather than a solo founder, invalidating the ~$350k to $400k capital figure (it was composed of contractor cost plus salary runway, and neither input survives). Blueprint approval and the v0.4.0 tag now wait on the Phase 9 rewrite. Review surfaces: `dashboard/index.html` for research, `blueprint/index.html` for the investor document, both on the protected Vercel preview. Latest tag: **v0.3.0**.
 
 ## Phase status board
 
@@ -46,7 +46,7 @@ Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): r
 - [x] **Platform: Option D approved** (DEC-010). One React Native codebase, MapLibre on both platforms, iOS month 9-10, Android month 10-12, ~29-31 pm. Amends DEC-006 client stack and DEC-008 effort.
 - [x] Amendments propagated: `mvp-scope.md` section 7 and milestone table, Charter constraints and success criteria, dashboard cards 8 and 9.
 
-## Phase 6 detail (current workstream)
+## Phase 6 detail (closed 2026-08-06)
 
 ### Written 2026-08-06
 
