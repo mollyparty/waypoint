@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Version-Timestamp: 2026-08-06 14:15:00 UTC-4 -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Waypoint · Business Blueprint</title>
+<style>
+:root{
+  --bg:#0b0f14; --surface:#131a22; --surface2:#171f29; --border:#232d38; --border-lt:#2d3947;
+  --text:#e6edf3; --muted:#8b949e; --dim:#6e7a89;
+  --accent:#4ea1ff; --accent-soft:rgba(78,161,255,.12);
+  --green:#5cd682; --green-soft:rgba(92,214,130,.12);
+  --amber:#f0a05c; --amber-soft:rgba(240,160,92,.12);
+  --red:#f0736a; --red-soft:rgba(240,115,106,.12);
+  --nav-w:260px;
+  --serif:ui-serif,Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Inter,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;width:var(--nav-w);height:100vh;overflow-y:auto;background:#090d12;border-right:1px solid var(--border);padding:26px 0 40px;z-index:50}
+nav .brand{padding:0 22px 18px;border-bottom:1px solid var(--border);margin-bottom:14px}
+nav .brand .logo{font-size:19px;font-weight:680;letter-spacing:-.02em}
+nav .brand .sub{font-size:11.5px;color:var(--dim);letter-spacing:.09em;text-transform:uppercase;margin-top:3px}
+nav a{display:flex;gap:11px;padding:7px 22px;color:var(--muted);text-decoration:none;font-size:13.6px;line-height:1.45;border-left:2px solid transparent;transition:color .12s,border-color .12s,background .12s}
+nav a:hover{color:var(--text);background:rgba(255,255,255,.025)}
+nav a.active{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft)}
+nav a .n{color:var(--dim);font-variant-numeric:tabular-nums;font-size:12px;padding-top:2px;min-width:19px}
+nav a.active .n{color:var(--accent)}
+.nav-toggle{display:none}
+
+main{margin-left:var(--nav-w);max-width:900px;padding:0 56px 120px}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 46px;border-bottom:1px solid var(--border)}
+.eyebrow{display:inline-block;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);border:1px solid var(--border-lt);background:var(--accent-soft);padding:5px 12px;border-radius:99px;margin-bottom:26px}
+.hero h1{font-size:58px;line-height:1.04;letter-spacing:-.033em;font-weight:680;margin:0 0 14px}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--accent);margin:0 0 26px}
+.hero .lede{font-size:19px;color:var(--muted);max-width:64ch;margin:0 0 14px;line-height:1.62}
+.hero .meta{font-size:13.5px;color:var(--dim);margin-top:26px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:38px 0 0}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:16px 17px}
+.stat .v{font-size:25px;font-weight:660;letter-spacing:-.02em;line-height:1.15;margin-bottom:5px}
+.stat .k{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.stat .d{font-size:12.6px;color:var(--muted);line-height:1.5}
+
+/* ---------- sections ---------- */
+section{padding:62px 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+.sec-num{font-size:12px;letter-spacing:.15em;color:var(--dim);font-variant-numeric:tabular-nums;margin-bottom:9px}
+h2{font-size:34px;line-height:1.16;letter-spacing:-.026em;font-weight:660;margin:0 0 12px}
+h3{font-size:19.5px;font-weight:640;letter-spacing:-.012em;margin:38px 0 12px;color:var(--text)}
+h4{font-size:15.5px;font-weight:640;margin:26px 0 9px}
+.sec-sub{font-size:17.5px;color:var(--muted);margin:0 0 8px;max-width:66ch;line-height:1.6}
+p{margin:0 0 15px;max-width:70ch}
+strong{color:#fff;font-weight:620}
+em{color:var(--text)}
+a.ref{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(78,161,255,.3)}
+a.ref:hover{border-bottom-color:var(--accent)}
+ul,ol{max-width:70ch;padding-left:21px;margin:0 0 15px}
+li{margin-bottom:8px}
+code,.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87em;background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:1.5px 6px;color:var(--muted)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:20px 0;border:1px solid var(--border);border-radius:11px}
+table{width:100%;border-collapse:collapse;font-size:14.2px}
+thead th{background:#0e141b;text-align:left;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);padding:11px 15px;font-weight:600;white-space:nowrap}
+tbody td{padding:12px 15px;border-top:1px solid var(--border);vertical-align:top;color:var(--muted);line-height:1.55}
+tbody td strong{color:var(--text)}
+tbody tr:hover{background:rgba(255,255,255,.017)}
+
+/* ---------- callouts ---------- */
+.callout{border:1px solid var(--border);border-left:3px solid var(--accent);background:var(--surface);border-radius:0 11px 11px 0;padding:17px 20px;margin:22px 0}
+.callout p:last-child{margin-bottom:0}
+.callout.warn{border-left-color:var(--amber);background:linear-gradient(90deg,var(--amber-soft),var(--surface) 55%)}
+.callout.good{border-left-color:var(--green);background:linear-gradient(90deg,var(--green-soft),var(--surface) 55%)}
+.callout.crit{border-left-color:var(--red);background:linear-gradient(90deg,var(--red-soft),var(--surface) 55%)}
+.callout .lbl{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+
+.pull{font-family:var(--serif);font-size:22px;line-height:1.44;color:var(--text);border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:28px 0;max-width:62ch}
+
+/* ---------- badges + grids ---------- */
+.badge{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2.5px 9px;border-radius:99px;white-space:nowrap}
+.b-green{background:var(--green-soft);color:var(--green)}
+.b-amber{background:var(--amber-soft);color:var(--amber)}
+.b-red{background:var(--red-soft);color:var(--red)}
+.b-blue{background:var(--accent-soft);color:var(--accent)}
+.b-gray{background:rgba(139,148,158,.12);color:var(--muted)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:17px 19px}
+.card h4{margin:0 0 7px;font-size:15px}
+.card p{font-size:14.2px;color:var(--muted);margin:0}
+.card .big{font-size:29px;font-weight:660;letter-spacing:-.022em;margin-bottom:4px;line-height:1.1}
+
+/* tooltip */
+.tt{position:relative;display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;border:1px solid var(--border-lt);color:var(--dim);font-size:10px;font-weight:700;cursor:help;vertical-align:super;margin-left:3px;line-height:1}
+.tt:hover{border-color:var(--accent);color:var(--accent)}
+.tt .tip{visibility:hidden;opacity:0;position:absolute;bottom:150%;left:50%;transform:translateX(-50%);width:290px;background:#05080c;border:1px solid var(--border-lt);border-radius:9px;padding:11px 13px;font-size:13px;font-weight:400;color:var(--muted);line-height:1.55;text-align:left;z-index:80;transition:opacity .14s;box-shadow:0 10px 34px rgba(0,0,0,.6);cursor:default}
+.tt:hover .tip{visibility:visible;opacity:1}
+
+.timeline{border-left:2px solid var(--border);margin:22px 0 22px 8px;padding-left:0}
+.tl-item{position:relative;padding:0 0 22px 26px}
+.tl-item::before{content:"";position:absolute;left:-7px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--surface);border:2px solid var(--border-lt)}
+.tl-item.key::before{background:var(--accent);border-color:var(--accent)}
+.tl-m{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.tl-item p{margin:0;font-size:14.5px}
+
+footer{padding:44px 0 0;color:var(--dim);font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+
+@media (max-width:1080px){
+  :root{--nav-w:0px}
+  nav{transform:translateX(-100%);transition:transform .22s;width:260px}
+  nav.open{transform:translateX(0)}
+  .nav-toggle{display:flex;align-items:center;gap:8px;position:fixed;top:14px;left:14px;z-index:60;background:var(--surface);border:1px solid var(--border-lt);color:var(--text);border-radius:9px;padding:9px 14px;font-size:14px;cursor:pointer;font-family:inherit}
+  main{margin-left:0;padding:0 22px 90px}
+  .hero{padding-top:74px}
+  .hero h1{font-size:38px}
+  .hero .tag{font-size:21px}
+  .stats,.grid2,.grid3{grid-template-columns:1fr}
+}
+@media print{
+  nav,.nav-toggle{display:none}
+  main{margin:0;max-width:none}
+  body{background:#fff;color:#111}
+  section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰ Contents</button>
+
+<nav id="nav">
+  <div class="brand">
+    <div class="logo">Waypoint</div>
+    <div class="sub">Business Blueprint</div>
+  </div>
+  <a href="#s01"><span class="n">01</span><span>Executive summary</span></a>
+  <a href="#s02"><span class="n">02</span><span>The problem</span></a>
+  <a href="#s03"><span class="n">03</span><span>Market opportunity</span></a>
+  <a href="#s04"><span class="n">04</span><span>Competitive landscape</span></a>
+  <a href="#s05"><span class="n">05</span><span>The product</span></a>
+  <a href="#s06"><span class="n">06</span><span>Who it is for</span></a>
+  <a href="#s07"><span class="n">07</span><span>Business model</span></a>
+  <a href="#s08"><span class="n">08</span><span>Unit economics</span></a>
+  <a href="#s09"><span class="n">09</span><span>Go-to-market</span></a>
+  <a href="#s10"><span class="n">10</span><span>Measurement</span></a>
+  <a href="#s11"><span class="n">11</span><span>Technology</span></a>
+  <a href="#s12"><span class="n">12</span><span>Execution timeline</span></a>
+  <a href="#s13"><span class="n">13</span><span>Capital and team</span></a>
+  <a href="#s14"><span class="n">14</span><span>Risk analysis</span></a>
+  <a href="#s15"><span class="n">15</span><span>Legal and privacy</span></a>
+  <a href="#s16"><span class="n">16</span><span>What we do not know</span></a>
+  <a href="#s17"><span class="n">17</span><span>Appendix and sources</span></a>
+</nav>
+
+<main>
+
+<div class="hero">
+  <span class="eyebrow">Investor blueprint · Confidential</span>
+  <h1>Waypoint</h1>
+  <p class="tag">Know where to run.</p>
+  <p class="lede">Every training app tells runners what workout to do without knowing where they are standing. Every route app draws static lines without knowing what the runner's body needs today. In a fifteen-product market, nobody answers the question runners actually ask.</p>
+  <p class="lede"><strong>Waypoint generates the right route, right now, from wherever you stand</strong> &mdash; against distance, elevation, weather, street crossings, surface, time of day, and how lit and populated the streets are.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="k">Price</div>
+      <div class="v">$99.99<span style="font-size:16px;color:var(--muted)">/yr</span></div>
+      <div class="d">Coaching layer only. Routing and safety are free permanently</div>
+    </div>
+    <div class="stat">
+      <div class="k">Break-even</div>
+      <div class="v">~3,000</div>
+      <div class="d">Paying subscribers. 3.3% of Runna's year-three payer base</div>
+    </div>
+    <div class="stat">
+      <div class="k">Build cost</div>
+      <div class="v">~$230K</div>
+      <div class="d">29 to 31 person-months, founder plus two contractors</div>
+    </div>
+    <div class="stat">
+      <div class="k">Window</div>
+      <div class="v">12&ndash;18<span style="font-size:16px;color:var(--muted)"> mo</span></div>
+      <div class="d">Before Strava could ship a shallow version of this</div>
+    </div>
+  </div>
+  <p class="meta">Prepared 2026-08-06 from 41 research documents across eight phases. Every claim carries a source and a confidence label.</p>
+</div>
+
+<div class="callout warn" style="margin-top:34px">
+  <span class="lbl">Read this first</span>
+  <p>Waypoint has no users, no code in production, and has conducted <strong>zero user interviews</strong>. Everything here is desk research plus reasoning. The personas are assembled from published surveys and competitor review mining, not from conversations. The financial model is directional.</p>
+  <p style="margin-top:9px"><a class="ref" href="#s16">Section 16</a> lists what we do not know and the 90-day plan to find out. An investor who reads only the executive summary and section 16 will have an honest picture of this company.</p>
+</div>
+
+<!-- 01 -->
+<section id="s01">
+  <div class="sec-num">01</div>
+  <h2>Executive summary</h2>
+  <p class="sec-sub">A verified gap, evidenced demand, and a category that demonstrably pays &mdash; against one uncomfortable finding we present rather than bury.</p>
+
+  <p class="pull">Every training app prescribes a workout without knowing where you are. Every route app draws a line without knowing what your body needs today. Waypoint answers the question both halves ignore.</p>
+
+  <h3>Why this is a company and not a feature</h3>
+  <p>Three things have to be true at once. The research says all three are.</p>
+
+  <div class="grid3">
+    <div class="card">
+      <h4>The gap is verified</h4>
+      <p>Fifteen-plus products profiled. <strong>Zero</strong> accept safety, lighting, weather or street crossings as routing inputs. <strong>Zero</strong> connect training state to route choice. Coaching apps have no routes; route apps have no training context.</p>
+    </div>
+    <div class="card">
+      <h4>The need has evidence</h4>
+      <p><strong>54%</strong> of runners have changed a route for safety reasons, <strong>42%</strong> say safety dictates their routine, <strong>82&ndash;92%</strong> hold safety concerns. CityStrides' 90,000+ users pay to track streets they have not yet run.</p>
+    </div>
+    <div class="card">
+      <h4>The category pays</h4>
+      <p>Runna reached <strong>~90,000 payers</strong> in year three and was acquired by Strava. Strava: 180M+ users, ~$415&ndash;500M revenue, $2.2B valuation. Health and fitness is the only category where annual plans still dominate.</p>
+    </div>
+  </div>
+
+  <h3>The honest version of the size question</h3>
+  <div class="callout warn">
+    <p><strong>Hypothesis H5, that the addressable market is venture-scale, came back UNCERTAIN.</strong> The route-generation wedge alone models to <strong>$5M to $30M ARR</strong> by year three to five. That is a strong business. It is not, on its own, a venture outcome.</p>
+    <p style="margin-top:9px">The venture case requires a credible expansion story past the initial wedge. <a class="ref" href="#s03">Section 03</a> argues one, with four named paths and the specific tests that would resolve the question. We surface this because any investor conversation that skips it is a conversation that ends badly later.</p>
+  </div>
+
+  <h3>The numbers that matter</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:32%"><strong>Price</strong></td><td>$99.99/year, $12.99/month. Only the coaching layer is paid; routing, safety constraints, the Watch app and GPX export are free permanently</td></tr>
+      <tr><td><strong>Break-even</strong></td><td>~3,000 paying subscribers, or 3.3% of Runna's year-three payer base</td></tr>
+      <tr><td><strong>Build</strong></td><td>~$230,000 cash, from 29 to 31 person-months across a founder plus two contractors</td></tr>
+      <tr><td><strong>Launch</strong></td><td>iOS public launch at month 9 to 10, Android 4 to 8 weeks later, one React Native codebase</td></tr>
+      <tr><td><strong>Window</strong></td><td>12 to 18 months before Strava could ship a shallow version; ~24 months before anyone matches the constraint depth</td></tr>
+      <tr><td><strong>The governing constraint</strong></td><td><strong>Unit economics are a function of distribution, not pricing.</strong> Paid acquisition returns 53 to 70 cents on the dollar at every credible price, so the model needs roughly 84% organic acquisition to work</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>What the money buys</h3>
+  <p>The pre-seed requirement derives to roughly <strong>$350,000 to $400,000</strong>: about $230,000 to reach a dual-platform launch, plus six to nine months of runway past it at roughly $15,000 a month to prove week-4 retention and test the paid layer. This is a derived figure, not yet a decided ask; the arithmetic is shown in <a class="ref" href="#s13">section 13</a> so it can be argued with.</p>
+</section>
+
+<!-- 02 -->
+<section id="s02">
+  <div class="sec-num">02</div>
+  <h2>The problem</h2>
+  <p class="sec-sub">The question nobody answers, the workarounds that prove it is real, and why safety is its sharpest edge.</p>
+
+  <p>A runner opens an app. The app says: today is a 45-minute easy run. The runner is standing in a hotel lobby in a city they have never visited, or on their own doorstep for the four-hundredth time, and the app has nothing more to say. Where the run physically goes is left entirely to the human, every single day.</p>
+
+  <p>The workarounds are visible and they are all bad. Runners hand-draw routes in Footpath. They ask Reddit the night before a trip. They run the same three loops until they are bored enough to stop. They pay for curated-route services. They scroll Strava heatmaps and hope popularity is a proxy for suitability. Decades of forum threads document the same question being re-asked.</p>
+
+  <h3>Three failures, one root cause</h3>
+  <div class="grid3">
+    <div class="card">
+      <h4>Training apps do not know where you are</h4>
+      <p>Runna, TrainAsONE, Coopah and AI Endurance build sophisticated adaptive plans, then hand the runner a duration and an intensity. Location is not a variable in any of them.</p>
+    </div>
+    <div class="card">
+      <h4>Route apps do not know what your body needs</h4>
+      <p>Komoot is cyclist-first, AllTrails is trail-locked, Footpath and RunGo execute but generate nothing. None of them know that today is a recovery day.</p>
+    </div>
+    <div class="card">
+      <h4>Everyone ignores the deciding constraints</h4>
+      <p>Across the whole market, the rows for weather-as-routing-constraint, street crossings, and safety-as-constraint are <strong>empty</strong>. Not weak. Empty.</p>
+    </div>
+  </div>
+
+  <p>That last one is load-bearing. Runna and TrainAsONE adjust your target <em>pace</em> for heat; neither considers routing you somewhere shaded. Nobody prefers streets with fewer crossings so an interval session is not interrupted every 200 metres. Nobody weights toward lit and populated streets at 6 a.m. in January.</p>
+
+  <h3>Why safety is the sharpest edge</h3>
+  <p>The evidence here is stronger than for anything else in the research, and it is quantified: <strong>54%</strong> of runners have changed a route for safety reasons, <strong>42%</strong> say safety dictates their routine, and <strong>82 to 92%</strong> report holding safety concerns. There is peer-reviewed work behind it, and there are verified incidents of Strava's popularity-ranked routes sending runners somewhere they should not have gone.</p>
+
+  <div class="callout">
+    <span class="lbl">The discipline, not the disclaimer</span>
+    <p>Safety is also the highest-liability surface in the product, which is precisely why no incumbent has touched it. Waypoint's answer is a rule rather than a legal footnote: the product says <strong>safety-aware</strong>, never <em>safe</em>. It never promises. It names the data behind every claim and its limits. And when the data will not support a good route, it says so out loud instead of inventing one.</p>
+    <p style="margin-top:9px">That rule is enforced in continuous integration by a banned-terms lint, not left to copywriting judgment.</p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="s03">
+  <div class="sec-num">03</div>
+  <h2>Market opportunity and sizing</h2>
+  <p class="sec-sub">A real category, sized with more honesty than precision, and the expansion story the uncertain verdict requires.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Layer</th><th>2025 size</th><th>Growth</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr><td>Fitness apps overall</td><td>$12.12B</td><td>13.4% CAGR to $33.58B by 2033</td><td><span class="badge b-green">verified</span> Grand View</td></tr>
+      <tr><td>Health &amp; fitness apps</td><td>~$6.0B, up 17.7% YoY, ~80% subscriptions</td><td>&mdash;</td><td><span class="badge b-green">verified</span> Business of Apps</td></tr>
+      <tr><td><strong>Running apps (the category)</strong></td><td><strong>~$1.5B</strong>, published estimates cluster $1.3B&ndash;$2.9B</td><td><strong>11&ndash;14%/yr</strong>, toward $3&ndash;5B by the early 2030s</td><td><span class="badge b-amber">inferred</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout">
+    <span class="lbl">A word on that TAM, because it deserves one</span>
+    <p>The only category-exact figures come from syndicated report mills with undisclosed methodology, and they disagree with each other by more than a factor of two. Cross-checked against observable company revenue, the bottom-up view of running-adjacent app revenue is roughly <strong>$0.6B to $1.0B today</strong>. The research deliberately weights the observable-revenue cross-check over the report mills, which is why our working figure sits at the low end of the published range.</p>
+    <p style="margin-top:9px">An investor should treat any running-app TAM quoted with more precision than this as unearned.</p>
+  </div>
+
+  <h3>Participation is growing, with a caveat that cuts against us</h3>
+  <p>Global running participation went from <strong>672M in 2022 to ~785M in 2025</strong>, with Gen Z runners rising from 186M to 259M. In the US, <strong>52.3M people ran on roads in 2025</strong>, up more than a million year over year. In England, ~7.1M adults ran in the 12 months to November 2025, up more than half a million in a year.</p>
+  <div class="callout warn">
+    <p>The same Outdoor Industry Association report notes that growth is coming from <em>casual, lower-frequency runners</em> while <strong>"the dedicated core has softened"</strong>. Waypoint's primary segment is the dedicated core. The tailwind is real, but it is not blowing directly on our target.</p>
+  </div>
+
+  <h3>SAM and SOM</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="big">~14M</div>
+      <h4>Committed amateur iOS runners</h4>
+      <p>Across the US, UK, EU-27, Canada and Australia. Built bottom-up from ~110M runners, narrowed by an assumed 25% who run three to five times a week, times a weighted 50% iOS share. A <strong>$1.4B theoretical ceiling</strong> at $100/year, against <strong>$150M&ndash;$300M of demonstrated willingness to pay</strong>.</p>
+    </div>
+    <div class="card">
+      <div class="big">$5&ndash;30M</div>
+      <h4>ARR by year three to five</h4>
+      <p>70,000 to 300,000 paying subscribers, about 1&ndash;2% of SAM, benchmarked against Runna at ~90,000 payers in year three. Bottom-up and top-down converge here, which is the one place in the sizing work where two methods agree.</p>
+    </div>
+  </div>
+
+  <h3>The uncertain verdict, and the four ways out</h3>
+  <p>A $5M to $30M ARR business on the route wedge alone is a genuinely good outcome for a founder. It is not a venture outcome. The honest venture case rests on expansion, and there are four credible directions:</p>
+  <ol>
+    <li><strong>Android</strong>, already in the MVP by decision, roughly doubles the addressable population versus the iOS-only SAM.</li>
+    <li><strong>Non-English geographies</strong>, where the constraint-routing problem is identical and the incumbents are weaker.</li>
+    <li><strong>The coaching layer</strong>, which is where the revenue is and which reaches into the same wallet Runna already proved.</li>
+    <li><strong>Outdoor navigation adjacency</strong>, the Komoot and AllTrails surface, reachable because the routing engine is activity-agnostic even though v1 deliberately is not.</li>
+  </ol>
+  <p><strong>What would move H5 from uncertain to supported:</strong> Runna passing 500,000 payers, published AllTrails Peak attach rates, validated non-English expansion, or an observed payer share above 15%. These tests were named in the research before we knew whether we would like the answers.</p>
+
+  <div class="callout good">
+    <span class="lbl">The structural tailwind that is genuinely ours</span>
+    <p>Apple's Foundation Models framework, shipped with iOS 26, puts a 3-billion-parameter model on the device at <strong>zero inference cost</strong>, working offline. For a product whose coaching narration would otherwise be a per-user API bill, this converts a variable cost into a fixed one and makes a privacy claim structurally true rather than merely promised.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="s04">
+  <div class="sec-num">04</div>
+  <h2>Competitive landscape</h2>
+  <p class="sec-sub">An empty quadrant, a threat we name plainly, and the incumbents' own rules working in our favour.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Product</th><th>What it is</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Runna</strong> <span class="badge b-gray">Strava-owned</span></td><td>Category-leading adaptive plans. No route generation</td><td>$119.99/yr; bundle $149.99/yr</td></tr>
+      <tr><td><strong>Strava</strong></td><td>Social tracking hub; the only major on-demand generator, ranked by popularity</td><td>$79.99/yr</td></tr>
+      <tr><td>TrainAsONE</td><td>AI-adaptive plans rebuilt after every run. Zero route capability</td><td>£99.00/yr</td></tr>
+      <tr><td>AI Endurance</td><td>Neural-net plan optimization plus an LLM chat coach. No routes</td><td>~$155.88/yr</td></tr>
+      <tr><td>Coopah</td><td>Adaptive plans with a human coaching layer. No location features</td><td>$79.99/yr</td></tr>
+      <tr><td>Komoot <span class="badge b-gray">Bending Spoons</span></td><td>Europe-leading outdoor route planning. Cyclist-first</td><td>&euro;59.99/yr</td></tr>
+      <tr><td>AllTrails</td><td>Trail discovery, with AI route <em>adjustments</em> rather than generation</td><td>Peak $79.99/yr</td></tr>
+      <tr><td>Footpath</td><td>Manual route drawing and navigation. No generation</td><td>$23.49/yr</td></tr>
+      <tr><td>RunGo</td><td>Static route library with voice navigation. No generation</td><td>$59.99/yr</td></tr>
+      <tr><td>Garmin Connect+</td><td>AI insights over free Garmin Coach plans, watch-locked</td><td>$69.99/yr + hardware</td></tr>
+      <tr><td>Apple Workout Buddy</td><td>OS-level, motivational rather than prescriptive</td><td>$79.99/yr (Fitness+)</td></tr>
+      <tr><td>Nike Run Club</td><td>Free static plans and audio. Effectively maintenance</td><td>Free</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Plot every product on two axes &mdash; route intelligence and training intelligence &mdash; and <strong>the top-right quadrant is empty</strong>. Coaching apps cluster high-left. Route apps cluster low-right. Strava sits mid-low on training and highest among incumbents on routing, the only product with a foot in both. Waypoint's planned position is the empty corner.</p>
+
+  <div class="callout crit">
+    <span class="lbl">The threat, stated as plainly as it deserves</span>
+    <p><strong>Strava connecting Runna's plan engine to its own route generation is the kill shot.</strong> Strava owns every piece: the only shipping generator, a heatmap built on 10 billion-plus activities, the leading coaching app since April 2025, and a $149.99 bundle already marketed with the words <em>"personalized routes linked to your training plan."</em></p>
+    <p style="margin-top:9px">Likelihood of a shallow version, meaning popularity-ranked routes attached to plans: <strong>50 to 60% within 18 months</strong>. Likelihood of matching full constraint depth &mdash; weather, crossings, safety, surface: <strong>20 to 30%</strong>, because that is niche, liability-adjacent work for a multi-sport platform with a much larger business to protect.</p>
+    <p style="margin-top:9px"><strong>And part of that window has already closed.</strong> Strava launched Instant Workouts globally in January 2026, attaching heatmap-generated routes to suggested workouts. The shallow version effectively exists. Our differentiation therefore cannot be "they don't link workouts to routes" &mdash; it has to be constraint depth, which is what this plan actually builds. We recorded that correction in the research rather than quietly dropping it.</p>
+  </div>
+
+  <p><strong>Working window: 12 to 18 months to launch something defensible; roughly 24 months before constraint depth could be matched.</strong> The build consumes 9 to 13 of those months, which is the single most uncomfortable fact in this document and the reason the timeline is not padded.</p>
+
+  <div class="callout good">
+    <span class="lbl">Why the incumbents' own rules help us</span>
+    <p>Strava's API terms <strong>ban AI use of its data</strong>, and Garmin has <strong>paused new Connect Developer Program applications</strong>. Waypoint therefore cannot and does not depend on incumbent data. It is HealthKit-first by necessity, and the moat has to live in proprietary context data: the crossing graph, safety scoring, micro-weather. That is a harder build and a better business, because it is the one asset an incumbent cannot acquire by changing an API term.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="s05">
+  <div class="sec-num">05</div>
+  <h2>The product</h2>
+  <p class="sec-sub">Fifteen features, six things we will never build, and the design rules that are not negotiable.</p>
+
+  <p class="pull">For committed amateur runners who never quite know where today's run should go, Waypoint is the running app that generates the right route for you, right now, from wherever you stand.</p>
+
+  <p>Because it is the only product that treats safety, weather, street crossings, surface, distance, and your training state as routing inputs rather than afterthoughts. Tagline: <strong>"Know where to run."</strong></p>
+
+  <div class="callout">
+    <p>That tagline replaced "Your AI Running Coach", deliberately. Category data shows AI-branded apps earn about <strong>41% more per payer but churn roughly 30% faster</strong>. So the brand markets the utility of the route, not the intelligence behind it.</p>
+  </div>
+
+  <h3>The MVP: 15 features, and what each is for</h3>
+  <p>Scored at 22.75 person-months plus roughly 2 months of release overhead.</p>
+
+  <h4>The wedge itself</h4>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:26%"><strong>H-01</strong> Core route generation</td><td>Constraint-based, round-trip from any start point. The product</td></tr>
+      <tr><td><strong>H-02</strong> Elevation constraint</td><td>Flat when you want flat, hills when you want hills</td></tr>
+      <tr><td><strong>H-05</strong> Safety-aware routing v1</td><td>Weighting toward lit and populated streets. The strongest-evidenced need, and free permanently</td></tr>
+      <tr><td><strong>H-07</strong> Route novelty</td><td>Streets you have not run, near where you already are. The half of the wedge that works without travel</td></tr>
+      <tr><td><strong>H-08</strong> Travel mode</td><td>Not a separate engine: the same generator with zero-configuration defaults and offline resilience. The activation story</td></tr>
+      <tr><td><strong>H-09</strong> Honest degradation</td><td>When the data will not support a good route, say so. Refusing well is a feature</td></tr>
+      <tr><td><strong>X-01</strong> Voice turn-by-turn</td><td>Generation <em>and</em> execution in one product is itself a gap: Footpath and RunGo execute but do not generate</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>Table stakes, because their absence would disqualify the app</h4>
+  <p>GPS tracking · run history · HealthKit sync · onboarding · audio cues · route save and re-run · Strava share · privacy, consent and AI disclosure.</p>
+
+  <h3>What ships after, and what never ships</h3>
+  <div class="grid2">
+    <div class="card">
+      <h4>Fast-follow, 30 to 120 days post-launch</h4>
+      <p>~17 person-months: the Watch app, GPX export, remaining routing constraints (crossings, weather, surface), the preference-learning loop, and the paid coaching layer.</p>
+    </div>
+    <div class="card">
+      <h4>Never &mdash; and this list is locked</h4>
+      <p>No social network (we post <em>to</em> Strava). No route content library &mdash; generate, do not curate. No multi-sport in v1. No hardware. No plan-quality brand war with Runna. No charging for basic loop generation.</p>
+    </div>
+  </div>
+  <p>The NOT list is doing real work. It is what keeps a solo founder's MVP at 15 items instead of 40, and it is what makes the paid tier nameable.</p>
+
+  <h3>The design rules that are not negotiable</h3>
+  <ul>
+    <li><strong>Explain, never assert.</strong> Every route carries a checkable "why this route" card.</li>
+    <li><strong>Honest degradation everywhere.</strong> Never fake confidence.</li>
+    <li><strong>Safety-aware, never safe.</strong> Six binding language rules, enforced by a CI lint.</li>
+    <li><strong>Private by default.</strong> Privacy zones, start-point obfuscation before anything leaves the device.</li>
+    <li><strong>Accessible from the first sprint.</strong> WCAG 2.2 AA and EN 301 549, not retrofitted.</li>
+  </ul>
+</section>
+
+<!-- 06 -->
+<section id="s06">
+  <div class="sec-num">06</div>
+  <h2>Who it is for</h2>
+  <p class="sec-sub">One segment, one metro, four personas &mdash; and the reframe that changed the strategy.</p>
+
+  <p>Not "committed amateurs", which is roughly 13 million people in the US alone and contains at least three unrelated acquisition problems. The beachhead is <strong>the urban committed amateur who runs three to five times a week from a home doorstep, in one metro</strong>, with women runners as the highest-intensity cohort inside that group.</p>
+
+  <div class="callout">
+    <span class="lbl">Why one metro is structural, not timid</span>
+    <p>Route quality is a function of OpenStreetMap pedestrian data density, which varies enormously between cities, and street crossings are documented as the hardest features to map. Coverage is therefore three-tiered: globally functional for distance, elevation and novelty; two to three metros where the safety layer is actually built; and one beachhead metro that absorbs all human effort. A thin national launch ships bad routes to most of the country, and <strong>a bad route is the one failure mode this product cannot survive</strong>.</p>
+  </div>
+
+  <div class="tw"><table>
+    <thead><tr><th>Persona</th><th>Who</th><th>The job</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Marcus</strong><br><span class="badge b-blue">core</span></td><td>Committed amateur racer. Runs 4x a week around a job and family, races a spring half and a fall marathon, bored of three loops, self-coaches with apps</td><td>Tell me today's workout <em>and</em> where to do it, keep me injury-free, make the daily decision effortless</td></tr>
+      <tr><td><strong>Priya</strong><br><span class="badge b-gray">sharpest case</span></td><td>Traveling professional. Different city each week, mid marathon block, 6 a.m. in a hotel lobby with miles to run</td><td>Answer "where do I run, right now, from here", keep the plan intact while traveling, keep me safe in an unknown city</td></tr>
+      <tr><td><strong>Elena</strong><br><span class="badge b-gray">highest intensity</span></td><td>Safety-first city runner. Plans every run around daylight, lighting and escape routes before pace</td><td>Find a route where I will feel and be safe at this hour, widen my world past two proven loops, never expose where I live</td></tr>
+      <tr><td><strong>Jake</strong><br><span class="badge b-gray">secondary</span></td><td>Ambitious beginner. Nine months in via a run club, first half on a dare, motivated and injury-prone</td><td>Finish uninjured, tell me what "easy" actually means, do not make me feel slow</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>These are desk personas</strong>, assembled from published surveys and mined competitor complaints, with no Waypoint interviews behind them. <a class="ref" href="#s16">Section 16</a> makes fixing that the first item of work.</p>
+
+  <h3>The reframe that changed the strategy</h3>
+  <div class="callout warn">
+    <p>The founder's original hypothesis was that <strong>travel friction drives adoption</strong>. Research came back <em>partially supported, and reframed</em>. The travel question is constant and demonstrably monetized by workarounds &mdash; but those workarounds usually succeed within 15 or 20 minutes, and travel is episodic. You cannot retain a user on a problem they have six times a year.</p>
+    <p style="margin-top:9px">So: <strong>travel is the activation moment and the demo; safety plus novelty at home is the daily retention wedge.</strong> This changed which features are load-bearing and which metro strategy is correct. Correcting the founder's own hypothesis early is the most valuable thing the research did.</p>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="s07">
+  <div class="sec-num">07</div>
+  <h2>Business model and pricing</h2>
+  <p class="sec-sub">A paywall further out than most would put it, and the reasoning for every rejection.</p>
+
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:30%"><strong>Annual</strong></td><td><strong>$99.99/year</strong>, merchandised as "$8.33 a month, billed annually"</td></tr>
+      <tr><td><strong>Monthly</strong></td><td>$12.99/month</td></tr>
+      <tr><td><strong>Trial</strong></td><td>21 days, annual plan only</td></tr>
+      <tr><td><strong>Founding Runner</strong></td><td><strong>$69.99/year, price-preserved indefinitely</strong> for everyone who joined during the free era</td></tr>
+      <tr><td>Lifetime tier</td><td><span class="badge b-gray">Rejected</span></td></tr>
+      <tr><td>Data or location monetization</td><td><span class="badge b-red">Rejected on the record</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Where the paywall sits</h3>
+  <div class="grid2">
+    <div class="card">
+      <h4>Free forever</h4>
+      <p>All route generation. Every routing constraint including the safety layer. The Watch app. GPX export. Run tracking, HealthKit sync, Strava posting, and the preference-learning loop.</p>
+    </div>
+    <div class="card">
+      <h4>Paid</h4>
+      <p>The coaching layer alone. One nameable job: <em>your training, routed.</em></p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>This is the most aggressive concession in the plan, made deliberately, with the escape hatch explicitly declined. The reasoning: the permanent free tier gets <strong>named publicly at launch, before anyone has paid anything</strong>. Promising it later, at the moment the paywall appears, reads as damage control.</p>
+    <p style="margin-top:9px">A paywall that gates capability which did not exist the day before is an announcement. A paywall that closes doors that were open yesterday is a betrayal. The build sequence supports the former, because the coaching layer and the paywall ship together.</p>
+  </div>
+
+  <h3>Why $99.99 and not less</h3>
+  <p>It sits <strong>17% under Runna's $119.99</strong> while doing something Runna cannot do at all, a third under the $149.99 assembled Strava-plus-Runna alternative, and clearly above the utility band where Footpath ($23.49) and Komoot (&euro;59.99) live.</p>
+  <p><strong>The counterintuitive support:</strong> higher-priced apps in this category convert <em>better</em> at the download-to-paid step &mdash; 2.8% in the high band against 1.4% in the low &mdash; and generate roughly six times the year-one lifetime value per payer. Nothing in the data supports discounting into the utility band to buy conversion.</p>
+  <p><strong>The tactical rule:</strong> list high and discount, never the reverse. Apple applies price <em>decreases</em> silently, but increases above roughly 50% or $50 a year require explicit consent from every existing subscriber, and non-consenting subscriptions simply expire. Launching low and raising later would be a consent event across the entire base.</p>
+
+  <div class="callout crit">
+    <span class="lbl">The risk this creates, named</span>
+    <p>The paid product now rests entirely on <strong>one job</strong>. If training-state-aware generation turns out not to be felt value, there is no second paid thing at v1.x to fall back on. Its demand evidence is <em>inferred from the category's total absence of it</em>, not verified from anyone paying for it. That is the deepest unknown in the business, and no price fixes it.</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="s08">
+  <div class="sec-num">08</div>
+  <h2>Unit economics</h2>
+  <p class="sec-sub">Directional, modeled across a price band &mdash; and one finding that governs the whole business.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th></th><th>MVP scale</th><th>10k monthly actives</th><th>100k</th><th>1M</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gross margin per subscriber</strong></td><td>Negative</td><td><strong>63%</strong></td><td>78%</td><td>84%</td></tr>
+      <tr><td>Infrastructure</td><td>$135&ndash;255/mo</td><td>$540&ndash;770/mo</td><td>&mdash;</td><td>&mdash;</td></tr>
+    </tbody>
+  </table></div>
+  <p>Margin is negative at MVP scale for an unremarkable reason: a ~$195 monthly infrastructure floor spread across ~30 payers exceeds net revenue per subscriber. It resolves with scale, not with optimization.</p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="big">~3,000</div>
+      <h4>Break-even subscribers</h4>
+      <p>Against a $15,000 monthly operating base. ~6,800 held for a year also repays the build. The hard part is not the 3,000; it is the ~60,000 monthly actives it implies at a 5% conversion rate.</p>
+    </div>
+    <div class="card">
+      <div class="big">&lt;$1</div>
+      <h4>Annual cost of a free user</h4>
+      <p>"Free users are expensive" is simply false in absolute terms. What bites is revenue <em>share</em>: the free base consumes 55% of net revenue at 2% conversion, 36% at 3%, and becomes a rounding error above ~5.3%.</p>
+    </div>
+    <div class="card">
+      <div class="big">0.8088</div>
+      <h4>Net revenue multiplier</h4>
+      <p>After the 15% small-business store commission on both platforms, RevenueCat at ~1.4% of net, and a 3.5% refund allowance.</p>
+    </div>
+  </div>
+
+  <div class="callout crit">
+    <span class="lbl">The finding that governs the whole business</span>
+    <p><strong>Paid acquisition does not work at any price in the credible band.</strong> A ~$4.00 category cost per install divided by a 2.5% download-to-paid rate gives roughly <strong>$160 per acquired subscriber</strong>, against a lifetime value of $86 to $107. That is <strong>53 to 70 cents returned on the dollar</strong>.</p>
+    <p style="margin-top:9px">Which means the model clears a 3:1 lifetime-value-to-acquisition-cost bar only at roughly <strong>84% or better organic acquisition</strong>. Pricing at $99.99 rather than a $7.99 mid case is what brings that down from about 90%, so price and distribution are coupled &mdash; favorably, but tightly.</p>
+    <p style="margin-top:9px">The go-to-market plan independently rejects paid acquisition for a different reason: a bought install before month 10 has a lifetime value of exactly zero and contaminates the retention signal the MVP exists to produce. <strong>Two documents reached the same conclusion from different directions</strong>, which is the strongest form of agreement. But it makes the dependency permanent.</p>
+  </div>
+
+  <p class="pull">If community-first distribution fails, no price rescues the model. That is the single most important sentence in this blueprint.</p>
+
+  <h3>What actually moves the outcome</h3>
+  <p>In order: <strong>organic share of acquisition</strong> (an 8.4x swing in blended acquisition cost), <strong>free-to-paid conversion</strong>, then <strong>annual first-renewal rate</strong>. Price is a distant fourth. Infrastructure cost does not make the top five, so anyone optimizing hosting here is optimizing the wrong thing.</p>
+  <p>The uncomfortable interaction between the top two: the generous free tier that keeps acquisition cost low is the same thing that suppresses conversion.</p>
+
+  <h3>Renewal, and a category hazard</h3>
+  <p>The model runs on RevenueCat's verified <strong>36% Health and Fitness median</strong> first-year annual renewal as its base case, with 24% as the pessimistic case. The revenue plan independently assumed ~30%, which is the safe direction for two models to differ in.</p>
+  <p>Both flagged the same hazard from the same source: <strong>AI-branded apps earn ~41% more per payer but churn ~30% faster.</strong> A direct argument for the brand decision in section 05.</p>
+
+  <div class="callout warn">
+    <span class="lbl">One measurement warning</span>
+    <p>Three different conversion rates appear across the source research with <strong>three different denominators</strong>: percent of <em>installs at the paywall date</em>, percent of <em>week-4-retained users</em>, and percent of <em>free active users</em>. They are not comparable and must never be quoted side by side.</p>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="s09">
+  <div class="sec-num">09</div>
+  <h2>Go-to-market</h2>
+  <p class="sec-sub">Community-first out of arithmetic, not romance. Plus the launch call that went against the recommendation.</p>
+
+  <p>The founder is 1.0 FTE within a 2.5 to 3.0 FTE team and is simultaneously the product owner, the client engineer and the routing lead. Go-to-market gets <strong>3 to 4 hours a week in months 1 to 3</strong>, rising to 15 to 25 hours in the launch window, on a cash budget from $0 to $800 a month. Every channel below is filtered through that.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>#</th><th>Channel</th><th>Verdict</th><th>Year-one plausible return</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Physical run clubs</strong></td><td><span class="badge b-green">Primary</span> from month 2</td><td>100&ndash;400 high-intent installs in one metro, plus the beta cohort and interview subjects</td></tr>
+      <tr><td>2</td><td><strong>Reddit and running forums</strong></td><td><span class="badge b-green">Primary</span> from month 1, after 4&ndash;8 weeks of pure participation</td><td>50&ndash;300 beta testers, and a durable feedback loop</td></tr>
+      <tr><td>3</td><td>Store optimization</td><td><span class="badge b-blue">Infrastructure</span></td><td>The compounding baseline under everything else</td></tr>
+      <tr><td>4</td><td>Founder-led build-in-public</td><td><span class="badge b-blue">Lottery ticket</span></td><td>500&ndash;3,000 waitlist signups if it lands, zero if it does not</td></tr>
+      <tr><td>5</td><td>Micro-creators and coaches</td><td><span class="badge b-gray">Secondary</span></td><td>Gifted only until launch. Strongest post-launch lever</td></tr>
+      <tr><td>6</td><td>PR and press</td><td><span class="badge b-gray">One-shot</span></td><td>One coverage cycle, plus a credibility artifact</td></tr>
+      <tr><td>7</td><td>Content and SEO</td><td><span class="badge b-amber">Deprioritize</span></td><td>Structurally impaired: AI Overviews cut clicks 39.8&ndash;58%, payback past the window</td></tr>
+      <tr><td>8</td><td>Paid acquisition</td><td><span class="badge b-red">Do not run</span></td><td>Negative, per section 08</td></tr>
+    </tbody>
+  </table></div>
+
+  <p><strong>Run clubs rank first on evidence.</strong> New Strava clubs nearly quadrupled in 2025 to one million total, running clubs specifically grew 3.5x, and club participation rose 59% globally over two years. The channel also solves Waypoint's specific demo problem: <em>the value is invisible in a screenshot and obvious in ninety seconds standing next to someone.</em> There is a partnership angle too, since somebody in every club currently draws the weekly route by hand.</p>
+
+  <h3>The launch, and the override</h3>
+  <p><strong>iOS at month 9 to 10 is the public launch</strong>, carrying the one-shot assets: press, creators, Product Hunt, and the Apple featuring nomination. Android follows 4 to 8 weeks later as a second, smaller moment.</p>
+  <p>This overrode the research recommendation, which favored holding the loud moment for the Android date so a mixed-platform run club would not hear "not yet" from half the room. Three things outweighed it: the <strong>Apple featuring nomination is iOS-only</strong> and cannot be spent on an Android launch, <strong>speed matters</strong> inside a window the build already consumes most of, and <strong>iOS carries roughly 85% of category subscription revenue</strong>, so the audience whose behavior decides the paid layer is reached sooner.</p>
+
+  <div class="callout warn">
+    <span class="lbl">What the override costs, and the four conditions attached</span>
+    <p>The override removes the quiet burn-in period that was absorbing three risks. Four conditions follow, and they are commitments rather than intentions:</p>
+    <ol style="margin:9px 0 0">
+      <li>The month-8 beta cohort target of 150 to 300 active testers becomes a <strong>hard gate on the launch date</strong>, because it now carries the entire route-quality load alone. If the beta is thin, the launch slips.</li>
+      <li>Reviews are seeded from the beta cohort at launch, with crash-free sessions above 99.5% as a release gate.</li>
+      <li>Android waitlist capture starts at every in-person event from launch onward.</li>
+      <li>The Apple featuring nomination is filed at month 6 to 7, given its ~three-month lead.</li>
+    </ol>
+  </div>
+
+  <h3>The paywall transition, months 10 to 12</h3>
+  <p>The most dangerous moment in the plan, and it gets a protocol rather than a hope. Never take anything away. Gate only capability that did not exist the day before. Name the permanent free tier publicly at launch. Grandfather the pre-paywall cohort permanently and by name as founding runners. Give 30 days notice in plain language. Hold the whole thing behind the week-4 retention bar, and slip the date out loud if retention does not clear it.</p>
+  <p>Tripwire, with a number: <strong>no more than a 20% drop in weekly active generators in the 30 days after the paywall.</strong> The one unavailable response is silence, since silence is exactly the competitor failure that created this opening.</p>
+
+  <h3>Traction milestones, and what each would prove</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Milestone</th><th>Target</th><th>When</th><th>What it proves</th></tr></thead>
+    <tbody>
+      <tr><td>Interview program</td><td>12&ndash;18 conversations</td><td>Month 4</td><td>The umbrella job is real or it is not. <strong>The highest-information milestone in the plan</strong>, and not a growth metric</td></tr>
+      <tr><td>TestFlight cohort</td><td>20&ndash;50 target-segment runners</td><td>Month 4</td><td>The founder can reach the segment without paying for it</td></tr>
+      <tr><td>Beta cohort</td><td>150&ndash;300 active testers</td><td>Month 8</td><td>Route quality stress-tested beyond one runner's habits. Now a launch gate</td></tr>
+      <tr><td>iOS launch, 30 days</td><td>500&ndash;1,500 installs, 4.5+ rating</td><td>Month 9&ndash;10</td><td>Quality, not volume</td></tr>
+      <tr><td>First-generation success</td><td>&gt;85% of first sessions produce a route the user starts</td><td>Continuous</td><td>Activation works. Below this, the problem is onboarding, not acquisition</td></tr>
+      <tr><td><strong>Week-4 retention</strong></td><td><strong>20% or better</strong></td><td>Month 10&ndash;11</td><td><strong>The core hypothesis.</strong> To an investor, the difference between a feature and a product</td></tr>
+      <tr><td>Repeat generation</td><td>2+ per active user per week</td><td>Month 10+</td><td>Route generation is a habit, not a novelty</td></tr>
+      <tr><td>Monthly active runners</td><td>2,000&ndash;5,000</td><td>Month 12</td><td>The Founder Brief's "thousands of active runners", met honestly</td></tr>
+      <tr><td>Paid layer, 90 days</td><td>4&ndash;8% of week-4-retained convert</td><td>Month 12&ndash;15</td><td>Willingness to pay, revealed rather than surveyed</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>What none of this proves, and it should be said in the same breath:</strong> that the company can acquire users outside one metro, that the loops compound, or that the coaching layer monetizes at scale. Those are the seed round's job.</p>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <div class="sec-num">10</div>
+  <h2>How success is measured</h2>
+  <p class="sec-sub">A North Star that cannot be gamed, and a contradiction we found in our own plan.</p>
+
+  <div class="callout good">
+    <span class="lbl">North Star</span>
+    <p><strong>Weekly Routed Runners</strong> &mdash; distinct runners completing <strong>two or more generated routes in a rolling seven days</strong>, with an 80% completion floor inside the definition.</p>
+    <p style="margin-top:9px">The floor is the point. It means the metric <strong>mechanically cannot rise by shipping more routes people abandon</strong>.</p>
+  </div>
+
+  <h3>The rejected alternatives are more informative than the choice</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:30%"><strong>Monthly active users</strong></td><td>Inflatable by the Android launch, and would hide a collapsing weekly cadence for a month</td></tr>
+      <tr><td><strong>Total routes generated</strong></td><td>Disqualifying, because it <strong>rises when routes are bad</strong> &mdash; a rejected route drives regeneration</td></tr>
+      <tr><td><strong>Total distance run</strong></td><td>A cohort using Waypoint as a plain GPS tracker would score perfectly while refuting the core hypothesis</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Activation and route quality</h3>
+  <p><strong>Activation: first generated route completed as a recorded run, within seven days of install.</strong> The earlier definition, "generate and start", counted mid-run abandonment as success &mdash; and mid-run abandonment is precisely the signature of a bad route. Since bad routes are the named MVP risk, an activation metric blind to them is worse than none.</p>
+  <p><strong>Route quality:</strong> eleven behavioral signals collapse into one weekly Good Route Rate, because users will rarely rate anything explicitly. The strongest positive proxy is the 30-day repeat rate. The quietest and most damning negative is the reveal abandon rate &mdash; a user sees the route and leaves. Investigate below 65%; stop feature work below 50%.</p>
+
+  <div class="callout warn">
+    <span class="lbl">The guardrail that matters most</span>
+    <p><strong>Honest-refusal rate stability.</strong> The easiest way to lift acceptance numbers is to quietly relax constraints when the engine struggles. A product whose honest refusals disappear looks exactly like a product that got better. Monitoring refusal stability is what keeps the core design principle from eroding under growth pressure.</p>
+  </div>
+
+  <h3>The contradiction we found in our own plan</h3>
+  <p>Cohort retention requires a stable per-user identifier over time. TelemetryDeck, the privacy-first analytics vendor originally selected, <strong>deliberately provides none</strong> &mdash; that is exactly why it needs no consent banner. So the privacy-preserving analytics choice could not produce the single metric the product exists to prove.</p>
+  <p>Resolved by keeping cohort retention in a <strong>first-party Postgres event table</strong>, keyed on the account identifier already held for sync, inside the EU-resident store. No new vendor, no new consent basis, no new data-processing agreement.</p>
+  <p>We report this because finding it before building is the useful outcome, and because it is a fair illustration of what the research process is for.</p>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+  <div class="sec-num">11</div>
+  <h2>Technology and architecture</h2>
+  <p class="sec-sub">A stack chosen against four pillars, with the moat in data nobody else's terms of service govern.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Layer</th><th>Choice</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Client</strong></td><td>React Native with Expo, MapLibre maps, one codebase</td><td>Dual-platform MVP without two teams</td></tr>
+      <tr><td><strong>Routing</strong></td><td>Self-hosted GraphHopper with custom cost models, on Hetzner</td><td>The only engine combining a round-trip primitive with cost models that can ingest proprietary data</td></tr>
+      <tr><td><strong>Moat data</strong></td><td>Self-managed PostGIS on the Hetzner private network</td><td>The crossing graph and safety layer. Contains no personal data</td></tr>
+      <tr><td><strong>Personal data</strong></td><td>Aiven for PostgreSQL, EU region</td><td>EU-owned, ISO 27001 and SOC 2, 99.99% SLA</td></tr>
+      <tr><td><strong>Auth</strong></td><td>Better Auth, in Waypoint's own API layer</td><td>Decoupled, so identity is not hostage to a platform vendor</td></tr>
+      <tr><td><strong>Health data</strong></td><td>HealthKit-first, processed on-device</td><td>Structural, not a policy</td></tr>
+      <tr><td><strong>On-device AI</strong></td><td>Apple Foundation Models, 3B params, zero inference cost</td><td>Makes free coaching narration economically possible</td></tr>
+      <tr><td><strong>Monetization</strong></td><td>RevenueCat over StoreKit 2 and Play Billing</td><td>Both small-business 15% programs</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The two decisions worth explaining</h3>
+  <p><strong>Supabase was evaluated and dropped.</strong> Against four pillars &mdash; security, stability, reliability and compliance &mdash; it did not survive. The replacement is a deliberate split: personal data in a managed EU database with real certifications and a real SLA, and the geospatial moat self-managed where it is cheap and where nobody else's terms of service apply to it. Auth was pulled out of the database vendor entirely, because auth being someone else's product is how a data layer becomes unswappable.</p>
+  <p>This carries an <strong>explicit revisit clause</strong> at four named checkpoints: before the walking skeleton, when architecture design starts, at contract time, and if the two-database plus self-owned-auth operational burden proves real in practice. Infrastructure detail is not permitted to block product definition.</p>
+  <p><strong>iOS-first was replaced by one cross-platform codebase.</strong> Launching on both platforms is a founder decision, not a research finding. React Native with MapLibre delivers it at ~29 to 31 person-months instead of the near-double a two-native-team approach would cost.</p>
+
+  <h3>Integrations</h3>
+  <p>Roughly <strong>20 required integrations across 7 domains</strong>, with 30 cataloged including fallbacks. Every price and rate limit verified. Total <strong>$80 to $130 a month at MVP scale</strong>, rising to $350 to $500 at 10,000 monthly actives, both platforms included.</p>
+  <p>The self-host-first posture is a compliance decision as much as a cost one: Nominatim's public API bans commercial heavy use outright, Photon's demo instance throttles, and several map free tiers are non-commercial only. Nothing in the shipped app may call a donated public instance, because an innocently wired free endpoint becomes either a production outage or a terms violation.</p>
+
+  <div class="callout warn">
+    <span class="lbl">The licensing question we have not resolved</span>
+    <p>The crossing graph and any OpenStreetMap-derived context layer may constitute a Derivative Database under ODbL share-alike, which could require making it available on request. Worst case, a competitor requests the derived crossing dataset and the moat narrows to the scoring models and data freshness. This needs counsel review before launch and is listed in <a class="ref" href="#s16">section 16</a> rather than glossed.</p>
+  </div>
+</section>
+
+<!-- 12 -->
+<section id="s12">
+  <div class="sec-num">12</div>
+  <h2>Execution timeline</h2>
+  <p class="sec-sub">Twelve months from start to a measured retention number.</p>
+
+  <div class="timeline">
+    <div class="tl-item key"><div class="tl-m">Month 1</div><p><strong>A3 technical spike: is the safety layer buildable from open data at solo-founder scale?</strong> Android long-lead paperwork starts. Reddit and forum participation begins with zero promotion.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 2&ndash;3</div><p>Run club presence begins. First OpenStreetMap local mapping meetup, as a contributor.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 3&ndash;4</div><p><strong>Walking skeleton on TestFlight.</strong> Interview priorities 1 and 2 complete: 12 to 18 conversations. TestFlight cohort of 20 to 50 target-segment runners.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 6&ndash;7</div><p>Apple featuring nomination filed (three-month lead). Store assets, press list, creator outreach.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 7</div><p>Feature-complete beta: all 15 MVP items.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 8</div><p><strong>Beta cohort of 150 to 300 active testers &mdash; a hard gate on the launch date.</strong></p></div>
+    <div class="tl-item key"><div class="tl-m">Month 9&ndash;10</div><p><strong>iOS public launch.</strong> One-shot assets spent here.</p></div>
+    <div class="tl-item key"><div class="tl-m">Month 10&ndash;11</div><p><strong>Week-4 retention measured. The number the MVP exists to produce.</strong></p></div>
+    <div class="tl-item"><div class="tl-m">Month 10&ndash;12</div><p>Android certification and release, as a second local moment. Paid coaching layer ships, behind the retention gate.</p></div>
+    <div class="tl-item"><div class="tl-m">Month 12</div><p>2,000 to 5,000 monthly active runners. Seed round in motion.</p></div>
+  </div>
+
+  <div class="callout">
+    <p><strong>The month-1 spike deserves its emphasis.</strong> Whether lighting and population scoring can be built from open data at this scale is the riskiest technical assumption in the plan &mdash; and because the beachhead metro choice depends on the answer, it is a <strong>go-to-market gate and not merely a technical one</strong>. It converts the largest unknown into a scoped decision before any marketing effort is committed.</p>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="s13">
+  <div class="sec-num">13</div>
+  <h2>Capital and team</h2>
+  <p class="sec-sub">A derived requirement, with the arithmetic shown so it can be argued with.</p>
+
+  <h3>The team the plan assumes</h3>
+  <p><strong>Founder full-time</strong>, covering product ownership, client engineering and routing. Plus <strong>two contractors</strong>: a senior client engineer at 0.75 to 1.0 FTE, and a backend, routing and data engineer at 0.5 to 1.0 FTE. Effective capacity: <strong>2.5 to 3.0 FTE</strong>.</p>
+  <p>This is the constraint that shapes every other decision in this document. It is why the NOT list is long, why the MVP is 15 items, why paid acquisition is off the table, and why the top-ranked channel is one the founder must run personally.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Line</th><th>Amount</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td>Build to dual-platform launch</td><td><strong>~$230,000</strong></td><td>29 to 31 person-months at the assumed team shape</td></tr>
+      <tr><td>Post-launch runway, 6 to 9 months</td><td><strong>~$90,000&ndash;135,000</strong></td><td>~$15,000/month operating base, through the retention proof and the paid-layer test</td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>~$320,000&ndash;365,000</strong></td><td>Round to a <strong>$350,000&ndash;400,000</strong> pre-seed with buffer</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>This is a derived figure and not yet a decided ask.</strong> No decision record covers the raise, and the Founder Brief states the funding goal only as "seed round closed or in motion within 12 months".</p>
+
+  <h3>What it buys, stated as evidence rather than features</h3>
+  <p>Twelve months of capital produces four things an investor can check: a dual-platform product in both stores, a <strong>measured week-4 retention number</strong> for runners who generate routes, a revealed-preference read on whether anyone pays for training-state-aware routing, and a validated or invalidated answer on whether one metro's pedestrian data can carry a safety layer.</p>
+  <p class="pull">If week-4 retention clears 20 percent, this is a company. If it does not, the capital bought a definitive answer for well under a million dollars.</p>
+</section>
+
+<!-- 14 -->
+<section id="s14">
+  <div class="sec-num">14</div>
+  <h2>Risk analysis</h2>
+  <p class="sec-sub">Eleven risks, four of them critical, each with what we actually do about it.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bad routes.</strong> The one failure mode the product cannot survive. A viral complaint about a route that sent someone somewhere bad is precisely the incumbent's documented wound</td><td><span class="badge b-red">Critical</span></td><td>Founder personally runs beachhead routes. One metro, not a thin national launch. Honest degradation over invented confidence. Beta cohort is a hard launch gate</td></tr>
+      <tr><td><strong>Strava ships constraint-aware generation.</strong> They own the generator, the heatmap, the coaching app and the bundle</td><td><span class="badge b-red">Critical</span></td><td>20&ndash;30% likelihood for full depth; the shallow version already shipped in January 2026. Differentiate on depth, ship inside the window, build the moat in data they cannot acquire by changing an API term</td></tr>
+      <tr><td><strong>The beachhead metro fails the pedestrian-data floor.</strong> Sits underneath the segment choice, the metro choice, the top channel and the entire differentiation claim</td><td><span class="badge b-red">Critical</span></td><td>Month-1 spike answers it before marketing effort is committed. Shortlist held in reserve: Seattle, Boston, New York, London</td></tr>
+      <tr><td><strong>Community-first distribution underperforms.</strong> The economics require ~84% organic and paid acquisition cannot rescue it</td><td><span class="badge b-red">Critical</span></td><td>Two primary channels started early and cheaply, with month-4 and month-8 checkpoints that fail loudly rather than quietly</td></tr>
+      <tr><td><strong>Safety-liability exposure.</strong> The strongest-evidenced need is the highest-liability surface</td><td><span class="badge b-amber">High</span></td><td>Six binding language rules enforced by CI lint. Never "safe", always "safety-aware". Data basis and limits stated on every safety surface. Counsel review pre-launch</td></tr>
+      <tr><td><strong>The paid job is not felt value.</strong> The entire paid product is one job whose demand is inferred from market absence</td><td><span class="badge b-amber">High</span></td><td>The 12&ndash;18 interviews in month 4 are the cheapest possible test. The free tier means the company is not staked on the paywall to survive year one</td></tr>
+      <tr><td><strong>ODbL share-alike narrows the moat</strong></td><td><span class="badge b-amber">Med-High</span></td><td>Counsel review of layer boundaries. Keep municipal and user-derived layers as separate Collective Database members. Accept that scoring models and freshness are the truly defensible part</td></tr>
+      <tr><td><strong>The launch override backfires</strong>, since public launch now happens without a quiet burn-in</td><td><span class="badge b-amber">Med-High</span></td><td>Four named compensating conditions in section 09, with the beta cohort as a hard gate</td></tr>
+      <tr><td><strong>H5 stays uncertain</strong> and the wedge proves to be a $10M business rather than a venture one</td><td><span class="badge b-amber">Medium</span></td><td>Four named expansion paths. Named tests that would resolve it. Disclosed rather than hidden</td></tr>
+      <tr><td><strong>Solo-founder key-person risk</strong></td><td><span class="badge b-amber">Medium</span></td><td>Two contractors on the build. The one thing that cannot be delegated, run-club presence, is explicitly acknowledged as founder-only</td></tr>
+      <tr><td><strong>Renewal lands at the 24% pessimistic case</strong> rather than the 36% median</td><td><span class="badge b-amber">Medium</span></td><td>Annual-only trial, price-preserved founding cohort, and a brand positioned on route utility rather than AI</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 15 -->
+<section id="s15">
+  <div class="sec-num">15</div>
+  <h2>Legal, privacy and compliance</h2>
+  <p class="sec-sub">Fifteen items gate launch. The architecture is the compliance strategy.</p>
+
+  <p>Goal G6 is <strong>zero compliance regressions</strong>: no submission happens without all fifteen checklist items verified.</p>
+
+  <h3>GDPR, which applies from day one</h3>
+  <p>Heart rate, training load and injury reports are <strong>Article 9 special category health data</strong>, requiring explicit consent through a dedicated gateway. GPS and planned routes are personal data under Article 4(1), and can themselves become Article 9 data when they reveal health information. A <strong>DPIA is required</strong> under Article 35, since systematic location plus health processing at scale is high-risk. Data processing agreements are needed with every processor, an EU representative under Article 27 if there is no EU establishment, and consent withdrawal must be as easy as granting it, with a defined degraded mode when health consent is withdrawn.</p>
+
+  <div class="callout good">
+    <span class="lbl">The architecture is the compliance strategy</span>
+    <p>Health data is processed <strong>on-device and never leaves it</strong>, which collapses the Article 9 server surface rather than managing it. Raw GPS is processed on-device where feasible. Start points are obfuscated before leaving the device for any shared surface. No CloudKit for health data, per Apple guideline 5.1.3(ii). The Strava integration is <strong>write-only</strong>, since Strava's API bans AI use of its data.</p>
+    <p style="margin-top:9px">This is why the privacy claim is a structural advantage rather than a marketing line: competitors would have to re-architect to make it, and our biggest competitor's own API terms prevent the shortcut.</p>
+  </div>
+
+  <p><strong>Also in scope:</strong> Washington's My Health My Data Act, the FTC Health Breach Notification Rule, and roughly 20 comprehensive US state privacy laws as of mid-2026. The <strong>EU AI Act Article 50(1)</strong> transparency obligation takes effect <strong>2026-08-02</strong>, requiring AI disclosure at first interaction &mdash; inside the build window, not after it.</p>
+
+  <h3>The claim discipline</h3>
+  <p>The product may never say "safe route", "safest route" or "keeps you safe", may never use fear-based marketing, and may never make an unsubstantiated AI claim (the FTC's Operation AI Comply is the live enforcement precedent). Coaching stays advisory and non-diagnostic, with no injury triage, which keeps Waypoint out of both the medical device lane and the AI Act's high-risk tier.</p>
+  <p>Accessibility is WCAG 2.2 AA and EN 301 549 <strong>from the first sprint</strong>, because the European Accessibility Act applies and because retrofitting accessibility is how small teams lose months.</p>
+</section>
+
+<!-- 16 -->
+<section id="s16">
+  <div class="sec-num">16</div>
+  <h2>What we do not know, and the plan to find out</h2>
+  <p class="sec-sub">The section that makes the rest of this document trustworthy.</p>
+
+  <h3>Known gaps, self-audited</h3>
+  <ol>
+    <li><strong>Zero user interviews.</strong> Every persona, pain point and job-to-be-done here is assembled from published surveys and mined competitor reviews. This is the largest gap and it is first for a reason.</li>
+    <li><strong>The paid job is unvalidated.</strong> Demand for training-state-aware route generation is inferred from the market's total absence of it. Nobody has been observed paying for it.</li>
+    <li><strong>Market sizing rests on report mills</strong> with undisclosed methodology that disagree by more than 2x. H5 is UNCERTAIN and is presented that way.</li>
+    <li><strong>The safety layer's buildability is unproven.</strong> Whether lighting and population scoring can be built from open data at solo-founder scale is the riskiest technical assumption in the plan.</li>
+    <li><strong>No willingness-to-pay research at the feature level.</strong> Category willingness to pay is proven; Waypoint's specific free/paid split is not.</li>
+    <li><strong>Route quality has never been tested on a real street</strong> by anyone.</li>
+    <li><strong>Organic cost per subscriber excludes founder time</strong>, a deliberate understatement that must be disclosed alongside any ratio shown to an investor.</li>
+    <li><strong>Two source documents disagree on Runna's ARR</strong> ($40M in one, ~$10M implied in another). This blueprint cites the payer count instead, which both agree on.</li>
+  </ol>
+
+  <h3>The 90-day validation sprint</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Days</th><th>Work</th><th>Resolves</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1&ndash;30</strong></td><td><strong>The A3 technical spike.</strong> Can lighting, population and crossing scoring be built from open data in the candidate metro, at this team's scale?</td><td>Gaps 4 and 6. Also decides the beachhead metro, making this a go-to-market gate</td></tr>
+      <tr><td>1&ndash;30</td><td>Begin Reddit and forum participation. Zero promotion</td><td>Builds the recruiting surface for the interviews</td></tr>
+      <tr><td><strong>30&ndash;60</strong></td><td><strong>Interview priorities 1 and 2: 12 to 18 conversations</strong> with target-segment runners</td><td>Gaps 1, 2 and 5. The highest-information activity in the entire plan</td></tr>
+      <tr><td>30&ndash;60</td><td>Run club attendance begins, without pitching</td><td>Tests whether the top-ranked channel is reachable</td></tr>
+      <tr><td><strong>60&ndash;90</strong></td><td>Walking skeleton on TestFlight with 20 to 50 runners</td><td>Gap 6, first real read on route quality</td></tr>
+      <tr><td>60&ndash;90</td><td>Price framing tested in interviews, before launch. Counsel review scoped: ODbL boundaries, safety-claim liability, redlining exposure</td><td>Gap 5; section 14 risks 5 and 7</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(92,214,130,.3)">
+      <h4 style="color:var(--green)">Go if</h4>
+      <p>The A3 spike shows the safety layer is buildable in the candidate metro; the interviews confirm the umbrella job in runners' own words; and route quality on real streets holds up with the first 20 to 50 testers.</p>
+    </div>
+    <div class="card" style="border-color:rgba(240,115,106,.3)">
+      <h4 style="color:var(--red)">Stop or re-plan if</h4>
+      <p>The pedestrian data will not support the safety layer in any reachable metro, or the interviews show runners do not experience "where should I run" as a problem worth solving.</p>
+    </div>
+  </div>
+  <p>Both answers arrive inside 90 days and for a small fraction of the raise, which is the argument for sequencing them first.</p>
+</section>
+
+<!-- 17 -->
+<section id="s17">
+  <div class="sec-num">17</div>
+  <h2>Appendix and sources</h2>
+  <p class="sec-sub">41 documents across eight phases. Every claim carries a publisher, URL, access date and confidence tag.</p>
+
+  <h3>The seven hypotheses, and their verdicts</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Hypothesis</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td><strong>H1</strong> Travel friction drives adoption</td><td><span class="badge b-amber">Partially supported, reframed.</span> Travel is activation; safety plus home novelty is retention</td></tr>
+      <tr><td><strong>H2</strong> No incumbent solves constraint-based adaptive route generation</td><td><span class="badge b-green">Supported.</span> Zero of 15+ products. Time-sensitive since Strava owns both pieces</td></tr>
+      <tr><td><strong>H3</strong> The route wedge beats another plan product</td><td><span class="badge b-green">Supported</span>, with a caveat: it acquires better than it monetizes alone</td></tr>
+      <tr><td><strong>H4</strong> Committed amateurs pay freemium for adaptive routes plus coaching</td><td><span class="badge b-amber">Partially supported.</span> Category willingness to pay proven; feature-level unproven</td></tr>
+      <tr><td><strong>H5</strong> The addressable market is venture-scale</td><td><span class="badge b-red">UNCERTAIN.</span> The wedge alone is $5&ndash;30M ARR; venture scale requires expansion</td></tr>
+      <tr><td><strong>H6</strong> Mobile-first with wearables is the right v1 form factor</td><td><span class="badge b-green">Supported.</span> HealthKit-first is effectively mandated by incumbent API terms</td></tr>
+      <tr><td><strong>H7</strong> Personalized routines deepen retention after the route wedge</td><td><span class="badge b-amber">Partially supported.</span> Plan disruption near-universal; causation unmeasurable pre-product</td></tr>
+    </tbody>
+  </table></div>
+  <p>None refuted.</p>
+
+  <h3>Decision record</h3>
+  <div class="tw"><table>
+    <tbody>
+      <tr><td style="width:14%"><strong>DEC-006</strong></td><td>Concept locked: route-first positioning, tagline "Know where to run", H1 reframed</td></tr>
+      <tr><td><strong>DEC-008</strong></td><td>Phase 5 gate: MVP scope approved, v1 launches entirely free, Watch as fast-follow</td></tr>
+      <tr><td><strong>DEC-009</strong></td><td>Data layer: Aiven EU for personal data, self-managed PostGIS for the moat, Better Auth decoupled. Supabase dropped, with a revisit clause</td></tr>
+      <tr><td><strong>DEC-010</strong></td><td>Staged cross-platform MVP on React Native: iOS month 9&ndash;10, Android +4&ndash;8 weeks, ~29&ndash;31 person-months</td></tr>
+      <tr><td><strong>DEC-011</strong></td><td>Pricing and the permanent free tier: $99.99/yr, coaching layer alone is paid</td></tr>
+      <tr><td><strong>DEC-012</strong></td><td>Measurement corrections: first-party cohort retention, re-based product targets</td></tr>
+      <tr><td><strong>DEC-013</strong></td><td>Home-metro beachhead and iOS-first public launch</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>The research corpus</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Phase</th><th>Location</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td>Playbook</td><td><span class="kbd">research/00-RESEARCH-PLAYBOOK.md</span></td><td>Citation rules, confidence labels, definition of done, gate process</td></tr>
+      <tr><td>0 · Founder</td><td><span class="kbd">vault/01-Project/</span></td><td>Founder Brief with seven testable hypotheses, Charter</td></tr>
+      <tr><td>1 · Market</td><td><span class="kbd">research/01-market/</span></td><td>Landscape, TAM-SAM-SOM sizing, industry trends, regulatory compliance</td></tr>
+      <tr><td>2 · Competitors</td><td><span class="kbd">research/02-competitors/</span></td><td>Ten profiles, adjacent platforms, feature and pricing matrices, positioning maps, gap analysis</td></tr>
+      <tr><td>3 · Users</td><td><span class="kbd">research/03-users/</span></td><td>Pain points, segmentation, four personas, jobs-to-be-done, ranked unmet needs</td></tr>
+      <tr><td>4 · Synthesis</td><td><span class="kbd">research/04-synthesis/</span></td><td>Opportunity, positioning, hypothesis verdicts, locked concept</td></tr>
+      <tr><td>5 · Product</td><td><span class="kbd">research/05-product/</span></td><td>PRD, RICE prioritization, MVP scope, journeys, stack recommendation and validation, database deep dive, dual-platform strategy, API integration map</td></tr>
+      <tr><td>6 · Business</td><td><span class="kbd">research/06-business-model/</span></td><td>Business model canvas, revenue model, unit economics, metrics, go-to-market plan</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Principal external sources</h3>
+  <p>Outdoor Industry Association 2026 Running Report · Sport England Active Lives · Strava press and Year in Sport 2025 · RevenueCat State of Subscription Apps 2025 and 2026 · Business of Apps · Sensor Tower · Grand View Research · GWI via Samba Digital · Running Industry Association · Apple Developer WWDC25 and App Store Review Guidelines · Google Play Console Help · OpenStreetMap Foundation license guidance. All accessed 2026-07-30 or 2026-08-06.</p>
+
+  <footer>
+    <p>Waypoint · Business Blueprint · Version-Timestamp: 2026-08-06 14:15:00 UTC-4</p>
+    <p>Confidential pre-launch material. Do not distribute. Markdown source of truth: <span class="kbd">blueprint/blueprint.md</span> · <a href="https://github.com/mollyparty/waypoint">github.com/mollyparty/waypoint</a></p>
+  </footer>
+</section>
+
+</main>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
+
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      if (window.innerWidth <= 1080) nav.classList.remove('open');
+    });
+  });
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  function setActive(){
+    var pos = window.scrollY + 130, current = sections[0];
+    sections.forEach(function(s){ if (s.offsetTop <= pos) current = s; });
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (!ticking){ window.requestAnimationFrame(function(){ setActive(); ticking = false; }); ticking = true; }
+  });
+  setActive();
+})();
+</script>
+</body>
+</html>
