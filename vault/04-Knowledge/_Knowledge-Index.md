@@ -1,7 +1,7 @@
 ---
 type: index
 created: 2026-07-30
-updated: 2026-07-30
+updated: 2026-08-06
 tags: [knowledge, index]
 ---
 
@@ -15,4 +15,5 @@ Domain knowledge, research, competitor notes, and references accumulate here as 
 | [[Competitive Landscape Key Findings (Phase 2)]] | 15+ products profiled; H2 and H3 supported; Strava+Runna is the kill-shot threat, 12 to 18 month window | 2026-07-30 |
 | [[User Research Key Findings (Phase 3)]] | H1 partially supported: travel is activation, safety plus home novelty is daily retention; 4 personas; interview backlog | 2026-07-30 |
 | [[Concept and Positioning (Phase 4)]] | Concept LOCKED (DEC-006): route-first positioning, "Know where to run" tagline, H1 reframe accepted | 2026-07-30 |
-| [[Product Definition Key Findings (Phase 5)]] | 15-feature MVP (~25 pm iOS estimate), GraphHopper stack; DEC-008 partial gate; stack round 2 + dual-platform open | 2026-07-30 |
+| [[Product Definition Key Findings (Phase 5)]] | 15-feature MVP (~29-31 pm dual-platform), GraphHopper + Aiven split stack; DEC-008/009/010, gate closed | 2026-07-30 |
+| [[Business Model and GTM Key Findings (Phase 6)]] | $99.99/yr recommended; break-even ~3,000 subscribers; economics depend on ~84 percent organic acquisition; North Star Weekly Routed Runners; one-metro beachhead | 2026-08-06 |

@@ -1635,6 +1635,114 @@
    "community": 0,
    "norm_label": "phase 5 gate closed: all five decisions made, phase 6 unblocked",
    "id": "gate_phase5_closed"
+  },
+  {
+   "label": "Business Model Canvas: nine blocks plus cross-document reconciliation",
+   "file_type": "document",
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "rationale": "The integrating Phase 6 document. Holds the reconciliation of the four parallel studies and the six gate cards.",
+   "community": 0,
+   "norm_label": "business model canvas: nine blocks plus cross-document reconciliation",
+   "id": "phase6_canvas"
+  },
+  {
+   "label": "Revenue model: $99.99/yr list with a price-preserved Founding Runner tier",
+   "file_type": "document",
+   "source_file": "research/06-business-model/revenue-model.md",
+   "rationale": "$99.99/yr, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr. Lifetime tier and data monetization rejected.",
+   "community": 0,
+   "norm_label": "revenue model: $99.99/yr list with a price-preserved founding runner tier",
+   "id": "phase6_revenue_model"
+  },
+  {
+   "label": "Unit economics: break-even ~3,000 subscribers, paid acquisition unviable",
+   "file_type": "document",
+   "source_file": "research/06-business-model/unit-economics.md",
+   "rationale": "Directional model across a $4.99-$11.99 band. 63 percent gross margin at the mid price at 10k MAU; free active user costs under $1/year.",
+   "community": 0,
+   "norm_label": "unit economics: break-even ~3,000 subscribers, paid acquisition unviable",
+   "id": "phase6_unit_economics"
+  },
+  {
+   "label": "Metrics: Weekly Routed Runners as North Star, Good Route Rate for quality",
+   "file_type": "document",
+   "source_file": "research/06-business-model/metrics.md",
+   "rationale": "80 percent completion floor inside the North Star definition; activation is a completed recorded run; ten guardrails including honest-refusal stability.",
+   "community": 0,
+   "norm_label": "metrics: weekly routed runners as north star, good route rate for quality",
+   "id": "phase6_metrics"
+  },
+  {
+   "label": "GTM: one metro, one segment, run clubs first, Android date is the real launch",
+   "file_type": "document",
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "rationale": "Beachhead is the urban committed amateur running from a home doorstep. SEO and paid acquisition argued against explicitly.",
+   "community": 0,
+   "norm_label": "gtm: one metro, one segment, run clubs first, android date is the real launch",
+   "id": "phase6_gtm"
+  },
+  {
+   "label": "Governing finding: unit economics are a function of distribution, not pricing",
+   "file_type": "document",
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "rationale": "Paid acquisition returns 53 to 70 cents on the dollar at every credible price; the model needs roughly 84 percent organic acquisition to clear 3:1. If community-first distribution fails, no price rescues the model.",
+   "community": 0,
+   "norm_label": "governing finding: unit economics are a function of distribution, not pricing",
+   "id": "finding_distribution_governs_economics"
+  },
+  {
+   "label": "Recommended price: $99.99/yr list, list high and discount never the reverse",
+   "file_type": "document",
+   "source_file": "research/06-business-model/revenue-model.md",
+   "rationale": "Apple applies price decreases silently but requires explicit consent for increases above roughly 50 percent or $50/year.",
+   "community": 0,
+   "norm_label": "recommended price: $99.99/yr list, list high and discount never the reverse",
+   "id": "verdict_price_9999"
+  },
+  {
+   "label": "North Star: Weekly Routed Runners with an 80 percent completion floor",
+   "file_type": "document",
+   "source_file": "research/06-business-model/metrics.md",
+   "rationale": "Cannot be inflated by shipping routes people abandon. Rejects total routes generated, which rises when routes are bad.",
+   "community": 0,
+   "norm_label": "north star: weekly routed runners with an 80 percent completion floor",
+   "id": "verdict_north_star_wrr"
+  },
+  {
+   "label": "Beachhead: one metro, one segment, urban committed amateur from a home doorstep",
+   "file_type": "document",
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "rationale": "Route quality depends on OpenStreetMap pedestrian data density, so a thin national launch ships bad routes to most of the country.",
+   "community": 0,
+   "norm_label": "beachhead: one metro, one segment, urban committed amateur from a home doorstep",
+   "id": "verdict_beachhead_one_metro"
+  },
+  {
+   "label": "Conflict: TelemetryDeck cannot deliver cohort retention because it provides no stable identifier",
+   "file_type": "document",
+   "source_file": "research/06-business-model/metrics.md",
+   "rationale": "The privacy-preserving analytics choice in the API integration map cannot produce the metric the PRD's own goals require. Recommended fix: first-party Postgres event table on the existing account identifier.",
+   "community": 0,
+   "norm_label": "conflict: telemetrydeck cannot deliver cohort retention because it provides no stable identifier",
+   "id": "conflict_telemetrydeck_cohorts"
+  },
+  {
+   "label": "Riskiest assumption A1: whether the beachhead metro clears the OSM pedestrian-data floor",
+   "file_type": "document",
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "rationale": "Sits underneath the segment choice, metro choice, top channel, and the differentiation claim. The month-1 spike should be treated as a go-to-market gate, not only a technical one.",
+   "community": 0,
+   "norm_label": "riskiest assumption a1: whether the beachhead metro clears the osm pedestrian-data floor",
+   "id": "risk_beachhead_osm_data_floor"
+  },
+  {
+   "label": "Phase 6 gate OPEN: six founder decisions staged on the dashboard",
+   "file_type": "document",
+   "source_file": "research/06-business-model/_index.md",
+   "rationale": "Price, free/paid boundary breadth, the analytics identity fix, re-basing PRD G3/G4, the beachhead metro, and which date is the real public launch.",
+   "community": 0,
+   "norm_label": "phase 6 gate open: six founder decisions staged on the dashboard",
+   "id": "gate_phase6_open"
   }
  ],
  "links": [
@@ -5184,6 +5292,227 @@
    "source": "condition_hetzner_resilience",
    "target": "verdict_selfmanaged_postgis_moat",
    "rationale": "The moat database inherits the Hetzner resilience conditions: off-provider backups, IaC, restore drills, OVH fallback."
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "phase6_canvas"
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "phase6_revenue_model"
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "phase6_unit_economics"
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "phase6_metrics"
+  },
+  {
+   "relation": "contains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "phase6_gtm"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "phase6_canvas",
+   "target": "phase6_revenue_model"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "phase6_canvas",
+   "target": "phase6_unit_economics"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "phase6_canvas",
+   "target": "phase6_metrics"
+  },
+  {
+   "relation": "integrates",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "phase6_canvas",
+   "target": "phase6_gtm"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "phase6_canvas",
+   "target": "finding_distribution_governs_economics"
+  },
+  {
+   "relation": "informs",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/unit-economics.md",
+   "confidence_score": 1.0,
+   "source": "phase6_unit_economics",
+   "target": "finding_distribution_governs_economics"
+  },
+  {
+   "relation": "informs",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "confidence_score": 1.0,
+   "source": "phase6_gtm",
+   "target": "finding_distribution_governs_economics",
+   "rationale": "The GTM plan rejects paid acquisition pre-funding for independent reasons, which satisfies the economics constraint."
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/revenue-model.md",
+   "confidence_score": 1.0,
+   "source": "phase6_revenue_model",
+   "target": "verdict_price_9999"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/metrics.md",
+   "confidence_score": 1.0,
+   "source": "phase6_metrics",
+   "target": "verdict_north_star_wrr"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "confidence_score": 1.0,
+   "source": "phase6_gtm",
+   "target": "verdict_beachhead_one_metro"
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/metrics.md",
+   "confidence_score": 1.0,
+   "source": "phase6_metrics",
+   "target": "conflict_telemetrydeck_cohorts"
+  },
+  {
+   "relation": "contradicts",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/metrics.md",
+   "confidence_score": 1.0,
+   "source": "conflict_telemetrydeck_cohorts",
+   "target": "phase5_api_map",
+   "rationale": "The API integration map's analytics choice cannot deliver cohort retention."
+  },
+  {
+   "relation": "defines",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "confidence_score": 1.0,
+   "source": "phase6_gtm",
+   "target": "risk_beachhead_osm_data_floor"
+  },
+  {
+   "relation": "depends_on",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "confidence_score": 1.0,
+   "source": "verdict_beachhead_one_metro",
+   "target": "risk_beachhead_osm_data_floor"
+  },
+  {
+   "relation": "requires",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "phase6_business_model",
+   "target": "gate_phase6_open"
+  },
+  {
+   "relation": "unblocks",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/_index.md",
+   "confidence_score": 1.0,
+   "source": "gate_phase5_closed",
+   "target": "phase6_business_model"
+  },
+  {
+   "relation": "constrains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/business-model-canvas.md",
+   "confidence_score": 1.0,
+   "source": "verdict_price_9999",
+   "target": "phase6_unit_economics",
+   "rationale": "The higher price lowers the organic-acquisition share needed to clear 3:1 from about 90 to about 84 percent."
+  },
+  {
+   "relation": "constrains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/revenue-model.md",
+   "confidence_score": 1.0,
+   "source": "dec008_phase5_gate",
+   "target": "phase6_revenue_model",
+   "rationale": "v1 launches entirely free and safety-aware routing stays free permanently."
+  },
+  {
+   "relation": "constrains",
+   "confidence": "STATED",
+   "weight": 1.0,
+   "source_file": "research/06-business-model/gtm-plan.md",
+   "confidence_score": 1.0,
+   "source": "dec010_dual_platform",
+   "target": "phase6_gtm",
+   "rationale": "The staggered iOS then Android calendar creates two launch moments."
   }
  ],
  "hyperedges": [

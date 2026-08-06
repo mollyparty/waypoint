@@ -1,12 +1,12 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-06 11:40:00 UTC-4
+> Version-Timestamp: 2026-08-06 12:45:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
 ## Where we are right now (one paragraph)
 
-Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). **Next agent action: run Phase 6** (business model, unit economics, metrics, GTM) in `research/06-business-model/`. Review surface: `dashboard/index.html` (also live on the protected Vercel preview). Latest tag: **v0.2.0**; v0.3.0 is due when Phase 6 is approved.
+Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). Phase 6 deliverables are **all written** (canvas, revenue model, unit economics, metrics, GTM plan) and its gate is **open with six decisions** awaiting the founder on the dashboard. The governing finding: unit economics are a function of distribution, not pricing, since paid acquisition returns 53 to 70 cents on the dollar at every credible price and the model needs roughly 84 percent organic acquisition to clear 3:1. **Next agent action: nothing until Claudio answers the six Phase 6 gate cards**; then record the DECs and open Phase 7. Review surface: `dashboard/index.html` (also live on the protected Vercel preview). Latest tag: **v0.2.0**; v0.3.0 is due when Phase 6 is approved.
 
 ## Phase status board
 
@@ -18,7 +18,7 @@ Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): r
 | 3 | User research | **COMPLETE** | Passed | `research/03-users/` | [[User Research Key Findings (Phase 3)]] | safety-free resolved in DEC-008 |
 | 4 | Synthesis and concept lock | **COMPLETE** | Passed / concept LOCKED | `research/04-synthesis/` | [[Concept and Positioning (Phase 4)]] | DEC-006 |
 | 5 | Product definition and MVP | **COMPLETE** | Passed (all 5 cards) | `research/05-product/` | [[Product Definition Key Findings (Phase 5)]] | DEC-008, DEC-009, DEC-010 |
-| 6 | Business model and GTM | **UNBLOCKED, next up** | — | `research/06-business-model/` | — | — |
+| 6 | Business model and GTM | **DELIVERABLES COMPLETE** | **Open: 6 decisions on the dashboard** | `research/06-business-model/` | [[Business Model and GTM Key Findings (Phase 6)]] | pending |
 | 7 | HTML research dashboard | **PARTIALLY DONE** (pulled forward) | Vercel polish still Phase 7 formal gate | `dashboard/index.html` (live on preview) | — | DEC-007 (publishing) |
 | 8 | Business Blueprint | **NOT STARTED** | Blocked on Phases 5 to 7 | `blueprint/` (not created yet) | — | — |
 
@@ -43,6 +43,26 @@ Phases **0 to 5 are complete and gated**. The concept is **LOCKED** (DEC-006): r
 - [x] **Stack: approved as revised** (DEC-009). Aiven (EU) for personal data + self-managed PostGIS on Hetzner + Better Auth in Waypoint's API layer. Supabase dropped. **The revisit clause is deliberate**, at Claudio's instruction: re-open before the walking skeleton, when architecture design starts, at Aiven contract time, or if the two-database plus self-owned-auth ops burden proves real. Infrastructure detail must not block product definition.
 - [x] **Platform: Option D approved** (DEC-010). One React Native codebase, MapLibre on both platforms, iOS month 9-10, Android month 10-12, ~29-31 pm. Amends DEC-006 client stack and DEC-008 effort.
 - [x] Amendments propagated: `mvp-scope.md` section 7 and milestone table, Charter constraints and success criteria, dashboard cards 8 and 9.
+
+## Phase 6 detail (current workstream)
+
+### Written 2026-08-06
+
+- [x] `business-model-canvas.md` — nine blocks plus the cross-document reconciliation. **The document to read first.**
+- [x] `revenue-model.md` — $99.99/yr list, $12.99/mo, 21-day annual-only trial, Founding Runner $69.99/yr price-preserved. Lifetime tier and data monetization rejected on the record.
+- [x] `unit-economics.md` — break-even ~3,000 paying subscribers; free active user costs under $1/year; paid acquisition returns 53 to 70 cents on the dollar at every credible price.
+- [x] `metrics.md` — North Star Weekly Routed Runners (80 percent completion floor inside the definition); activation = first generated route completed as a recorded run; Good Route Rate; ten guardrails.
+- [x] `gtm-plan.md` — one metro, one segment; run clubs, then Reddit, then store optimization; SEO and paid acquisition argued against; Android date is the real public launch.
+
+### Open (blocks Phase 7 close and Phase 8)
+
+- [ ] Six gate decisions, listed in `research/06-business-model/_index.md` and staged on the dashboard: price, free/paid boundary breadth, the analytics identity fix, re-basing PRD G3/G4, the beachhead metro, and which date is the real launch.
+
+### Corrections to Phase 5 surfaced by Phase 6
+
+- [ ] PRD goals G3 and G4 need re-basing to activated-cohort definitions (gate card 4)
+- [ ] `05-product/api-integration-map.md` names TelemetryDeck, which structurally cannot deliver cohort retention (gate card 3)
+- [ ] Treat the month-1 safety-data buildability spike as a **go-to-market gate**, not only a technical one
 
 ### Carried into the build phase (not blockers)
 
