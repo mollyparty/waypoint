@@ -53,7 +53,7 @@ Three things have to be true at once, and the research says all three are.
 
 ### The honest constraint
 
-**No founder is full-time, and the binding constraint is calendar time rather than money.** The approved feature scope was 29 to 31 person-months against a real capacity of roughly 7.5 person-months a year, so the scope was cut to fit rather than the estimate massaged. Section 12 shows the arithmetic and the schedule that results. An investor will find this in diligence regardless; it reads better here.
+**No founder is full-time, and the binding constraint is calendar time rather than money.** The approved feature scope is 32 to 33 person-months, once every compliance and platform obligation is priced individually rather than rounded into an overhead line, against a real capacity of roughly 7.5 person-months a year. So the scope was cut to fit rather than the estimate massaged. Section 12 shows the arithmetic and the schedule that results. An investor will find this in diligence regardless; it reads better here.
 
 ---
 
@@ -166,7 +166,7 @@ Strava's API terms **ban AI use of its data**, and Garmin has **paused new Conne
 
 ---
 
-## 05 · The product
+## 05 · The product and its features
 
 ### Positioning, locked
 
@@ -174,34 +174,119 @@ Strava's API terms **ban AI use of its data**, and Garmin has **paused new Conne
 
 Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliberately. Category data shows AI-branded apps earn about 41 percent more per payer but churn roughly 30 percent faster, so the brand markets the utility of the route rather than the intelligence behind it. [verified, RevenueCat 2026; decision recorded in DEC-006]
 
-### The MVP: 15 features, and what they are for
+<!-- CATALOG:START generated from catalog/features.json by catalog/build.py - do not edit by hand -->
+### What the platform does, and when each part ships
 
-Scored at 22.75 person-months plus roughly 2 months of release overhead.
+30 features across 8 modules: **15 approved for the v1 launch**, 9 following within 30 to 120 days of it, 6 waiting on evidence or on a predecessor, and 6 ruled out permanently. Release phase for every one of them, plus the 15 compliance requirements and 19 platform requirements that ship alongside, is decided in `catalog/features.json` under DEC-020 rather than in this document. Primary personas in bold.
 
-**The wedge itself**
-- **H-01 Core route generation.** Constraint-based, round-trip from any start point. The product.
-- **H-02 Elevation constraint.** Flat when you want flat, hills when you want hills.
-- **H-05 Safety-aware routing v1.** Weighting toward lit and populated streets. The strongest-evidenced need, and free permanently.
-- **H-07 Route novelty.** Streets you have not run, near where you already are. The half of the wedge that works without travel.
-- **H-08 Travel mode.** Not a separate engine: the same generator with zero-configuration defaults and offline resilience. It is the activation story.
-- **H-09 Honest degradation.** When the data will not support a good route, say so. Refusing well is a feature.
+#### Route Generation
 
-**Execution, because a route you cannot follow is not a route**
-- **X-01 Voice turn-by-turn navigation.** Generation plus execution in one product is itself a gap: Footpath and RunGo execute but do not generate.
+*The engine. The single reason the product exists.*
 
-**Table stakes, because their absence would disqualify the app**
-- TS-01 GPS tracking · TS-02 run history · TS-03 HealthKit sync · TS-04 onboarding · TS-05 audio cues · TS-06 route save and re-run · TS-07 Strava share
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **H-07** Route novelty | Roads you have not run. History-aware generation, and the daily retention engine at home. | launch | **Marcus**, **Elena**, Jake |
+| **H-08** Travel mode framing | Instant orientation in an unfamiliar city. The activation moment and the demo story, at near-zero marginal cost. | launch | **Priya**, Marcus |
+| **H-09** Honest degradation messaging | When no good route exists, say so and name the blockers. The cheapest trust feature in the catalog. | launch | **Elena**, Marcus, Priya |
+| **H-01** Core constraint route generation | Generate a loop or out-and-back from any start point that satisfies a target distance, the product's entire reason for existing. | launch | **Marcus**, **Priya**, **Elena**, Jake |
+| **H-02** Elevation constraint | Target or avoid climb, the cheapest real constraint beyond distance. | launch | **Marcus**, Jake |
+| **H-05** Safety-aware routing v1 | Lighting, populated areas and time of day as first-class routing constraints. The strongest-evidenced need in the entire program. | launch | **Elena**, **Priya**, Marcus |
+| **H-03** Surface constraint | Prefer paved, unpaved or mixed surfaces, or avoid trails entirely. | fast-follow | **Marcus** |
+| **H-04** Street-crossing minimization | Uninterrupted stretches for tempo and interval work, built on a proprietary crossing graph. | fast-follow | **Marcus** |
+| **H-06** Weather and heat route adjustment | Shade preference, exposure avoidance and cut-short options in heat, rather than a temperature readout. | fast-follow | **Marcus**, Priya |
+| **H-10** Learning loop | A preference model trained on which generated routes actually got run and completed. | later | **Marcus** |
 
-**Obligation**
-- O-01 Privacy, consent and AI disclosure.
+#### Run Execution
 
-### What ships after, and what never ships
+*Turning a generated route into a run that actually happens.*
 
-**Fast-follow, 30 to 120 days post-launch (~17 person-months):** the Watch app, GPX export, remaining routing constraints (crossings, weather, surface), the preference-learning loop, and the paid coaching layer.
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **TS-05** Audio pace and distance cues | Spoken splits and progress, expected by every headphone runner and trivial on top of tracking. | launch | **Marcus**, Jake |
+| **X-01** Voice turn-by-turn navigation | Hands-free execution of a generated route. Generation without execution strands the value. | launch | **Priya**, **Marcus**, Elena |
+| **X-02** Apple Watch companion | Glanceable distance, pace and next-turn cues on the wrist, with haptics, mirroring the phone session. | fast-follow | **Priya**, **Marcus** |
+| **X-03** Live location sharing | Beacon-style live run sharing to one trusted contact, opt-in per run and auto-expiring. | later | **Elena** |
 
-**Never, and this list is locked (DEC-006):** no social network — Waypoint posts *to* Strava and does not compete for the social graph. No route content library — generate, do not curate. No multi-sport in v1. No hardware. No plan-quality brand war with Runna. No charging for basic loop generation.
+#### Tracking and Data
 
-The NOT list is doing real work. It is what keeps a part-time team's MVP small instead of sprawling, and it is what makes the paid tier nameable.
+*Recording the run and owning the history the engine learns from.*
+
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **TS-03** HealthKit and Health Connect sync | Write runs to the platform health store and read activity back. The locked data posture, accruing the moat from day one. | launch | **Marcus**, Priya, Jake |
+| **TS-01** GPS run tracking | Record pace, distance, time and the GPS trace. A running app that cannot record a run is not a running app. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
+| **TS-02** Run history and basic stats | Somewhere for the return visit to land. | launch | **Marcus**, Jake |
+| **TS-06** Route save and re-run | A good generated route the user cannot keep is a broken promise. | launch | **Marcus**, **Elena** |
+| **TS-10** Offline route access | Maps and route cached on device, because Priya's connectivity is a hotel and a foreign SIM. | fast-follow | **Priya** |
+| **TS-09** GPX export and import | Near-free goodwill for the runners who ask for it. | fast-follow | Marcus |
+
+#### Coaching Layer
+
+*The only paid product. The defensible seam.*
+
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **P-01** Training-state-aware route generation | The workout shapes the route. The first paid feature, and the seam no competitor can copy without becoming the other kind of product. | fast-follow | **Marcus**, Priya |
+| **P-03** Explainable generation | Why this route, in one to three sentences that name the constraints and data that shaped it. | fast-follow | **Elena**, **Marcus** |
+| **P-06** Injury-calibrated progression | The Runna-too-aggressive and TrainAsONE-too-conservative middle, claimed carefully. | later | **Jake**, Marcus |
+| **P-02** Adaptive routines | Training plans that reshape when life happens, without guilt and without stacking missed load. | later | **Marcus**, **Jake**, Priya |
+| **P-04** Readiness and fatigue input | Heart-rate variability and sleep feeding the day's route, once the signals are proven to mean something. | later | **Marcus** |
+| **P-05** Race-goal progression | A plan that builds toward a specific race on a specific date. | later | **Marcus**, Jake |
+
+#### Trust and Privacy
+
+*Legal obligation and the floor Elena stands on. Never optional.*
+
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **O-01** Privacy architecture | Privacy zones, private by default, layered consent and AI disclosure. Legal obligation and the floor Elena stands on. | launch | **Elena**, Marcus, Priya, Jake |
+
+Behind that one feature sit **15 compliance requirements**: privacy zones, layered consent, the deletion pipeline, data subject rights, AI transparency, age gating, breach readiness. Not optional and not deferrable, so the catalog locks them into v1 and counts their cost. Section 15 covers the legal basis.
+
+#### Distribution and Commerce
+
+*Getting the run out and the subscription in.*
+
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **TS-07** Strava share | Post to Strava, never compete with it. Free distribution and category credibility for half a person-month. | launch | **Marcus**, **Jake** |
+| **TS-08** Subscription and paywall infrastructure | Clean billing. Deliberately deferred despite ranking third on RICE. | fast-follow | **Marcus** |
+
+#### Onboarding and Activation
+
+*No permissions, no product.*
+
+| Feature | What it is for | Ships | For |
+|---|---|---|---|
+| **TS-04** Onboarding and permissions flow | No permissions, no product. The activation gate for everything else in the catalog. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
+
+#### Platform Quality
+
+*Performance, offline behavior, accessibility and the language rules. Obligations, not features.*
+
+No user-facing features here. It holds the **19 platform requirements** a public launch requires (6 accessibility, 6 language, 4 performance, 3 offline), each with its own target and cost. Naming them individually is what corrected the scope estimate: the planning documents had absorbed all 34 obligations into a single two-person-month line.
+
+### What "approved for v1" does and does not mean
+
+Those 15 features, plus the 34 obligations that have to ship with them, come to roughly 32 to 33 person-months once each obligation is priced individually rather than absorbed into a rounded overhead line, against a team capacity of about 7.5 person-months a year. The standing recommendation is to launch a deliberately thinner first cut, reduced versions of 8 of these features wrapped in the compliance minimum, and ship the rest immediately after. Section 12 has the arithmetic and the dates. That choice is still open at the Phase 9 gate, which is why this section reports the approved scope rather than pre-empting it.
+
+### What we will never build
+
+Locked by DEC-006 and carried in the catalog as 6 explicit entries, so nobody re-proposes them in six months.
+
+| Ruled out | Why |
+|---|---|
+| **Social network or feed** | Post to Strava, never compete with the graph. |
+| **Route content library** | Generate, do not curate. RunGo's territory. |
+| **Multi-sport breadth in the v1 era** | Focus is the moat. Expansion is a later business decision, not a feature. |
+| **Hardware** | Capital and competence mismatch. |
+| **A best-training-plan brand war with Runna** | Unwinnable on brand. Waypoint wins on the seam, not the plan. |
+| **Charging for basic loop generation** | Free web tools and Strava already commoditized it. The free tier anchors here. |
+
+The NOT list is doing real work. It is what keeps a part-time team's v1 small instead of sprawling, and it is what makes the paid tier nameable.
+
+Full detail behind every entry (capabilities, acceptance criteria, dependencies, effort, RICE score, the unmet need it answers) is in `catalog/FEATURES.md`, or filterable at `catalog/index.html`.
+<!-- CATALOG:END -->
 
 ### The design rules that are not negotiable
 
@@ -446,7 +531,7 @@ We report this because finding it before building is the useful outcome, and bec
 
 This carries an **explicit revisit clause** at four named checkpoints, at the founder's instruction: before the walking skeleton, when architecture design starts, at Aiven contract time, and if the two-database plus self-owned-auth operational burden proves real in practice. Infrastructure detail is not permitted to block product definition.
 
-**iOS-first was replaced by one cross-platform codebase.** The requirement to launch on both platforms is a founder decision, not a research finding. React Native with MapLibre delivers it at roughly 29 to 31 person-months instead of the near-double a two-native-team approach would cost.
+**iOS-first was replaced by one cross-platform codebase.** The requirement to launch on both platforms is a founder decision, not a research finding. React Native with MapLibre delivers it at roughly 32 to 33 person-months instead of the near-double a two-native-team approach would cost.
 
 ### Integrations
 
@@ -464,7 +549,7 @@ The crossing graph and any OpenStreetMap-derived context layer may constitute a 
 
 ### The scope decision behind these dates
 
-The full 15-item MVP is 29 to 31 person-months. This team's realistic capacity is about **7.5 person-months a year**, and even a generous AI-leverage assumption puts full scope at 21 to 28 months, which falls outside the 12 to 18 month competitive window in section 04.
+The full 15-feature MVP, with the 34 compliance and platform obligations that ship alongside it priced one by one, is 32 to 33 person-months (section 05). This team's realistic capacity is about **7.5 person-months a year**, and even a generous AI-leverage assumption puts full scope at 22 to 30 months, which falls outside the 12 to 18 month competitive window in section 04.
 
 So the scope was cut rather than the estimate massaged. **v1 is the walking skeleton plus what a public launch requires**: generate a route, run it with voice guidance, save the run, wrapped in the compliance minimum and launch hardening. That is 12 to 15 person-months, and it lands inside the window.
 
@@ -589,7 +674,7 @@ If week-4 retention clears 20 percent, this is a company. If it does not, the ca
 | **7** | **ODbL share-alike narrows the moat** | Medium-High | Counsel review of layer boundaries. Keep municipal and user-derived layers as separate Collective Database members. Accept that scoring models and freshness are the truly defensible part |
 | **8** | **The launch override backfires**, since public launch now happens without a quiet burn-in | Medium-High | Four named compensating conditions in section 09, with the beta cohort as a hard gate |
 | **9** | **H5 stays uncertain** and the wedge proves to be a $10M business rather than a venture one | Medium | Four named expansion paths. Named tests that would resolve it. Disclosed rather than hidden |
-| **10** | **Founder capacity against the competitive window.** No founder is full-time, and the approved scope was 29 to 31 person-months against roughly 7.5 person-months a year of capacity | **Critical** | Scope cut to the walking skeleton plus launch requirements, 12 to 15 person-months, landing at month 12 to 14 (section 12). A month-6 checkpoint measures actual delivery with pre-committed actions per outcome band, rather than defending the assumption |
+| **10** | **Founder capacity against the competitive window.** No founder is full-time, and the approved scope is 32 to 33 person-months against roughly 7.5 person-months a year of capacity | **Critical** | Scope cut to the walking skeleton plus launch requirements, 12 to 15 person-months, landing at month 12 to 14 (section 12). A month-6 checkpoint measures actual delivery with pre-committed actions per outcome band, rather than defending the assumption |
 | **11** | **AI-assisted development underdelivers.** The plan assumes one part-time builder can deliver work scoped for 2.5 to 3.0 engineers. This is the least validated assumption in the entire document | **Critical** | Leverage is strong on conventional surface and weak on exactly this product's hard parts (routing customization, OSM ingestion, Android OEM geolocation). The month-6 checkpoint measures it; below 1.2&times; the plan is rebuilt rather than adjusted. Contingency is a contract engineer paid from the option pool |
 | **12** | **Key-person concentration on Daniel.** Sole builder and sole signatory; every account requiring legal capacity runs through him | High | Architecture decisions documented as made rather than after. A second founder brought into the codebase and the AI workflow. Both real, both partial |
 | **13** | **Minor-founder IP assignments are voidable**, and the two minors are the two the concept originated with | High | Guardian co-signature at formation plus re-execution by each founder within 30 days of turning 18, both tracked as dated diligence items. Section 15 |
@@ -695,7 +780,7 @@ The section that makes the rest of the document trustworthy.
 | DEC-006 | Concept locked: route-first positioning, tagline "Know where to run", H1 reframed |
 | DEC-008 | Phase 5 gate: MVP scope approved, v1 launches entirely free, Watch as fast-follow |
 | DEC-009 | Data layer: Aiven EU for personal data, self-managed PostGIS for the moat, Better Auth decoupled. Supabase dropped. Carries a revisit clause |
-| DEC-010 | Staged cross-platform MVP on React Native: iOS month 9-10, Android +4-8 weeks, ~29-31 person-months |
+| DEC-010 | Staged cross-platform MVP on React Native: iOS month 9-10, Android +4-8 weeks, ~29-31 person-months. Dates and total both superseded &mdash; the catalog re-priced the same scope at 32 to 33 |
 | DEC-011 | Pricing and the permanent free tier: $99.99/yr, coaching layer alone is paid |
 | DEC-012 | Measurement corrections: first-party cohort retention, re-based PRD targets |
 | DEC-013 | Home-metro beachhead and iOS-first public launch |

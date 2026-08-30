@@ -2362,6 +2362,96 @@
    "norm_label": "resolved cf-4: free launch per gd-1 and dec-011; a paywall before proof contaminates the retention signal the mvp exists to produce",
    "community_name": "Features Catalog and Scope Arithmetic",
    "id": "conflict_paid_seam_launch"
+  },
+  {
+   "label": "DEC-021: blueprint section 05 is generated from the catalog, not hand-written",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "rationale": "Extends DEC-020 to the fourth document with a feature story, and the only one investors read. Hand-authoring a fifth copy would have reintroduced exactly the drift DEC-020 ended.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "dec-021: blueprint section 05 is generated from the catalog, not hand-written",
+   "id": "dec021_blueprint_generated"
+  },
+  {
+   "label": "Blueprint section 05: condensed features catalog, injected between CATALOG markers",
+   "file_type": "document",
+   "source_file": "blueprint/index.html",
+   "rationale": "30 features grouped by eight modules. Four columns: ID and name, one-line purpose, release badge, personas with primaries emphasised. Per-feature person-months and RICE ranks left out as internal planning detail; section 12 owns the schedule.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "blueprint section 05: condensed features catalog, injected between catalog markers",
+   "id": "blueprint_section05_generated"
+  },
+  {
+   "label": "CATALOG:START / CATALOG:END markers: the only generated span in the blueprint",
+   "file_type": "document",
+   "source_file": "catalog/build.py",
+   "rationale": "inject() replaces the text between them and leaves the rest of the file untouched. Missing, duplicated or inverted markers exit non-zero with the file named, rather than guessing where the block belongs. Hand edits inside the markers are lost on the next build.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "catalog:start / catalog:end markers: the only generated span in the blueprint",
+   "id": "blueprint_catalog_markers"
+  },
+  {
+   "label": "Generated at build time, never fetched at runtime",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "rationale": "The blueprint has no fetch call anywhere and carries an @media print stylesheet. A runtime fetch would leave a blank section in any PDF and break the self-contained property that makes the file sendable as one artifact.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "generated at build time, never fetched at runtime",
+   "id": "blueprint_generated_at_build_time"
+  },
+  {
+   "label": "Section 05 reports approved scope, not the recut recommendation",
+   "file_type": "document",
+   "source_file": "blueprint/index.html",
+   "rationale": "The 15 features badge as 'launch' because that is what the catalog's assigned field says. A warning callout immediately after states the 32-to-33 person-month cost, the thinner first cut through 8 of them, and that the choice is open at the Phase 9 gate. Badging the recommendation would pre-empt a decision the founders have not made.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "section 05 reports approved scope, not the recut recommendation",
+   "id": "blueprint_reports_approved_scope"
+  },
+  {
+   "label": "Eight '29 to 31 person-months' figures in the blueprint corrected to 32 to 33",
+   "file_type": "document",
+   "source_file": "blueprint/index.html",
+   "rationale": "Four instances in index.html and four in blueprint.md. The derived full-scope projection moves from 21-28 to 22-30 months, recomputed the way the original was derived: the 1.8x-to-2.5x leverage band applied to the corrected total. DEC-010's decision-log row keeps its original figure with a superseded note, so the record is not falsified.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "eight '29 to 31 person-months' figures in the blueprint corrected to 32 to 33",
+   "id": "blueprint_scope_figures_corrected"
+  },
+  {
+   "label": "Trust and Platform Quality collapse to counts rather than tabling 34 obligations",
+   "file_type": "document",
+   "source_file": "catalog/build.py",
+   "rationale": "Trust and Privacy shows O-01 and one sentence covering the 15 compliance requirements. Platform Quality has no user-facing features at all, so its 19 non-functional requirements become a single paragraph grouped by kind. This is where all the bloat would have come from.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "trust and platform quality collapse to counts rather than tabling 34 obligations",
+   "id": "blueprint_obligations_collapsed"
+  },
+  {
+   "label": "Blueprint block carries no timestamp, so a no-change rebuild produces no diff",
+   "file_type": "document",
+   "source_file": "catalog/build.py",
+   "rationale": "The right trade for a document an investor reads. FEATURES.md keeps its Version-Timestamp and therefore always diffs, which is the right trade for a mirror.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "blueprint block carries no timestamp, so a no-change rebuild produces no diff",
+   "id": "blueprint_idempotent_output"
+  },
+  {
+   "label": "Session 2026-08-30: features catalog inside the business blueprint",
+   "file_type": "document",
+   "source_file": "vault/03-Sessions/2026-08-30 Features Catalog Inside the Blueprint.md",
+   "rationale": "Rebuilt section 05 as a generated condensed catalog, corrected eight contradicting scope figures, removed the last 'solo founder' reference from the blueprint, and closed Phase 8's stale pre-seed open item.",
+   "community": 20,
+   "community_name": "Features Catalog and Scope Arithmetic",
+   "norm_label": "session 2026-08-30: features catalog inside the business blueprint",
+   "id": "session_blueprint_catalog"
   }
  ],
  "links": [
@@ -7530,6 +7620,286 @@
    "weight": 1.0,
    "source": "research_progress_catalog",
    "target": "catalog_features_json"
+  },
+  {
+   "relation": "extends",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "dec020_catalog_source_of_truth"
+  },
+  {
+   "relation": "decides",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "blueprint_section05_generated"
+  },
+  {
+   "relation": "decides",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "blueprint_generated_at_build_time"
+  },
+  {
+   "relation": "decides",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "blueprint_reports_approved_scope"
+  },
+  {
+   "relation": "decides",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "blueprint_obligations_collapsed"
+  },
+  {
+   "relation": "causes",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "blueprint_scope_figures_corrected"
+  },
+  {
+   "relation": "refines",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "dec021_blueprint_generated",
+   "target": "dec010_dual_platform"
+  },
+  {
+   "relation": "generated_from",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "catalog_features_json"
+  },
+  {
+   "relation": "delimited_by",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "blueprint_catalog_markers"
+  },
+  {
+   "relation": "part_of",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "blueprint_site"
+  },
+  {
+   "relation": "part_of",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "references",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "catalog_ui"
+  },
+  {
+   "relation": "renders",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_section05_generated",
+   "target": "catalog_never_entries"
+  },
+  {
+   "relation": "writes",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "catalog_build_py",
+   "target": "blueprint_catalog_markers"
+  },
+  {
+   "relation": "guarantees",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "catalog_build_py",
+   "target": "blueprint_idempotent_output"
+  },
+  {
+   "relation": "located_in",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_catalog_markers",
+   "target": "blueprint_site"
+  },
+  {
+   "relation": "located_in",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_catalog_markers",
+   "target": "blueprint_master"
+  },
+  {
+   "relation": "summarizes",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_obligations_collapsed",
+   "target": "catalog_compliance_entries"
+  },
+  {
+   "relation": "summarizes",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_obligations_collapsed",
+   "target": "catalog_nfr_entries"
+  },
+  {
+   "relation": "derived_from",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_scope_figures_corrected",
+   "target": "catalog_effort_model"
+  },
+  {
+   "relation": "defers_to",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "blueprint_reports_approved_scope",
+   "target": "phase9_index"
+  },
+  {
+   "relation": "produced",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_blueprint_catalog",
+   "target": "dec021_blueprint_generated"
+  },
+  {
+   "relation": "produced",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_blueprint_catalog",
+   "target": "blueprint_section05_generated"
+  },
+  {
+   "relation": "produced",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_blueprint_catalog",
+   "target": "blueprint_scope_figures_corrected"
+  },
+  {
+   "relation": "follows",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_blueprint_catalog",
+   "target": "session_catalog"
+  },
+  {
+   "relation": "updated",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "session_blueprint_catalog",
+   "target": "phase8_blueprint_index"
+  },
+  {
+   "relation": "contains",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "phase8_business_blueprint",
+   "target": "blueprint_section05_generated"
+  },
+  {
+   "relation": "propagated_to",
+   "confidence": "CURATED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-021 Blueprint features section is generated from the catalog.md",
+   "source_location": null,
+   "weight": 1.0,
+   "source": "knowledge_catalog_arithmetic",
+   "target": "blueprint_section05_generated"
   }
  ],
  "hyperedges": [

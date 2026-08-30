@@ -1,7 +1,7 @@
 ---
 type: index
 created: 2026-07-30
-updated: 2026-08-06
+updated: 2026-08-30
 tags: [decision, index]
 ---
 
@@ -26,6 +26,7 @@ Index of all project decisions. One note per decision, numbered sequentially. St
 | DEC-013 | [[DEC-013 Home-metro beachhead and iOS-first public launch]] | accepted | 2026-08-06 |
 | DEC-014 to DEC-019 | **Reserved for the Phase 9 gate**, open as of 2026-08-06: scope and timeline (supersedes DEC-010's dates), founder equity split, vesting, option pool, formation timing, and the friends-and-family round. Cards are live on `dashboard/index.html`; recommendations in `research/09-financial-team/`. Card 1 now has an instrument: `catalog/index.html`. | pending | — |
 | DEC-020 | [[DEC-020 Features catalog is the source of truth for release phase]] | accepted | 2026-08-06 |
+| DEC-021 | [[DEC-021 Blueprint features section is generated from the catalog]] | accepted | 2026-08-30 |
 
 ## How to add a decision
 

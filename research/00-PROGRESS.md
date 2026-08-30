@@ -1,6 +1,6 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-06 15:45:00 UTC-4
+> Version-Timestamp: 2026-08-30 18:45:00 UTC-4
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
@@ -8,7 +8,7 @@
 
 Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder review and **Phase 9 (financial strategy and founding team) now the active workstream**. The concept is **LOCKED** (DEC-006): route-first positioning, tagline **"Know where to run"**. Phase 5 closed on 2026-08-06 with all five gate decisions made: MVP scope approved, v1 launches entirely free, Watch is a fast-follow (DEC-008); the data layer **drops Supabase** for a split architecture of Aiven for PostgreSQL (EU) for personal data, self-managed PostGIS on the Hetzner private network for the geospatial moat, and auth decoupled into Waypoint's API layer via Better Auth (DEC-009, carrying an explicit revisit clause at Claudio's instruction); and the MVP ships **both platforms from one React Native codebase** with MapLibre maps, iOS at month 9 to 10 and Android 4 to 8 weeks later, ~29 to 31 person-months (DEC-010). **Phase 6 is COMPLETE and its gate is CLOSED** (2026-08-06, DEC-011 / DEC-012 / DEC-013). The governing finding: unit economics are a function of distribution, not pricing, since paid acquisition returns 53 to 70 cents on the dollar at every credible price and the model needs roughly 84 percent organic acquisition to clear 3:1. Price is $99.99/yr with the coaching layer as the only paid product; the beachhead is the founder's home metro; **the iOS date at month 9 to 10 carries the public launch**, overriding the plan's Android recommendation.
 
-**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections), with sections 12 and 13 rewritten by Phase 9.
+**Phase 7 is CLOSED** and **Phase 8's blueprint draft is COMPLETE**: `blueprint/blueprint.md` (master markdown) and `blueprint/index.html` (investor-facing site, 17 sections), with sections 12 and 13 rewritten by Phase 9 and **section 05 rebuilt on 2026-08-30 as the condensed features catalog, generated from `catalog/features.json`** (DEC-021). Do not hand-edit between the `CATALOG:START` / `CATALOG:END` markers in either file; run `python catalog/build.py`. The same pass corrected eight instances of "29 to 31 person-months" to 32 to 33, recomputed the full-scope projection from 21-28 to 22-30 months, removed the last "solo founder" reference from the blueprint, and closed the stale ~$350k-to-$400k pre-seed open item in `research/08-blueprint/_index.md`.
 
 **Phase 9 deliverables are COMPLETE and its gate is OPEN with six cards.** It was opened on 2026-08-06 when the founding team was defined for the first time as three part-time partners, two of them minors, building AI-assisted rather than hiring. That invalidated three figures that eight phases of research had rested on: the ~$230k cash build, the ~$15k/month operating base, and the ~$350k to $400k pre-seed, which was their sum. Real burn is ~$400/month, break-even is ~235 paying subscribers rather than ~3,000, and the recommended ask is $50k on a post-money SAFE at a $1.5M cap. **The governing finding: the binding constraint is calendar time, not money** — 29 to 31 person-months of approved scope against roughly 7.5 person-months a year of capacity does not fit a 12 to 18 month window, so gate card 1 recommends shipping the walking skeleton as the product, landing iOS at month 12 to 14 and superseding DEC-010's dates.
 
@@ -136,7 +136,7 @@ Not a research phase. A standing surface, and the source of truth for release ph
 - `catalog/features.json` — 70 entries. **Edit this, then run `python catalog/build.py`.**
 - `catalog/index.html` — the interactive surface. Filter, reassign, recompute.
 - `catalog/FEATURES.md` — generated mirror, 2,500-plus lines. Read this if you have no browser. Never edit it.
-- `catalog/build.py` — validator plus generator. `--check` validates without writing.
+- `catalog/build.py` — validator plus generator. `--check` validates without writing. It also injects the condensed features section into `blueprint/index.html` and `blueprint/blueprint.md` between their `CATALOG:START` / `CATALOG:END` markers (DEC-021), and errors out rather than guessing if a marker is missing, duplicated or inverted. The blueprint block carries no timestamp, so a rebuild that changes nothing produces no diff in the investor document; `FEATURES.md` does carry one and therefore always diffs.
 
 ### What it contains
 
@@ -165,6 +165,7 @@ Four published figures reproduce from one set of constants, which is the check t
 - [x] `research/05-product/mvp-scope.md` — plus the finding that its section 6 walking skeleton is a thin slice through eight features, not a subset of whole ones; read as a feature list it over-estimates by 2x.
 - [x] `research/05-product/prd.md` — plus the arithmetic showing its P0 tier projects to month 47 at real capacity.
 - [x] `research/05-product/rice-prioritization.md` — plus the warning that its effort column is in iOS-native units and must not be mixed with React Native figures.
+- [x] `blueprint/index.html` and `blueprint/blueprint.md` section 05 — not annotated but **generated**, 2026-08-30 (DEC-021). The blueprint was the fourth document with a feature story and the only one DEC-020 had missed; it was also the one investors read, and it still quoted the 22.75-plus-2.0 arithmetic the catalog had corrected.
 
 ### The four conflicts, each with a written recommendation
 
@@ -179,7 +180,8 @@ Four published figures reproduce from one set of constants, which is the check t
 
 - [ ] The 1.20x platform multiplier is a reconciliation of two published conversions, not a measurement. The walking-skeleton build is the first chance to check it.
 - [ ] Scenario state in the browser is `localStorage` only. A scope decision made in the UI must be exported and written back into `features.json` or it exists in one browser.
-- [ ] `build.py` is not wired into a hook. Editing the JSON without running it leaves `FEATURES.md` stale, which is the exact drift this catalog was built to end. Consider `--check` in pre-commit.
+- [ ] `build.py` is not wired into a hook. Editing the JSON without running it now leaves `FEATURES.md` **and blueprint section 05** stale, which is the exact drift this catalog was built to end. Consider `--check` in pre-commit.
+- [ ] The blueprint's other sixteen sections are still duplicated prose across `index.html` and `blueprint.md` with no generator. The eight stale scope figures corrected on 2026-08-30 were that failure mode.
 
 ## Decisions that govern the product (do not contradict without a new DEC)
 
@@ -194,6 +196,7 @@ Four published figures reproduce from one set of constants, which is the check t
 | DEC-012 | Measurement corrections: cohort retention moves to a first-party Postgres event table (TelemetryDeck cannot provide a stable identifier); PRD G3 and G4 re-based to activated-cohort definitions; activation redefined as a completed recorded run |
 | DEC-013 | Beachhead is the founder's home metro subject to the month-1 data spike; **the iOS date carries the public launch**, overriding the GTM plan's Android recommendation, with four compensating conditions |
 | DEC-020 | **`catalog/features.json` is the source of truth for release phase.** 70 entries; `mvp-scope.md`, `prd.md` and `rice-prioritization.md` keep their analysis and lose their phase columns. Compliance and non-functional entries are locked into the MVP with their effort counted; the DEC-006 NOT list is locked out. Refines DEC-010's total to ~32-33 person-months. DEC-014 to DEC-019 stay reserved for the open Phase 9 gate |
+| DEC-021 | **Blueprint section 05 is generated from the catalog**, injected between `CATALOG:START` / `CATALOG:END` markers in both blueprint files by `catalog/build.py`. Condensed to four columns per feature; obligation-heavy modules collapse to counts. The section reports approved scope with the recut recommendation in a callout rather than pre-empting the open gate card. Extends DEC-020 to the fourth document, and corrects the blueprint's 29-to-31 figures to 32-33 |
 
 ## Surfaces every agent must know
 

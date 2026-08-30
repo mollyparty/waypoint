@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
-"""Validate catalog/features.json and regenerate catalog/FEATURES.md from it.
+"""Validate catalog/features.json and regenerate everything derived from it.
 
 Run after every edit to features.json:
 
-    python catalog/build.py            # validate, then write FEATURES.md
+    python catalog/build.py            # validate, then write all outputs
     python catalog/build.py --check    # validate only, non-zero exit on failure
 
-The markdown mirror exists so that agents and humans reading the repository
-without a browser get the same catalog the interactive page shows. It is
-generated, never hand-edited: the JSON is the source of truth.
+Three outputs, all generated and never hand-edited, because the JSON is the
+source of truth (DEC-020):
+
+  catalog/FEATURES.md        full mirror, so agents and humans without a
+                             browser get the same catalog the page shows
+  blueprint/index.html       the condensed features section 05, injected
+  blueprint/blueprint.md     the same section in the citable markdown
+
+The blueprint outputs are injected between marker comments and carry no
+timestamp, so a rebuild that changes nothing produces no diff in the investor
+document. FEATURES.md does carry a timestamp and therefore always diffs.
 
 Exit codes: 0 clean, 1 validation errors found.
 """
@@ -24,9 +32,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 JSON_PATH = ROOT / "catalog" / "features.json"
 MD_PATH = ROOT / "catalog" / "FEATURES.md"
+BP_HTML_PATH = ROOT / "blueprint" / "index.html"
+BP_MD_PATH = ROOT / "blueprint" / "blueprint.md"
+
+MARK_START = "<!-- CATALOG:START"
+MARK_END = "<!-- CATALOG:END -->"
 
 VALID_KINDS = {"feature", "compliance", "nonfunctional", "excluded"}
 VALID_RELEASES = {"mvp", "v1.x", "v2", "never"}
+
+# How each release reads to an investor, who does not know what "v1.x" means.
+RELEASE_WORD = {"mvp": "launch", "v1.x": "fast-follow", "v2": "later"}
+RELEASE_BADGE = {"mvp": "b-green", "v1.x": "b-amber", "v2": "b-gray"}
 
 
 # --------------------------------------------------------------------------- #
@@ -485,6 +502,307 @@ def generate(d: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+# --------------------------------------------------------------------------- #
+# blueprint section 05, condensed
+# --------------------------------------------------------------------------- #
+#
+# The blueprint is the investor-facing document, so this view is deliberately
+# thinner than FEATURES.md: name, one-line purpose, when it ships, who it is
+# for. Per-feature person-months and RICE ranks are internal planning detail
+# and section 12 already owns the schedule, so they are left out on purpose.
+
+def html_escape(s: str) -> str:
+    return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def features_by_module(d: dict) -> list[tuple[dict, list[dict]]]:
+    """Modules in display order, each with its shippable features.
+
+    Excluded entries are left out because they are shown once in the
+    never-build card rather than scattered through the module tables, and
+    compliance and non-functional entries are summarised as counts.
+    """
+    rel_rank = {"mvp": 0, "v1.x": 1, "v2": 2}
+    out = []
+    for m in sorted(d["modules"], key=lambda x: x["order"]):
+        items = [e for e in d["entries"]
+                 if e["module"] == m["id"] and e["kind"] == "feature"]
+        items.sort(key=lambda e: (rel_rank.get(e["assigned"], 9),
+                                  e["rice"]["rank"] if e.get("rice") else 900))
+        out.append((m, items))
+    return out
+
+
+def catalog_counts(d: dict) -> dict:
+    e = d["entries"]
+    feats = [x for x in e if x["kind"] == "feature"]
+    return {
+        "features": len(feats),
+        "modules": len(d["modules"]),
+        "mvp": len([x for x in feats if x["assigned"] == "mvp"]),
+        "fast": len([x for x in feats if x["assigned"] == "v1.x"]),
+        "later": len([x for x in feats if x["assigned"] == "v2"]),
+        "never": len([x for x in e if x["kind"] == "excluded"]),
+        "compliance": len([x for x in e if x["kind"] == "compliance"]),
+        "nonfunctional": len([x for x in e if x["kind"] == "nonfunctional"]),
+        "obligations": len([x for x in e
+                            if x["kind"] in ("compliance", "nonfunctional")]),
+        "skeleton": len([x for x in e if x.get("skeletonEffort")]),
+    }
+
+
+def nfr_groups(d: dict) -> str:
+    """"6 accessibility, 6 language, 4 performance, 3 offline" and so on."""
+    groups: dict[str, int] = {}
+    for e in d["entries"]:
+        if e["kind"] == "nonfunctional":
+            g = (e.get("group") or "other").lower()
+            groups[g] = groups.get(g, 0) + 1
+    parts = sorted(groups.items(), key=lambda kv: (-kv[1], kv[0]))
+    return ", ".join(f"{n} {g}" for g, n in parts)
+
+
+def persona_cell(e: dict, personas: dict, bold: str, plain: str) -> str:
+    """Primary personas emphasised, secondary plain. Empty renders as a dash."""
+    bits = []
+    for ref in e.get("personas") or []:
+        p = personas.get(ref["id"])
+        if not p:
+            continue
+        name = p["name"]
+        bits.append(bold.format(name) if ref.get("weight") == "primary"
+                    else plain.format(name))
+    return ", ".join(bits) if bits else "&mdash;"
+
+
+def render_blueprint_html(d: dict) -> str:
+    c = catalog_counts(d)
+    personas = {p["id"]: p for p in d["personas"]}
+    out: list[str] = []
+    w = out.append
+
+    w('<div class="stats">')
+    for k, v, sub in [
+        ("Features", c["features"],
+         f"Across {c['modules']} functional modules"),
+        ("Approved for v1", c["mvp"],
+         f"Plus {c['obligations']} compliance and platform obligations"),
+        ("Fast-follow", c["fast"],
+         "30 to 120 days after launch, each with a named trigger"),
+        ("Ruled out", c["never"],
+         "Locked by DEC-006 and not revisitable"),
+    ]:
+        w('  <div class="stat">')
+        w(f'    <div class="k">{k}</div>')
+        w(f'    <div class="v">{v}</div>')
+        w(f'    <div class="d">{sub}</div>')
+        w('  </div>')
+    w('</div>')
+    w('')
+
+    w('<h3>What the platform does, and when each part ships</h3>')
+    w(f'<p>{c["features"]} features across {c["modules"]} modules. '
+      f'{c["mvp"]} are approved for the v1 launch, {c["fast"]} follow within 30 to 120 days '
+      f'of it, and {c["later"]} wait on evidence or on a predecessor. Release phase for every '
+      f'one of them, plus the {c["compliance"]} compliance requirements and '
+      f'{c["nonfunctional"]} platform requirements that ship alongside, is decided in '
+      f'<span class="kbd">catalog/features.json</span> under DEC-020 &mdash; not in this '
+      f'document, and not in the three research documents that used to disagree about it. '
+      f'Primary personas are shown in bold.</p>')
+    w('')
+
+    for m, items in features_by_module(d):
+        w(f'<h4>{html_escape(m["name"])}</h4>')
+        w(f'<p class="sec-sub" style="font-size:14.6px;margin:0 0 2px">'
+          f'{html_escape(m["tagline"])}</p>')
+
+        if items:
+            w('<div class="tw"><table>')
+            w('  <thead><tr><th style="width:27%">Feature</th><th>What it is for</th>'
+              '<th>Ships</th><th>For</th></tr></thead>')
+            w('  <tbody>')
+            for e in items:
+                rel = e["assigned"]
+                badge = (f'<span class="badge {RELEASE_BADGE.get(rel, "b-gray")}">'
+                         f'{RELEASE_WORD.get(rel, rel)}</span>')
+                who = persona_cell(e, personas, "<strong>{}</strong>", "{}")
+                w(f'    <tr><td><strong>{e["id"]}</strong> {html_escape(e["name"])}</td>'
+                  f'<td>{html_escape(e["summary"])}</td>'
+                  f'<td>{badge}</td><td>{who}</td></tr>')
+            w('  </tbody>')
+            w('</table></div>')
+
+        if m["id"] == "trust":
+            w(f'<p>Behind that one feature sit <strong>{c["compliance"]} compliance '
+              f'requirements</strong> &mdash; privacy zones, layered consent, the deletion '
+              f'pipeline, data subject rights, AI transparency, age gating, breach '
+              f'readiness. They are not optional and not deferrable, so the catalog locks '
+              f'them into v1 and counts their cost. '
+              f'<a class="ref" href="#s15">Section 15</a> covers the legal basis.</p>')
+        if m["id"] == "quality":
+            w(f'<p>No user-facing features live here. It holds the '
+              f'<strong>{c["nonfunctional"]} platform requirements</strong> that a public '
+              f'launch requires ({nfr_groups(d)}), each with its own target and its own '
+              f'cost. Naming them individually is what corrected the scope estimate: the '
+              f'planning documents had absorbed all {c["obligations"]} obligations into a '
+              f'single two-person-month line.</p>')
+        w('')
+
+    w('<div class="callout warn">')
+    w('  <span class="lbl">What "approved for v1" does and does not mean</span>')
+    w(f'  <p>Those {c["mvp"]} features, plus the {c["obligations"]} obligations that have to '
+      f'ship with them, come to roughly 32 to 33 person-months once each obligation is '
+      f'priced individually rather than absorbed into a rounded overhead line. This team has '
+      f'about 7.5 person-months a year. The standing recommendation is therefore to launch a '
+      f'deliberately thinner first cut &mdash; reduced versions of {c["skeleton"]} of these '
+      f'features, wrapped in the compliance minimum &mdash; and to ship the rest immediately '
+      f'after. <a class="ref" href="#s12">Section 12</a> has the arithmetic and the dates. '
+      f'That choice is still open at the Phase 9 gate, which is why this section reports the '
+      f'approved scope rather than pre-empting it.</p>')
+    w('</div>')
+    w('')
+
+    excluded = [e for e in d["entries"] if e["kind"] == "excluded"]
+    w('<h3>What we will never build</h3>')
+    w(f'<p>Locked by DEC-006 and carried in the catalog as {c["never"]} explicit entries, '
+      f'so nobody re-proposes them in six months.</p>')
+    w('<div class="tw"><table>')
+    w('  <tbody>')
+    for e in excluded:
+        w(f'    <tr><td style="width:34%"><strong>{html_escape(e["name"])}</strong></td>'
+          f'<td>{html_escape(e["summary"])}</td></tr>')
+    w('  </tbody>')
+    w('</table></div>')
+    w('<p>The NOT list is doing real work. It is what keeps a part-time team\'s v1 small '
+      'instead of sprawling, and it is what makes the paid tier nameable.</p>')
+    w('')
+
+    w('<p style="color:var(--dim);font-size:13.5px">'
+      'This section is generated from the catalog. The full detail behind every entry '
+      '&mdash; capabilities, acceptance criteria, dependencies, effort, RICE score, the '
+      'unmet need it answers &mdash; is filterable at '
+      '<a class="ref" href="../catalog/">/catalog/</a>, where changing a release '
+      'assignment recomputes the projected launch month live.</p>')
+
+    return "\n".join(out)
+
+
+def render_blueprint_md(d: dict) -> str:
+    c = catalog_counts(d)
+    personas = {p["id"]: p for p in d["personas"]}
+    out: list[str] = []
+    w = out.append
+
+    w("### What the platform does, and when each part ships")
+    w("")
+    w(f"{c['features']} features across {c['modules']} modules: **{c['mvp']} approved for the "
+      f"v1 launch**, {c['fast']} following within 30 to 120 days of it, {c['later']} waiting on "
+      f"evidence or on a predecessor, and {c['never']} ruled out permanently. Release phase "
+      f"for every one of them, plus the {c['compliance']} compliance requirements and "
+      f"{c['nonfunctional']} platform requirements that ship alongside, is decided in "
+      f"`catalog/features.json` under DEC-020 rather than in this document. Primary personas "
+      f"in bold.")
+    w("")
+
+    for m, items in features_by_module(d):
+        w(f"#### {m['name']}")
+        w("")
+        w(f"*{m['tagline']}*")
+        w("")
+        if items:
+            w("| Feature | What it is for | Ships | For |")
+            w("|---|---|---|---|")
+            for e in items:
+                rel = RELEASE_WORD.get(e["assigned"], e["assigned"])
+                who = persona_cell(e, personas, "**{}**", "{}")
+                w(f"| **{e['id']}** {md_escape(e['name'])} | {md_escape(e['summary'])} "
+                  f"| {rel} | {who} |")
+            w("")
+        if m["id"] == "trust":
+            w(f"Behind that one feature sit **{c['compliance']} compliance requirements**: "
+              f"privacy zones, layered consent, the deletion pipeline, data subject rights, "
+              f"AI transparency, age gating, breach readiness. Not optional and not "
+              f"deferrable, so the catalog locks them into v1 and counts their cost. "
+              f"Section 15 covers the legal basis.")
+            w("")
+        if m["id"] == "quality":
+            w(f"No user-facing features here. It holds the **{c['nonfunctional']} platform "
+              f"requirements** a public launch requires ({nfr_groups(d)}), each with its own "
+              f"target and cost. Naming them individually is what corrected the scope "
+              f"estimate: the planning documents had absorbed all {c['obligations']} "
+              f"obligations into a single two-person-month line.")
+            w("")
+
+    w("### What \"approved for v1\" does and does not mean")
+    w("")
+    w(f"Those {c['mvp']} features, plus the {c['obligations']} obligations that have to ship "
+      f"with them, come to roughly 32 to 33 person-months once each obligation is priced "
+      f"individually rather than absorbed into a rounded overhead line, against a team "
+      f"capacity of about 7.5 person-months a year. The standing recommendation is to launch "
+      f"a deliberately thinner first cut, reduced versions of {c['skeleton']} of these "
+      f"features wrapped in the compliance minimum, and ship the rest immediately after. "
+      f"Section 12 has the arithmetic and the dates. That choice is still open at the Phase 9 "
+      f"gate, which is why this section reports the approved scope rather than pre-empting it.")
+    w("")
+
+    w("### What we will never build")
+    w("")
+    w(f"Locked by DEC-006 and carried in the catalog as {c['never']} explicit entries, so "
+      f"nobody re-proposes them in six months.")
+    w("")
+    w("| Ruled out | Why |")
+    w("|---|---|")
+    for e in d["entries"]:
+        if e["kind"] == "excluded":
+            w(f"| **{md_escape(e['name'])}** | {md_escape(e['summary'])} |")
+    w("")
+    w("The NOT list is doing real work. It is what keeps a part-time team's v1 small instead "
+      "of sprawling, and it is what makes the paid tier nameable.")
+    w("")
+    w("Full detail behind every entry (capabilities, acceptance criteria, dependencies, "
+      "effort, RICE score, the unmet need it answers) is in `catalog/FEATURES.md`, or "
+      "filterable at `catalog/index.html`.")
+
+    return "\n".join(out)
+
+
+def inject(path: Path, body: str) -> bool:
+    """Replace the text between the CATALOG markers. True when the file changed.
+
+    Refuses to guess: a missing, duplicated or inverted marker pair raises
+    rather than silently appending or overwriting the wrong span.
+    """
+    text = path.read_text(encoding="utf-8")
+
+    if text.count(MARK_START) != 1 or text.count(MARK_END) != 1:
+        raise ValueError(
+            f"{path.relative_to(ROOT)}: expected exactly one "
+            f"'{MARK_START}' and one '{MARK_END}' "
+            f"(found {text.count(MARK_START)} and {text.count(MARK_END)})"
+        )
+
+    start = text.index(MARK_START)
+    open_end = text.index("-->", start) + len("-->")
+    end = text.index(MARK_END)
+    if end < open_end:
+        raise ValueError(f"{path.relative_to(ROOT)}: CATALOG:END precedes CATALOG:START")
+
+    # Match the marker's own indentation so the generated block does not sit at
+    # column zero inside an indented <section>.
+    line_start = text.rfind("\n", 0, start) + 1
+    indent = text[line_start:start]
+    if indent.strip():
+        indent = ""
+    if indent:
+        body = "\n".join(indent + ln if ln else ln for ln in body.split("\n"))
+
+    updated = text[:open_end] + "\n" + body + "\n" + indent + text[end:]
+    if updated == text:
+        return False
+    path.write_text(updated, encoding="utf-8", newline="")
+    return True
+
+
 def main() -> int:
     check_only = "--check" in sys.argv
 
@@ -523,6 +841,17 @@ def main() -> int:
     MD_PATH.write_text(generate(d), encoding="utf-8")
     lines = MD_PATH.read_text(encoding="utf-8").count("\n")
     print(f"wrote {MD_PATH.relative_to(ROOT)} ({lines} lines)")
+
+    for path, body in ((BP_HTML_PATH, render_blueprint_html(d)),
+                       (BP_MD_PATH, render_blueprint_md(d))):
+        try:
+            changed = inject(path, body)
+        except (FileNotFoundError, ValueError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
+        rel = path.relative_to(ROOT)
+        print(f"{'updated' if changed else 'unchanged'} {rel} catalog section")
+
     return 0
 
 

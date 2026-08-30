@@ -1,6 +1,6 @@
 # Waypoint Features and Functionality Catalog
 
-> Version-Timestamp: 2026-08-06 15:47:43 UTC-4
+> Version-Timestamp: 2026-08-30 18:44:33 UTC-4
 >
 > **Generated file. Do not edit.** Source of truth is `catalog/features.json`;
 > regenerate with `python catalog/build.py`. The interactive view, where release

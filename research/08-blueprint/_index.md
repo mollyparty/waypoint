@@ -1,6 +1,6 @@
 # Phase 8: Business Blueprint
 
-> Version-Timestamp: 2026-08-06 14:20:00 UTC-4
+> Version-Timestamp: 2026-08-30 18:40:00 UTC-4
 
 **Status: DRAFT COMPLETE, awaiting founder review.** Program catalog: `../00-PROGRESS.md`.
 
@@ -11,7 +11,8 @@
 | `blueprint/blueprint.md` | Master markdown, the citable source of truth. 17 sections | complete |
 | `blueprint/index.html` | Investor-facing site: numbered sections, fixed nav, stat cards, risk matrix, print stylesheet | complete |
 | Root `index.html` | Landing page updated, blueprint card now live | complete |
-| Browser render verification | 2026-08-06: all 17 nav anchors resolve, no console errors, mobile Contents toggle opens and closes, no unrendered entities or placeholder text | passed |
+| Section 05 generator | `catalog/build.py` injects the condensed features catalog into both the HTML and the markdown between `CATALOG:START` / `CATALOG:END` markers; a rebuild that changes nothing produces no diff | complete |
+| Browser render verification | 2026-08-06: all 17 nav anchors resolve, no console errors, mobile Contents toggle opens and closes, no unrendered entities or placeholder text. Re-verified 2026-08-30 after the section 05 rebuild | passed |
 | CHANGELOG entry and **v0.4.0** tag | At founder approval | pending |
 
 ## Structure
@@ -20,7 +21,9 @@ Modeled on the example Claudio provided (`https://premiumcuts-blueprint.vercel.a
 
 Not adopted: the bilingual EN/ES toggle. The example serves a Dominican market; Waypoint's investor audience is English-first, and a half-built translation would read worse than none. Easy to add later if the audience changes.
 
-**Seventeen sections:** executive summary · the problem · market opportunity · competitive landscape · the product · who it is for · business model · unit economics · go-to-market · measurement · technology · execution timeline · capital and team · risk analysis · legal and privacy · what we do not know · appendix and sources.
+**Seventeen sections:** executive summary · the problem · market opportunity · competitive landscape · the product and its features · who it is for · business model · unit economics · go-to-market · measurement · technology · execution timeline · capital and team · risk analysis · legal and privacy · what we do not know · appendix and sources.
+
+Section 05 is **generated**, not hand-written. Its feature tables, counts and never-build list come from `catalog/features.json` via `python catalog/build.py`, injected between `<!-- CATALOG:START -->` and `<!-- CATALOG:END -->` markers in both `blueprint/index.html` and `blueprint/blueprint.md`. Editing inside those markers by hand is wasted work: the next build overwrites it. See [[DEC-021 Blueprint features section is generated from the catalog]].
 
 ## Editorial stance
 
@@ -34,7 +37,7 @@ The reasoning: an investor discovers all three in diligence anyway, and discover
 
 ## Open items for founder review
 
-- [ ] The capital requirement (~$350k to $400k pre-seed) is **derived, not decided**. No decision record covers the raise. Section 13 shows the arithmetic so it can be argued with.
+- [x] ~~The capital requirement (~$350k to $400k pre-seed) is **derived, not decided**.~~ **Closed by Phase 9.** That figure assumed a solo founder with contractors. `research/09-financial-team/fundraising-plan.md` replaced it with a **$50k SAFE at a $1.5M post-money cap**, and sections 12 and 13 of the blueprint were rewritten around it. The decision itself is still one of the six open Phase 9 gate cards.
 - [ ] Whether to publish the blueprint to a **separate public Vercel project**. This repo's project stays confidential per [[DEC-007 Vercel publishing pipeline with protected previews]], so an investor-facing URL needs its own deployment with its own protection posture.
 - [ ] Whether an EN/ES edition is wanted.
 - [ ] Two source documents disagree on Runna's ARR ($40M vs ~$10M implied). The blueprint sidesteps it by citing the payer count both agree on, but the underlying conflict in `02-competitors/gap-analysis.md` and `01-market/market-sizing.md` is still unresolved.
