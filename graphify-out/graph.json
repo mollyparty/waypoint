@@ -54,6 +54,15 @@
  },
  "nodes": [
   {
+   "id": "dec014_recut_approved",
+   "label": "DEC-014: Recut v1 first-release baseline APPROVED; five founder decisions remain open",
+   "file_type": "document",
+   "source_file": "vault/02-Decisions/DEC-014 Recut v1 first-release baseline.md",
+   "community": 13,
+   "reviewed_at": "2026-09-05",
+   "status": "accepted"
+  },
+  {
    "label": "Waypoint Agent Protocol",
    "file_type": "document",
    "source_file": "AGENTS.md",
@@ -1922,7 +1931,7 @@
    "id": "memory_audit_2026_08_06"
   },
   {
-   "label": "Phase 9: financial strategy and founding team, gate OPEN with 6 cards",
+   "label": "Phase 9: Recut v1 scope approved (DEC-014); five founder decisions OPEN",
    "file_type": "document",
    "source_file": "research/09-financial-team/_index.md",
    "rationale": "Opened outside the original program when the founding team was defined as three part-time partners, two of them minors, building AI-assisted rather than hiring. Amends DEC-005, which ended the program at Phase 8.",
@@ -2455,6 +2464,14 @@
   }
  ],
  "links": [
+  {
+   "source": "dec014_recut_approved",
+   "target": "phase9_index",
+   "relation": "updates",
+   "confidence": "EXTRACTED",
+   "confidence_score": 1.0,
+   "source_file": "vault/02-Decisions/DEC-014 Recut v1 first-release baseline.md"
+  },
   {
    "relation": "references",
    "confidence": "EXTRACTED",

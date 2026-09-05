@@ -3,11 +3,15 @@ type: decision
 id: DEC-010
 status: accepted
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-09-05
 tags: [decision, platform, mvp, stack, phase-5]
 ---
 
 # DEC-010 Staged cross-platform MVP on React Native (iOS first, Android 4 to 8 weeks later)
+
+## Amendment, 2026-09-05
+
+[[DEC-014 Recut v1 first-release baseline]] supersedes the first-release scope and earlier schedule. The React Native platform choice remains accepted. Original reasoning below is historical.
 
 ## Context
 

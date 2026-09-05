@@ -136,6 +136,8 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
+<!-- Version-Timestamp: 2026-09-05 18:40:00 UTC-4 -->
+<p style="padding:16px;background:#eef6f1;color:#173b29">DEC-014 approval: Recut v1 is the first-release baseline. Eight reduced slices plus 34 obligations; iOS around month 13 is a conditional planning estimate. Five founder decisions remain open. Earlier recommendation language is superseded by this approval.</p>
 
 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰ Contents</button>
 
@@ -414,13 +416,13 @@ footer a{color:var(--accent);text-decoration:none}
     </div>
     <div class="stat">
       <div class="k">Approved for v1</div>
-      <div class="v">15</div>
+      <div class="v">8</div>
       <div class="d">Plus 34 compliance and platform obligations</div>
     </div>
     <div class="stat">
       <div class="k">Fast-follow</div>
-      <div class="v">9</div>
-      <div class="d">30 to 120 days after launch, each with a named trigger</div>
+      <div class="v">16</div>
+      <div class="d">Deferred planning bucket; timing requires validation</div>
     </div>
     <div class="stat">
       <div class="k">Ruled out</div>
@@ -430,19 +432,19 @@ footer a{color:var(--accent);text-decoration:none}
   </div>
 
   <h3>What the platform does, and when each part ships</h3>
-  <p>30 features across 8 modules. 15 are approved for the v1 launch, 9 follow within 30 to 120 days of it, and 6 wait on evidence or on a predecessor. Release phase for every one of them, plus the 15 compliance requirements and 19 platform requirements that ship alongside, is decided in <span class="kbd">catalog/features.json</span> under DEC-020 &mdash; not in this document, and not in the three research documents that used to disagree about it. Primary personas are shown in bold.</p>
+  <p>30 features across 8 modules. 8 are approved for the v1 launch, 16 are deferred to v1.x after launch and 6 wait on evidence or on a predecessor. Release phase for every one of them, plus the 15 compliance requirements and 19 platform requirements that ship alongside, is decided in <span class="kbd">catalog/features.json</span> under DEC-020 &mdash; not in this document, and not in the three research documents that used to disagree about it. Primary personas are shown in bold.</p>
 
   <h4>Route Generation</h4>
   <p class="sec-sub" style="font-size:14.6px;margin:0 0 2px">The engine. The single reason the product exists.</p>
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>H-07</strong> Route novelty</td><td>Roads you have not run. History-aware generation, and the daily retention engine at home.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Elena</strong>, Jake</td></tr>
-      <tr><td><strong>H-08</strong> Travel mode framing</td><td>Instant orientation in an unfamiliar city. The activation moment and the demo story, at near-zero marginal cost.</td><td><span class="badge b-green">launch</span></td><td><strong>Priya</strong>, Marcus</td></tr>
-      <tr><td><strong>H-09</strong> Honest degradation messaging</td><td>When no good route exists, say so and name the blockers. The cheapest trust feature in the catalog.</td><td><span class="badge b-green">launch</span></td><td><strong>Elena</strong>, Marcus, Priya</td></tr>
-      <tr><td><strong>H-01</strong> Core constraint route generation</td><td>Generate a loop or out-and-back from any start point that satisfies a target distance, the product's entire reason for existing.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, Jake</td></tr>
-      <tr><td><strong>H-02</strong> Elevation constraint</td><td>Target or avoid climb, the cheapest real constraint beyond distance.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Jake</td></tr>
-      <tr><td><strong>H-05</strong> Safety-aware routing v1</td><td>Lighting, populated areas and time of day as first-class routing constraints. The strongest-evidenced need in the entire program.</td><td><span class="badge b-green">launch</span></td><td><strong>Elena</strong>, <strong>Priya</strong>, Marcus</td></tr>
+      <tr><td><strong>H-01</strong> Core constraint route generation</td><td>Current location start, target distance, one round-trip route on screen with map preview, distance and elevation profile. No multi-candidate ranking, no regenerate, no other constraints.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, Jake</td></tr>
+      <tr><td><strong>H-07</strong> Route novelty</td><td>Roads you have not run. History-aware generation, and the daily retention engine at home.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong>, <strong>Elena</strong>, Jake</td></tr>
+      <tr><td><strong>H-08</strong> Travel mode framing</td><td>Instant orientation in an unfamiliar city. The activation moment and the demo story, at near-zero marginal cost.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Priya</strong>, Marcus</td></tr>
+      <tr><td><strong>H-09</strong> Honest degradation messaging</td><td>When no good route exists, say so and name the blockers. The cheapest trust feature in the catalog.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Elena</strong>, Marcus, Priya</td></tr>
+      <tr><td><strong>H-02</strong> Elevation constraint</td><td>Target or avoid climb, the cheapest real constraint beyond distance.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong>, Jake</td></tr>
+      <tr><td><strong>H-05</strong> Safety-aware routing v1</td><td>Lighting, populated areas and time of day as first-class routing constraints. The strongest-evidenced need in the entire program.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Elena</strong>, <strong>Priya</strong>, Marcus</td></tr>
       <tr><td><strong>H-03</strong> Surface constraint</td><td>Prefer paved, unpaved or mixed surfaces, or avoid trails entirely.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong></td></tr>
       <tr><td><strong>H-04</strong> Street-crossing minimization</td><td>Uninterrupted stretches for tempo and interval work, built on a proprietary crossing graph.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong></td></tr>
       <tr><td><strong>H-06</strong> Weather and heat route adjustment</td><td>Shade preference, exposure avoidance and cut-short options in heat, rather than a temperature readout.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong>, Priya</td></tr>
@@ -455,8 +457,8 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>TS-05</strong> Audio pace and distance cues</td><td>Spoken splits and progress, expected by every headphone runner and trivial on top of tracking.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Jake</td></tr>
-      <tr><td><strong>X-01</strong> Voice turn-by-turn navigation</td><td>Hands-free execution of a generated route. Generation without execution strands the value.</td><td><span class="badge b-green">launch</span></td><td><strong>Priya</strong>, <strong>Marcus</strong>, Elena</td></tr>
+      <tr><td><strong>TS-05</strong> Audio pace and distance cues</td><td>Basic pace and distance announcements at a fixed interval.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Jake</td></tr>
+      <tr><td><strong>X-01</strong> Voice turn-by-turn navigation</td><td>Turn cues through headphones plus rejoin guidance. No verbosity configuration, no reroute-to-distance, no haptic alternative.</td><td><span class="badge b-green">launch</span></td><td><strong>Priya</strong>, <strong>Marcus</strong>, Elena</td></tr>
       <tr><td><strong>X-02</strong> Apple Watch companion</td><td>Glanceable distance, pace and next-turn cues on the wrist, with haptics, mirroring the phone session.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Priya</strong>, <strong>Marcus</strong></td></tr>
       <tr><td><strong>X-03</strong> Live location sharing</td><td>Beacon-style live run sharing to one trusted contact, opt-in per run and auto-expiring.</td><td><span class="badge b-gray">later</span></td><td><strong>Elena</strong></td></tr>
     </tbody>
@@ -467,10 +469,10 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>TS-03</strong> HealthKit and Health Connect sync</td><td>Write runs to the platform health store and read activity back. The locked data posture, accruing the moat from day one.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Priya, Jake</td></tr>
-      <tr><td><strong>TS-01</strong> GPS run tracking</td><td>Record pace, distance, time and the GPS trace. A running app that cannot record a run is not a running app.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, <strong>Jake</strong></td></tr>
-      <tr><td><strong>TS-02</strong> Run history and basic stats</td><td>Somewhere for the return visit to land.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Jake</td></tr>
-      <tr><td><strong>TS-06</strong> Route save and re-run</td><td>A good generated route the user cannot keep is a broken promise.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Elena</strong></td></tr>
+      <tr><td><strong>TS-03</strong> HealthKit and Health Connect sync</td><td>Write the workout to HealthKit on finish. No read, no readiness signals.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, Priya, Jake</td></tr>
+      <tr><td><strong>TS-01</strong> GPS run tracking</td><td>Start run, GPS tracking, run summary. No advanced stats, no history views beyond a simple list.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, <strong>Jake</strong></td></tr>
+      <tr><td><strong>TS-06</strong> Route save and re-run</td><td>Save the run locally on finish. No naming, no saved-route management.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Elena</strong></td></tr>
+      <tr><td><strong>TS-02</strong> Run history and basic stats</td><td>Somewhere for the return visit to land.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong>, Jake</td></tr>
       <tr><td><strong>TS-10</strong> Offline route access</td><td>Maps and route cached on device, because Priya's connectivity is a hotel and a foreign SIM.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Priya</strong></td></tr>
       <tr><td><strong>TS-09</strong> GPX export and import</td><td>Near-free goodwill for the runners who ask for it.</td><td><span class="badge b-amber">fast-follow</span></td><td>Marcus</td></tr>
     </tbody>
@@ -495,7 +497,7 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>O-01</strong> Privacy architecture</td><td>Privacy zones, private by default, layered consent and AI disclosure. Legal obligation and the floor Elena stands on.</td><td><span class="badge b-green">launch</span></td><td><strong>Elena</strong>, Marcus, Priya, Jake</td></tr>
+      <tr><td><strong>O-01</strong> Privacy architecture</td><td>Private-by-default storage and home-area coordinates never leaving the device unblurred. No privacy-zone interface, no consent management screens.</td><td><span class="badge b-green">launch</span></td><td><strong>Elena</strong>, Marcus, Priya, Jake</td></tr>
     </tbody>
   </table></div>
   <p>Behind that one feature sit <strong>15 compliance requirements</strong> &mdash; privacy zones, layered consent, the deletion pipeline, data subject rights, AI transparency, age gating, breach readiness. They are not optional and not deferrable, so the catalog locks them into v1 and counts their cost. <a class="ref" href="#s15">Section 15</a> covers the legal basis.</p>
@@ -505,8 +507,8 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>TS-07</strong> Strava share</td><td>Post to Strava, never compete with it. Free distribution and category credibility for half a person-month.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Jake</strong></td></tr>
       <tr><td><strong>TS-08</strong> Subscription and paywall infrastructure</td><td>Clean billing. Deliberately deferred despite ranking third on RICE.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong></td></tr>
+      <tr><td><strong>TS-07</strong> Strava share</td><td>Post to Strava, never compete with it. Free distribution and category credibility for half a person-month.</td><td><span class="badge b-amber">fast-follow</span></td><td><strong>Marcus</strong>, <strong>Jake</strong></td></tr>
     </tbody>
   </table></div>
 
@@ -515,7 +517,7 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="tw"><table>
     <thead><tr><th style="width:27%">Feature</th><th>What it is for</th><th>Ships</th><th>For</th></tr></thead>
     <tbody>
-      <tr><td><strong>TS-04</strong> Onboarding and permissions flow</td><td>No permissions, no product. The activation gate for everything else in the catalog.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, <strong>Jake</strong></td></tr>
+      <tr><td><strong>TS-04</strong> Onboarding and permissions flow</td><td>Single-screen onboarding: location permission, health write permission, AI disclosure line. No preference setup, no notification permission.</td><td><span class="badge b-green">launch</span></td><td><strong>Marcus</strong>, <strong>Priya</strong>, <strong>Elena</strong>, <strong>Jake</strong></td></tr>
     </tbody>
   </table></div>
 
@@ -525,7 +527,7 @@ footer a{color:var(--accent);text-decoration:none}
 
   <div class="callout warn">
     <span class="lbl">What "approved for v1" does and does not mean</span>
-    <p>Those 15 features, plus the 34 obligations that have to ship with them, come to roughly 32 to 33 person-months once each obligation is priced individually rather than absorbed into a rounded overhead line. This team has about 7.5 person-months a year. The standing recommendation is therefore to launch a deliberately thinner first cut &mdash; reduced versions of 8 of these features, wrapped in the compliance minimum &mdash; and to ship the rest immediately after. <a class="ref" href="#s12">Section 12</a> has the arithmetic and the dates. That choice is still open at the Phase 9 gate, which is why this section reports the approved scope rather than pre-empting it.</p>
+    <p>DEC-014 approves Recut v1: reduced slices of 8 features plus 34 obligations. The accepted model is 13.38 React Native person-months, projecting iOS around month 13 under the current capacity and unmeasured 1.8x AI assumption. The historical full MVP is 32.52 person-months. Deferred work is not a fixed post-launch promise. Five founder decisions remain open. See section 12 for planning context.</p>
   </div>
 
   <h3>What we will never build</h3>

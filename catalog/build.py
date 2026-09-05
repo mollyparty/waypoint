@@ -190,7 +190,7 @@ def scenarios(d: dict) -> list[dict]:
     compliance = sum(e["effortNative"] for e in entries if e["kind"] == "compliance")
     quality = sum(e["effortNative"] for e in entries if e["kind"] == "nonfunctional")
     mvp_features = sum(e["effortNative"] for e in entries
-                       if e["kind"] == "feature" and e["assigned"] == "mvp")
+                       if e["kind"] == "feature" and e.get("historicalAssigned", e["assigned"]) == "mvp")
     prd_p0 = sum(e["effortNative"] for e in entries
                  if e["kind"] == "feature" and e.get("prdP0"))
 
@@ -211,7 +211,7 @@ def scenarios(d: dict) -> list[dict]:
     return [
         {"name": "Walking skeleton only", "note": "TestFlight target, carries no compliance package",
          **project(skeleton)},
-        {"name": "Recut v1 (recommended)", "note": "skeleton plus compliance minimum plus launch hardening",
+        {"name": "Recut v1 (approved)", "note": "skeleton plus compliance minimum plus launch hardening",
          **project(skeleton + compliance + quality)},
         {"name": "Full MVP v1 (15 features)", "note": "the originally approved scope, obligations counted explicitly",
          **project(mvp_features + compliance + quality)},
@@ -292,7 +292,7 @@ def generate(d: dict) -> str:
         w(f"| {s['name']} | {s['native']} | {s['rn']} | {s['effective']} "
           f"| month {whole_month(s['launchMonth'])} | {verdict} |")
     w("")
-    w("The recut is the standing Phase 9 recommendation. Its projection reproduces "
+    w("Recut v1 is the approved first-release baseline (DEC-014). Its projection reproduces "
       "`research/09-financial-team/team-roadmap.md`'s published month 12 to 14 independently, "
       "which is the check that the model is not inventing numbers.")
     w("")
@@ -588,7 +588,7 @@ def render_blueprint_html(d: dict) -> str:
         ("Approved for v1", c["mvp"],
          f"Plus {c['obligations']} compliance and platform obligations"),
         ("Fast-follow", c["fast"],
-         "30 to 120 days after launch, each with a named trigger"),
+         "Deferred planning bucket; timing requires validation"),
         ("Ruled out", c["never"],
          "Locked by DEC-006 and not revisitable"),
     ]:
@@ -602,8 +602,8 @@ def render_blueprint_html(d: dict) -> str:
 
     w('<h3>What the platform does, and when each part ships</h3>')
     w(f'<p>{c["features"]} features across {c["modules"]} modules. '
-      f'{c["mvp"]} are approved for the v1 launch, {c["fast"]} follow within 30 to 120 days '
-      f'of it, and {c["later"]} wait on evidence or on a predecessor. Release phase for every '
+      f'{c["mvp"]} are approved for the v1 launch, {c["fast"]} are deferred to v1.x after launch '
+      f'and {c["later"]} wait on evidence or on a predecessor. Release phase for every '
       f'one of them, plus the {c["compliance"]} compliance requirements and '
       f'{c["nonfunctional"]} platform requirements that ship alongside, is decided in '
       f'<span class="kbd">catalog/features.json</span> under DEC-020 &mdash; not in this '
@@ -627,7 +627,7 @@ def render_blueprint_html(d: dict) -> str:
                          f'{RELEASE_WORD.get(rel, rel)}</span>')
                 who = persona_cell(e, personas, "<strong>{}</strong>", "{}")
                 w(f'    <tr><td><strong>{e["id"]}</strong> {html_escape(e["name"])}</td>'
-                  f'<td>{html_escape(e["summary"])}</td>'
+                  f'<td>{html_escape(e.get("skeletonScope") if e.get("releaseScope") == "reduced-slice" else e["summary"])}</td>'
                   f'<td>{badge}</td><td>{who}</td></tr>')
             w('  </tbody>')
             w('</table></div>')
@@ -650,15 +650,7 @@ def render_blueprint_html(d: dict) -> str:
 
     w('<div class="callout warn">')
     w('  <span class="lbl">What "approved for v1" does and does not mean</span>')
-    w(f'  <p>Those {c["mvp"]} features, plus the {c["obligations"]} obligations that have to '
-      f'ship with them, come to roughly 32 to 33 person-months once each obligation is '
-      f'priced individually rather than absorbed into a rounded overhead line. This team has '
-      f'about 7.5 person-months a year. The standing recommendation is therefore to launch a '
-      f'deliberately thinner first cut &mdash; reduced versions of {c["skeleton"]} of these '
-      f'features, wrapped in the compliance minimum &mdash; and to ship the rest immediately '
-      f'after. <a class="ref" href="#s12">Section 12</a> has the arithmetic and the dates. '
-      f'That choice is still open at the Phase 9 gate, which is why this section reports the '
-      f'approved scope rather than pre-empting it.</p>')
+    w(f'  <p>DEC-014 approves Recut v1: reduced slices of {c["mvp"]} features plus {c["obligations"]} obligations. The accepted model is 13.38 React Native person-months, projecting iOS around month 13 under the current capacity and unmeasured 1.8x AI assumption. The historical full MVP is 32.52 person-months. Deferred work is not a fixed post-launch promise. Five founder decisions remain open. See section 12 for planning context.</p>')
     w('</div>')
     w('')
 
@@ -670,7 +662,7 @@ def render_blueprint_html(d: dict) -> str:
     w('  <tbody>')
     for e in excluded:
         w(f'    <tr><td style="width:34%"><strong>{html_escape(e["name"])}</strong></td>'
-          f'<td>{html_escape(e["summary"])}</td></tr>')
+          f'<td>{html_escape(e.get("skeletonScope") if e.get("releaseScope") == "reduced-slice" else e["summary"])}</td></tr>')
     w('  </tbody>')
     w('</table></div>')
     w('<p>The NOT list is doing real work. It is what keeps a part-time team\'s v1 small '
@@ -696,7 +688,7 @@ def render_blueprint_md(d: dict) -> str:
     w("### What the platform does, and when each part ships")
     w("")
     w(f"{c['features']} features across {c['modules']} modules: **{c['mvp']} approved for the "
-      f"v1 launch**, {c['fast']} following within 30 to 120 days of it, {c['later']} waiting on "
+      f"v1 launch**, {c['fast']} deferred to v1.x, {c['later']} waiting on "
       f"evidence or on a predecessor, and {c['never']} ruled out permanently. Release phase "
       f"for every one of them, plus the {c['compliance']} compliance requirements and "
       f"{c['nonfunctional']} platform requirements that ship alongside, is decided in "
@@ -715,7 +707,7 @@ def render_blueprint_md(d: dict) -> str:
             for e in items:
                 rel = RELEASE_WORD.get(e["assigned"], e["assigned"])
                 who = persona_cell(e, personas, "**{}**", "{}")
-                w(f"| **{e['id']}** {md_escape(e['name'])} | {md_escape(e['summary'])} "
+                w(f"| **{e['id']}** {md_escape(e['name'])} | {md_escape(e.get('skeletonScope') if e.get('releaseScope') == 'reduced-slice' else e['summary'])} "
                   f"| {rel} | {who} |")
             w("")
         if m["id"] == "trust":
@@ -735,14 +727,7 @@ def render_blueprint_md(d: dict) -> str:
 
     w("### What \"approved for v1\" does and does not mean")
     w("")
-    w(f"Those {c['mvp']} features, plus the {c['obligations']} obligations that have to ship "
-      f"with them, come to roughly 32 to 33 person-months once each obligation is priced "
-      f"individually rather than absorbed into a rounded overhead line, against a team "
-      f"capacity of about 7.5 person-months a year. The standing recommendation is to launch "
-      f"a deliberately thinner first cut, reduced versions of {c['skeleton']} of these "
-      f"features wrapped in the compliance minimum, and ship the rest immediately after. "
-      f"Section 12 has the arithmetic and the dates. That choice is still open at the Phase 9 "
-      f"gate, which is why this section reports the approved scope rather than pre-empting it.")
+    w(f"DEC-014 approves Recut v1: reduced slices of {c['mvp']} features plus {c['obligations']} obligations. The accepted model is 13.38 React Native person-months, projecting iOS around month 13 under current capacity and the unmeasured 1.8x AI assumption. Historical full MVP: 32.52 person-months. Deferred work has no fixed post-launch date. Five founder decisions remain open.")
     w("")
 
     w("### What we will never build")
@@ -754,7 +739,7 @@ def render_blueprint_md(d: dict) -> str:
     w("|---|---|")
     for e in d["entries"]:
         if e["kind"] == "excluded":
-            w(f"| **{md_escape(e['name'])}** | {md_escape(e['summary'])} |")
+            w(f"| **{md_escape(e['name'])}** | {md_escape(e.get('skeletonScope') if e.get('releaseScope') == 'reduced-slice' else e['summary'])} |")
     w("")
     w("The NOT list is doing real work. It is what keeps a part-time team's v1 small instead "
       "of sprawling, and it is what makes the paid tier nameable.")

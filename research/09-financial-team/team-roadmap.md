@@ -1,6 +1,8 @@
 # Team Roadmap and Capacity Reconciliation
 
 > Version-Timestamp: 2026-08-06 14:00:00 UTC-4
+
+> Approval update (Version-Timestamp: 2026-09-05 18:40:00 UTC-4): DEC-014 approves Recut v1 for the first release. Eight reduced slices plus 34 obligations, 13.38 React Native person-months, roughly month 13 under current assumptions. Scope gate closed; five founder decisions remain open. Earlier recommendation wording below is superseded by this approval. Dates are relative estimates, not calendar commitments.
 >
 > **Read this document first in Phase 9.** It carries the finding that governs the phase, and it reopens [[DEC-010 Staged cross-platform MVP on React Native]].
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version-Timestamp: 2026-08-06 16:00:00 UTC-4 -->
+<!-- Version-Timestamp: 2026-09-05 18:40:00 UTC-4 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -412,7 +412,7 @@
 <script>
 "use strict";
 
-const STORE_KEY = 'waypoint-catalog-scenario-v1';
+const STORE_KEY = 'waypoint-catalog-dec014';
 const RELEASES = [
   { id: 'mvp',   short: 'MVP' },
   { id: 'v1.x',  short: 'v1.x' },
@@ -1033,7 +1033,7 @@ async function load() {
   }
   state.data = raw;
   state.ai = raw.planning.aiMultiplierDefault;
-  raw.entries.forEach(e => { e.assignedOriginal = e.assigned; });
+  raw.entries.forEach(e => { e.assignedOriginal = e.historicalAssigned || e.assigned; });
   restore();
   buildControls();
   bind();

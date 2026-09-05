@@ -1,5 +1,7 @@
 # Research Program Progress
 
+**Current gate update, 2026-09-05:** DEC-014 accepts Recut v1 as the first-release baseline. Phase 9 card 1 is CLOSED; cards 2 to 6 remain OPEN. Eight reduced slices plus 34 obligations; model 13.38 React Native person-months and approximately month 13, conditional on capacity and productivity. Next: founder agreement review and sprint-zero scope reconciliation. Earlier six-open gate tables are historical where superseded by this update.
+
 > Version-Timestamp: 2026-09-05 17:35:00 UTC-4
 
 Memory maintenance, 2026-09-05: portable safe hooks, checked checkpoint publishing, source drift checks, and a local HTML health report are implemented. See `docs/MEMORY-WORKFLOW.md` and `vault/01-Project/CURRENT-WORK.json`. Actual graph at audit: 236 nodes / 570 links / 14 community values; older counts below are historical. Four stale labels were repaired; full legacy semantic verification remains incomplete. No business phase or founder approval changed.
@@ -112,11 +114,11 @@ Phases **0 through 8 are complete**, with Phase 8's blueprint awaiting founder r
 - [x] **Break-even: ~235 paying subscribers**, not ~3,000. The old figure divided a $15,000 monthly base that assumed salaries and contractors.
 - [ ] **Not yet done: re-run the `unit-economics.md` tables at the locked $99.99/yr price.** They are still built on a $7.99/mo mid case. Every correction runs in Waypoint's favor (LTV ~$107 to $115 rather than $86), so nothing is hidden, but the published figures understate the business and must not be quoted to an investor as they stand.
 
-### Gate: six cards OPEN on `dashboard/index.html`
+### Gate: card 1 accepted; five cards OPEN on `dashboard/index.html`
 
 | # | Decision | Recommendation |
 |---|---|---|
-| 1 | Scope and timeline | Ship the walking skeleton as the product. iOS month 12 to 14. **Supersedes DEC-010's dates.** Settle it in `catalog/index.html`, where this is the default preset and the alternatives are one click away |
+| 1 | Scope and timeline: ACCEPTED, DEC-014 | Recut v1 approved. Ship the walking skeleton as the product. iOS month 12 to 14. **Supersedes DEC-010's dates.** Settle it in `catalog/index.html`, where this is the default preset and the alternatives are one click away |
 | 2 | Founder equity split | Daniel 40, Claudio 30, Asher 30 |
 | 3 | Vesting | Four years, one-year cliff, all three, plus a college-transition review |
 | 4 | Option pool | 10 percent at formation |

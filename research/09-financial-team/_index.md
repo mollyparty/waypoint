@@ -2,9 +2,13 @@
 
 > Version-Timestamp: 2026-08-06 14:00:00 UTC-4
 
-**Status: DELIVERABLES COMPLETE, gate open.** Program catalog: `../00-PROGRESS.md`.
+**Status: DELIVERABLES COMPLETE; card 1 accepted (DEC-014), five cards open.** Program catalog: `../00-PROGRESS.md`.
 
 This phase was not in the original program. [[DEC-005 Phased research program with gated approvals]] defined Phases 0 through 8. Phase 9 was opened on 2026-08-06 when the founding team was defined for the first time, and the definition invalidated assumptions that eight phases of research had been quietly resting on.
+
+## Approval update, 2026-09-05
+
+Recut v1 is the approved first-release baseline under DEC-014. Catalog assignments now reflect eight reduced slices plus 34 obligations. Approximately month 13 is a model estimate, not a dated commitment. The five founder agreement/formation/funding decisions remain open. Historical estimates below are superseded where they conflict with the catalog.
 
 ## Why this phase exists
 

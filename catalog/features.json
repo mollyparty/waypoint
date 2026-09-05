@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Waypoint Features and Functionality Catalog",
-    "versionTimestamp": "2026-08-06 15:45:00 UTC-4",
+    "versionTimestamp": "2026-09-05 18:40:00 UTC-4",
     "canonicalFor": "Release phase assignment for every feature, compliance requirement and non-functional requirement.",
     "note": "This file is the single source of truth for what ships when. research/05-product/mvp-scope.md, prd.md and rice-prioritization.md remain authoritative for their analysis and reasoning, but their phase columns are historical baselines recorded here as 'baselines' on each entry. catalog/FEATURES.md is generated from this file by catalog/build.py; never edit the markdown by hand.",
     "entryCount": 70,
@@ -15,14 +15,21 @@
       "research/03-users/personas.md",
       "research/03-users/unmet-needs.md",
       "research/03-users/jobs-to-be-done.md"
-    ]
+    ],
+    "approvedRelease": {
+      "preset": "recut",
+      "decision": "DEC-014",
+      "approvedAt": "2026-09-05",
+      "scope": "skeleton-plus-obligations",
+      "note": "Eight reduced slices plus 34 obligations. Deferred phases are planning buckets, not fixed launch dates."
+    }
   },
   "planning": {
     "capacityPmPerYear": 7.5,
     "capacityNote": "From research/09-financial-team/team-roadmap.md: three part-time founders, roughly 7.5 person-months of real engineering-equivalent capacity per year. Not adjustable here, because it is a fact about the team rather than a lever.",
     "aiMultiplierDefault": 1.8,
     "aiMultiplierRange": [
-      1.0,
+      1,
       2.5
     ],
     "aiMultiplierNote": "The riskiest number in the repository. It has never been measured on this team. Exposed as a slider precisely so the sensitivity is felt rather than assumed. Below 1.2x the plan gets rebuilt, not adjusted. The month-6 checkpoint replaces it with evidence.",
@@ -381,8 +388,8 @@
   ],
   "presets": {
     "recut": {
-      "name": "Recut v1 (recommended)",
-      "detail": "The standing Phase 9 recommendation: ship the walking skeleton as the product, plus the compliance minimum and public-launch hardening. Projects iOS at month 12 to 14.",
+      "name": "Recut v1 (approved)",
+      "detail": "Approved first-release baseline under DEC-014. Eight reduced feature slices plus 34 obligations; iOS roughly month 13 under unmeasured productivity assumptions.",
       "mode": "skeleton-plus-obligations"
     },
     "skeleton": {
@@ -592,7 +599,9 @@
         "research/05-product/prd.md:106"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: RG route generation engine"
+      "prdP0Basis": "direct: RG route generation engine",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "H-02",
@@ -633,14 +642,14 @@
         "reach": 5000,
         "impact": 1,
         "confidence": 0.75,
-        "effort": 1.0,
+        "effort": 1,
         "score": 3750,
         "rank": 14
       },
-      "effortNative": 1.0,
+      "effortNative": 1,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -667,7 +676,9 @@
         "research/05-product/prd.md:91"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-03",
@@ -701,11 +712,11 @@
         "reach": 3000,
         "impact": 0.5,
         "confidence": 0.7,
-        "effort": 1.0,
+        "effort": 1,
         "score": 1050,
         "rank": 18
       },
-      "effortNative": 1.0,
+      "effortNative": 1,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -739,7 +750,9 @@
         "research/05-product/prd.md:92"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-04",
@@ -776,11 +789,11 @@
         "reach": 4000,
         "impact": 1,
         "confidence": 0.6,
-        "effort": 3.0,
+        "effort": 3,
         "score": 800,
         "rank": 20
       },
-      "effortNative": 3.0,
+      "effortNative": 3,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -818,7 +831,9 @@
         "research/05-product/prd.md:93"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-05",
@@ -869,14 +884,14 @@
         "reach": 5000,
         "impact": 3,
         "confidence": 0.7,
-        "effort": 4.0,
+        "effort": 4,
         "score": 2625,
         "rank": 16
       },
-      "effortNative": 4.0,
+      "effortNative": 4,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -911,7 +926,9 @@
         "research/05-product/prd.md:94"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-06",
@@ -951,11 +968,11 @@
         "reach": 3000,
         "impact": 1,
         "confidence": 0.5,
-        "effort": 2.0,
+        "effort": 2,
         "score": 750,
         "rank": 22
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -991,7 +1008,9 @@
         "research/05-product/prd.md:95"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-07",
@@ -1047,7 +1066,7 @@
       "effortNative": 1.5,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -1079,7 +1098,9 @@
         "research/05-product/prd.md:97"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: one of the ten constraint inputs"
+      "prdP0Basis": "direct: one of the ten constraint inputs",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-08",
@@ -1129,7 +1150,7 @@
       "effortNative": 0.5,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -1162,7 +1183,9 @@
         "research/05-product/prd.md:150"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: TM travel mode"
+      "prdP0Basis": "direct: TM travel mode",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-09",
@@ -1216,7 +1239,7 @@
       "effortNative": 0.25,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -1245,7 +1268,9 @@
         "research/05-product/prd.md:115"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: honest degradation, named in the P0 row"
+      "prdP0Basis": "direct: honest degradation, named in the P0 row",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "H-10",
@@ -1281,11 +1306,11 @@
         "reach": 4000,
         "impact": 1,
         "confidence": 0.5,
-        "effort": 3.0,
+        "effort": 3,
         "score": 667,
         "rank": 23
       },
-      "effortNative": 3.0,
+      "effortNative": 3,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -1312,7 +1337,9 @@
         "research/05-product/mvp-scope.md:67"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "X-01",
@@ -1361,11 +1388,11 @@
         "reach": 7000,
         "impact": 2,
         "confidence": 0.7,
-        "effort": 3.0,
+        "effort": 3,
         "score": 3267,
         "rank": 15
       },
-      "effortNative": 3.0,
+      "effortNative": 3,
       "skeletonEffort": 1.5,
       "skeletonScope": "Turn cues through headphones plus rejoin guidance. No verbosity configuration, no reroute-to-distance, no haptic alternative.",
       "assigned": "mvp",
@@ -1409,7 +1436,9 @@
         "research/05-product/prd.md:267"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: EX-1 voice turn-by-turn plus run tracking"
+      "prdP0Basis": "direct: EX-1 voice turn-by-turn plus run tracking",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "X-02",
@@ -1448,11 +1477,11 @@
         "reach": 5500,
         "impact": 2,
         "confidence": 0.65,
-        "effort": 4.0,
+        "effort": 4,
         "score": 1788,
         "rank": 17
       },
-      "effortNative": 4.0,
+      "effortNative": 4,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -1491,7 +1520,9 @@
         "research/05-product/prd.md:283"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: EX-2 watch companion, glanceable cues"
+      "prdP0Basis": "direct: EX-2 watch companion, glanceable cues",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "X-03",
@@ -1529,11 +1560,11 @@
         "reach": 3000,
         "impact": 1,
         "confidence": 0.55,
-        "effort": 2.0,
+        "effort": 2,
         "score": 825,
         "rank": 19
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -1566,7 +1597,9 @@
         "research/05-product/prd.md:296"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "TS-01",
@@ -1614,11 +1647,11 @@
         "reach": 10000,
         "impact": 2,
         "confidence": 0.9,
-        "effort": 2.0,
+        "effort": 2,
         "score": 9000,
         "rank": 5
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": 1.2,
       "skeletonScope": "Start run, GPS tracking, run summary. No advanced stats, no history views beyond a simple list.",
       "assigned": "mvp",
@@ -1657,7 +1690,9 @@
         "research/05-product/prd.md:269"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: run tracking, named alongside EX-1"
+      "prdP0Basis": "direct: run tracking, named alongside EX-1",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "TS-02",
@@ -1699,14 +1734,14 @@
         "reach": 8000,
         "impact": 1,
         "confidence": 0.9,
-        "effort": 1.0,
+        "effort": 1,
         "score": 7200,
         "rank": 7
       },
-      "effortNative": 1.0,
+      "effortNative": 1,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -1727,7 +1762,9 @@
         "research/05-product/mvp-scope.md:27"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "TS-03",
@@ -1771,11 +1808,11 @@
         "reach": 8500,
         "impact": 2,
         "confidence": 0.85,
-        "effort": 1.0,
+        "effort": 1,
         "score": 14450,
         "rank": 1
       },
-      "effortNative": 1.0,
+      "effortNative": 1,
       "skeletonEffort": 0.4,
       "skeletonScope": "Write the workout to HealthKit on finish. No read, no readiness signals.",
       "assigned": "mvp",
@@ -1810,7 +1847,9 @@
         "research/05-product/mvp-scope.md:28"
       ],
       "prdP0": true,
-      "prdP0Basis": "enabler: EX3-F4 writes to the health store and AC1-F2 reads from it"
+      "prdP0Basis": "enabler: EX3-F4 writes to the health store and AC1-F2 reads from it",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "TS-04",
@@ -1859,11 +1898,11 @@
         "reach": 10000,
         "impact": 1,
         "confidence": 0.85,
-        "effort": 1.0,
+        "effort": 1,
         "score": 8500,
         "rank": 6
       },
-      "effortNative": 1.0,
+      "effortNative": 1,
       "skeletonEffort": 0.4,
       "skeletonScope": "Single-screen onboarding: location permission, health write permission, AI disclosure line. No preference setup, no notification permission.",
       "assigned": "mvp",
@@ -1900,7 +1939,9 @@
         "research/05-product/user-journeys.md:18"
       ],
       "prdP0": true,
-      "prdP0Basis": "enabler: carries the C-11, C-12 and C-13 onboarding obligations"
+      "prdP0Basis": "enabler: carries the C-11, C-12 and C-13 onboarding obligations",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "TS-05",
@@ -1969,7 +2010,9 @@
         "research/05-product/mvp-scope.md:26"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "TS-06",
@@ -2036,7 +2079,9 @@
         "research/05-product/mvp-scope.md:29"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "TS-07",
@@ -2087,7 +2132,7 @@
       "effortNative": 0.5,
       "skeletonEffort": null,
       "skeletonScope": null,
-      "assigned": "mvp",
+      "assigned": "v1.x",
       "baselines": {
         "mvpScope": "mvp",
         "prdPriority": "P0",
@@ -2120,7 +2165,9 @@
         "research/05-product/prd.md:318"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: EX-3 Strava share"
+      "prdP0Basis": "direct: EX-3 Strava share",
+      "historicalAssigned": "mvp",
+      "releaseScope": "deferred"
     },
     {
       "id": "TS-08",
@@ -2203,7 +2250,9 @@
         "research/05-product/prd.md:363"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "TS-09",
@@ -2267,7 +2316,9 @@
         "research/05-product/mvp-scope.md:57"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "TS-10",
@@ -2304,11 +2355,11 @@
         "reach": 2000,
         "impact": 1,
         "confidence": 0.6,
-        "effort": 2.0,
+        "effort": 2,
         "score": 600,
         "rank": 24
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -2342,7 +2393,9 @@
         "research/05-product/prd.md:379"
       ],
       "prdP0": true,
-      "prdP0Basis": "enabler: NF-O1 caching is required by TM-F3 in P0 travel mode"
+      "prdP0Basis": "enabler: NF-O1 caching is required by TM-F3 in P0 travel mode",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-01",
@@ -2381,11 +2434,11 @@
         "reach": 2000,
         "impact": 3,
         "confidence": 0.5,
-        "effort": 4.0,
+        "effort": 4,
         "score": 750,
         "rank": 21
       },
-      "effortNative": 4.0,
+      "effortNative": 4,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -2431,7 +2484,9 @@
         "research/05-product/prd.md:181"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: AC-1 workout-type-shaped generation"
+      "prdP0Basis": "direct: AC-1 workout-type-shaped generation",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-02",
@@ -2480,11 +2535,11 @@
         "reach": 2000,
         "impact": 2,
         "confidence": 0.6,
-        "effort": 6.0,
+        "effort": 6,
         "score": 400,
         "rank": 27
       },
-      "effortNative": 6.0,
+      "effortNative": 6,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -2523,7 +2578,9 @@
         "research/05-product/prd.md:209"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-03",
@@ -2568,11 +2625,11 @@
         "reach": 2000,
         "impact": 1,
         "confidence": 0.6,
-        "effort": 2.0,
+        "effort": 2,
         "score": 600,
         "rank": 25
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v1.x",
@@ -2614,7 +2671,9 @@
         "research/05-product/prd.md:237"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: AC-3 route and adjustment explanations"
+      "prdP0Basis": "direct: AC-3 route and adjustment explanations",
+      "historicalAssigned": "v1.x",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-04",
@@ -2651,11 +2710,11 @@
         "reach": 1500,
         "impact": 1,
         "confidence": 0.5,
-        "effort": 2.0,
+        "effort": 2,
         "score": 375,
         "rank": 28
       },
-      "effortNative": 2.0,
+      "effortNative": 2,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -2691,7 +2750,9 @@
         "research/05-product/prd.md:182"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-05",
@@ -2735,11 +2796,11 @@
         "reach": 1500,
         "impact": 1,
         "confidence": 0.6,
-        "effort": 3.0,
+        "effort": 3,
         "score": 300,
         "rank": 30
       },
-      "effortNative": 3.0,
+      "effortNative": 3,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -2765,7 +2826,9 @@
         "research/05-product/mvp-scope.md:65"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "P-06",
@@ -2807,11 +2870,11 @@
         "reach": 1500,
         "impact": 2,
         "confidence": 0.55,
-        "effort": 4.0,
+        "effort": 4,
         "score": 413,
         "rank": 26
       },
-      "effortNative": 4.0,
+      "effortNative": 4,
       "skeletonEffort": null,
       "skeletonScope": null,
       "assigned": "v2",
@@ -2842,7 +2905,9 @@
         "research/05-product/mvp-scope.md:64"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "v2",
+      "releaseScope": "deferred"
     },
     {
       "id": "O-01",
@@ -2940,7 +3005,9 @@
         "research/05-product/prd.md:350"
       ],
       "prdP0": true,
-      "prdP0Basis": "enabler: engineers C-1, C-2, C-3 and C-11, all P0 compliance"
+      "prdP0Basis": "enabler: engineers C-1, C-2, C-3 and C-11, all P0 compliance",
+      "historicalAssigned": "mvp",
+      "releaseScope": "reduced-slice"
     },
     {
       "id": "C-1",
@@ -2965,7 +3032,7 @@
       ],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": "O-01",
       "effortNote": "Engineered as part of O-01; counted there, not here, to avoid double counting.",
       "skeletonEffort": null,
@@ -2994,7 +3061,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-2",
@@ -3023,7 +3091,7 @@
       ],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": "O-01",
       "effortNote": "Engineered as part of O-01; counted there, not here, to avoid double counting.",
       "skeletonEffort": null,
@@ -3050,7 +3118,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-3",
@@ -3075,7 +3144,7 @@
       ],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": "O-01",
       "effortNote": "Engineered as part of O-01; counted there, not here, to avoid double counting.",
       "skeletonEffort": null,
@@ -3102,7 +3171,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-4",
@@ -3147,7 +3217,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-5",
@@ -3192,7 +3263,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-6",
@@ -3239,7 +3311,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-7",
@@ -3284,7 +3357,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-8",
@@ -3336,7 +3410,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-9",
@@ -3381,7 +3456,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-10",
@@ -3428,7 +3504,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-11",
@@ -3446,7 +3523,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": "O-01",
       "effortNote": "Engineered as part of O-01; counted there, not here, to avoid double counting.",
       "skeletonEffort": null,
@@ -3473,7 +3550,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-12",
@@ -3523,7 +3601,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-13",
@@ -3568,7 +3647,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-14",
@@ -3591,7 +3671,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": "TS-08",
       "effortNote": "Engineered as part of TS-08; counted there, not here, to avoid double counting.",
       "skeletonEffort": null,
@@ -3618,7 +3698,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "C-15",
@@ -3665,7 +3746,8 @@
         "research/01-market/regulatory-compliance.md section 7"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row"
+      "prdP0Basis": "direct: all section 5.1 compliance requirements are named in the P0 row",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-P1",
@@ -3709,7 +3791,8 @@
         "research/05-product/prd.md:368"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-P2",
@@ -3753,7 +3836,8 @@
         "research/05-product/prd.md:368"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-P3",
@@ -3797,7 +3881,8 @@
         "research/05-product/prd.md:368"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-P4",
@@ -3841,7 +3926,8 @@
         "research/05-product/prd.md:368"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-O1",
@@ -3885,7 +3971,8 @@
         "research/05-product/prd.md:377"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-O2",
@@ -3929,7 +4016,8 @@
         "research/05-product/prd.md:377"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-O3",
@@ -3973,7 +4061,8 @@
         "research/05-product/prd.md:377"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A1",
@@ -4017,7 +4106,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A2",
@@ -4061,7 +4151,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A3",
@@ -4105,7 +4196,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A4",
@@ -4149,7 +4241,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A5",
@@ -4193,7 +4286,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-A6",
@@ -4237,7 +4331,8 @@
         "research/05-product/prd.md:387"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L1",
@@ -4281,7 +4376,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L2",
@@ -4325,7 +4421,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L3",
@@ -4369,7 +4466,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L4",
@@ -4413,7 +4511,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L5",
@@ -4457,7 +4556,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "NF-L6",
@@ -4501,7 +4601,8 @@
         "research/05-product/prd.md:400"
       ],
       "prdP0": true,
-      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations"
+      "prdP0Basis": "direct: the accessibility and language groups are P0 obligations",
+      "historicalAssigned": "mvp"
     },
     {
       "id": "N-01",
@@ -4517,7 +4618,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4542,7 +4643,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     },
     {
       "id": "N-02",
@@ -4558,7 +4660,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4583,7 +4685,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     },
     {
       "id": "N-03",
@@ -4599,7 +4702,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4624,7 +4727,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     },
     {
       "id": "N-04",
@@ -4640,7 +4744,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4665,7 +4769,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     },
     {
       "id": "N-05",
@@ -4681,7 +4786,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4706,7 +4811,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     },
     {
       "id": "N-06",
@@ -4722,7 +4828,7 @@
       "needs": [],
       "jobs": [],
       "rice": null,
-      "effortNative": 0.0,
+      "effortNative": 0,
       "satisfiedBy": null,
       "effortNote": null,
       "skeletonEffort": null,
@@ -4747,7 +4853,8 @@
         "research/04-synthesis/concept.md"
       ],
       "prdP0": false,
-      "prdP0Basis": null
+      "prdP0Basis": null,
+      "historicalAssigned": "never"
     }
   ]
 }

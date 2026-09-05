@@ -1,12 +1,28 @@
 {
-  "Version-Timestamp": "2026-09-05 18:00:00 UTC-4",
-  "objective": "Resume Waypoint product planning after strengthening project memory",
-  "phase": "Phase 9 deliverables complete; six founder decisions open",
+  "Version-Timestamp": "2026-09-05 18:40:00 UTC-4",
+  "objective": "Prepare Recut v1 implementation and close the remaining founder decisions",
+  "phase": "Phase 9 card 1 approved (DEC-014); five founder decisions open",
   "status": "ready_for_founder_review",
-  "completed": ["Memory and Git sync audit", "Portable memory checks, hooks, checkpoint workflow, and status page"],
-  "next_action": "Open catalog/index.html and review Phase 9 card 1: proposed recut v1 scope and timeline",
-  "pending_decisions": ["Scope and timeline", "Founder equity", "Vesting", "Option pool", "Formation timing", "Fundraising terms"],
-  "blockers": ["Founder approvals required before changing approved scope or financial terms"],
-  "evidence": ["vault/03-Sessions/2026-09-05 Codex Memory and Sync Audit.md", "research/09-financial-team/_index.md"],
+  "completed": [
+    "Memory and Git sync audit",
+    "Portable memory checks, hooks, checkpoint workflow, and status page",
+    "Recut v1 first-release baseline approved and recorded as DEC-014"
+  ],
+  "next_action": "Review founder equity, vesting and option pool together; prepare sprint-zero acceptance criteria for the approved eight slices",
+  "pending_decisions": [
+    "Founder equity",
+    "Vesting",
+    "Option pool",
+    "Formation timing",
+    "Fundraising terms"
+  ],
+  "blockers": [
+    "Founder approvals required before changing approved scope or financial terms"
+  ],
+  "evidence": [
+    "vault/03-Sessions/2026-09-05 Codex Memory and Sync Audit.md",
+    "research/09-financial-team/_index.md",
+    "vault/02-Decisions/DEC-014 Recut v1 first-release baseline.md"
+  ],
   "graph_limitations": "Targeted stale facts repaired; remaining legacy graph semantics require source verification. Source hash baseline detects future drift, not historical accuracy."
 }

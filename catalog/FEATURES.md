@@ -1,6 +1,6 @@
 # Waypoint Features and Functionality Catalog
 
-> Version-Timestamp: 2026-08-30 18:44:33 UTC-4
+> Version-Timestamp: 2026-09-05 18:37:10 UTC-4
 >
 > **Generated file. Do not edit.** Source of truth is `catalog/features.json`;
 > regenerate with `python catalog/build.py`. The interactive view, where release
@@ -23,11 +23,11 @@ At 7.5 person-months a year of real capacity, a 1.8x AI leverage assumption, and
 | Scenario | Native pm | React Native pm | After leverage | Projected iOS launch | Verdict |
 |---|---:|---:|---:|---:|---|
 | Walking skeleton only | 6.8 | 8.16 | 4.53 | month 9 | inside the window with room |
-| Recut v1 (recommended) | 11.15 | 13.38 | 7.43 | month 13 | inside, only just |
+| Recut v1 (approved) | 11.15 | 13.38 | 7.43 | month 13 | inside, only just |
 | Full MVP v1 (15 features) | 27.1 | 32.52 | 18.07 | month 30 | **past the 18-month window** |
 | PRD P0 list | 43.1 | 51.72 | 28.73 | month 47 | **past the 18-month window** |
 
-The recut is the standing Phase 9 recommendation. Its projection reproduces `research/09-financial-team/team-roadmap.md`'s published month 12 to 14 independently, which is the check that the model is not inventing numbers.
+Recut v1 is the approved first-release baseline (DEC-014). Its projection reproduces `research/09-financial-team/team-roadmap.md`'s published month 12 to 14 independently, which is the check that the model is not inventing numbers.
 
 ## Where the documents disagree
 
@@ -71,12 +71,12 @@ Affects: `P-01`, `TS-08`
 
 | ID | Feature | Module | Release | Native pm | RICE rank | Personas |
 |---|---|---|---|---:|---:|---|
-| `H-07` | Route novelty | Route Generation | **MVP v1** | 1.50 | #8 | Marcus, Elena, Jake |
-| `H-08` | Travel mode framing | Route Generation | **MVP v1** | 0.50 | #9 | Priya, Marcus |
-| `H-09` | Honest degradation messaging | Route Generation | **MVP v1** | 0.25 | #10 | Elena, Marcus, Priya |
+| `H-07` | Route novelty | Route Generation | v1.x | 1.50 | #8 | Marcus, Elena, Jake |
+| `H-08` | Travel mode framing | Route Generation | v1.x | 0.50 | #9 | Priya, Marcus |
+| `H-09` | Honest degradation messaging | Route Generation | v1.x | 0.25 | #10 | Elena, Marcus, Priya |
 | `H-01` | Core constraint route generation | Route Generation | **MVP v1** | 4.50 | #11 | Marcus, Priya, Elena, Jake |
-| `H-02` | Elevation constraint | Route Generation | **MVP v1** | 1.00 | #14 | Marcus, Jake |
-| `H-05` | Safety-aware routing v1 | Route Generation | **MVP v1** | 4.00 | #16 | Elena, Priya, Marcus |
+| `H-02` | Elevation constraint | Route Generation | v1.x | 1.00 | #14 | Marcus, Jake |
+| `H-05` | Safety-aware routing v1 | Route Generation | v1.x | 4.00 | #16 | Elena, Priya, Marcus |
 | `H-03` | Surface constraint | Route Generation | v1.x | 1.00 | #18 | Marcus |
 | `H-04` | Street-crossing minimization | Route Generation | v1.x | 3.00 | #20 | Marcus |
 | `H-06` | Weather and heat route adjustment | Route Generation | v1.x | 2.00 | #22 | Marcus, Priya |
@@ -90,7 +90,7 @@ Affects: `P-01`, `TS-08`
 | `N-04` | Hardware | Run Execution | ~~never~~ | 0.00 | &mdash; | &mdash; |
 | `TS-03` | HealthKit and Health Connect sync | Tracking and Data | **MVP v1** | 1.00 | #1 | Marcus, Priya, Jake |
 | `TS-01` | GPS run tracking | Tracking and Data | **MVP v1** | 2.00 | #5 | Marcus, Priya, Elena, Jake |
-| `TS-02` | Run history and basic stats | Tracking and Data | **MVP v1** | 1.00 | #7 | Marcus, Jake |
+| `TS-02` | Run history and basic stats | Tracking and Data | v1.x | 1.00 | #7 | Marcus, Jake |
 | `TS-06` | Route save and re-run | Tracking and Data | **MVP v1** | 0.50 | #13 | Marcus, Elena |
 | `TS-10` | Offline route access | Tracking and Data | v1.x | 2.00 | #24 | Priya |
 | `TS-09` | GPX export and import | Tracking and Data | v1.x | 0.50 | #29 | Marcus |
@@ -118,7 +118,7 @@ Affects: `P-01`, `TS-08`
 | `C-8` | No ad tech, no data sales, no cross-app tracking | Trust and Privacy | **MVP v1** | 0.10 | &mdash; | Elena |
 | `C-9` | DPAs and processor inventory | Trust and Privacy | **MVP v1** | 0.15 | &mdash; | &mdash; |
 | `TS-08` | Subscription and paywall infrastructure | Distribution and Commerce | v1.x | 1.50 | #3 | Marcus |
-| `TS-07` | Strava share | Distribution and Commerce | **MVP v1** | 0.50 | #4 | Marcus, Jake |
+| `TS-07` | Strava share | Distribution and Commerce | v1.x | 0.50 | #4 | Marcus, Jake |
 | `N-01` | Social network or feed | Distribution and Commerce | ~~never~~ | 0.00 | &mdash; | &mdash; |
 | `N-06` | Charging for basic loop generation | Distribution and Commerce | ~~never~~ | 0.00 | &mdash; | &mdash; |
 | `TS-04` | Onboarding and permissions flow | Onboarding and Activation | **MVP v1** | 1.00 | #6 | Marcus, Priya, Elena, Jake |
@@ -146,23 +146,23 @@ Affects: `P-01`, `TS-08`
 
 | Persona | Role | Features serving them | Of those, in the MVP |
 |---|---|---:|---:|
-| **Marcus** | The committed amateur racer | 30 | 17 |
-| **Priya** | The traveling professional | 14 | 9 |
-| **Elena** | The safety-first city runner | 15 | 13 |
-| **Jake** | The ambitious beginner | 14 | 11 |
+| **Marcus** | The committed amateur racer | 30 | 10 |
+| **Priya** | The traveling professional | 14 | 6 |
+| **Elena** | The safety-first city runner | 15 | 10 |
+| **Jake** | The ambitious beginner | 14 | 7 |
 
 ## Coverage by unmet need
 
 | Need | Evidence | Features | In the MVP |
 |---|---|---:|---:|
-| **N1** Safety-aware routing | Strong | 9 | 7 |
-| **N2** Route novelty and personalization at home | Strong | 7 | 5 |
+| **N1** Safety-aware routing | Strong | 9 | 5 |
+| **N2** Route novelty and personalization at home | Strong | 7 | 2 |
 | **N3** Training-state-to-route connection | Strong on the gap, inferred on demand | 4 | 1 |
-| **N4** Travel: where do I run, right now, from here | Moderate to strong | 3 | 2 |
+| **N4** Travel: where do I run, right now, from here | Moderate to strong | 3 | 1 |
 | **N5** Injury-calibrated coaching that runners trust | Moderate | 5 | 0 |
 | **N6** Mid-run navigation execution | Moderate | 4 | 2 |
 | **N7** Plan flexibility when life disrupts training | Moderate | 2 | 0 |
-| **N8** Urban doorstep running as a design center | Moderate | 10 | 8 |
+| **N8** Urban doorstep running as a design center | Moderate | 10 | 4 |
 | **N9** Weather and heat adaptation applied to the route | Weak to moderate | 1 | 0 |
 | **N10** Trustworthy subscription mechanics | Moderate as pattern, weak as need | 1 | 0 |
 | **N11** Quiet routes for self-conscious beginners | Weak | 0 | 0 |
@@ -183,7 +183,7 @@ A 'new ground' preference that prefers unrun segments using Waypoint's own run h
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 1.50 pm |
 | **Effort, React Native** | 1.80 pm |
@@ -228,7 +228,7 @@ Technically the same engine, because start-anywhere is already a core capability
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 0.50 pm |
 | **Effort, React Native** | 0.60 pm |
@@ -277,7 +277,7 @@ Engine-wide behavior rather than a screen: when any data source is unavailable t
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 0.25 pm |
 | **Effort, React Native** | 0.30 pm |
@@ -366,11 +366,11 @@ A preference (flat, rolling, hilly) with an optional total-gain cap, applied as 
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 1.00 pm |
 | **Effort, React Native** | 1.20 pm |
-| **RICE** | rank #14, score 3,750 (reach 5,000, impact 1, confidence 75%, effort 1.0) |
+| **RICE** | rank #14, score 3,750 (reach 5,000, impact 1, confidence 75%, effort 1) |
 | **Personas** | Marcus (primary), Jake (secondary) |
 | **Needs** | N2 Route novelty and personalization at home, N8 Urban doorstep running as a design center |
 | **Jobs** | FJ3 Get novelty and variety from my own front door, FJ4 Match the route to today's workout |
@@ -403,11 +403,11 @@ The constraint no competitor offers. Lighting from OSM lit tags, population prox
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 4.00 pm |
 | **Effort, React Native** | 4.80 pm |
-| **RICE** | rank #16, score 2,625 (reach 5,000, impact 3, confidence 70%, effort 4.0) |
+| **RICE** | rank #16, score 2,625 (reach 5,000, impact 3, confidence 70%, effort 4) |
 | **Personas** | Elena (primary), Priya (primary), Marcus (secondary) |
 | **Needs** | N1 Safety-aware routing, N8 Urban doorstep running as a design center |
 | **Jobs** | FJ2 Find a route that is safe at this hour, FJ1 Find a trustworthy route in an unfamiliar place |
@@ -460,7 +460,7 @@ A preference applied against OpenStreetMap surface and highway tags. The honest-
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 1.00 pm |
 | **Effort, React Native** | 1.20 pm |
-| **RICE** | rank #18, score 1,050 (reach 3,000, impact 0.5, confidence 70%, effort 1.0) |
+| **RICE** | rank #18, score 1,050 (reach 3,000, impact 0.5, confidence 70%, effort 1) |
 | **Personas** | Marcus (primary) |
 | **Needs** | N2 Route novelty and personalization at home |
 | **Jobs** | FJ4 Match the route to today's workout |
@@ -504,7 +504,7 @@ A toggle, plus automatic weighting from workout context, that penalizes intersec
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 3.00 pm |
 | **Effort, React Native** | 3.60 pm |
-| **RICE** | rank #20, score 800 (reach 4,000, impact 1, confidence 60%, effort 3.0) |
+| **RICE** | rank #20, score 800 (reach 4,000, impact 1, confidence 60%, effort 3) |
 | **Personas** | Marcus (primary) |
 | **Needs** | N3 Training-state-to-route connection, N8 Urban doorstep running as a design center |
 | **Jobs** | FJ10 Avoid interruptions and street crossings, FJ4 Match the route to today's workout |
@@ -554,7 +554,7 @@ Automatic adjustment with user override, driven by temperature, humidity, UV and
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
-| **RICE** | rank #22, score 750 (reach 3,000, impact 1, confidence 50%, effort 2.0) |
+| **RICE** | rank #22, score 750 (reach 3,000, impact 1, confidence 50%, effort 2) |
 | **Personas** | Marcus (primary), Priya (secondary) |
 | **Needs** | N9 Weather and heat adaptation applied to the route |
 | **Jobs** | FJ6 Adjust the route for heat and weather |
@@ -598,7 +598,7 @@ The compounding advantage, and the reason the data posture matters from day one.
 | **Module** | Route Generation |
 | **Effort, iOS-native** | 3.00 pm |
 | **Effort, React Native** | 3.60 pm |
-| **RICE** | rank #23, score 667 (reach 4,000, impact 1, confidence 50%, effort 3.0) |
+| **RICE** | rank #23, score 667 (reach 4,000, impact 1, confidence 50%, effort 3) |
 | **Personas** | Marcus (primary) |
 | **Needs** | N2 Route novelty and personalization at home |
 | **Jobs** | FJ3 Get novelty and variety from my own front door |
@@ -718,7 +718,7 @@ Spoken turn cues with configurable verbosity that duck rather than pause the use
 | **Effort, iOS-native** | 3.00 pm |
 | **Effort, React Native** | 3.60 pm |
 | **Walking-skeleton slice** | 1.50 pm &mdash; Turn cues through headphones plus rejoin guidance. No verbosity configuration, no reroute-to-distance, no haptic alternative. |
-| **RICE** | rank #15, score 3,267 (reach 7,000, impact 2, confidence 70%, effort 3.0) |
+| **RICE** | rank #15, score 3,267 (reach 7,000, impact 2, confidence 70%, effort 3) |
 | **Personas** | Priya (primary), Marcus (primary), Elena (secondary) |
 | **Needs** | N6 Mid-run navigation execution |
 | **Jobs** | FJ7 Execute an unfamiliar route hands-free |
@@ -770,7 +770,7 @@ The wrist is where a runner actually looks, and for Priya it is what keeps the p
 | **Module** | Run Execution |
 | **Effort, iOS-native** | 4.00 pm |
 | **Effort, React Native** | 4.80 pm |
-| **RICE** | rank #17, score 1,788 (reach 5,500, impact 2, confidence 65%, effort 4.0) |
+| **RICE** | rank #17, score 1,788 (reach 5,500, impact 2, confidence 65%, effort 4) |
 | **Personas** | Priya (primary), Marcus (primary) |
 | **Needs** | N6 Mid-run navigation execution |
 | **Jobs** | FJ7 Execute an unfamiliar route hands-free |
@@ -818,7 +818,7 @@ One of Elena's named jobs: let someone I trust follow my run live. Also the cata
 | **Module** | Run Execution |
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
-| **RICE** | rank #19, score 825 (reach 3,000, impact 1, confidence 55%, effort 2.0) |
+| **RICE** | rank #19, score 825 (reach 3,000, impact 1, confidence 55%, effort 2) |
 | **Personas** | Elena (primary) |
 | **Needs** | N1 Safety-aware routing |
 | **Jobs** | FJ2 Find a route that is safe at this hour |
@@ -889,7 +889,7 @@ The device health store is Waypoint's system of record, which is a deliberate st
 | **Effort, iOS-native** | 1.00 pm |
 | **Effort, React Native** | 1.20 pm |
 | **Walking-skeleton slice** | 0.40 pm &mdash; Write the workout to HealthKit on finish. No read, no readiness signals. |
-| **RICE** | rank #1, score 14,450 (reach 8,500, impact 2, confidence 85%, effort 1.0) |
+| **RICE** | rank #1, score 14,450 (reach 8,500, impact 2, confidence 85%, effort 1) |
 | **Personas** | Marcus (primary), Priya (secondary), Jake (secondary) |
 | **Needs** | N3 Training-state-to-route connection, N8 Urban doorstep running as a design center |
 | **Jobs** | FJ11 Track and log my running life |
@@ -932,7 +932,7 @@ Table stakes verified across all ten competitors, and a prerequisite rather than
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
 | **Walking-skeleton slice** | 1.20 pm &mdash; Start run, GPS tracking, run summary. No advanced stats, no history views beyond a simple list. |
-| **RICE** | rank #5, score 9,000 (reach 10,000, impact 2, confidence 90%, effort 2.0) |
+| **RICE** | rank #5, score 9,000 (reach 10,000, impact 2, confidence 90%, effort 2) |
 | **Personas** | Marcus (primary), Priya (primary), Elena (primary), Jake (primary) |
 | **Needs** | N8 Urban doorstep running as a design center |
 | **Jobs** | FJ11 Track and log my running life |
@@ -970,11 +970,11 @@ A list of recorded runs with per-run detail and simple aggregate statistics. Mod
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Tracking and Data |
 | **Effort, iOS-native** | 1.00 pm |
 | **Effort, React Native** | 1.20 pm |
-| **RICE** | rank #7, score 7,200 (reach 8,000, impact 1, confidence 90%, effort 1.0) |
+| **RICE** | rank #7, score 7,200 (reach 8,000, impact 1, confidence 90%, effort 1) |
 | **Personas** | Marcus (primary), Jake (secondary) |
 | **Needs** | N2 Route novelty and personalization at home |
 | **Jobs** | FJ11 Track and log my running life |
@@ -1044,7 +1044,7 @@ Map tiles for a sensible corridor, the route geometry and all navigation cues ca
 | **Module** | Tracking and Data |
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
-| **RICE** | rank #24, score 600 (reach 2,000, impact 1, confidence 60%, effort 2.0) |
+| **RICE** | rank #24, score 600 (reach 2,000, impact 1, confidence 60%, effort 2) |
 | **Personas** | Priya (primary) |
 | **Needs** | N4 Travel: where do I run, right now, from here, N6 Mid-run navigation execution |
 | **Jobs** | FJ1 Find a trustworthy route in an unfamiliar place, FJ7 Execute an unfamiliar route hands-free |
@@ -1125,7 +1125,7 @@ Today's workout type maps automatically to constraint weights: tempo gets a flat
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 4.00 pm |
 | **Effort, React Native** | 4.80 pm |
-| **RICE** | rank #21, score 750 (reach 2,000, impact 3, confidence 50%, effort 4.0) |
+| **RICE** | rank #21, score 750 (reach 2,000, impact 3, confidence 50%, effort 4) |
 | **Personas** | Marcus (primary), Priya (secondary) |
 | **Needs** | N3 Training-state-to-route connection |
 | **Jobs** | FJ4 Match the route to today's workout |
@@ -1176,7 +1176,7 @@ Trust is the adoption barrier for AI training advice, and transparency is the co
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
-| **RICE** | rank #25, score 600 (reach 2,000, impact 1, confidence 60%, effort 2.0) |
+| **RICE** | rank #25, score 600 (reach 2,000, impact 1, confidence 60%, effort 2) |
 | **Personas** | Elena (primary), Marcus (primary) |
 | **Needs** | N1 Safety-aware routing, N5 Injury-calibrated coaching that runners trust |
 | **Jobs** | FJ2 Find a route that is safe at this hour |
@@ -1226,7 +1226,7 @@ Load progression calibrated to protect beginners from their own ambition, which 
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 4.00 pm |
 | **Effort, React Native** | 4.80 pm |
-| **RICE** | rank #26, score 413 (reach 1,500, impact 2, confidence 55%, effort 4.0) |
+| **RICE** | rank #26, score 413 (reach 1,500, impact 2, confidence 55%, effort 4) |
 | **Personas** | Jake (primary), Marcus (secondary) |
 | **Needs** | N5 Injury-calibrated coaching that runners trust |
 | **Jobs** | FJ8 Get training calibration that will not injure me |
@@ -1272,7 +1272,7 @@ Race-goal plan generation, then forward reshaping when runs are missed to travel
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 6.00 pm |
 | **Effort, React Native** | 7.20 pm |
-| **RICE** | rank #27, score 400 (reach 2,000, impact 2, confidence 60%, effort 6.0) |
+| **RICE** | rank #27, score 400 (reach 2,000, impact 2, confidence 60%, effort 6) |
 | **Personas** | Marcus (primary), Jake (primary), Priya (secondary) |
 | **Needs** | N5 Injury-calibrated coaching that runners trust, N7 Plan flexibility when life disrupts training |
 | **Jobs** | FJ5 Keep my training plan intact when life disrupts it, FJ8 Get training calibration that will not injure me |
@@ -1321,7 +1321,7 @@ Platform health readiness signals modulating the distance and intensity envelope
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 2.00 pm |
 | **Effort, React Native** | 2.40 pm |
-| **RICE** | rank #28, score 375 (reach 1,500, impact 1, confidence 50%, effort 2.0) |
+| **RICE** | rank #28, score 375 (reach 1,500, impact 1, confidence 50%, effort 2) |
 | **Personas** | Marcus (primary) |
 | **Needs** | N3 Training-state-to-route connection, N5 Injury-calibrated coaching that runners trust |
 | **Jobs** | FJ4 Match the route to today's workout, FJ8 Get training calibration that will not injure me |
@@ -1368,7 +1368,7 @@ Progression modeling toward a committed race, which is the organizing structure 
 | **Module** | Coaching Layer |
 | **Effort, iOS-native** | 3.00 pm |
 | **Effort, React Native** | 3.60 pm |
-| **RICE** | rank #30, score 300 (reach 1,500, impact 1, confidence 60%, effort 3.0) |
+| **RICE** | rank #30, score 300 (reach 1,500, impact 1, confidence 60%, effort 3) |
 | **Personas** | Marcus (primary), Jake (secondary) |
 | **Needs** | N5 Injury-calibrated coaching that runners trust, N7 Plan flexibility when life disrupts training |
 | **Jobs** | FJ5 Keep my training plan intact when life disrupts it, FJ8 Get training calibration that will not injure me |
@@ -1918,7 +1918,7 @@ One-way activity upload to a connected Strava account via the official upload AP
 
 | | |
 |---|---|
-| **Release** | **MVP v1** |
+| **Release** | v1.x |
 | **Module** | Distribution and Commerce |
 | **Effort, iOS-native** | 0.50 pm |
 | **Effort, React Native** | 0.60 pm |
@@ -2013,7 +2013,7 @@ Account creation via Sign in with Apple plus email or passkey, the location perm
 | **Effort, iOS-native** | 1.00 pm |
 | **Effort, React Native** | 1.20 pm |
 | **Walking-skeleton slice** | 0.40 pm &mdash; Single-screen onboarding: location permission, health write permission, AI disclosure line. No preference setup, no notification permission. |
-| **RICE** | rank #6, score 8,500 (reach 10,000, impact 1, confidence 85%, effort 1.0) |
+| **RICE** | rank #6, score 8,500 (reach 10,000, impact 1, confidence 85%, effort 1) |
 | **Personas** | Marcus (primary), Priya (primary), Elena (primary), Jake (primary) |
 | **Needs** | N8 Urban doorstep running as a design center |
 | **Blocks** | `TS-08` |

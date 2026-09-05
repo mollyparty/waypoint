@@ -13,6 +13,20 @@ spec.loader.exec_module(catalog)
 
 
 class MemoryTests(unittest.TestCase):
+    def test_recut_approval_preserves_scope_and_comparison(self):
+        data = memory.read('catalog/features.json')
+        self.assertEqual(data['meta']['approvedRelease']['decision'], 'DEC-014')
+        launch = [e for e in data['entries'] if e['kind'] == 'feature' and e['assigned'] == 'mvp']
+        self.assertEqual({e['id'] for e in launch}, {'H-01', 'X-01', 'TS-01', 'TS-03', 'TS-04', 'TS-05', 'TS-06', 'O-01'})
+        self.assertTrue(all(e['releaseScope'] == 'reduced-slice' and e['skeletonScope'] for e in launch))
+        obligations = [e for e in data['entries'] if e['kind'] in ('compliance', 'nonfunctional')]
+        self.assertEqual(len(obligations), 34)
+        self.assertTrue(all(e['assigned'] == 'mvp' for e in obligations))
+        scenarios = catalog.scenarios(data)
+        self.assertEqual(scenarios[1]['rn'], 13.38)
+        self.assertEqual(scenarios[2]['rn'], 32.52)
+        self.assertNotIn('That choice is still open', catalog.render_blueprint_html(data))
+
     def test_healthy_baseline(self):
         self.assertEqual(memory.check()['errors'], [])
 

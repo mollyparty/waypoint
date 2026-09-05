@@ -1,6 +1,8 @@
 # Waypoint: Business Blueprint
 
 > Version-Timestamp: 2026-08-06 14:45:00 UTC-4
+
+> Approval update (Version-Timestamp: 2026-09-05 18:40:00 UTC-4): DEC-014 approves Recut v1 for the first release. Eight reduced slices plus 34 obligations, 13.38 React Native person-months, roughly month 13 under current assumptions. Scope gate closed; five founder decisions remain open. Earlier recommendation wording below is superseded by this approval. Dates are relative estimates, not calendar commitments.
 > Status: Draft for founder review. Investor-facing HTML edition: `blueprint/index.html`.
 
 **Know where to run.**
@@ -177,7 +179,7 @@ Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliber
 <!-- CATALOG:START generated from catalog/features.json by catalog/build.py - do not edit by hand -->
 ### What the platform does, and when each part ships
 
-30 features across 8 modules: **15 approved for the v1 launch**, 9 following within 30 to 120 days of it, 6 waiting on evidence or on a predecessor, and 6 ruled out permanently. Release phase for every one of them, plus the 15 compliance requirements and 19 platform requirements that ship alongside, is decided in `catalog/features.json` under DEC-020 rather than in this document. Primary personas in bold.
+30 features across 8 modules: **8 approved for the v1 launch**, 16 deferred to v1.x, 6 waiting on evidence or on a predecessor, and 6 ruled out permanently. Release phase for every one of them, plus the 15 compliance requirements and 19 platform requirements that ship alongside, is decided in `catalog/features.json` under DEC-020 rather than in this document. Primary personas in bold.
 
 #### Route Generation
 
@@ -185,12 +187,12 @@ Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliber
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **H-07** Route novelty | Roads you have not run. History-aware generation, and the daily retention engine at home. | launch | **Marcus**, **Elena**, Jake |
-| **H-08** Travel mode framing | Instant orientation in an unfamiliar city. The activation moment and the demo story, at near-zero marginal cost. | launch | **Priya**, Marcus |
-| **H-09** Honest degradation messaging | When no good route exists, say so and name the blockers. The cheapest trust feature in the catalog. | launch | **Elena**, Marcus, Priya |
-| **H-01** Core constraint route generation | Generate a loop or out-and-back from any start point that satisfies a target distance, the product's entire reason for existing. | launch | **Marcus**, **Priya**, **Elena**, Jake |
-| **H-02** Elevation constraint | Target or avoid climb, the cheapest real constraint beyond distance. | launch | **Marcus**, Jake |
-| **H-05** Safety-aware routing v1 | Lighting, populated areas and time of day as first-class routing constraints. The strongest-evidenced need in the entire program. | launch | **Elena**, **Priya**, Marcus |
+| **H-01** Core constraint route generation | Current location start, target distance, one round-trip route on screen with map preview, distance and elevation profile. No multi-candidate ranking, no regenerate, no other constraints. | launch | **Marcus**, **Priya**, **Elena**, Jake |
+| **H-07** Route novelty | Roads you have not run. History-aware generation, and the daily retention engine at home. | fast-follow | **Marcus**, **Elena**, Jake |
+| **H-08** Travel mode framing | Instant orientation in an unfamiliar city. The activation moment and the demo story, at near-zero marginal cost. | fast-follow | **Priya**, Marcus |
+| **H-09** Honest degradation messaging | When no good route exists, say so and name the blockers. The cheapest trust feature in the catalog. | fast-follow | **Elena**, Marcus, Priya |
+| **H-02** Elevation constraint | Target or avoid climb, the cheapest real constraint beyond distance. | fast-follow | **Marcus**, Jake |
+| **H-05** Safety-aware routing v1 | Lighting, populated areas and time of day as first-class routing constraints. The strongest-evidenced need in the entire program. | fast-follow | **Elena**, **Priya**, Marcus |
 | **H-03** Surface constraint | Prefer paved, unpaved or mixed surfaces, or avoid trails entirely. | fast-follow | **Marcus** |
 | **H-04** Street-crossing minimization | Uninterrupted stretches for tempo and interval work, built on a proprietary crossing graph. | fast-follow | **Marcus** |
 | **H-06** Weather and heat route adjustment | Shade preference, exposure avoidance and cut-short options in heat, rather than a temperature readout. | fast-follow | **Marcus**, Priya |
@@ -202,8 +204,8 @@ Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliber
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **TS-05** Audio pace and distance cues | Spoken splits and progress, expected by every headphone runner and trivial on top of tracking. | launch | **Marcus**, Jake |
-| **X-01** Voice turn-by-turn navigation | Hands-free execution of a generated route. Generation without execution strands the value. | launch | **Priya**, **Marcus**, Elena |
+| **TS-05** Audio pace and distance cues | Basic pace and distance announcements at a fixed interval. | launch | **Marcus**, Jake |
+| **X-01** Voice turn-by-turn navigation | Turn cues through headphones plus rejoin guidance. No verbosity configuration, no reroute-to-distance, no haptic alternative. | launch | **Priya**, **Marcus**, Elena |
 | **X-02** Apple Watch companion | Glanceable distance, pace and next-turn cues on the wrist, with haptics, mirroring the phone session. | fast-follow | **Priya**, **Marcus** |
 | **X-03** Live location sharing | Beacon-style live run sharing to one trusted contact, opt-in per run and auto-expiring. | later | **Elena** |
 
@@ -213,10 +215,10 @@ Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliber
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **TS-03** HealthKit and Health Connect sync | Write runs to the platform health store and read activity back. The locked data posture, accruing the moat from day one. | launch | **Marcus**, Priya, Jake |
-| **TS-01** GPS run tracking | Record pace, distance, time and the GPS trace. A running app that cannot record a run is not a running app. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
-| **TS-02** Run history and basic stats | Somewhere for the return visit to land. | launch | **Marcus**, Jake |
-| **TS-06** Route save and re-run | A good generated route the user cannot keep is a broken promise. | launch | **Marcus**, **Elena** |
+| **TS-03** HealthKit and Health Connect sync | Write the workout to HealthKit on finish. No read, no readiness signals. | launch | **Marcus**, Priya, Jake |
+| **TS-01** GPS run tracking | Start run, GPS tracking, run summary. No advanced stats, no history views beyond a simple list. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
+| **TS-06** Route save and re-run | Save the run locally on finish. No naming, no saved-route management. | launch | **Marcus**, **Elena** |
+| **TS-02** Run history and basic stats | Somewhere for the return visit to land. | fast-follow | **Marcus**, Jake |
 | **TS-10** Offline route access | Maps and route cached on device, because Priya's connectivity is a hotel and a foreign SIM. | fast-follow | **Priya** |
 | **TS-09** GPX export and import | Near-free goodwill for the runners who ask for it. | fast-follow | Marcus |
 
@@ -239,7 +241,7 @@ Tagline: **"Know where to run."** This replaced "Your AI Running Coach", deliber
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **O-01** Privacy architecture | Privacy zones, private by default, layered consent and AI disclosure. Legal obligation and the floor Elena stands on. | launch | **Elena**, Marcus, Priya, Jake |
+| **O-01** Privacy architecture | Private-by-default storage and home-area coordinates never leaving the device unblurred. No privacy-zone interface, no consent management screens. | launch | **Elena**, Marcus, Priya, Jake |
 
 Behind that one feature sit **15 compliance requirements**: privacy zones, layered consent, the deletion pipeline, data subject rights, AI transparency, age gating, breach readiness. Not optional and not deferrable, so the catalog locks them into v1 and counts their cost. Section 15 covers the legal basis.
 
@@ -249,8 +251,8 @@ Behind that one feature sit **15 compliance requirements**: privacy zones, layer
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **TS-07** Strava share | Post to Strava, never compete with it. Free distribution and category credibility for half a person-month. | launch | **Marcus**, **Jake** |
 | **TS-08** Subscription and paywall infrastructure | Clean billing. Deliberately deferred despite ranking third on RICE. | fast-follow | **Marcus** |
+| **TS-07** Strava share | Post to Strava, never compete with it. Free distribution and category credibility for half a person-month. | fast-follow | **Marcus**, **Jake** |
 
 #### Onboarding and Activation
 
@@ -258,7 +260,7 @@ Behind that one feature sit **15 compliance requirements**: privacy zones, layer
 
 | Feature | What it is for | Ships | For |
 |---|---|---|---|
-| **TS-04** Onboarding and permissions flow | No permissions, no product. The activation gate for everything else in the catalog. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
+| **TS-04** Onboarding and permissions flow | Single-screen onboarding: location permission, health write permission, AI disclosure line. No preference setup, no notification permission. | launch | **Marcus**, **Priya**, **Elena**, **Jake** |
 
 #### Platform Quality
 
@@ -268,7 +270,7 @@ No user-facing features here. It holds the **19 platform requirements** a public
 
 ### What "approved for v1" does and does not mean
 
-Those 15 features, plus the 34 obligations that have to ship with them, come to roughly 32 to 33 person-months once each obligation is priced individually rather than absorbed into a rounded overhead line, against a team capacity of about 7.5 person-months a year. The standing recommendation is to launch a deliberately thinner first cut, reduced versions of 8 of these features wrapped in the compliance minimum, and ship the rest immediately after. Section 12 has the arithmetic and the dates. That choice is still open at the Phase 9 gate, which is why this section reports the approved scope rather than pre-empting it.
+DEC-014 approves Recut v1: reduced slices of 8 features plus 34 obligations. The accepted model is 13.38 React Native person-months, projecting iOS around month 13 under current capacity and the unmeasured 1.8x AI assumption. Historical full MVP: 32.52 person-months. Deferred work has no fixed post-launch date. Five founder decisions remain open.
 
 ### What we will never build
 
