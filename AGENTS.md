@@ -6,6 +6,8 @@ You are working on Waypoint, a startup project built from scratch. This file is 
 
 ## Session start (do this first, always)
 
+Memory workflow update (Version-Timestamp: 2026-09-05 18:00:00 UTC-4): read `vault/01-Project/CURRENT-WORK.json` after START-HERE. Follow `docs/MEMORY-WORKFLOW.md` for checkpoints, delegation, installation and verified publishing. Run `python tools/memory.py check` at session start. The tracked hooks replace automatic graph rebuilding with checks; graph source baselines detect drift but do not certify semantic truth. Update CURRENT-WORK throughout meaningful work and before context handoffs. Use `python tools/memory.py publish --message "type(scope): summary"` after explicit staging. Report any remaining errors or unpushed commits.
+
 1. Read `vault/00-START-HERE.md`. Latest approved snapshot of project state.
 2. Read the newest note in `vault/03-Sessions/` for freshest context and open threads.
 3. Read `research/00-PROGRESS.md`. Phase-by-phase status board. Do not invent phase status.

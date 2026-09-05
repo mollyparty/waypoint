@@ -766,7 +766,7 @@ def render_blueprint_md(d: dict) -> str:
     return "\n".join(out)
 
 
-def inject(path: Path, body: str) -> bool:
+def inject(path: Path, body: str, check: bool = False) -> bool:
     """Replace the text between the CATALOG markers. True when the file changed.
 
     Refuses to guess: a missing, duplicated or inverted marker pair raises
@@ -799,6 +799,8 @@ def inject(path: Path, body: str) -> bool:
     updated = text[:open_end] + "\n" + body + "\n" + indent + text[end:]
     if updated == text:
         return False
+    if check:
+        raise ValueError(f"{path.relative_to(ROOT)}: stale generated catalog block; run python catalog/build.py")
     path.write_text(updated, encoding="utf-8", newline="")
     return True
 
@@ -836,6 +838,16 @@ def main() -> int:
         print(f"  {s['name']:<28} {s['rn']:>6.2f} RN pm -> month {whole_month(s['launchMonth'])}")
 
     if check_only:
+        import re
+        normalize = lambda text: re.sub(r"> Version-Timestamp: [^\n]+", "> Version-Timestamp: ignored", text).replace("\r\n", "\n")
+        try:
+            if normalize(MD_PATH.read_text(encoding="utf-8")) != normalize(generate(d)):
+                raise ValueError("catalog/FEATURES.md: stale; run python catalog/build.py")
+            inject(BP_HTML_PATH, render_blueprint_html(d), check=True)
+            inject(BP_MD_PATH, render_blueprint_md(d), check=True)
+        except (OSError, ValueError) as exc:
+            print(f"error: {exc}", file=sys.stderr)
+            return 1
         return 0
 
     MD_PATH.write_text(generate(d), encoding="utf-8")

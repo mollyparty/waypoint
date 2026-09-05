@@ -1,0 +1,6 @@
+#!/bin/sh
+# Version-Timestamp: 2026-09-05 18:00:00 UTC-4
+# Semantic graph data must never be replaced by a branch-switch AST rebuild.
+if [ "$3" = "1" ]; then
+  echo '[Waypoint] Branch changed. Read CURRENT-WORK and run python tools/memory.py check.'
+fi

@@ -503,7 +503,7 @@
    "id": "session_2026_07_30_foundation_setup"
   },
   {
-   "label": "Your AI Running Coach (Product Concept)",
+   "label": "Historical placeholder: Your AI Running Coach (superseded by DEC-006 Know where to run)",
    "file_type": "document",
    "source_file": "README.md",
    "source_location": null,
@@ -513,7 +513,7 @@
    "contributor": null,
    "rationale": "Working tagline discovered in the remote GitHub README; adopted as the product concept placeholder. Full product definition (features, differentiation, business model) is deliberately deferred to a dedicated product discovery session.",
    "community": 3,
-   "norm_label": "your ai running coach (product concept)",
+   "norm_label": "historical placeholder superseded by dec-006 know where to run",
    "id": "product_ai_running_coach"
   },
   {
@@ -1526,12 +1526,12 @@
    "id": "risk_android_review_leadtime"
   },
   {
-   "label": "Open gate: revised stack (dashboard card 8) and platform strategy (card 9) await founder decision",
+   "label": "Historical Phase 5 stack/platform gate: CLOSED by DEC-009 and DEC-010",
    "file_type": "document",
    "source_file": "research/05-product/database-deep-dive.md",
    "rationale": "Both decisions get new DECs; Option C/D also updates mvp-scope effort and the Charter client stack. Blocks Phase 6.",
    "community": 0,
-   "norm_label": "open gate: revised stack (dashboard card 8) and platform strategy (card 9) await founder decision",
+   "norm_label": "historical phase 5 stack platform gate closed by dec-009 and dec-010",
    "id": "gate_stack_platform_open"
   },
   {
@@ -1670,12 +1670,12 @@
    "id": "risk_beachhead_osm_data_floor"
   },
   {
-   "label": "Phase 6 gate OPEN: six founder decisions staged on the dashboard",
+   "label": "Historical Phase 6 gate: CLOSED by DEC-011, DEC-012 and DEC-013",
    "file_type": "document",
    "source_file": "research/06-business-model/_index.md",
    "rationale": "Price, free/paid boundary breadth, the analytics identity fix, re-basing PRD G3/G4, the beachhead metro, and which date is the real public launch.",
    "community": 0,
-   "norm_label": "phase 6 gate open: six founder decisions staged on the dashboard",
+   "norm_label": "historical phase 6 gate closed by dec-011 dec-012 dec-013",
    "id": "gate_phase6_open"
   },
   {
@@ -1778,12 +1778,12 @@
    "id": "blueprint_honesty_stance"
   },
   {
-   "label": "Capital requirement ~$350k to $400k pre-seed, derived not decided",
+   "label": "SUPERSEDED capital estimate: $350k to $400k contractor model; Phase 9 proposes $50k SAFE, approval pending",
    "file_type": "document",
    "source_file": "blueprint/blueprint.md",
    "rationale": "~$230k build to dual-platform launch plus 6 to 9 months runway at ~$15k/month. No decision record covers a raise, so the arithmetic is shown rather than a number asserted.",
    "community": 0,
-   "norm_label": "capital requirement ~$350k to $400k pre-seed, derived not decided",
+   "norm_label": "superseded contractor capital estimate phase 9 proposes 50k safe approval pending",
    "id": "capital_requirement_derived"
   },
   {

@@ -11,6 +11,9 @@ graphify-out/.graphify_*
 graphify-out/.needs_update
 
 # Python
+memory/status.json
+memory/status.html
+
 __pycache__/
 *.py[cod]
 .venv/

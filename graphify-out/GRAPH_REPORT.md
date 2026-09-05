@@ -1,5 +1,9 @@
 # Graph Report - .  (2026-07-30)
 
+> Version-Timestamp: 2026-09-05 17:35:00 UTC-4
+>
+> Current maintenance note: graph has 236 nodes, 570 links and 14 distinct community values. Four stale labels now explicitly record closed or superseded status. Earlier corpus/coverage statistics below are historical, not a current coverage certification. `source-baseline.json` tracks subsequent source drift; it does not certify legacy semantic accuracy. New workflow documentation is available directly through START-HERE. Run `python tools/memory.py check` for current structural and freshness checks.
+
 ## Corpus Check
 - 104 markdown documents · 259,550 words. Counting rule, so the number is reproducible: every `.md` file in the repository except the three files in `vault/_templates/` and this report. Earlier revisions of this line said 94 documents and ~150,000 words against an unstated rule; the recount was measured, not estimated.
 - Verdict: corpus is large enough that graph structure adds value.

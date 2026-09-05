@@ -1,0 +1,3 @@
+#!/bin/sh
+# Version-Timestamp: 2026-09-05 18:00:00 UTC-4
+exec python tools/memory.py staged

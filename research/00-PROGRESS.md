@@ -1,6 +1,8 @@
 # Research Program Progress
 
-> Version-Timestamp: 2026-08-30 18:45:00 UTC-4
+> Version-Timestamp: 2026-09-05 17:35:00 UTC-4
+
+Memory maintenance, 2026-09-05: portable safe hooks, checked checkpoint publishing, source drift checks, and a local HTML health report are implemented. See `docs/MEMORY-WORKFLOW.md` and `vault/01-Project/CURRENT-WORK.json`. Actual graph at audit: 236 nodes / 570 links / 14 community values; older counts below are historical. Four stale labels were repaired; full legacy semantic verification remains incomplete. No business phase or founder approval changed.
 >
 > **This is the always-current phase catalog.** Any agent in any tool (Cursor, Claude Code, Codex, other) reads this after `vault/00-START-HERE.md` when continuing the research program. Do not invent status: update this file whenever a phase advances.
 
